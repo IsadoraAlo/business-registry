@@ -7,9 +7,10 @@ import { CadastrosModule } from './features/commom/cadastros/cadastros.module';
 import { MenuComponent } from './features/commom/home/menu/menu.component';
 import { AboutComponent } from './features/commom/home/pages/about/about.component';
 import { FooterComponent } from './features/commom/home/footer/footer.component';
+import { IndexComponent } from './features/commom/home/pages/index/index.component';
 
 @NgModule({
-  declarations: [AppComponent, MenuComponent, AboutComponent, FooterComponent],
+  declarations: [AppComponent, MenuComponent, AboutComponent, FooterComponent, IndexComponent],
   imports: [BrowserModule, FormsModule, CadastrosModule],
   providers: [],
   bootstrap: [AppComponent],
