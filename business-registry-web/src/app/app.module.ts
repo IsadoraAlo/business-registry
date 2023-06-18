@@ -8,10 +8,11 @@ import { MenuComponent } from './features/commom/home/menu/menu.component';
 import { AboutComponent } from './features/commom/home/pages/about/about.component';
 import { FooterComponent } from './features/commom/home/footer/footer.component';
 import { IndexComponent } from './features/commom/home/pages/index/index.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [AppComponent, MenuComponent, AboutComponent, FooterComponent, IndexComponent],
-  imports: [BrowserModule, FormsModule, CadastrosModule],
+  imports: [BrowserModule, FormsModule, CadastrosModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })
