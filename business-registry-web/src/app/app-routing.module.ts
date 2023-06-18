@@ -1,7 +1,8 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { IndexComponent } from './features/commom/home/pages/index/index.component';
 import { AboutComponent } from './features/commom/home/pages/about/about.component';
+import { CadastrosComponent } from './features/commom/cadastros/cadastros.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,10 @@ const routes: Routes = [
   {
     path: 'sobre',
     component: AboutComponent
+  },
+  {
+    path: 'cadastros',
+    component: CadastrosComponent
   }
 ]
 

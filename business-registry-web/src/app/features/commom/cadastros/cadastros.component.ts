@@ -8,9 +8,16 @@ import { Component } from '@angular/core';
 export class CadastrosComponent {
 
   public isCandidatoSelected: boolean = true;
+  public tipoCadastro: string = "candidato";
 
-  onClick() {
-    this.isCandidatoSelected = !this.isCandidatoSelected
+  onClickEmpresa() {
+    this.isCandidatoSelected = false;
+    this.tipoCadastro = "empresa";
+  }
+
+  onClickCandidato() {
+    this.isCandidatoSelected = true;
+    this.tipoCadastro = "candidato";
   }
 
 }

@@ -1,20 +1,20 @@
-<section class="text-center">
-  <div class="p-5 yellow-background"></div>
-  <div class="card mx-4 mx-md-5 shadow-5-strong shadow">
-    <div class="card-body py-5 px-md-5">
+  <div class="p-b-t-100 yellow-background"></div>
+  <div class="text-center">
+    <div class="container shadow">
+      <div class="card-body my-5 py-3">
 
-      <h2 class="fw-bold">Cadastro</h2>
+        <h2 class="fw-bold">Registre-se {{tipoCadastro}}!</h2>
 
-      <button class="btn btn-warning btn-block mb-4" (click)="onClick()">Candidato</button>
-      <button class="btn btn-warning btn-block mb-4" (click)="onClick()">Empresa</button>
+        <button class="btn btn-warning btn-block mb-4" (click)="onClickCandidato()"><b>Candidato</b></button>
+        <button class="btn btn-warning btn-block mb-4" (click)="onClickEmpresa()"><b>Empresa</b></button>
 
-      <div [class.d-none]="isCandidatoSelected == false">
-        <app-candidatos-cadastro></app-candidatos-cadastro>
+        <div *ngIf="isCandidatoSelected">
+          <app-candidatos-cadastro></app-candidatos-cadastro>
+        </div>
+        <div *ngIf="!isCandidatoSelected">
+          <app-empresas-cadastros></app-empresas-cadastros>
+        </div>
+
       </div>
-      <div [class.d-none]="isCandidatoSelected == true">
-        <app-empresas-cadastros></app-empresas-cadastros>
-      </div>
-
     </div>
   </div>
-</section>
