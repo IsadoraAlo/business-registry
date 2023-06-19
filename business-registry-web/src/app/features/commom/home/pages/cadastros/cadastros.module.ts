@@ -5,6 +5,7 @@ import { CadastrosComponent } from './cadastros.component';
 import { FormsModule } from '@angular/forms';
 import { EmpresasModule } from 'src/app/features/empresas/empresas.module';
 import { CandidatosModule } from 'src/app/features/candidatos/candidatos.module';
+import { ComponentesModule } from '../../../componentes/componentes.module';
 
 @NgModule({
   declarations: [CadastrosComponent],
@@ -12,7 +13,8 @@ import { CandidatosModule } from 'src/app/features/candidatos/candidatos.module'
     CommonModule,
     FormsModule,
     EmpresasModule,
-    CandidatosModule
+    CandidatosModule,
+    ComponentesModule
   ],
   exports: [CadastrosComponent]
 })
