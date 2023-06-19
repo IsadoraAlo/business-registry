@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { EmpresasModule } from '../../empresas/empresas.module';
-import { CandidatosModule } from '../../candidatos/candidatos.module';
+
 import { CadastrosComponent } from './cadastros.component';
 import { FormsModule } from '@angular/forms';
+import { EmpresasModule } from 'src/app/features/empresas/empresas.module';
+import { CandidatosModule } from 'src/app/features/candidatos/candidatos.module';
 
 @NgModule({
   declarations: [CadastrosComponent],
