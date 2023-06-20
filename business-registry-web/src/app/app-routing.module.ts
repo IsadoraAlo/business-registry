@@ -4,7 +4,6 @@ import { AboutComponent } from './features/commom/home/pages/about/about.compone
 import { CadastrosComponent } from './features/commom/home/pages/cadastros/cadastros.component';
 import { IndexComponent } from './features/commom/home/pages/index/index.component';
 import { LoginComponent } from './features/commom/home/pages/login/login.component';
-
 const routes: Routes = [
   {
     path: '',
@@ -27,7 +26,6 @@ const routes: Routes = [
     component: LoginComponent
   }
 ]
-
 @NgModule({
   imports: [
     RouterModule.forRoot(routes)
