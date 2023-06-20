@@ -1,8 +1,9 @@
-import { Component, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { IndexComponent } from './features/commom/home/pages/index/index.component';
 import { AboutComponent } from './features/commom/home/pages/about/about.component';
 import { CadastrosComponent } from './features/commom/home/pages/cadastros/cadastros.component';
+import { IndexComponent } from './features/commom/home/pages/index/index.component';
+import { LoginComponent } from './features/commom/home/pages/login/login.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,10 @@ const routes: Routes = [
   {
     path: 'cadastros',
     component: CadastrosComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   }
 ]
 

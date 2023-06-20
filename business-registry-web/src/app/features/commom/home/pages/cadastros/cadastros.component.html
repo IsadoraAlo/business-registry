@@ -1,22 +1,20 @@
-  <menu></menu>
-  <div class="p-b-t-100 yellow-background text-center">
-    <h2 class=" text-light">Cadastro de <b>{{tipoCadastro}}</b></h2>
-  </div>
-  <div class="text-center">
-    <div class="container shadow">
-      <div class="card-body my-5 py-3">
-        <br>
-        <button class="btn btn-warning btn-block mb-4" (click)="onClickCandidato()"><b>Candidato</b></button>
-        <button class="btn btn-warning btn-block mb-4" (click)="onClickEmpresa()"><b>Empresa</b></button>
-
-        <div *ngIf="isCandidatoSelected">
-          <app-candidatos-cadastro></app-candidatos-cadastro>
-        </div>
-        <div *ngIf="!isCandidatoSelected">
-          <app-empresas-cadastros></app-empresas-cadastros>
-        </div>
-
+<menu></menu>
+<div class="p-b-t-100 yellow-background text-center">
+  <h2 class=" text-light">Cadastro de <b>{{tipoCadastro}}</b></h2>
+</div>
+<div class="text-center">
+  <div class="container shadow">
+    <div class="card-body my-5 py-3">
+      <br>
+      <button class="btn btn-warning btn-block mb-4" (click)="onClickCandidato()"><b>Candidato</b></button>
+      <button class="btn btn-warning btn-block mb-4" (click)="onClickEmpresa()"><b>Empresa</b></button>
+      <div *ngIf="isCandidatoSelected">
+        <app-candidatos-cadastro></app-candidatos-cadastro>
+      </div>
+      <div *ngIf="!isCandidatoSelected">
+        <app-empresas-cadastros></app-empresas-cadastros>
       </div>
     </div>
   </div>
+</div>
 <app-footer></app-footer>
