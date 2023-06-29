@@ -1,4 +1,17 @@
 <app-menu-candidato></app-menu-candidato>
+<div class="px-5 justify-content-center d-flex">
+  <div class="row">
+    <div class="col-12">
+      <br>
+      <h1 class="text-border"><b>Bem vindo {{nomeCandidato}}!</b></h1>
+      <br>
+      <br>
+      <p>Bem vindo candidato à plataforma de recrutamento e seleção da Ernest Young!</p>
+      <p>Insira suas informações <a>aqui</a> para encontrarmos uma vaga ideal para o seu perfil.</p>
+    </div>
+  </div>
+</div>
+<br><br>
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
@@ -9,15 +22,39 @@
       aria-label="Slide 3"></button>
   </div>
   <div class="carousel-inner">
-    <div class="text-center">
-      <div class="carousel-item carousel-card active">
-        <img src="..." class="w-100" alt="...">
+    <div class="text-center carousel-card">
+      <div class="carousel-item active">
+        <div class="container bg-white bg-gradient bg-opacity-50 py-5">
+          <br>
+          <h3 class="text-border"><b>Vagas em andamento</b></h3>
+          <br><br>
+          <p>Você tem</p><br>
+          <h1><b>{{numeroVagas}}</b></h1><br>
+          <p>vagas que estão em andamento!</p>
+          <br>
+        </div>
       </div>
-      <div class="carousel-item carousel-card">
-        <img src="..." class="w-100" alt="...">
+      <div class="carousel-item">
+        <div class="container bg-white bg-gradient bg-opacity-50 py-5">
+          <br>
+          <h3 class="text-border"><b>Vagas finalizadas</b></h3>
+          <br><br>
+          <p>Você tem</p><br>
+          <h1><b>{{numeroVagas}}</b></h1><br>
+          <p>vagas que enceraram!</p>
+          <br>
+        </div>
       </div>
-      <div class="carousel-item carousel-card">
-        <img src="..." class="w-100" alt="...">
+      <div class="carousel-item">
+        <div class="container bg-white bg-gradient bg-opacity-50 py-5">
+          <br>
+          <h3 class="text-border"><b>Vagas disponíveis</b></h3>
+          <br><br>
+          <p>Você tem</p><br>
+          <h1><b>{{numeroVagas}}</b></h1><br>
+          <p>vagas para se inscrever!</p>
+          <br>
+        </div>
       </div>
     </div>
   </div>
@@ -30,4 +67,3 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-
