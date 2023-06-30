@@ -5,8 +5,9 @@ import { MenuCandidatoComponent } from './componentes/menu-candidato/menu-candid
 import { BoasVindasCandidatoComponent } from './boas-vindas-candidato/boas-vindas-candidato.component';
 import { CommonModule } from '@angular/common';
 import { ComponentesModule } from '../commom/componentes/componentes.module';
+import { CandidatosBuscaVagasComponent } from './pages/candidatos-busca-vagas/candidatos-busca-vagas.component';
 @NgModule({
-  declarations: [CandidatosCadastroComponent, MenuCandidatoComponent, BoasVindasCandidatoComponent],
+  declarations: [CandidatosCadastroComponent, MenuCandidatoComponent, BoasVindasCandidatoComponent, CandidatosBuscaVagasComponent],
   imports: [CommonModule, AppRoutingModule, ComponentesModule],
   exports: [CandidatosCadastroComponent, BoasVindasCandidatoComponent]
 })

@@ -11,6 +11,5 @@ export class MenuCandidatoComponent {
 
   onClickMenu() {
     this.isMenuSelected = !this.isMenuSelected;
-    console.log(this.isMenuSelected)
   }
 }

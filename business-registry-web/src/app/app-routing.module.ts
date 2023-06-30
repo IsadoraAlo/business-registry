@@ -5,6 +5,7 @@ import { CadastrosComponent } from './features/commom/home/pages/cadastros/cadas
 import { IndexComponent } from './features/commom/home/pages/index/index.component';
 import { LoginComponent } from './features/commom/home/pages/login/login.component';
 import { BoasVindasCandidatoComponent } from './features/candidatos/boas-vindas-candidato/boas-vindas-candidato.component';
+import { CandidatosBuscaVagasComponent } from './features/candidatos/pages/candidatos-busca-vagas/candidatos-busca-vagas.component';
 const routes: Routes = [
   {
     path: '',
@@ -32,7 +33,11 @@ const routes: Routes = [
       {
         path: 'pagina-inicial',
         component: BoasVindasCandidatoComponent
-      }
+      },
+      {
+        path: 'busca-vagas',
+        component: CandidatosBuscaVagasComponent
+      },
     ]
   }
 ]

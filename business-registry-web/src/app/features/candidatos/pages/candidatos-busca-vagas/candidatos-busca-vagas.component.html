@@ -1,0 +1,73 @@
+<app-menu-candidato></app-menu-candidato>
+<div class="p-5">
+  <div class="row">
+    <div class="col-12">
+      <br>
+      <h1 class="text-border"><b>Ache sua próxima vaga de emprego!</b></h1>
+      <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-md-4">
+      <label>Empresa</label>
+      <select class="form-select">
+        <option disabled selected hidden>Selecione a empresa</option>
+      </select>
+    </div>
+    <div class="col-12 col-md-4">
+      <label>Modalidade</label>
+      <select class="form-select">
+        <option disabled selected hidden>Selecione a modalidade</option>
+      </select>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-12 col-md-4">
+      <label>Tipo de vaga</label>
+      <select class="form-select">
+        <option disabled selected hidden>Selecione o tipo de vaga</option>
+      </select>
+    </div>
+    <div class="col-12 col-md-4">
+      <label>Área de atuação</label>
+      <select class="form-select">
+        <option disabled selected hidden>Selecione a área de atuação</option>
+      </select>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-12 col-md-4">
+      <label>Estado</label>
+      <select class="form-select">
+        <option disabled selected hidden>Selecione o estado</option>
+      </select>
+    </div>
+    <div class="col-12 col-md-4">
+      <label>Cidade</label>
+      <select class="form-select">
+        <option disabled selected hidden>Selecione a cidade</option>
+      </select>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-12">
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"
+          [checked]="vagasDeficiente" (change)="onClickVagasDeficiente()">
+        <label class="form-check-label" for="flexSwitchCheckDefault">Vagas para PcD</label>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div *ngIf="vagasDeficiente == true" class="col-12 col-md-4">
+      <label>Deficiência</label>
+      <select class="form-select">
+        <option disabled selected hidden>Selecione a deficiência</option>
+      </select>
+    </div>
+  </div>
+</div>
