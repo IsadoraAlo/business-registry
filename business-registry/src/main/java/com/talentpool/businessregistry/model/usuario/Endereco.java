@@ -1,4 +1,4 @@
-package com.talentpool.businessregistry.model;
+package com.talentpool.businessregistry.model.usuario;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
