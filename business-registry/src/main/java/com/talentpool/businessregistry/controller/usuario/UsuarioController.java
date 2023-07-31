@@ -1,70 +1,78 @@
 package com.talentpool.businessregistry.controller.usuario;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.talentpool.businessregistry.exception.ResourceNotFoundException;
 import com.talentpool.businessregistry.model.usuario.Usuario;
 import com.talentpool.businessregistry.repository.usuario.UsuarioRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins = "http://localhost:4200")
+import java.util.List;
+
 @RestController
-@RequestMapping("/api/v1/")
+@RequestMapping("/usuarios")
 public class UsuarioController {
-	
 	private static final String MESSAGE_ERROR = "Não existe usuário com o id ";
+	
+    private final UsuarioRepository usuarioRepository;
 
-	@Autowired
-	UsuarioRepository usuarioRepository;
+    @Autowired
+    public UsuarioController(UsuarioRepository usuarioRepository) {
+        this.usuarioRepository = usuarioRepository;
+    }
 
-	@GetMapping("/usuarios")
-	public List<Usuario> getAllUsuarios() {
-		return usuarioRepository.findAll();
-	}
+    // Endpoint para criar um novo usuário
+    @PostMapping
+    public ResponseEntity<Usuario> criarUsuario(@RequestBody Usuario usuario) {
+        Usuario novoUsuario = usuarioRepository.save(usuario);
+        return new ResponseEntity<>(novoUsuario, HttpStatus.CREATED);
+    }
 
-	@PostMapping("/usuarios")
-	public Usuario createUsuario(@RequestBody Usuario usuario) {
-		return usuarioRepository.save(usuario);
-	}
+    // Endpoint para obter todos os usuários
+    @GetMapping
+    public ResponseEntity<List<Usuario>> obterUsuarios() {
+        List<Usuario> usuarios = usuarioRepository.findAll();
+        return new ResponseEntity<>(usuarios, HttpStatus.OK);
+    }
 
-	@GetMapping("/usuarios/{id}")
-	public ResponseEntity<Usuario> getUsuarioById(@PathVariable Long id) {
-		Usuario usuario = usuarioRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(MESSAGE_ERROR + id));
-		return ResponseEntity.ok(usuario);
-	}
+    // Endpoint para obter um usuário pelo ID
+    @GetMapping("/{id}")
+    public ResponseEntity<Usuario> obterUsuarioPorId(@PathVariable Long id) {
+        Usuario usuario = usuarioRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(MESSAGE_ERROR + id));
+        if (usuario == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(usuario, HttpStatus.OK);
+    }
 
-	@PutMapping("/usuarios/{id}")
-	public ResponseEntity<Usuario> updateUsuario(@PathVariable Long id, @RequestBody Usuario usuarioDetails) {
-		Usuario usuario = usuarioRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(MESSAGE_ERROR + id));
-		usuario.setCelular(usuarioDetails.getCelular());
-		usuario.setDocumento(usuarioDetails.getDocumento());
-		usuario.setEmail(usuarioDetails.getEmail());
-		usuario.setEnderecos(usuarioDetails.getEnderecos());
-		usuario.setNome(usuarioDetails.getNome());
-		usuario.setSenha(usuarioDetails.getSenha());
-		Usuario updatedUsuario = usuarioRepository.save(usuario);
-		return ResponseEntity.ok(updatedUsuario);
-	}
+    // Endpoint para atualizar um usuário existente
+    @PutMapping("/{id}")
+    public ResponseEntity<Usuario> atualizarUsuario(@PathVariable Long id, @RequestBody Usuario usuarioAtualizado) {
+        Usuario usuarioExistente = usuarioRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(MESSAGE_ERROR + id));
+        if (usuarioExistente == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        usuarioExistente.setTipo(usuarioAtualizado.getTipo());
+        usuarioExistente.setNome(usuarioAtualizado.getNome());
+        usuarioExistente.setEmail(usuarioAtualizado.getEmail());
+        usuarioExistente.setDocumento(usuarioAtualizado.getDocumento());
+        usuarioExistente.setSenha(usuarioAtualizado.getSenha());
+        usuarioExistente.setCelular(usuarioAtualizado.getCelular());
+        usuarioExistente.setStatus(usuarioAtualizado.isStatus());
+        usuarioExistente.setEnderecos(usuarioAtualizado.getEnderecos());
+        Usuario usuarioAtualizadoNoBanco = usuarioRepository.save(usuarioExistente);
+        return new ResponseEntity<>(usuarioAtualizadoNoBanco, HttpStatus.OK);
+    }
 
-	@DeleteMapping("/usuarios/{id}")
-	public ResponseEntity<Map<String, Boolean>> deleteUsuario(@PathVariable Long id) {
-		Usuario usuario = usuarioRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(MESSAGE_ERROR + id));
-		usuarioRepository.delete(usuario);
-		Map<String, Boolean> response = new HashMap<>();
-		response.put("deleted", Boolean.TRUE);
-		return ResponseEntity.ok(response);
-	}
+    // Endpoint para excluir um usuário pelo ID
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> excluirUsuario(@PathVariable Long id) {
+        Usuario usuarioExistente = usuarioRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(MESSAGE_ERROR + id));
+        if (usuarioExistente == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        usuarioRepository.delete(usuarioExistente);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }
