@@ -36,7 +36,7 @@ public class Candidato {
 	
 	@OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "candidato_id")
-	private List<Competencia> competencia;
+	private List<Competencia> competencias;
 	
 	@OneToOne
 	@JoinColumn(name = "usuario_id")
@@ -47,13 +47,13 @@ public class Candidato {
 	}
 
 	public Candidato(String etnia, String genero, String deficiencia, String rendaFamiliar,
-			List<Competencia> competencia, Usuario usuario) {
+			List<Competencia> competencias, Usuario usuario) {
 		super();
 		this.etnia = etnia;
 		this.genero = genero;
 		this.deficiencia = deficiencia;
 		this.rendaFamiliar = rendaFamiliar;
-		this.competencia = competencia;
+		this.competencias = competencias;
 		this.usuario = usuario;
 	}
 
@@ -97,12 +97,12 @@ public class Candidato {
 		this.rendaFamiliar = rendaFamiliar;
 	}
 
-	public List<Competencia> getCompetencia() {
-		return competencia;
+	public List<Competencia> getCompetencias() {
+		return competencias;
 	}
 
-	public void setCompetencia(List<Competencia> competencia) {
-		this.competencia = competencia;
+	public void setCompetencias(List<Competencia> competencias) {
+		this.competencias = competencias;
 	}
 
 	public Usuario getUsuario() {
