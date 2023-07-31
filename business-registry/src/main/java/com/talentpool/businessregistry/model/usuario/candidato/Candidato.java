@@ -39,7 +39,7 @@ public class Candidato {
 	private List<Competencia> competencia;
 	
 	@OneToOne
-	@JoinColumn(name = "candidato_id")
+	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;
 	
 	public Candidato() {

@@ -19,7 +19,7 @@ public class Entrevista {
 	@Column(name = "descricao", length=200)
 	private String descricao;
 	
-	@Column(name = "descricao", length=100)
+	@Column(name = "link", length=100)
 	private String link;
 	
 	@Column(name = "data")
