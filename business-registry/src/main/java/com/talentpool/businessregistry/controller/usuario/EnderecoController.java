@@ -36,7 +36,7 @@ public class EnderecoController {
         return new ResponseEntity<>(enderecos, HttpStatus.OK);
     }
 
-    // Endpoint para obter um usuário pelo ID
+    // Endpoint para obter um endereço pelo ID
     @GetMapping("/{id}")
     public ResponseEntity<Endereco> obterEnderecoPorId(@PathVariable Long id) {
         Endereco endereco = enderecoRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(MESSAGE_ERROR + id));

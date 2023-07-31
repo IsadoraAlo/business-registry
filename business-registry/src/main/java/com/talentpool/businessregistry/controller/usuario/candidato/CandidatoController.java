@@ -44,7 +44,7 @@ public class CandidatoController {
         return new ResponseEntity<>(candidatos, HttpStatus.OK);
     }
 
-    // Endpoint para obter um usuário pelo ID
+    // Endpoint para obter um candidato pelo ID
     @GetMapping("/{id}")
     public ResponseEntity<Candidato> obterCandidatoPorId(@PathVariable Long id) {
         Candidato candidato = candidatoRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(MESSAGE_ERROR + id));

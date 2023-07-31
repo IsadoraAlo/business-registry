@@ -59,7 +59,7 @@ public class UsuarioController {
         usuarioExistente.setDocumento(usuarioAtualizado.getDocumento());
         usuarioExistente.setSenha(usuarioAtualizado.getSenha());
         usuarioExistente.setCelular(usuarioAtualizado.getCelular());
-        usuarioExistente.setStatus(usuarioAtualizado.isStatus());
+        usuarioExistente.setStatus(usuarioAtualizado.getStatus());
         usuarioExistente.setEnderecos(usuarioAtualizado.getEnderecos());
         Usuario usuarioAtualizadoNoBanco = usuarioRepository.save(usuarioExistente);
         return new ResponseEntity<>(usuarioAtualizadoNoBanco, HttpStatus.OK);

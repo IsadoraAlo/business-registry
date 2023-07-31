@@ -1,17 +1,14 @@
 package com.talentpool.businessregistry.model.vaga;
 
-import java.util.List;
-
 import com.talentpool.businessregistry.model.vaga.questionario.Questionario;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -30,20 +27,20 @@ public class Etapa {
 	@Column(name = "numeracao")
 	private Integer numeracao;
     
-	@OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "etapa_id")
-	private List<Questionario> questionario;
+	@OneToOne
+	@JoinColumn(name = "questionario_id")
+	private Questionario questionario;
     
-	@OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "etapa_id")
-	private List<Entrevista> entrevista;
+	@OneToOne
+	@JoinColumn(name = "entrevista_id")
+	private Entrevista entrevista;
 	
 	public Etapa() {
 		
 	}
 
-	public Etapa(String tipo, String descricao, Integer numeracao, List<Questionario> questionario,
-			List<Entrevista> entrevista) {
+	public Etapa(String tipo, String descricao, Integer numeracao, Questionario questionario,
+			Entrevista entrevista) {
 		super();
 		this.tipo = tipo;
 		this.descricao = descricao;
@@ -84,19 +81,19 @@ public class Etapa {
 		this.numeracao = numeracao;
 	}
 
-	public List<Questionario> getQuestionario() {
+	public Questionario getQuestionario() {
 		return questionario;
 	}
 
-	public void setQuestionario(List<Questionario> questionario) {
+	public void setQuestionario(Questionario questionario) {
 		this.questionario = questionario;
 	}
 
-	public List<Entrevista> getEntrevista() {
+	public Entrevista getEntrevista() {
 		return entrevista;
 	}
 
-	public void setEntrevista(List<Entrevista> entrevista) {
+	public void setEntrevista(Entrevista entrevista) {
 		this.entrevista = entrevista;
 	}	
 
