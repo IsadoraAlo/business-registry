@@ -2,6 +2,8 @@ package com.talentpool.businessregistry.model.usuario;
 
 import java.util.List;
 
+import com.talentpool.businessregistry.model.vaga.Vaga;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -43,6 +45,10 @@ public class Usuario {
 	@OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "usuario_id")
 	private List<Endereco> enderecos;
+	
+	@OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name = "usuario_id")
+	private List<Vaga> vagas;
 	
 	public Usuario() {
 		
