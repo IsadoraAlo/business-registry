@@ -55,8 +55,8 @@ public class UsuarioController {
 		usuario.setEnderecos(usuarioDetails.getEnderecos());
 		usuario.setNome(usuarioDetails.getNome());
 		usuario.setSenha(usuarioDetails.getSenha());
-		Usuario updatedEmployee = usuarioRepository.save(usuario);
-		return ResponseEntity.ok(updatedEmployee);
+		Usuario updatedUsuario = usuarioRepository.save(usuario);
+		return ResponseEntity.ok(updatedUsuario);
 	}
 
 	@DeleteMapping("/usuarios/{id}")
