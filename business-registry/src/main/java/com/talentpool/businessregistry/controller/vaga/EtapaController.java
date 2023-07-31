@@ -30,7 +30,7 @@ public class EtapaController {
         this.etapaRepository = etapaRepository;
     }
 
-    // Endpoint para criar um novo etapa
+    // Endpoint para criar uma nova etapa
     @PostMapping
     public ResponseEntity<Etapa> criarEtapa(@RequestBody Etapa etapa) {
         Etapa novoEtapa = etapaRepository.save(etapa);

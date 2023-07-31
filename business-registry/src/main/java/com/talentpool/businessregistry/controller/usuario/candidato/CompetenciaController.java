@@ -21,7 +21,7 @@ import com.talentpool.businessregistry.repository.usuario.candidato.CompetenciaR
 @RestController
 @RequestMapping("/competencias")
 public class CompetenciaController {
-	private static final String MESSAGE_ERROR = "Não existe competencia com o id ";
+	private static final String MESSAGE_ERROR = "Não existe competência com o id ";
 	
     private final CompetenciaRepository competenciaRepository;
 
@@ -30,21 +30,21 @@ public class CompetenciaController {
         this.competenciaRepository = competenciaRepository;
     }
 
-    // Endpoint para criar uma nova competencia
+    // Endpoint para criar uma nova competência
     @PostMapping
     public ResponseEntity<Competencia> criarCompetencia(@RequestBody Competencia competencia) {
         Competencia novoCompetencia = competenciaRepository.save(competencia);
         return new ResponseEntity<>(novoCompetencia, HttpStatus.CREATED);
     }
 
-    // Endpoint para obter todas as competencias
+    // Endpoint para obter todas as competências
     @GetMapping
     public ResponseEntity<List<Competencia>> obterCompetencias() {
         List<Competencia> competencias = competenciaRepository.findAll();
         return new ResponseEntity<>(competencias, HttpStatus.OK);
     }
 
-    // Endpoint para obter uma competencia pelo ID
+    // Endpoint para obter uma competência pelo ID
     @GetMapping("/{id}")
     public ResponseEntity<Competencia> obterCompetenciaPorId(@PathVariable Long id) {
         Competencia competencia = competenciaRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(MESSAGE_ERROR + id));
@@ -54,7 +54,7 @@ public class CompetenciaController {
         return new ResponseEntity<>(competencia, HttpStatus.OK);
     }
 
-    // Endpoint para atualizar uma competencia existente
+    // Endpoint para atualizar uma competência existente
     @PutMapping("/{id}")
     public ResponseEntity<Competencia> atualizarCompetencia(@PathVariable Long id, @RequestBody Competencia competenciaAtualizado) {
         Competencia competenciaExistente = competenciaRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(MESSAGE_ERROR + id));
@@ -69,7 +69,7 @@ public class CompetenciaController {
         return new ResponseEntity<>(competenciaAtualizadoNoBanco, HttpStatus.OK);
     }
 
-    // Endpoint para excluir uma competencia pelo ID
+    // Endpoint para excluir uma competência pelo ID
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> excluirCompetencia(@PathVariable Long id) {
         Competencia competenciaExistente = competenciaRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(MESSAGE_ERROR + id));

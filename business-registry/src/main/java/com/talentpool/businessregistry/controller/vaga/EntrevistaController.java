@@ -37,7 +37,7 @@ public class EntrevistaController {
         return new ResponseEntity<>(novoEntrevista, HttpStatus.CREATED);
     }
 
-    // Endpoint para obter todos as entrevistas
+    // Endpoint para obter todas as entrevistas
     @GetMapping
     public ResponseEntity<List<Entrevista>> obterEntrevistas() {
         List<Entrevista> entrevistas = entrevistaRepository.findAll();

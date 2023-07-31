@@ -30,21 +30,21 @@ public class VagaController {
         this.vagaRepository = vagaRepository;
     }
 
-    // Endpoint para criar um novo vaga
+    // Endpoint para criar uma nova vaga
     @PostMapping
     public ResponseEntity<Vaga> criarVaga(@RequestBody Vaga vaga) {
         Vaga novoVaga = vagaRepository.save(vaga);
         return new ResponseEntity<>(novoVaga, HttpStatus.CREATED);
     }
 
-    // Endpoint para obter todos os vagas
+    // Endpoint para obter todas as vagas
     @GetMapping
     public ResponseEntity<List<Vaga>> obterVagas() {
         List<Vaga> vagas = vagaRepository.findAll();
         return new ResponseEntity<>(vagas, HttpStatus.OK);
     }
 
-    // Endpoint para obter um usuário pelo ID
+    // Endpoint para obter uma vaga pelo ID
     @GetMapping("/{id}")
     public ResponseEntity<Vaga> obterVagaPorId(@PathVariable Long id) {
         Vaga vaga = vagaRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(MESSAGE_ERROR + id));
