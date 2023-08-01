@@ -6,7 +6,7 @@ export class Etapa {
   tipo: string;
   descricao: string;
   numeracao: number;
-  questionario: Questionario;
+  questionario: Questionario[];
   entrevista: Entrevista;
 
   constructor() {
@@ -14,7 +14,7 @@ export class Etapa {
     this.tipo = '';
     this.descricao = '';
     this.numeracao = 0;
-    this.questionario = new Questionario();
+    this.questionario = [];
     this.entrevista = new Entrevista();
   }
 }
