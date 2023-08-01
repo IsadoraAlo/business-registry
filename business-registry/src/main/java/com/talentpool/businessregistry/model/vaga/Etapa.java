@@ -1,13 +1,17 @@
 package com.talentpool.businessregistry.model.vaga;
 
+import java.util.List;
+
 import com.talentpool.businessregistry.model.vaga.questionario.Questionario;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
@@ -27,9 +31,9 @@ public class Etapa {
 	@Column(name = "numeracao")
 	private Integer numeracao;
     
-	@OneToOne
-	@JoinColumn(name = "questionario_id")
-	private Questionario questionario;
+	@OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name = "questionario_id")
+	private List<Questionario> questionarios;
     
 	@OneToOne
 	@JoinColumn(name = "entrevista_id")
@@ -39,13 +43,13 @@ public class Etapa {
 		
 	}
 
-	public Etapa(String tipo, String descricao, Integer numeracao, Questionario questionario,
+	public Etapa(String tipo, String descricao, Integer numeracao, List<Questionario> questionarios,
 			Entrevista entrevista) {
 		super();
 		this.tipo = tipo;
 		this.descricao = descricao;
 		this.numeracao = numeracao;
-		this.questionario = questionario;
+		this.questionarios = questionarios;
 		this.entrevista = entrevista;
 	}
 
@@ -81,12 +85,12 @@ public class Etapa {
 		this.numeracao = numeracao;
 	}
 
-	public Questionario getQuestionario() {
-		return questionario;
+	public List<Questionario> getQuestionarios() {
+		return questionarios;
 	}
 
-	public void setQuestionario(Questionario questionario) {
-		this.questionario = questionario;
+	public void setQuestionarios(List<Questionario> questionarios) {
+		this.questionarios = questionarios;
 	}
 
 	public Entrevista getEntrevista() {
