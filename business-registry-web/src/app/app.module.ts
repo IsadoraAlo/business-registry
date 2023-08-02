@@ -8,10 +8,10 @@ import { AboutComponent } from './features/commom/home/pages/about/about.compone
 import { CadastrosModule } from './features/commom/home/pages/cadastros/cadastros.module';
 import { IndexComponent } from './features/commom/home/pages/index/index.component';
 import { LoginComponent } from './features/commom/home/pages/login/login.component';
+import { NgxMaskModule } from 'ngx-mask';
 @NgModule({
   declarations: [AppComponent, AboutComponent, IndexComponent, LoginComponent],
-  imports: [BrowserModule, FormsModule, CadastrosModule, AppRoutingModule,ComponentesModule],
-  providers: [],
+  imports: [BrowserModule, FormsModule, CadastrosModule, AppRoutingModule,ComponentesModule, NgxMaskModule.forRoot()],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

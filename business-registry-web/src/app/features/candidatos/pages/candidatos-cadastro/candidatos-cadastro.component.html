@@ -3,24 +3,32 @@
     <form (ngSubmit)="onSubmit()">
       <!-- Nome input -->
       <div class="form-floating mb-3">
-        <input type="text" id="nome" class="form-control" placeholder="=" name="nome" [(ngModel)] = "usuario.nome"/>
+        <input type="text" id="nome" class="form-control" placeholder="=" name="nome" [(ngModel)]="usuario.nome" />
         <label for="nome">Nome completo</label>
+      </div>
+      <!-- Celular input -->
+      <div class="form-floating mb-3">
+        <input type="text" id="celular" class="form-control" placeholder="=" name="documento"
+          [(ngModel)]="usuario.celular" mask="(00) 00000-0000" />
+        <label for="celular">Celular</label>
       </div>
       <!-- CPF input -->
       <div class="form-floating mb-3">
-        <input type="text" id="cpf" class="form-control" placeholder="=" name="documento" [(ngModel)] = "usuario.documento" mask="000.000.000-00"/>
+        <input type="text" id="cpf" class="form-control" placeholder="=" name="documento"
+          [(ngModel)]="usuario.documento" mask="000.000.000-00" />
         <label for="cpf">CPF</label>
       </div>
       <!-- Email input -->
       <div class="form-floating mb-3">
-        <input type="email" id="email" class="form-control" placeholder="=" name="email" [(ngModel)] = "usuario.email"/>
+        <input type="email" id="email" class="form-control" placeholder="=" name="email" [(ngModel)]="usuario.email" />
         <label for="email">E-mail</label>
       </div>
       <div class="row">
         <!-- Password input -->
         <div class="col-md-6 mb-4">
           <div class="form-floating mb-3">
-            <input type="password" id="senha" class="form-control" placeholder="=" name="senha" [(ngModel)] = "usuario.senha"/>
+            <input type="password" id="senha" class="form-control" placeholder="=" name="senha"
+              [(ngModel)]="usuario.senha" />
             <label for="senha">Senha</label>
           </div>
         </div>

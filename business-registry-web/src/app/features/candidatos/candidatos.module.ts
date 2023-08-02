@@ -8,9 +8,10 @@ import { MenuCandidatoComponent } from './componentes/menu-candidato/menu-candid
 import { BoasVindasCandidatoComponent } from './pages/boas-vindas-candidato/boas-vindas-candidato.component';
 import { CandidatosBuscaVagasComponent } from './pages/candidatos-busca-vagas/candidatos-busca-vagas.component';
 import { CandidatosCadastroComponent } from './pages/candidatos-cadastro/candidatos-cadastro.component';
+import { NgxMaskModule } from 'ngx-mask';
 @NgModule({
   declarations: [CandidatosCadastroComponent, MenuCandidatoComponent, BoasVindasCandidatoComponent, CandidatosBuscaVagasComponent],
-  imports: [CommonModule, AppRoutingModule, ComponentesModule, FormsModule, HttpClientModule],
+  imports: [CommonModule, AppRoutingModule, ComponentesModule, FormsModule, HttpClientModule, NgxMaskModule.forChild()],
   exports: [CandidatosCadastroComponent, BoasVindasCandidatoComponent],
 })
 export class CandidatosModule { }
