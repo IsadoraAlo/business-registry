@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { catchError, throwError } from 'rxjs';
+import { TipoUsuario } from 'src/app/utils/enum/candidato.enum';
 import { Usuario } from 'src/app/utils/models/usuario/usuario.model';
 import { UsuarioService } from 'src/app/utils/services/usuario/usuario.service';
-
 @Component({
   selector: 'app-candidatos-cadastro',
   templateUrl: './candidatos-cadastro.component.html',
@@ -11,21 +12,24 @@ import { UsuarioService } from 'src/app/utils/services/usuario/usuario.service';
 export class CandidatosCadastroComponent {
   usuario: Usuario = new Usuario();
 
-  constructor(private usuarioService: UsuarioService,
-    private router: Router) { }
+  constructor(private usuarioService: UsuarioService, private router: Router) { }
 
-  saveUsuario() {
-    this.usuario.tipo = 'CANDIDATO';
+  saveUsuario(): void {
+    this.usuario.tipo = TipoUsuario.CANDIDATO;
     this.usuario.status = true;
-    this.usuarioService.criarUsuario(this.usuario).subscribe(usuario => {
-      console.log(usuario);
+    this.usuarioService.criarUsuario(this.usuario)
+    .pipe(
+      catchError((error) => {
+        console.error('Erro ao criar usuário:', error);
+        return throwError(() => error);
+      })
+    )
+    .subscribe(() => {
       this.router.navigate(['/login']);
-    },
-      error => console.log(error));
+    });
   }
 
-  onSubmit() {
-    console.log(this.usuario);
+  onSubmit(): void {
     this.saveUsuario();
   }
 }
