@@ -24,7 +24,7 @@ public class Vaga {
 	@Column(name = "titulo", length=70)
 	private String titulo;
 	
-	@Column(name = "qualificacoes", length=10)
+	@Column(name = "qualificacoes", length=100)
 	private String qualificacoes;
 	
 	@Column(name = "beneficios", length=100)

@@ -53,14 +53,14 @@ public class UsuarioController {
         if (usuarioExistente == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        usuarioExistente.setTipo(usuarioAtualizado.getTipo());
-        usuarioExistente.setNome(usuarioAtualizado.getNome());
-        usuarioExistente.setEmail(usuarioAtualizado.getEmail());
-        usuarioExistente.setDocumento(usuarioAtualizado.getDocumento());
-        usuarioExistente.setSenha(usuarioAtualizado.getSenha());
-        usuarioExistente.setCelular(usuarioAtualizado.getCelular());
-        usuarioExistente.setStatus(usuarioAtualizado.getStatus());
-        usuarioExistente.setEnderecos(usuarioAtualizado.getEnderecos());
+//        usuarioExistente.setTipo(usuarioAtualizado.getTipo());
+//        usuarioExistente.setNome(usuarioAtualizado.getNome());
+//        usuarioExistente.setEmail(usuarioAtualizado.getEmail());
+//        usuarioExistente.setDocumento(usuarioAtualizado.getDocumento());
+//        usuarioExistente.setSenha(usuarioAtualizado.getSenha());
+//        usuarioExistente.setCelular(usuarioAtualizado.getCelular());
+//        usuarioExistente.setStatus(usuarioAtualizado.getStatus());
+//        usuarioExistente.setEnderecos(usuarioAtualizado.getEnderecos());
         Usuario usuarioAtualizadoNoBanco = usuarioRepository.save(usuarioExistente);
         return new ResponseEntity<>(usuarioAtualizadoNoBanco, HttpStatus.OK);
     }
