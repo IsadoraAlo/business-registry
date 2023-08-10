@@ -9,9 +9,10 @@ import { CadastrosModule } from './features/commom/home/pages/cadastros/cadastro
 import { IndexComponent } from './features/commom/home/pages/index/index.component';
 import { LoginComponent } from './features/commom/home/pages/login/login.component';
 import { NgxMaskModule } from 'ngx-mask';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [AppComponent, AboutComponent, IndexComponent, LoginComponent],
-  imports: [BrowserModule, FormsModule, CadastrosModule, AppRoutingModule,ComponentesModule, NgxMaskModule.forRoot()],
+  imports: [BrowserModule, FormsModule, CadastrosModule, HttpClientModule, AppRoutingModule, ComponentesModule, NgxMaskModule.forRoot()],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

@@ -6,6 +6,7 @@ import com.talentpool.businessregistry.repository.usuario.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,6 +26,10 @@ public class UsuarioController {
     // Endpoint para criar um novo usuário
     @PostMapping
     public ResponseEntity<Usuario> criarUsuario(@RequestBody Usuario usuario) {
+    	if(this.usuarioRepository.findByEmail(usuario.getEmail()) != null) {
+    		return ResponseEntity.badRequest().build();
+    	}
+    	usuario.setSenha(new BCryptPasswordEncoder().encode(usuario.getSenha())); 
         Usuario novoUsuario = usuarioRepository.save(usuario);
         return new ResponseEntity<>(novoUsuario, HttpStatus.CREATED);
     }
@@ -53,14 +58,14 @@ public class UsuarioController {
         if (usuarioExistente == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-//        usuarioExistente.setTipo(usuarioAtualizado.getTipo());
-//        usuarioExistente.setNome(usuarioAtualizado.getNome());
-//        usuarioExistente.setEmail(usuarioAtualizado.getEmail());
-//        usuarioExistente.setDocumento(usuarioAtualizado.getDocumento());
-//        usuarioExistente.setSenha(usuarioAtualizado.getSenha());
-//        usuarioExistente.setCelular(usuarioAtualizado.getCelular());
-//        usuarioExistente.setStatus(usuarioAtualizado.getStatus());
-//        usuarioExistente.setEnderecos(usuarioAtualizado.getEnderecos());
+        usuarioExistente.setTipo(usuarioAtualizado.getTipo());
+        usuarioExistente.setNome(usuarioAtualizado.getNome());
+        usuarioExistente.setEmail(usuarioAtualizado.getEmail());
+        usuarioExistente.setDocumento(usuarioAtualizado.getDocumento());
+        usuarioExistente.setSenha(usuarioAtualizado.getSenha());
+        usuarioExistente.setCelular(usuarioAtualizado.getCelular());
+        usuarioExistente.setStatus(usuarioAtualizado.getStatus());
+        usuarioExistente.setEnderecos(usuarioAtualizado.getEnderecos());
         Usuario usuarioAtualizadoNoBanco = usuarioRepository.save(usuarioExistente);
         return new ResponseEntity<>(usuarioAtualizadoNoBanco, HttpStatus.OK);
     }

@@ -5,31 +5,31 @@
   <div class="card-body my-5 py-3">
     <div class="row px-5 py-5 d-flex align-items-center">
       <div class="col-md-4 mb-4 text-center">
-        <form>
+        <form (ngSubmit)="onSubmit()">
           <h2><b>Login</b></h2>
           <br><br>
           <!-- Email input -->
           <div class="form-floating mb-3">
-            <input type="email" id="email" class="form-control" placeholder="" />
+            <input type="email" id="email" class="form-control" placeholder="=" name="email"
+              [(ngModel)]="login.email" />
             <label for="email">E-mail</label>
           </div>
+          <!-- Password input -->
           <div class="form-floating mb-3">
-            <!-- Password input -->
-            <input type="password" id="senha" class="form-control" placeholder="" />
+            <input type="password" id="senha" class="form-control" placeholder="=" name="senha"
+              [(ngModel)]="login.senha" />
             <label for="senha">Senha</label>
           </div>
           <!-- Submit button -->
-          <button type="submit" class="btn btn-warning btn-block mb-3" routerLink="/candidatos/pagina-inicial">
+          <button type="submit" class="btn btn-warning btn-block mb-3">
             Login
           </button>
         </form>
       </div>
       <div class="col-md-8 mb-4 text-center">
-        <img class="img-fluid"
-          src="https://www.iconarchive.com/download/i103432/paomedia/small-n-flat/key.1024.png"
+        <img class="img-fluid" src="https://www.iconarchive.com/download/i103432/paomedia/small-n-flat/key.1024.png"
           alt="">
       </div>
     </div>
   </div>
 </div>
-
