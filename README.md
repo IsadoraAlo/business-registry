@@ -131,13 +131,16 @@ No projeto da aplicação backend em Java com Spring, você precisará configura
 Exemplo de configuração no arquivo `application.properties`:
 
 ```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/nome_do_banco_de_dados
+spring.jpa.hibernate.ddl-auto=update
+spring.datasource.url=jdbc:mysql://${MYSQL_HOST:localhost}:3306/ey_db
 spring.datasource.username=seu_usuario
 spring.datasource.password=sua_senha
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-spring.jpa.hibernate.ddl-auto=update
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQLDialect
+api.security.token.secret=${JWT_SECRET:my-secret-key}
+#spring.jpa.show-sql: true
 ```
 
-Certifique-se de substituir `nome_do_banco_de_dados`, `seu_usuario` e `sua_senha` pelas informações corretas.
+Certifique-se de substituir `seu_usuario` e `sua_senha` pelas informações corretas.
 
 Lembre-se de que esses são apenas passos básicos e podem variar dependendo da versão específica do MySQL e do ambiente que você está usando. Consulte a documentação oficial do MySQL e da sua IDE para obter mais detalhes e informações atualizadas.
