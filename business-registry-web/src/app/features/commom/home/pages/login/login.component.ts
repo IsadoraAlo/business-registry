@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError, throwError } from 'rxjs';
+import { LocalStorage } from 'src/app/utils/data/local-storage.util';
 import { Login } from 'src/app/utils/models/auth.model';
 import { AuthService } from 'src/app/utils/services/auth/auth.service';
 
@@ -12,7 +13,7 @@ import { AuthService } from 'src/app/utils/services/auth/auth.service';
 export class LoginComponent {
   login: Login = new Login();
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router, private localStorage: LocalStorage) { }
 
   onLogin(): void {
     this.authService.logar(this.login)
@@ -24,6 +25,7 @@ export class LoginComponent {
     )
     .subscribe((login) => {
       console.log(login);
+      this.localStorage.setUsuarioLogado(login);
       this.router.navigate(['/candidatos/pagina-inicial']);
     });
   }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LocalStorage } from 'src/app/utils/data/local-storage.util';
 
 @Component({
   selector: 'app-boas-vindas-candidato',
@@ -8,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 export class BoasVindasCandidatoComponent implements OnInit {
   public nomeCandidato: string = 'Jorge Almeida';
   numeroVagas= '5'
-  constructor() { }
+  constructor(private localStorage: LocalStorage) { }
 
   ngOnInit() {
+    this.localStorage?.getUsuarioLogado()
   }
 
 }
