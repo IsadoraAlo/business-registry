@@ -23,6 +23,9 @@ public class Endereco {
 	@Column(name = "municipio", length=100)
     private String municipio;
 	
+	@Column(name = "logradouro", length=100)
+    private String logradouro;
+	
 	@Column(name = "numero", length=5)
     private String numero;
 	
