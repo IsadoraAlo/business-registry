@@ -64,6 +64,26 @@ https://www.jetbrains.com/pt-br/idea/download/?section=windows
 Ou o Spring Tool Suite:
 https://spring.io/tools
 
+### Instalação do Lombok:
+- SpringTool:
+    - [ ] Baixe o JAR do Lombok a partir do site oficial: https://projectlombok.org/download.
+   
+    - [ ] Execute o JAR baixado (duplo clique nele) e siga as instruções para instalar o Lombok no Spring.
+
+- IntelliJ: **_Certifique-se de que o projeto esteja aberto no qual você deseja usar o Lombok._**
+
+   - [ ] Acesse o menu "File" (Arquivo) na barra de menus superior.
+
+   - [ ] Escolha "Settings" (Configurações) ou "Preferences" (Preferências) se você estiver usando macOS.
+
+   - [ ] Na janela de configurações, expanda a seção "Plugins".
+
+   - [ ] Na barra de pesquisa, digite "Lombok".
+
+   - [ ] Encontre o plugin "Lombok" na lista de resultados e clique no botão "Install" (Instalar).
+
+   - [ ] Reinicie o IntelliJ IDEA após a instalação.
+
 3. Abra a pasta `business-registry` em sua IDE escolhida.
 
 4. Aguarde até que a IDE carregue as dependências do projeto.
