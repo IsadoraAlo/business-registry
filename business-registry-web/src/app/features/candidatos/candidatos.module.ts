@@ -12,9 +12,20 @@ import { NgxMaskModule } from 'ngx-mask';
 import { CadastroInformacoesComponent } from './pages/cadastro-informacoes/cadastro-informacoes.component';
 import { CadastroInformacoesEnderecoComponent } from './pages/cadastro-informacoes/cadastro-informacoes-endereco/cadastro-informacoes-endereco.component';
 import { CadastroInformacoesPessoaisComponent } from './pages/cadastro-informacoes/cadastro-informacoes-pessoais/cadastro-informacoes-pessoais.component';
-import { CadastroInformacoesProfissionaisComponent } from './pages/cadastro-informacoes/cadastro-informacoes-profissionais/cadastro-informacoes-profissionais.component';
+import { ExperienciasAnterioresComponent } from './pages/cadastro-informacoes/informacoes-profissionais/experiencias-anteriores/experiencias-anteriores.component';
+import { InformacoesProfissionaisComponent } from './pages/cadastro-informacoes/informacoes-profissionais/informacoes-profissionais.component';
 @NgModule({
-  declarations: [CandidatosCadastroComponent, MenuCandidatoComponent, BoasVindasCandidatoComponent, CandidatosBuscaVagasComponent, CadastroInformacoesComponent, CadastroInformacoesEnderecoComponent, CadastroInformacoesPessoaisComponent, CadastroInformacoesProfissionaisComponent],
+  declarations: [
+    CandidatosCadastroComponent,
+    MenuCandidatoComponent,
+    BoasVindasCandidatoComponent,
+    CandidatosBuscaVagasComponent,
+    CadastroInformacoesComponent,
+    CadastroInformacoesEnderecoComponent,
+    CadastroInformacoesPessoaisComponent,
+    InformacoesProfissionaisComponent,
+    ExperienciasAnterioresComponent
+  ],
   imports: [
     CommonModule,
     AppRoutingModule,
