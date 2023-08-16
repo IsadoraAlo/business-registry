@@ -14,8 +14,18 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
+@EqualsAndHashCode(of = "id")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "candidato")
 public class Candidato {
 	@Id
@@ -42,74 +52,4 @@ public class Candidato {
 	@JoinColumn(name = "usuario_id")
 	private Usuario usuario;
 	
-	public Candidato() {
-		
-	}
-
-	public Candidato(String etnia, String genero, String deficiencia, String rendaFamiliar,
-			List<Competencia> competencias, Usuario usuario) {
-		super();
-		this.etnia = etnia;
-		this.genero = genero;
-		this.deficiencia = deficiencia;
-		this.rendaFamiliar = rendaFamiliar;
-		this.competencias = competencias;
-		this.usuario = usuario;
-	}
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public String getEtnia() {
-		return etnia;
-	}
-
-	public void setEtnia(String etnia) {
-		this.etnia = etnia;
-	}
-
-	public String getGenero() {
-		return genero;
-	}
-
-	public void setGenero(String genero) {
-		this.genero = genero;
-	}
-
-	public String getDeficiencia() {
-		return deficiencia;
-	}
-
-	public void setDeficiencia(String deficiencia) {
-		this.deficiencia = deficiencia;
-	}
-
-	public String getRendaFamiliar() {
-		return rendaFamiliar;
-	}
-
-	public void setRendaFamiliar(String rendaFamiliar) {
-		this.rendaFamiliar = rendaFamiliar;
-	}
-
-	public List<Competencia> getCompetencias() {
-		return competencias;
-	}
-
-	public void setCompetencias(List<Competencia> competencias) {
-		this.competencias = competencias;
-	}
-
-	public Usuario getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
 }

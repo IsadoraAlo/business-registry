@@ -24,8 +24,8 @@ export class LoginComponent {
       })
     )
     .subscribe((login) => {
-      console.log(login);
       this.localStorage.setUsuarioLogado(login);
+      console.log(this.localStorage.UsuarioLogado)
       this.router.navigate(['/candidatos/pagina-inicial']);
     });
   }

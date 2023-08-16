@@ -1,13 +1,25 @@
 package com.talentpool.businessregistry.model.usuario.candidato;
 
+import java.util.Date;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
+@EqualsAndHashCode(of = "id")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "competencia")
 public class Competencia {
 	@Id
@@ -26,56 +38,10 @@ public class Competencia {
 	@Column(name = "instituicao", length=70)
 	private String instituicao;
 	
-	public Competencia() {
-		
-	}
-
-	public Competencia(String tipo, String titulo, String nivel, String instituicao) {
-		super();
-		this.tipo = tipo;
-		this.titulo = titulo;
-		this.nivel = nivel;
-		this.instituicao = instituicao;
-	}
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public String getTipo() {
-		return tipo;
-	}
-
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
-	}
-
-	public String getTitulo() {
-		return titulo;
-	}
-
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
-
-	public String getNivel() {
-		return nivel;
-	}
-
-	public void setNivel(String nivel) {
-		this.nivel = nivel;
-	}
-
-	public String getInstituicao() {
-		return instituicao;
-	}
-
-	public void setInstituicao(String instituicao) {
-		this.instituicao = instituicao;
-	}
+	@Column(name = "data_inicio")
+    private Date dataInicio;
+	
+	@Column(name = "data_termino")
+    private Date dataTermino;
 	
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalStorage } from 'src/app/utils/data/local-storage.util';
+import { Usuario } from 'src/app/utils/models/usuario/usuario.model';
 
 @Component({
   selector: 'app-boas-vindas-candidato',
@@ -7,12 +8,11 @@ import { LocalStorage } from 'src/app/utils/data/local-storage.util';
   styleUrls: ['./boas-vindas-candidato.component.scss']
 })
 export class BoasVindasCandidatoComponent implements OnInit {
-  public nomeCandidato: string = 'Jorge Almeida';
-  numeroVagas= '5'
+  public usuario: Usuario = new Usuario();
   constructor(private localStorage: LocalStorage) { }
 
   ngOnInit() {
-    this.localStorage?.getUsuarioLogado()
+    this.usuario = this.localStorage?.UsuarioLogado;
   }
 
 }

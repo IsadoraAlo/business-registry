@@ -1,4 +1,4 @@
-const estadosList = [
+export const estadosList = [
   {
     estado: `Acre`, sigla: `AC`, cidades: [
       { municipio: `Acrelândia`, codIbge: 1200013 },

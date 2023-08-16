@@ -26,6 +26,9 @@ public class Endereco {
 	@Column(name = "logradouro", length=100)
     private String logradouro;
 	
+	@Column(name = "cep", length=8)
+    private String cep;
+	
 	@Column(name = "numero", length=5)
     private String numero;
 	

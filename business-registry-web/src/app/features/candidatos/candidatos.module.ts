@@ -11,9 +11,18 @@ import { CandidatosCadastroComponent } from './pages/candidatos-cadastro/candida
 import { NgxMaskModule } from 'ngx-mask';
 import { CadastroInformacoesComponent } from './pages/cadastro-informacoes/cadastro-informacoes.component';
 import { CadastroInformacoesEnderecoComponent } from './pages/cadastro-informacoes/cadastro-informacoes-endereco/cadastro-informacoes-endereco.component';
+import { CadastroInformacoesPessoaisComponent } from './pages/cadastro-informacoes/cadastro-informacoes-pessoais/cadastro-informacoes-pessoais.component';
+import { CadastroInformacoesProfissionaisComponent } from './pages/cadastro-informacoes/cadastro-informacoes-profissionais/cadastro-informacoes-profissionais.component';
 @NgModule({
-  declarations: [CandidatosCadastroComponent, MenuCandidatoComponent, BoasVindasCandidatoComponent, CandidatosBuscaVagasComponent, CadastroInformacoesComponent, CadastroInformacoesEnderecoComponent],
-  imports: [CommonModule, AppRoutingModule, ComponentesModule, FormsModule, HttpClientModule, NgxMaskModule.forChild()],
+  declarations: [CandidatosCadastroComponent, MenuCandidatoComponent, BoasVindasCandidatoComponent, CandidatosBuscaVagasComponent, CadastroInformacoesComponent, CadastroInformacoesEnderecoComponent, CadastroInformacoesPessoaisComponent, CadastroInformacoesProfissionaisComponent],
+  imports: [
+    CommonModule,
+    AppRoutingModule,
+    ComponentesModule,
+    FormsModule,
+    HttpClientModule,
+    NgxMaskModule.forChild(),
+  ],
   exports: [CandidatosCadastroComponent, BoasVindasCandidatoComponent],
 })
 export class CandidatosModule { }
