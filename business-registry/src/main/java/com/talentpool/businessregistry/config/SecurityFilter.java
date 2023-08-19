@@ -30,7 +30,7 @@ public class SecurityFilter extends OncePerRequestFilter {
         if(token != null){
             var login = tokenService.validateToken(token);
             UserDetails user = userRepository.findByEmail(login);
-
+            response.setHeader("Access-Control-Allow-Origin", "http://localhost:4200");
             var authentication = new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
             SecurityContextHolder.getContext().setAuthentication(authentication);
         }

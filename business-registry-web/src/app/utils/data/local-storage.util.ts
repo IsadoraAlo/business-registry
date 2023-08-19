@@ -13,10 +13,20 @@ export class LocalStorage {
       usuario.documento = body.usuario.documento;
       usuario.email = body.usuario.email;
       usuario.status = body.usuario.status;
+      usuario.senha = body.usuario.senha;
       usuario.nome = body.usuario.nome;
       usuario.tipo = body.usuario.tipo;
     });
     return usuario
+  }
+
+  public get Token() {
+    const data = [JSON.parse(localStorage.getItem('Usuário logado') as string)];
+    let tokenLog: string = '';
+    data.find((body) => {
+      tokenLog = body.token;
+    });
+    return tokenLog;
   }
 
   public setUsuarioLogado(login: any) {

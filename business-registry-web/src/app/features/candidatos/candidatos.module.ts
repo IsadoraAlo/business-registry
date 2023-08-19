@@ -2,18 +2,18 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { NgxMaskModule } from 'ngx-mask';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { ComponentesModule } from '../commom/componentes/componentes.module';
 import { MenuCandidatoComponent } from './componentes/menu-candidato/menu-candidato.component';
 import { BoasVindasCandidatoComponent } from './pages/boas-vindas-candidato/boas-vindas-candidato.component';
-import { CandidatosBuscaVagasComponent } from './pages/candidatos-busca-vagas/candidatos-busca-vagas.component';
-import { CandidatosCadastroComponent } from './pages/candidatos-cadastro/candidatos-cadastro.component';
-import { NgxMaskModule } from 'ngx-mask';
+import { InformacoesPessoaisComponent } from './pages/cadastro-informacoes/informacoes-pessoais/informacoes-pessoais.component';
 import { CadastroInformacoesComponent } from './pages/cadastro-informacoes/cadastro-informacoes.component';
-import { CadastroInformacoesEnderecoComponent } from './pages/cadastro-informacoes/cadastro-informacoes-endereco/cadastro-informacoes-endereco.component';
-import { CadastroInformacoesPessoaisComponent } from './pages/cadastro-informacoes/cadastro-informacoes-pessoais/cadastro-informacoes-pessoais.component';
 import { ExperienciasAnterioresComponent } from './pages/cadastro-informacoes/informacoes-profissionais/experiencias-anteriores/experiencias-anteriores.component';
 import { InformacoesProfissionaisComponent } from './pages/cadastro-informacoes/informacoes-profissionais/informacoes-profissionais.component';
+import { CandidatosBuscaVagasComponent } from './pages/candidatos-busca-vagas/candidatos-busca-vagas.component';
+import { CandidatosCadastroComponent } from './pages/candidatos-cadastro/candidatos-cadastro.component';
+import { InformacoesEnderecoComponent } from './pages/cadastro-informacoes/informacoes-endereco/informacoes-endereco.component';
 @NgModule({
   declarations: [
     CandidatosCadastroComponent,
@@ -21,9 +21,9 @@ import { InformacoesProfissionaisComponent } from './pages/cadastro-informacoes/
     BoasVindasCandidatoComponent,
     CandidatosBuscaVagasComponent,
     CadastroInformacoesComponent,
-    CadastroInformacoesEnderecoComponent,
-    CadastroInformacoesPessoaisComponent,
+    InformacoesEnderecoComponent,
     InformacoesProfissionaisComponent,
+    InformacoesPessoaisComponent,
     ExperienciasAnterioresComponent
   ],
   imports: [

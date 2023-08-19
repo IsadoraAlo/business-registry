@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import javax.validation.Valid;
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/enderecos")
 public class EnderecoController {
@@ -24,7 +26,7 @@ public class EnderecoController {
 
     // Endpoint para criar um novo endereço
     @PostMapping
-    public ResponseEntity<Endereco> criarEndereco(@RequestBody Endereco endereco) {
+    public ResponseEntity<Endereco> criarEndereco(@RequestBody @Valid Endereco endereco) {
         Endereco novoEndereco = enderecoRepository.save(endereco);
         return new ResponseEntity<>(novoEndereco, HttpStatus.CREATED);
     }

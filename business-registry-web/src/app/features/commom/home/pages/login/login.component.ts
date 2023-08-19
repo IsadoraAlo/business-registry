@@ -25,7 +25,7 @@ export class LoginComponent {
     )
     .subscribe((login) => {
       this.localStorage.setUsuarioLogado(login);
-      console.log(this.localStorage.UsuarioLogado)
+      console.log(this.localStorage.Token)
       this.router.navigate(['/candidatos/pagina-inicial']);
     });
   }

@@ -9,7 +9,6 @@ export class Usuario {
   senha: string;
   celular: string;
   status: boolean;
-  enderecos: Endereco[];
 
   constructor() {
     this.id = 0;
@@ -20,6 +19,5 @@ export class Usuario {
     this.senha = '';
     this.celular = '';
     this.status = false;
-    this.enderecos = [];
   }
 }

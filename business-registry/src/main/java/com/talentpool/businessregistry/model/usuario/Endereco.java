@@ -6,8 +6,18 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
+@EqualsAndHashCode(of = "id")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "endereco")
 public class Endereco {
 	@Id
@@ -32,57 +42,7 @@ public class Endereco {
 	@Column(name = "numero", length=5)
     private String numero;
 	
-	public Endereco() {
-		
-	}
-
-	public Endereco(long id, String pais, String estado, String municipio, String numero) {
-		super();
-		this.id = id;
-		this.pais = pais;
-		this.estado = estado;
-		this.municipio = municipio;
-		this.numero = numero;
-	}
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public String getPais() {
-		return pais;
-	}
-
-	public void setPais(String pais) {
-		this.pais = pais;
-	}
-
-	public String getEstado() {
-		return estado;
-	}
-
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
-
-	public String getMunicipio() {
-		return municipio;
-	}
-
-	public void setMunicipio(String municipio) {
-		this.municipio = municipio;
-	}
-
-	public String getNumero() {
-		return numero;
-	}
-
-	public void setNumero(String numero) {
-		this.numero = numero;
-	}
+	@Column(name = "usuario_id")
+	private Long usuarioId;
 	
 }
