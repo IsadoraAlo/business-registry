@@ -2,7 +2,7 @@ import { Usuario } from "./usuario.model";
 
 export class Endereco {
   id: number;
-  usuarioId: number;
+  usuarioId: Usuario;
   pais: string;
   estado: string;
   municipio: string;
@@ -12,7 +12,7 @@ export class Endereco {
 
   constructor() {
     this.id = 0;
-    this.usuarioId = 0;
+    this.usuarioId = new Usuario();
     this.pais = '';
     this.estado = '';
     this.municipio = '';

@@ -43,7 +43,7 @@
       <select (change)="getSelectedValue($event)" class="form-select">
         <option disabled selected hidden>Selecione o estado</option>
         <ng-container *ngFor="let estado of estados">
-          <option [ngValue]="estado.estado" id="estado">{{estado.estado}}</option>
+          <option [ngValue]="estado.sigla" id="estado">{{estado.estado}}</option>
         </ng-container>
       </select>
     </div>

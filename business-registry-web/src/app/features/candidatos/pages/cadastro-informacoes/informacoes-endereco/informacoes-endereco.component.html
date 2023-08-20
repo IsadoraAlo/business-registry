@@ -10,34 +10,41 @@
         <div class="col-lg-8">
           <form (ngSubmit)="onSubmit()">
             <div class="row">
-              <!-- Estado input -->
-              <div class="col-md-6 ">
+              <div class="col-md-6">
                 <div class="form-floating mb-3">
-                  <input type="text" id="estado" class="form-control" placeholder="=" name="estado"
-                    [(ngModel)]="endereco.estado"/>
+                  <select name="estado" #estado [(ngModel)]="endereco.estado" (change)="getSelectedValue(estado.value)"
+                    class="form-select">
+                    <option disabled selected hidden>Selecione o estado</option>
+                    <ng-container *ngFor="let estado of estados">
+                      <option [value]="estado.sigla" id="estado">{{estado?.estado}}</option>
+                    </ng-container>
+                  </select>
                   <label for="estado">Estado</label>
                 </div>
               </div>
-              <!-- Municipio input -->
-              <div class="col-md-6 ">
+              <div class="col-md-6">
                 <div class="form-floating mb-3">
-                  <input type="text" id="municipio" class="form-control" placeholder="=" name="municipio"
-                    [(ngModel)]="endereco.municipio"/>
-                  <label for="municipio">Município</label>
+                  <select name="municipio" [(ngModel)]="endereco.municipio" class="form-select">
+                    <option disabled selected hidden>Selecione a cidade</option>
+                    <ng-container *ngFor="let cidade of cidades">
+                      <option [value]="cidade.municipio" id="municipio">{{cidade?.municipio}}</option>
+                    </ng-container>
+                  </select>
+                  <label for="municipio">Cidade</label>
                 </div>
               </div>
             </div>
             <div class="form-floating mb-3">
               <input type="text" id="logradouro" class="form-control" placeholder="=" name="logradouro"
-                [(ngModel)]="endereco.logradouro"/>
+                [(ngModel)]="endereco.logradouro" />
               <label for="logradouro">Logradouro</label>
             </div>
             <div class="row">
               <!-- CEP input -->
-              <div class="col-md-6 ">
+              <div class="col-md-6">
                 <div class="form-floating mb-3">
                   <input type="text" id="cep" class="form-control" placeholder="=" name="cep" mask="00000-000"
-                    [(ngModel)]="endereco.cep"/>
+                    [(ngModel)]="endereco.cep" />
                   <label for="cep">CEP</label>
                 </div>
               </div>
@@ -45,7 +52,7 @@
               <div class="col-md-6 ">
                 <div class="form-floating mb-3">
                   <input type="text" id="numero" class="form-control" placeholder="=" name="numero"
-                    [(ngModel)]="endereco.numero"/>
+                    [(ngModel)]="endereco.numero" />
                   <label for="numero">Número</label>
                 </div>
               </div>

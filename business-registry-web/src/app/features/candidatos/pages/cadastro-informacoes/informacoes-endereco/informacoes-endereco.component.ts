@@ -4,15 +4,17 @@ import { catchError, throwError } from 'rxjs';
 import { Endereco } from 'src/app/utils/models/usuario/endereco.model';
 import { EnderecoService } from 'src/app/utils/services/usuario/endereco.service';
 import { LocalStorage } from './../../../../../utils/data/local-storage.util';
+import { estadosList } from 'src/app/utils/lists/estados.utils';
 
 @Component({
   selector: 'app-informacoes-endereco',
   templateUrl: './informacoes-endereco.component.html',
   styleUrls: ['./informacoes-endereco.component.scss']
 })
-export class InformacoesEnderecoComponent {
-
-  endereco: Endereco = new Endereco();
+export class InformacoesEnderecoComponent{
+  public endereco: Endereco = new Endereco();
+  public estados = estadosList;
+  public cidades: any;
 
   constructor(
     private enderecoService: EnderecoService,
@@ -20,9 +22,14 @@ export class InformacoesEnderecoComponent {
     private local:LocalStorage
   ) { }
 
-  saveEndereco(): void {
+  public getSelectedValue(estadoSelecionado: string): void {
+    const estado = this.estados.find((estado) => estado.sigla === estadoSelecionado);
+    this.cidades = estado?.cidades;
+  }
+
+  private saveEndereco(): void {
     this.endereco.pais = 'Brasil';
-    this.endereco.usuarioId = this.local.UsuarioLogado.id;
+    this.endereco.usuarioId = this.local.UsuarioLogado;
     this.enderecoService.criarEndereco(this.endereco)
     .pipe(
       catchError((error) => {
@@ -35,7 +42,7 @@ export class InformacoesEnderecoComponent {
     });
   }
 
-  onSubmit(): void {
+  public onSubmit(): void {
     this.saveEndereco();
   }
 }
