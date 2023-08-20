@@ -1,0 +1,15 @@
+export const deficienciaList = [
+  { deficiencia: 'Paraplegia' },
+  { deficiencia: 'Tetraplegia' },
+  { deficiencia: 'Hemiplegia' },
+  { deficiencia: 'Paralisia cerebral' },
+  { deficiencia: 'Amputação' },
+  { deficiencia: 'Cegueira por acuidade' },
+  { deficiencia: 'Cegueira por campo visual' },
+  { deficiencia: 'Cegueira total' },
+  { deficiencia: 'Surdez por perda condutiva' },
+  { deficiencia: 'Sudez do nervo' },
+  { deficiencia: 'Perda auditiva para sons baixos' },
+  { deficiencia: 'Perda auditiva para sons altos' },
+  { deficiencia: 'Deficiência intelectual' },
+]

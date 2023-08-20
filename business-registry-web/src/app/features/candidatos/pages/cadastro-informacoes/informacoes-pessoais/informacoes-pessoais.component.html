@@ -6,26 +6,44 @@
       <br>
       <div class="row d-flex justify-content-center">
         <div class="col-lg-8">
-          <form>
+          <form (ngSubmit)="onSubmit()">
             <div class="row">
               <!-- Genero input -->
               <div class="col-md-4">
                 <div class="form-floating mb-3">
-                  <input type="text" id="genero" class="form-control" placeholder="=" name="genero" />
-                  <label for="genero">Genero</label>
+                  <select name="genero" [(ngModel)]="candidato.genero"
+                    class="form-select">
+                    <option disabled selected hidden>Selecione o gênero</option>
+                    <ng-container *ngFor="let genero of generos">
+                      <option [value]="genero.genero" id="genero">{{genero.genero}}</option>
+                    </ng-container>
+                  </select>
+                  <label for="genero">Gênero</label>
                 </div>
               </div>
               <!-- Etnia input -->
               <div class="col-md-4">
                 <div class="form-floating mb-3">
-                  <input type="text" id="etnia" class="form-control" placeholder="=" name="etnia" />
+                  <select name="etnia" [(ngModel)]="candidato.etnia"
+                    class="form-select">
+                    <option disabled selected hidden>Selecione a etnia</option>
+                    <ng-container *ngFor="let etnia of etnias">
+                      <option [value]="etnia.etnia" id="etnia">{{etnia.etnia}}</option>
+                    </ng-container>
+                  </select>
                   <label for="etnia">Etnia</label>
                 </div>
               </div>
               <!-- Deficiência input -->
               <div class="col-md-4">
                 <div class="form-floating mb-3">
-                  <input type="text" id="deficiencia" class="form-control" placeholder="=" name="deficiencia" />
+                  <select name="deficiencia" [(ngModel)]="candidato.deficiencia"
+                    class="form-select">
+                    <option disabled selected hidden>Selecione a etnia</option>
+                    <ng-container *ngFor="let deficiencia of deficiencias">
+                      <option [value]="deficiencia.deficiencia" id="deficiencia">{{deficiencia.deficiencia}}</option>
+                    </ng-container>
+                  </select>
                   <label for="deficiencia">Deficiência</label>
                 </div>
               </div>
@@ -35,11 +53,14 @@
                 <!-- Renda input -->
                 <div class="form-floating mb-3">
                   <input type="text" id="renda_familiar" class="form-control" placeholder="=" name="Renda familiar"
-                    mask="separator.2" decimalMarker="," thousandSeparator="." prefix="R$ " separatorLimit="10000000" />
+                    [(ngModel)]="candidato.rendaFamiliar" [dropSpecialCharacters]="false" mask="separator.2" decimalMarker="," thousandSeparator="." prefix="R$ " separatorLimit="10000000" />
                   <label for="renda_familiar">Renda familiar</label>
                 </div>
               </div>
             </div>
+            <button type="submit" class="btn btn-warning btn-block mb-3">
+              Salvar
+            </button>
           </form>
         </div>
       </div>

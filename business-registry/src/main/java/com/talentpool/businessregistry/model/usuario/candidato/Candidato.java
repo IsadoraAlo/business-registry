@@ -32,16 +32,16 @@ public class Candidato {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@Column(name = "etnia", length=15)
+	@Column(name = "etnia", length=20)
 	private String etnia;
 	
-	@Column(name = "genero", length=9)
+	@Column(name = "genero", length=35)
 	private String genero;
 	
-	@Column(name = "deficiencia", length=45)
+	@Column(name = "deficiencia", length=35)
 	private String deficiencia;
 	
-	@Column(name = "renda_familiar", length=10)
+	@Column(name = "renda_familiar", length=16)
 	private String rendaFamiliar;
 	
 	@OneToMany(fetch = FetchType.EAGER)
@@ -49,7 +49,7 @@ public class Candidato {
 	private List<Competencia> competencias;
 	
 	@OneToOne
-	@JoinColumn(name = "usuario_id")
+	@JoinColumn(name = "usuario_id", referencedColumnName = "id")
 	private Usuario usuario;
 	
 }
