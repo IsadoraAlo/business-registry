@@ -4,6 +4,8 @@ export class Competencia {
   titulo: string;
   nivel: string;
   instituicao: string;
+  dataInicio: Date;
+  dataTermino: Date;
 
   constructor() {
     this.id = 0;
@@ -11,5 +13,7 @@ export class Competencia {
     this.titulo = '';
     this.nivel = '';
     this.instituicao = '';
+    this.dataInicio = new Date();
+    this.dataTermino = new Date();
   }
 }

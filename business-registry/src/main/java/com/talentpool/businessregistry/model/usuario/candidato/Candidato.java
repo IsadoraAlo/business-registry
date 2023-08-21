@@ -2,6 +2,8 @@ package com.talentpool.businessregistry.model.usuario.candidato;
 
 import java.util.List;
 
+import javax.validation.constraints.Size;
+
 import com.talentpool.businessregistry.model.usuario.Usuario;
 
 import jakarta.persistence.Column;
@@ -32,16 +34,20 @@ public class Candidato {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@Column(name = "etnia", length=20)
+	@Column(name = "etnia")
+	@Size(max = 20)
 	private String etnia;
 	
-	@Column(name = "genero", length=35)
+	@Column(name = "genero")
+	@Size(max = 35)
 	private String genero;
 	
-	@Column(name = "deficiencia", length=35)
+	@Column(name = "deficiencia")
+	@Size(max = 35)
 	private String deficiencia;
 	
-	@Column(name = "renda_familiar", length=16)
+	@Column(name = "renda_familiar")
+	@Size(max = 16)
 	private String rendaFamiliar;
 	
 	@OneToMany(fetch = FetchType.EAGER)

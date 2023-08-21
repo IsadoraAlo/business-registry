@@ -5,19 +5,21 @@ export class Usuario {
   tipo: string;
   nome: string;
   email: string;
-  documento: string;
   senha: string;
+  sobre: string;
   celular: string;
   status: boolean;
+  documento: string;
 
   constructor() {
     this.id = 0;
     this.tipo = '';
     this.nome = '';
     this.email = '';
-    this.documento = '';
     this.senha = '';
+    this.sobre = '';
     this.celular = '';
     this.status = false;
+    this.documento = '';
   }
 }

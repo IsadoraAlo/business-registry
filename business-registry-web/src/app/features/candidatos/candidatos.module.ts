@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxMaskModule } from 'ngx-mask';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { ComponentesModule } from '../commom/componentes/componentes.module';
@@ -31,6 +31,7 @@ import { InformacoesEnderecoComponent } from './pages/cadastro-informacoes/infor
     AppRoutingModule,
     ComponentesModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     NgxMaskModule.forChild(),
   ],

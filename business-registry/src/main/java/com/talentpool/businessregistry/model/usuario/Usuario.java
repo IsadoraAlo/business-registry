@@ -62,6 +62,10 @@ public class Usuario implements UserDetails{
 	@Size(max = 11, min = 11)
 	private String celular;
 	
+	@Column(name = "sobre")
+	@Size(max = 200, min = 0)
+	private String sobre;
+	
 	@Column(name = "status")
 	private Boolean status;
 	

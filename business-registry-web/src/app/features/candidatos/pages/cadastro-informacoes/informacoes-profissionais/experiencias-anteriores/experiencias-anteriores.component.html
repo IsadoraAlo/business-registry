@@ -1,32 +1,34 @@
-<div class="row">
-  <!-- Info text -->
-  <div class="col-md-6">
-    <div class="form-floating mb-3">
-      <input type="text" id="intituicao" class="form-control" placeholder="=" name="intituicao" />
-      <label for="intituicao">Empresa</label>
+<form [formGroup]="form">
+  <div class="row">
+    <!-- Info text -->
+    <div class="col-md-6">
+      <div class="form-floating mb-3">
+        <input formControlName="instituicao" type="text" id="intituicao" class="form-control" placeholder="=" name="intituicao" />
+        <label for="intituicao">Empresa</label>
+      </div>
+    </div>
+    <!-- Info text -->
+    <div class="col-md-6">
+      <div class="form-floating mb-3">
+        <input formControlName="titulo" type="text" id="titulo" class="form-control" placeholder="=" name="titulo" />
+        <label for="titulo">Cargo</label>
+      </div>
     </div>
   </div>
-  <!-- Info text -->
-  <div class="col-md-6">
-    <div class="form-floating mb-3">
-      <input type="text" id="titulo" class="form-control" placeholder="=" name="titulo" />
-      <label for="titulo">Cargo</label>
+  <div class="row">
+    <!-- Inicio contrato -->
+    <div class="col-md-4">
+      <div class="form-floating mb-3">
+        <input formControlName="dataInicio" type="text" id="data_inicio" class="form-control" placeholder="=" name="data_inicio" />
+        <label for="dataInicio">Data de início</label>
+      </div>
+    </div>
+    <!-- Final contrato -->
+    <div class="col-md-4">
+      <div class="form-floating mb-3">
+        <input formControlName="dataTermino" type="text" id="data_final" class="form-control" placeholder="=" name="data_final" />
+        <label for="dataFinal">Data de encerramento</label>
+      </div>
     </div>
   </div>
-</div>
-<div class="row">
-  <!-- Inicio contrato -->
-  <div class="col-md-4">
-    <div class="form-floating mb-3">
-      <input type="text" id="data_inicio" class="form-control" placeholder="=" name="data_inicio" />
-      <label for="data_inicio">Data de início</label>
-    </div>
-  </div>
-  <!-- Final contrato -->
-  <div class="col-md-4">
-    <div class="form-floating mb-3">
-      <input type="text" id="data_final" class="form-control" placeholder="=" name="data_final" />
-      <label for="data_final">Data de encerramento</label>
-    </div>
-  </div>
-</div>
+</form>
