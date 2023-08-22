@@ -86,10 +86,10 @@ export class CadastroInformacoesComponent {
   }
 
   public onSubmit(): void {
+    this.attUsuario();
     this.saveEndereco();
     this.saveCandidato();
     this.saveCompetencia();
-    this.attUsuario();
     this.router.navigate(['candidatos', 'pagina-inicial'])
   }
 }
