@@ -6,35 +6,31 @@
       <br>
       <div class="row d-flex justify-content-center">
         <div class="col-lg-8">
-          <form (ngSubmit)="onSubmit()">
-            <div class="row">
-              <!-- Info text -->
-              <div class="col-md-12">
-                <div class="form-floating mb-3">
-                  <textarea [(ngModel)]="usuario.sobre" type="text" id="info" class="form-control" placeholder="=" name="info"></textarea>
-                  <label for="info">Fale sobre você no ambiente de trabalho</label>
-                </div>
+          <div class="row">
+            <!-- Info text -->
+            <div class="col-md-12">
+              <div class="form-floating mb-3">
+                <textarea [(ngModel)]="usuario.sobre" type="text" id="info" class="form-control" placeholder="="
+                  name="info"></textarea>
+                <label for="info">Fale sobre você no ambiente de trabalho</label>
               </div>
             </div>
-            <br><br>
-            <h3 class="text-warning"><b>Experiências anteriores</b></h3>
-            <br><br>
-            <ng-container *ngFor="let competencia of competencias; let indexComponent = index">
-              <app-experiencias-anteriores [i]="indexComponent" [competencia]="competencia"></app-experiencias-anteriores>
-              <br>
-            </ng-container>
-            <div class="row">
-              <div class="col-md-1">
-                <button type="button" class="btn" (click)="onClickAdd()"><i class="bi bi-plus-circle"></i></button>
-              </div>
-              <div class="col-md-1" *ngIf="indexComponent > 1">
-                <button type="button" class="btn" (click)="onClickRemove()"><i class="bi bi-trash-fill"></i></button>
-              </div>
+          </div>
+          <br><br>
+          <h3 class="text-warning"><b>Experiências anteriores</b></h3>
+          <br><br>
+          <ng-container *ngFor="let competencia of competencias; let indexComponent = index">
+            <app-experiencias-anteriores [i]="indexComponent" [competencia]="competencia"></app-experiencias-anteriores>
+            <br>
+          </ng-container>
+          <div class="row">
+            <div class="col-md-1">
+              <button type="button" class="btn" (click)="onClickAdd()"><i class="bi bi-plus-circle"></i></button>
             </div>
-            <button type="submit" class="btn btn-warning btn-block mb-3">
-              Salvar
-            </button>
-          </form>
+            <div class="col-md-1" *ngIf="indexComponent > 1">
+              <button type="button" class="btn" (click)="onClickRemove()"><i class="bi bi-trash-fill"></i></button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

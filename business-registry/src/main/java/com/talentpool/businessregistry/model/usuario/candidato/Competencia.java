@@ -2,7 +2,7 @@ package com.talentpool.businessregistry.model.usuario.candidato;
 
 import java.util.Date;
 
-import com.talentpool.businessregistry.model.usuario.Usuario;
+import javax.validation.constraints.Size;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -30,25 +30,27 @@ public class Competencia {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	@Column(name = "tipo", length=30)
+	@Column(name = "tipo", length = 30)
 	private String tipo;
-	
-	@Column(name = "titulo", length=70)
+
+	@Column(name = "titulo", length = 70)
 	private String titulo;
 
-	@Column(name = "nivel", length=15)
+	@Column(name = "nivel", length = 15)
 	private String nivel;
 
-	@Column(name = "instituicao", length=70)
+	@Column(name = "instituicao", length = 70)
 	private String instituicao;
-	
+
 	@Column(name = "data_inicio")
-    private Date dataInicio;
-	
+	@Size(max = 10, min = 10)
+	private Date dataInicio;
+
 	@Column(name = "data_termino")
-    private Date dataTermino;
-	
+	@Size(max = 10, min = 10)
+	private Date dataTermino;
+
 	@ManyToOne
-    @JoinColumn(name = "candidato_id", referencedColumnName = "id")
-    private Candidato candidatoId;
+	@JoinColumn(name = "candidato_id", referencedColumnName = "id")
+	private Candidato candidato;
 }

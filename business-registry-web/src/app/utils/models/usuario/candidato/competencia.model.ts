@@ -1,3 +1,4 @@
+import { Candidato } from 'src/app/utils/models/usuario/candidato/candidato.model';
 export class Competencia {
   id: number;
   tipo: string;
@@ -6,6 +7,7 @@ export class Competencia {
   instituicao: string;
   dataInicio: Date;
   dataTermino: Date;
+  candidato: Candidato;
 
   constructor() {
     this.id = 0;
@@ -15,5 +17,6 @@ export class Competencia {
     this.instituicao = '';
     this.dataInicio = new Date();
     this.dataTermino = new Date();
+    this.candidato = new Candidato()
   }
 }
