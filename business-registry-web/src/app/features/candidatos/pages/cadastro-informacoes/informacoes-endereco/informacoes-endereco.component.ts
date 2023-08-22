@@ -29,7 +29,7 @@ export class InformacoesEnderecoComponent{
 
   private saveEndereco(): void {
     this.endereco.pais = 'Brasil';
-    this.endereco.usuarioId = this.local.UsuarioLogado;
+    this.endereco.usuario = this.local.UsuarioLogado;
     this.enderecoService.criarEndereco(this.endereco)
     .pipe(
       catchError((error) => {

@@ -2,11 +2,15 @@ package com.talentpool.businessregistry.model.usuario.candidato;
 
 import java.util.Date;
 
+import com.talentpool.businessregistry.model.usuario.Usuario;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -44,4 +48,7 @@ public class Competencia {
 	@Column(name = "data_termino")
     private Date dataTermino;
 	
+	@ManyToOne
+    @JoinColumn(name = "candidato_id", referencedColumnName = "id")
+    private Candidato candidatoId;
 }

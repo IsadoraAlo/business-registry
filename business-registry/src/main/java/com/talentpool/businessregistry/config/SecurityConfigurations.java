@@ -25,9 +25,9 @@ public class SecurityConfigurations {
 //                .authorizeHttpRequests(authorize -> authorize
 //                        .requestMatchers("/auth/login").permitAll()
 //                        .requestMatchers("/usuarios").permitAll()
-////                        .anyRequest().authenticated()
+//                        .anyRequest().authenticated()
 //                )
-////                .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
+//                .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
 	

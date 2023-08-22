@@ -19,8 +19,8 @@
             <br><br>
             <h3 class="text-warning"><b>Experiências anteriores</b></h3>
             <br><br>
-            <ng-container *ngFor="let n of numSequence(indexComponent)">
-              <app-experiencias-anteriores [form]="competenciaForm"></app-experiencias-anteriores>
+            <ng-container *ngFor="let competencia of competencias; let indexComponent = index">
+              <app-experiencias-anteriores [i]="indexComponent" [competencia]="competencia"></app-experiencias-anteriores>
               <br>
             </ng-container>
             <div class="row">

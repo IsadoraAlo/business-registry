@@ -5,6 +5,9 @@ import { UsuarioService } from './../../../../../utils/services/usuario/usuario.
 import { Component } from '@angular/core';
 import { LocalStorage } from 'src/app/utils/data/local-storage.util';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Competencia } from 'src/app/utils/models/usuario/candidato/competencia.model';
+import { CompetenciaService } from 'src/app/utils/services/usuario/candidato/competencia.service';
+import { TipoCompetencia } from 'src/app/utils/enum/competencia.enum';
 
 @Component({
   selector: 'app-informacoes-profissionais',
@@ -14,33 +17,43 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class InformacoesProfissionaisComponent {
   public usuario: Usuario = this.local.UsuarioLogado;
   public indexComponent: number = 1;
-  public competenciaForm: FormGroup;
+  public competencias: Competencia[] = [];
 
   constructor(
     private usuarioService: UsuarioService,
+    private competenciaService: CompetenciaService,
     private router: Router,
     private local:LocalStorage,
-    private formBuilder: FormBuilder,
-  ) {
-    this.competenciaForm = this.formBuilder.group({
-      titulo: [''],
-      instituicao: [''],
-      dataInicio: [null],
-      dataTermino: [null]
-    })
+  ) {  }
+
+  onClickAdd() {
+    this.competencias.push(new Competencia());
   }
 
-  onClickAdd(){
-    this.indexComponent = this.indexComponent+1;
-    console.log(this.competenciaForm.value)
+  onClickRemove() {
+    if (this.competencias.length > 1) {
+      this.competencias.pop();
+    }
   }
 
-  onClickRemove(){
-    this.indexComponent = this.indexComponent-1;
-  }
-
-  numSequence(number: number): Array<number> {
-    return Array(this.indexComponent);
+  private saveCompetencia(): void {
+    for (const competencia of this.competencias) {
+      competencia.tipo = TipoCompetencia.EXPERIENCIA
+      competencia.dataInicio.toISOString();
+      competencia.dataTermino.toISOString();
+      this.competenciaService.criarCompetencia(competencia)
+      .pipe(
+        catchError((error) => {
+          console.error('Erro ao criar competência:', error);
+          return throwError(() => error);
+        })
+      )
+      .subscribe(
+        () => {
+          this.router.navigate(['/login']);
+        },
+      );
+    }
   }
 
   private saveUsuario(): void {
@@ -52,11 +65,12 @@ export class InformacoesProfissionaisComponent {
       })
     )
     .subscribe(() => {
-      this.router.navigate(['/login']);
+
     });
   }
 
   public onSubmit(): void {
     this.saveUsuario();
+    this.saveCompetencia();
   }
 }

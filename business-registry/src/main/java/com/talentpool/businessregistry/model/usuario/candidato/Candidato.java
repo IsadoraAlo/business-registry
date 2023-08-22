@@ -1,19 +1,15 @@
 package com.talentpool.businessregistry.model.usuario.candidato;
 
-import java.util.List;
-
 import javax.validation.constraints.Size;
 
 import com.talentpool.businessregistry.model.usuario.Usuario;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -49,10 +45,6 @@ public class Candidato {
 	@Column(name = "renda_familiar")
 	@Size(max = 16)
 	private String rendaFamiliar;
-	
-	@OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "candidato_id")
-	private List<Competencia> competencias;
 	
 	@OneToOne
 	@JoinColumn(name = "usuario_id", referencedColumnName = "id")

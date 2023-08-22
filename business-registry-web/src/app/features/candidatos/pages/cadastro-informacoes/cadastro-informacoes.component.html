@@ -1,7 +1,11 @@
-
 <app-menu-candidato></app-menu-candidato>
-<app-informacoes-endereco></app-informacoes-endereco>
-<br>
-<app-informacoes-pessoais></app-informacoes-pessoais>
-<br>
-<app-informacoes-profissionais></app-informacoes-profissionais>
+<form (ngSubmit)="onSubmit()">
+  <app-informacoes-endereco></app-informacoes-endereco>
+  <br>
+  <app-informacoes-pessoais></app-informacoes-pessoais>
+  <br>
+  <app-informacoes-profissionais></app-informacoes-profissionais>
+  <button type="submit" class="btn btn-warning btn-block mb-3">
+    Salvar
+  </button>
+</form>

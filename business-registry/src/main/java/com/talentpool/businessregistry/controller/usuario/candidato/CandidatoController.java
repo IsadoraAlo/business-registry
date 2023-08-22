@@ -62,7 +62,6 @@ public class CandidatoController {
         if (candidatoExistente == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        candidatoExistente.setCompetencias(candidatoAtualizado.getCompetencias());
         candidatoExistente.setDeficiencia(candidatoAtualizado.getDeficiencia());
         candidatoExistente.setEtnia(candidatoAtualizado.getEtnia());
         candidatoExistente.setGenero(candidatoAtualizado.getGenero());
