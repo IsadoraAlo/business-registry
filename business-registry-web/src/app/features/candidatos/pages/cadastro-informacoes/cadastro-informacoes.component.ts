@@ -47,6 +47,7 @@ export class CadastroInformacoesComponent {
 
   private saveCandidatoAndCompetencias(): void {
     this.candidato.usuario = this.local.UsuarioLogado;
+    this.candidato.id = this.local.UsuarioLogado.id;
     this.candidatoService.criarCandidato(this.candidato)
       .pipe(
         catchError((error) => {
@@ -72,14 +73,7 @@ export class CadastroInformacoesComponent {
           return forkJoin(competenciaObservables);
         })
       )
-      .subscribe(
-        () => {
-          console.log('Candidato e competências criados com sucesso.');
-        },
-        (error) => {
-          console.error('Erro ao criar candidato e competências:', error);
-        }
-      );
+      .subscribe();
   }
 
 
