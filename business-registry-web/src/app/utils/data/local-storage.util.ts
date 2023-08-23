@@ -12,6 +12,7 @@ export class LocalStorage {
       usuario.celular = body.usuario.celular;
       usuario.documento = body.usuario.documento;
       usuario.email = body.usuario.email;
+      usuario.sobre = body.usuario.sobre;
       usuario.status = body.usuario.status;
       usuario.senha = body.usuario.senha;
       usuario.nome = body.usuario.nome;

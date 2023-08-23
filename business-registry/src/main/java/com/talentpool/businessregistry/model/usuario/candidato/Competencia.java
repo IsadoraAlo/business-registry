@@ -4,8 +4,12 @@ import java.util.Date;
 
 import javax.validation.constraints.Size;
 
+import com.talentpool.businessregistry.model.enuns.TipoCompetencia;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -30,8 +34,9 @@ public class Competencia {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
+	@Enumerated(EnumType.STRING)
 	@Column(name = "tipo", length = 30)
-	private String tipo;
+	private TipoCompetencia tipo;
 
 	@Column(name = "titulo", length = 70)
 	private String titulo;

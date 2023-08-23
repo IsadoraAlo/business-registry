@@ -66,7 +66,6 @@ public class CandidatoController {
         candidatoExistente.setEtnia(candidatoAtualizado.getEtnia());
         candidatoExistente.setGenero(candidatoAtualizado.getGenero());
         candidatoExistente.setRendaFamiliar(candidatoAtualizado.getRendaFamiliar());
-        candidatoExistente.setUsuario(candidatoAtualizado.getUsuario());
         Candidato candidatoAtualizadoNoBanco = candidatoRepository.save(candidatoExistente);
         return new ResponseEntity<>(candidatoAtualizadoNoBanco, HttpStatus.OK);
     }

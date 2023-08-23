@@ -6,11 +6,9 @@ import com.talentpool.businessregistry.model.usuario.Usuario;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -27,8 +25,11 @@ import lombok.Setter;
 @Table(name = "candidato")
 public class Candidato {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
+    private Long id;
+
+    @OneToOne
+    @PrimaryKeyJoinColumn
+    private Usuario candidato;
 	
 	@Column(name = "etnia")
 	@Size(max = 20)
@@ -45,9 +46,5 @@ public class Candidato {
 	@Column(name = "renda_familiar")
 	@Size(max = 16)
 	private String rendaFamiliar;
-	
-	@OneToOne
-	@JoinColumn(name = "usuario_id", referencedColumnName = "id")
-	private Usuario usuario;
 	
 }

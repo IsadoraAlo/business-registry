@@ -1,4 +1,4 @@
-import { catchError, throwError } from 'rxjs';
+import { Observable, catchError, forkJoin, switchMap, throwError } from 'rxjs';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { LocalStorage } from 'src/app/utils/data/local-storage.util';
@@ -32,23 +32,6 @@ export class CadastroInformacoesComponent {
     private usuarioService: UsuarioService
   ) { }
 
-  private saveCompetencia(): void {
-    for (const competencia of this.competencias) {
-      competencia.candidato;
-      competencia.dataInicio.toISOString();
-      competencia.dataTermino.toISOString();
-      competencia.tipo = TipoCompetencia.EXPERIENCIA
-      this.competenciaService.criarCompetencia(competencia)
-        .pipe(
-          catchError((error) => {
-            console.error('Erro ao criar competência:', error);
-            return throwError(() => error);
-          })
-        )
-        .subscribe();
-    }
-  }
-
   private saveEndereco(): void {
     this.endereco.pais = 'Brasil';
     this.endereco.usuario = this.local.UsuarioLogado;
@@ -62,17 +45,43 @@ export class CadastroInformacoesComponent {
       .subscribe();
   }
 
-  private saveCandidato(): void {
+  private saveCandidatoAndCompetencias(): void {
     this.candidato.usuario = this.local.UsuarioLogado;
     this.candidatoService.criarCandidato(this.candidato)
       .pipe(
         catchError((error) => {
           console.error('Erro ao criar candidato:', error);
           return throwError(() => error);
+        }),
+        switchMap(() => {
+          const competenciaObservables: Observable<any>[] = [];
+          for (const competencia of this.competencias) {
+            competencia.candidato = this.candidato;
+            competencia.dataInicio.toISOString();
+            competencia.dataTermino.toISOString();
+            competencia.tipo = TipoCompetencia.EXPERIENCIA;
+            const competenciaObservable = this.competenciaService.criarCompetencia(competencia)
+              .pipe(
+                catchError((error) => {
+                  console.error('Erro ao criar competência:', error);
+                  return throwError(() => error);
+                })
+              );
+            competenciaObservables.push(competenciaObservable);
+          }
+          return forkJoin(competenciaObservables);
         })
       )
-      .subscribe();
+      .subscribe(
+        () => {
+          console.log('Candidato e competências criados com sucesso.');
+        },
+        (error) => {
+          console.error('Erro ao criar candidato e competências:', error);
+        }
+      );
   }
+
 
   private attUsuario(): void {
     this.usuarioService.atualizarUsuario(this.usuario.id, this.usuario)
@@ -88,8 +97,7 @@ export class CadastroInformacoesComponent {
   public onSubmit(): void {
     this.attUsuario();
     this.saveEndereco();
-    this.saveCandidato();
-    this.saveCompetencia();
+    this.saveCandidatoAndCompetencias();
     this.router.navigate(['candidatos', 'pagina-inicial'])
   }
 }
