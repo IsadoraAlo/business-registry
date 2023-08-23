@@ -1,0 +1,23 @@
+.sidenav{
+  height: 100%;
+  width: 250px;
+  z-index: 2;
+  position: fixed;
+  padding-top: 20px;
+}
+#img-logo{
+  width: 20%;
+  height: auto;
+}
+#img-user{
+  object-fit: cover;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+}
+span{
+  justify-content: end;
+  display: flex;
+}

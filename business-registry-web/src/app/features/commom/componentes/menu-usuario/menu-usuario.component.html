@@ -1,0 +1,27 @@
+<div *ngIf="isMenuSelected == true" class="sidenav yellow-background shadow-lg">
+  <a (click)="onClickMenu()">
+    <span class="bi bi-x fs-3"></span>
+  </a>
+  <br>
+  <div class="px-5 py-3">
+    <a routerLink="/candidatos/pagina-inicial" (click)="onClickMenu()">
+      <img id="img-logo"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/EY_logo_2019.svg/800px-EY_logo_2019.svg.png">
+    </a>
+    <br><br>
+    <a routerLink="/candidatos/pagina-inicial" (click)="onClickMenu()">Bem-vindo</a><br><br>
+    <a routerLink="/candidatos/busca-vagas" (click)="onClickMenu()">Vagas</a><br><br>
+    <a routerLink="/candidatos/pagina-inicial" (click)="onClickMenu()">Processo seletivo</a><br><br>
+    <a routerLink="/candidatos/cadastro-dados" (click)="onClickMenu()">Competências</a><br><br>
+  </div>
+  <div class="text-center">
+    <img id="img-user"
+      src="https://img.freepik.com/fotos-gratis/cliente-masculino-pensativo-olhando-para-longe_74855-3601.jpg?w=360"
+      alt="Avatar">
+    <br>
+    <p class="fs-4"><b>{{nomeCandidato}}</b></p>
+  </div>
+</div>
+<div class="yellow-background px-3 py-3">
+  <a (click)="onClickMenu()" class=" fs-5"><b>≡</b></a>
+</div>
