@@ -7,6 +7,7 @@ import { LoginComponent } from './features/commom/home/pages/login/login.compone
 import { BoasVindasCandidatoComponent } from './features/candidatos/pages/boas-vindas-candidato/boas-vindas-candidato.component';
 import { CandidatosBuscaVagasComponent } from './features/candidatos/pages/candidatos-busca-vagas/candidatos-busca-vagas.component';
 import { CadastroInformacoesComponent } from './features/candidatos/pages/cadastro-informacoes/cadastro-informacoes.component';
+import { BoasVindasUsuarioComponent } from './features/commom/home/pages/boas-vindas-usuario/boas-vindas-usuario.component';
 const routes: Routes = [
   {
     path: '',
@@ -33,7 +34,7 @@ const routes: Routes = [
     children: [
       {
         path: 'pagina-inicial',
-        component: BoasVindasCandidatoComponent
+        component: BoasVindasUsuarioComponent
       },
       {
         path: 'busca-vagas',

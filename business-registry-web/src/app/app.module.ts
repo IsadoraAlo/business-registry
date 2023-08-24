@@ -10,8 +10,9 @@ import { IndexComponent } from './features/commom/home/pages/index/index.compone
 import { LoginComponent } from './features/commom/home/pages/login/login.component';
 import { NgxMaskModule } from 'ngx-mask';
 import { HttpClientModule } from '@angular/common/http';
+import { BoasVindasUsuarioComponent } from './features/commom/home/pages/boas-vindas-usuario/boas-vindas-usuario.component';
 @NgModule({
-  declarations: [AppComponent, AboutComponent, IndexComponent, LoginComponent],
+  declarations: [AppComponent, AboutComponent, IndexComponent, LoginComponent, BoasVindasUsuarioComponent],
   imports: [BrowserModule, FormsModule, CadastrosModule, HttpClientModule, AppRoutingModule, ComponentesModule, NgxMaskModule.forRoot()],
   bootstrap: [AppComponent],
 })
