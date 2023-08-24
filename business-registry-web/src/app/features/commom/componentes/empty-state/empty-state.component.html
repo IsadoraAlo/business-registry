@@ -1,4 +1,9 @@
-<h5>Parece que não encontramos dados sobre
-  <ng-container *ngIf="usuario.tipo === tipoCandidato">você</ng-container>
-  <ng-container *ngIf="usuario.tipo === tipoEmpresa">sua empresa</ng-container>
-</h5>
+      <p *ngIf="usuario.tipo === tipoCandidato">Antes de começarmos a se cadastrar em vagas, vamos primeiro preencher
+        algumas informações para que você tenha um curriculo em dia em nossa plataforma!
+      </p>
+      <p *ngIf="usuario.tipo === tipoEmpresa">
+        Antes de começarmos a cadastrar vagas em sua empresa, vamos primeiro
+        preencher algumas informações para que você tenha um repertório em dia em nossa plataforma!
+      </p>
+      <br>
+      <button class="btn btn-info btn-block mb-3"><b>Cadastrar informações</b></button>

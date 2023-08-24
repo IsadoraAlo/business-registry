@@ -2,13 +2,16 @@
 
 <div class="px-5 justify-content-center d-flex">
   <div class="row">
-    <div class="col-12">
+    <div class=" px-5 col-8">
       <br>
       <h1 class="text-border"><b>Bem vindo {{usuario.nome}}!</b></h1>
       <br>
       <br>
-      <p>Bem vindo candidato à plataforma de recrutamento e seleção da Ernest Young!</p>
-      <p>Insira suas informações <a>aqui</a> para encontrarmos uma vaga ideal para o seu perfil.</p>
+      <p>Bem vindo à plataforma de recrutamento e seleção TalentPool!</p>
+      <p>A melhor plataforma de recrutamento do Brasil, líder em conectar talentos e empresas de forma eficiente e inovadora.</p>
+      <div *ngIf="usuario.sobre === ''">
+        <app-empty-state></app-empty-state>
+      </div>
     </div>
   </div>
 </div>
@@ -72,6 +75,4 @@
     </button>
   </div>
 </ng-container>
-<ng-container *ngIf="usuario.sobre === ''">
-  <app-empty-state></app-empty-state>
-</ng-container>
+
