@@ -1,11 +1,11 @@
-<app-menu-candidato></app-menu-candidato>
+<app-menu-usuario></app-menu-usuario>
 <form (ngSubmit)="onSubmit()">
   <app-informacoes-endereco [endereco]="endereco"></app-informacoes-endereco>
   <br>
   <app-informacoes-pessoais [candidato]="candidato"></app-informacoes-pessoais>
   <br>
   <app-informacoes-profissionais [competencias]="competencias" [usuario]="usuario"></app-informacoes-profissionais>
-  <button type="submit" class="btn btn-warning btn-block mb-3">
+  <button type="submit" class="btn brand-btn btn-block mb-3">
     Salvar
   </button>
 </form>

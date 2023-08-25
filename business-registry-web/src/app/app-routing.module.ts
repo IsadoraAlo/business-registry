@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CadastroInformacoesComponent } from './features/candidatos/pages/cadastro-informacoes/cadastro-informacoes.component';
+import { CandidatosBuscaVagasComponent } from './features/candidatos/pages/candidatos-busca-vagas/candidatos-busca-vagas.component';
 import { AboutComponent } from './features/commom/home/pages/about/about.component';
+import { BoasVindasUsuarioComponent } from './features/commom/home/pages/boas-vindas-usuario/boas-vindas-usuario.component';
 import { CadastrosComponent } from './features/commom/home/pages/cadastros/cadastros.component';
 import { IndexComponent } from './features/commom/home/pages/index/index.component';
 import { LoginComponent } from './features/commom/home/pages/login/login.component';
-import { BoasVindasCandidatoComponent } from './features/candidatos/pages/boas-vindas-candidato/boas-vindas-candidato.component';
-import { CandidatosBuscaVagasComponent } from './features/candidatos/pages/candidatos-busca-vagas/candidatos-busca-vagas.component';
-import { CadastroInformacoesComponent } from './features/candidatos/pages/cadastro-informacoes/cadastro-informacoes.component';
-import { BoasVindasUsuarioComponent } from './features/commom/home/pages/boas-vindas-usuario/boas-vindas-usuario.component';
 const routes: Routes = [
   {
     path: '',
@@ -15,7 +14,7 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    component: CadastroInformacoesComponent,
+    component: IndexComponent,
   },
   {
     path: 'sobre',

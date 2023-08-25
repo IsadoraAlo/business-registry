@@ -10,8 +10,20 @@ a:hover{
   text-decoration: none;
   cursor: pointer;
 }
-.yellow-background{
-  background-color: goldenrod;
+.brand-btn{
+  padding: 10px 25px;
+  background-color: rgb(21, 121, 221);
+  color: white;
+}
+.brand-btn:hover{
+  background-color: rgb(18, 107, 197);
+  color: white;
+}
+.brand-background{
+  background-color: rgb(21, 121, 221);
+}
+.brand-text{
+  color: rgb(21, 121, 221);
 }
 .grey-background{
   background-color: lightgrey;
@@ -32,12 +44,12 @@ span{
   margin-right: 10px;
 }
 .text-border{
-  text-decoration: underline goldenrod;
+  text-decoration: underline rgb(21, 121, 221);
 }
 html {
   margin: 0;
   height: 100%;
-  background-color: goldenrod;
+  background-color: rgb(21, 121, 221);
 }
 app-root{
   background-color: white;
