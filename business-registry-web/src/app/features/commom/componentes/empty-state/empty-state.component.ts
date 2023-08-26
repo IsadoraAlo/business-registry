@@ -6,7 +6,6 @@ import { Usuario } from 'src/app/utils/models/usuario/usuario.model';
 @Component({
   selector: 'app-empty-state',
   templateUrl: './empty-state.component.html',
-  styleUrls: ['./empty-state.component.scss']
 })
 export class EmptyStateComponent {
   public usuario: Usuario = this.localStorage?.UsuarioLogado;

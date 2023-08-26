@@ -2,6 +2,9 @@ package com.talentpool.businessregistry.model.vaga;
 
 import java.util.List;
 
+import javax.validation.constraints.Size;
+
+import com.talentpool.businessregistry.model.usuario.Endereco;
 import com.talentpool.businessregistry.model.usuario.candidato.Candidato;
 
 import jakarta.persistence.Column;
@@ -12,6 +15,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -21,28 +25,43 @@ public class Vaga {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@Column(name = "titulo", length=70)
+	@Column(name = "titulo")
+	@Size(max = 70)
 	private String titulo;
 	
-	@Column(name = "qualificacoes", length=100)
+    @OneToOne
+    @JoinColumn(name = "endereco")
+    private Endereco endereco;
+	
+	@Column(name = "descricao")
+	@Size(max = 200)
+	private String descricao;
+	
+	@Column(name = "qualificacoes")
+	@Size(max = 100)
 	private String qualificacoes;
 	
 	@Column(name = "beneficios", length=100)
+	@Size(max = 100)
 	private String beneficios;
 	
 	@Column(name = "area_atuacao", length=100)
+	@Size(max = 100)
 	private String areaAtuacao;
 	
 	@Column(name = "cargo", length=100)
 	private String cargo;
 	
-	@Column(name = "inclusao", length=100)
+	@Column(name = "inclusao")
+	@Size(max = 100)
 	private String inclusao;
 	
-	@Column(name = "info_adicional", length=100)
+	@Column(name = "info_adicional")
+	@Size(max = 100)
 	private String infoAdicional;
 	
-	@Column(name = "status", length=100)
+	@Column(name = "status")
+	@Size(max = 100)
 	private Boolean status;
 	
 	@OneToMany(fetch = FetchType.EAGER)

@@ -1,6 +1,5 @@
 import { Usuario } from "../usuario.model";
 import { Competencia } from "./competencia.model";
-
 export class Candidato {
   id: number;
   etnia: string;

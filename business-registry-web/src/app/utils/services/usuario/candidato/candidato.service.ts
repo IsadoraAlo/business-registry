@@ -12,27 +12,22 @@ export class CandidatoService {
 
   constructor(private http: HttpClient) { }
 
-  // Método para criar um novo candidato
   criarCandidato(candidato: Candidato): Observable<Candidato> {
     return this.http.post<Candidato>(this.apiUrl, candidato);
   }
 
-  // Método para obter todos os candidatos
   obterCandidatos(): Observable<Candidato[]> {
     return this.http.get<Candidato[]>(this.apiUrl);
   }
 
-  // Método para obter um candidato pelo ID
   obterCandidatoPorId(id: number): Observable<Candidato> {
     return this.http.get<Candidato>(`${this.apiUrl}/${id}`);
   }
 
-  // Método para atualizar um candidato existente
   atualizarCandidato(id: number, candidatoAtualizado: Candidato): Observable<Candidato> {
     return this.http.put<Candidato>(`${this.apiUrl}/${id}`, candidatoAtualizado);
   }
 
-  // Método para excluir um candidato pelo ID
   excluirCandidato(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }

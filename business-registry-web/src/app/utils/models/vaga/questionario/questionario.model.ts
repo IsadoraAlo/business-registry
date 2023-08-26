@@ -1,5 +1,4 @@
 import { Resposta } from "./resposta.model";
-
 export class Questionario {
   id: number;
   respostas: Resposta[];

@@ -5,9 +5,13 @@ import { ComponentesModule } from '../commom/componentes/componentes.module';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxMaskModule } from 'ngx-mask';
+import { CadastroInformacoesEmpresaComponent } from './pages/cadastro-informacoes/cadastro-informacoes.component';
+import { InformacoesEnderecoComponent } from './pages/cadastro-informacoes/informacoes-endereco/informacoes-endereco.component';
+import { CommonModule } from '@angular/common';
+import { NovaVagaComponent } from './pages/nova-vaga/nova-vaga.component';
 @NgModule({
-  declarations: [EmpresasCadastrosComponent],
-  imports: [AppRoutingModule, ComponentesModule, FormsModule, HttpClientModule, NgxMaskModule.forChild()],
+  declarations: [EmpresasCadastrosComponent, CadastroInformacoesEmpresaComponent, InformacoesEnderecoComponent, NovaVagaComponent],
+  imports: [CommonModule, AppRoutingModule, ComponentesModule, FormsModule, HttpClientModule, NgxMaskModule.forChild()],
   exports: [EmpresasCadastrosComponent],
 })
-export class EmpresasModule {}
+export class EmpresasModule { }

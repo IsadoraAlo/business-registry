@@ -7,7 +7,6 @@ import { UsuarioService } from 'src/app/utils/services/usuario/usuario.service';
 @Component({
   selector: 'app-candidatos-cadastro',
   templateUrl: './candidatos-cadastro.component.html',
-  styleUrls: ['./candidatos-cadastro.component.scss']
 })
 export class CandidatosCadastroComponent {
   usuario: Usuario = new Usuario();

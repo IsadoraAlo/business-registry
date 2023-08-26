@@ -4,7 +4,6 @@ import { Competencia } from 'src/app/utils/models/usuario/candidato/competencia.
 @Component({
   selector: 'app-experiencias-anteriores',
   templateUrl: './experiencias-anteriores.component.html',
-  styleUrls: ['./experiencias-anteriores.component.scss']
 })
 export class ExperienciasAnterioresComponent {
   @Input() public i!:number;

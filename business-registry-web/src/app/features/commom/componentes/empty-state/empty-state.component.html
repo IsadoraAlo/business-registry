@@ -1,9 +1,21 @@
-      <p *ngIf="usuario.tipo === tipoCandidato">Antes de começarmos a se cadastrar em vagas, vamos primeiro preencher
-        algumas informações para que você tenha um curriculo em dia em nossa plataforma!
-      </p>
-      <p *ngIf="usuario.tipo === tipoEmpresa">
-        Antes de começarmos a cadastrar vagas em sua empresa, vamos primeiro
-        preencher algumas informações para que você tenha um repertório em dia em nossa plataforma!
-      </p>
-      <br>
-      <button class="btn brand-btn btn-block mb-3"><b>Cadastrar informações</b></button>
+<p *ngIf="usuario.tipo === tipoCandidato">Antes de começarmos a se cadastrar em vagas, vamos primeiro preencher
+  algumas informações para que você tenha um curriculo em dia em nossa plataforma!
+</p>
+<p *ngIf="usuario.tipo === tipoEmpresa">
+  Antes de começarmos a cadastrar vagas em sua empresa, vamos primeiro
+  preencher algumas informações para que você tenha um repertório em dia em nossa plataforma!
+</p>
+<br>
+<button *ngIf="usuario.tipo === tipoCandidato" routerLink="/candidatos/cadastro-dados"
+  class="btn brand-btn btn-block mb-3">
+  <b>
+    Cadastrar informações
+  </b>
+</button>
+
+<button *ngIf="usuario.tipo === tipoEmpresa" routerLink="/empresas/cadastro-dados"
+  class="btn brand-btn btn-block mb-3">
+  <b>
+    Cadastrar informações
+  </b>
+</button>

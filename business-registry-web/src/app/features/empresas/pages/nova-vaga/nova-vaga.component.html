@@ -1,0 +1,25 @@
+<div class="text-center">
+  <div class="container shadow">
+    <div class="card-body my-5 py-3">
+      <br>
+      <h2 class="brand-text"><b>Nova vaga</b></h2>
+      <br>
+      <form (ngSubmit)="onSubmit()">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-8">
+            <div class="row">
+              <!-- Info text -->
+              <div class="col-md-12">
+                <div class="form-floating mb-3">
+                  <input [(ngModel)]="vaga.titulo" type="text" id="titulo" class="form-control" placeholder="="
+                    name="titulo">
+                  <label for="titulo">Título da vaga</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

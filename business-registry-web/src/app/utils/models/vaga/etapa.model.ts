@@ -1,6 +1,5 @@
 import { Entrevista } from "./entrevista.model";
 import { Questionario } from "./questionario/questionario.model";
-
 export class Etapa {
   id: number;
   tipo: string;
