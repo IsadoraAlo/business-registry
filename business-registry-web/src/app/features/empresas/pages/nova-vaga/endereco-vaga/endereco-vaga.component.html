@@ -1,9 +1,12 @@
 <div class="row d-flex justify-content-center">
-  <div class="col-lg-10">
+  <div class="col-12">
+    <br>
+    <h3 class="brand-text"><b>Endereço</b></h3>
+    <br>
     <div class="row">
       <div class="col-md-6">
         <div class="form-floating mb-3">
-          <select name="estado{{i}}" #estado [(ngModel)]="endereco.estado" (change)="getSelectedValue(estado.value)"
+          <select name="estado" #estado [(ngModel)]="endereco.estado" (change)="getSelectedValue(estado.value)"
             class="form-select">
             <option disabled selected hidden>Selecione o estado</option>
             <ng-container *ngFor="let estado of estados">
@@ -15,7 +18,7 @@
       </div>
       <div class="col-md-6">
         <div class="form-floating mb-3">
-          <select name="municipio{{i}}" [(ngModel)]="endereco.municipio" class="form-select">
+          <select name="municipio" [(ngModel)]="endereco.municipio" class="form-select">
             <option disabled selected hidden>Selecione a cidade</option>
             <ng-container *ngFor="let cidade of cidades">
               <option [value]="cidade.municipio" id="municipio">{{cidade?.municipio}}</option>
@@ -26,21 +29,21 @@
       </div>
     </div>
     <div class="form-floating mb-3">
-      <input type="text" id="logradouro" class="form-control" placeholder="=" name="logradouro{{i}}"
+      <input type="text" id="logradouro" class="form-control" placeholder="=" name="logradouro"
         [(ngModel)]="endereco.logradouro" />
       <label for="logradouro">Logradouro</label>
     </div>
     <div class="row">
       <div class="col-md-6">
         <div class="form-floating mb-3">
-          <input type="text" id="cep" class="form-control" placeholder="=" name="cep{{i}}" mask="00000-000"
+          <input type="text" id="cep" class="form-control" placeholder="=" name="cep" mask="00000-000"
             [(ngModel)]="endereco.cep" />
           <label for="cep">CEP</label>
         </div>
       </div>
       <div class="col-md-6 ">
         <div class="form-floating mb-3">
-          <input type="text" id="numero" class="form-control" placeholder="=" name="numero{{i}}"
+          <input type="text" id="numero" class="form-control" placeholder="=" name="numero"
             [(ngModel)]="endereco.numero" />
           <label for="numero">Número</label>
         </div>

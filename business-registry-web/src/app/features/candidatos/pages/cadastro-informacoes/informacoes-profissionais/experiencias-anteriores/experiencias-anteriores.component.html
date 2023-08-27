@@ -1,13 +1,11 @@
 <form>
   <div class="row">
-    <!-- Info text -->
     <div class="col-md-6">
       <div class="form-floating mb-3">
         <input [(ngModel)]="competencia.instituicao" type="text" id="intituicao" class="form-control" placeholder="=" name="intituicao{{i}}" />
         <label for="intituicao">Empresa</label>
       </div>
     </div>
-    <!-- Info text -->
     <div class="col-md-6">
       <div class="form-floating mb-3">
         <input [(ngModel)]="competencia.titulo" type="text" id="titulo" class="form-control" placeholder="=" name="titulo{{i}}" />
@@ -16,14 +14,12 @@
     </div>
   </div>
   <div class="row">
-    <!-- Inicio contrato -->
     <div class="col-md-4">
       <div class="form-floating mb-3">
         <input [(ngModel)]="competencia.dataInicio" type="text" id="data_inicio" class="form-control" placeholder="=" name="dataInicio{{i}}" />
         <label for="dataInicio">Data de início</label>
       </div>
     </div>
-    <!-- Final contrato -->
     <div class="col-md-4">
       <div class="form-floating mb-3">
         <input [(ngModel)]="competencia.dataTermino" type="text" id="data_final" class="form-control" placeholder="=" name="dataFinal{{i}}" />

@@ -1,48 +1,39 @@
 <div class="row d-flex justify-content-center">
   <div class="col-lg-8">
     <form (ngSubmit)="onSubmit()">
-      <!-- Nome fantasia input -->
       <div class="form-floating mb-3">
-        <input type="text" id="nome" class="form-control" placeholder="=" name="nome"
-          [(ngModel)]="usuario.nome"/>
+        <input type="text" id="nome" class="form-control" placeholder="=" name="nome" [(ngModel)]="usuario.nome" />
         <label for="nome">Nome fantasia</label>
       </div>
-      <!-- Celular input -->
       <div class="form-floating mb-3">
         <input type="text" id="celular" class="form-control" placeholder="=" name="celular"
-          [(ngModel)]="usuario.celular" mask="(00) 00000-0000"/>
+          [(ngModel)]="usuario.celular" mask="(00) 00000-0000" />
         <label for="celular">Celular</label>
       </div>
-      <!-- CPNJ input -->
       <div class="form-floating mb-3">
         <input type="text" id="cnpj" class="form-control" placeholder="=" name="documento"
-          [(ngModel)]="usuario.documento" mask="00.000.000/0000-00"/>
+          [(ngModel)]="usuario.documento" mask="00.000.000/0000-00" />
         <label for="cnpj">CNPJ</label>
       </div>
-      <!-- Email input -->
       <div class="form-floating mb-3">
-        <input type="email" id="email" class="form-control" placeholder="=" name="email"
-          [(ngModel)]="usuario.email"/>
+        <input type="email" id="email" class="form-control" placeholder="=" name="email" [(ngModel)]="usuario.email" />
         <label for="email">E-mail</label>
       </div>
       <div class="row">
-      <!-- Password input -->
-      <div class="col-md-6 mb-4">
-        <div class="form-floating mb-3">
-          <input type="password" id="senha" class="form-control" placeholder="=" name="senha"
-            [(ngModel)]="usuario.senha"/>
-          <label for="senha">Senha</label>
+        <div class="col-md-6 mb-4">
+          <div class="form-floating mb-3">
+            <input type="password" id="senha" class="form-control" placeholder="=" name="senha"
+              [(ngModel)]="usuario.senha" />
+            <label for="senha">Senha</label>
+          </div>
         </div>
-      </div>
-      <!-- Repeat Password input -->
-      <div class="col-md-6 mb-4">
-        <div class="form-floating mb-3">
-          <input type="password" id="senha" class="form-control" placeholder="=" />
+        <div class="col-md-6 mb-4">
+          <div class="form-floating mb-3">
+            <input type="password" id="senha" class="form-control" placeholder="=" />
             <label for="senha">Repita sua senha</label>
           </div>
         </div>
       </div>
-      <!-- Submit button -->
       <button type="submit" class="btn brand-btn btn-block mb-3">
         Registre-se
       </button>

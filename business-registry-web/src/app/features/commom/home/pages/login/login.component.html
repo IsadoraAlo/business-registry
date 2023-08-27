@@ -8,19 +8,16 @@
         <form (ngSubmit)="onSubmit()">
           <h2><b>Login</b></h2>
           <br><br>
-          <!-- Email input -->
           <div class="form-floating mb-3">
             <input type="email" id="email" class="form-control" placeholder="=" name="email"
               [(ngModel)]="login.email" />
             <label for="email">E-mail</label>
           </div>
-          <!-- Password input -->
           <div class="form-floating mb-3">
             <input type="password" id="senha" class="form-control" placeholder="=" name="senha"
               [(ngModel)]="login.senha" />
             <label for="senha">Senha</label>
           </div>
-          <!-- Submit button -->
           <button type="submit" class="btn brand-btn btn-block mb-3">
             Login
           </button>

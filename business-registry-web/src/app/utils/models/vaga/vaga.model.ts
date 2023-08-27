@@ -1,8 +1,14 @@
 import { Candidato } from "../usuario/candidato/candidato.model";
+import { Endereco } from "../usuario/endereco.model";
 import { Etapa } from "./etapa.model";
 export class Vaga {
   id: number;
   titulo: string;
+  modalidade: string;
+  pretencaoSalarial: string;
+  endereco: Endereco;
+  vagaPcd: boolean;
+
   qualificacoes: string;
   beneficios: string;
   areaAtuacao: string;
@@ -16,6 +22,10 @@ export class Vaga {
   constructor() {
     this.id = 0;
     this.titulo = '';
+    this.endereco = new Endereco();
+    this.modalidade = '';
+    this.pretencaoSalarial = '';
+    this.vagaPcd = false;
     this.qualificacoes = '';
     this.beneficios = '';
     this.areaAtuacao = '';

@@ -9,8 +9,9 @@ import { CadastroInformacoesEmpresaComponent } from './pages/cadastro-informacoe
 import { InformacoesEnderecoComponent } from './pages/cadastro-informacoes/informacoes-endereco/informacoes-endereco.component';
 import { CommonModule } from '@angular/common';
 import { NovaVagaComponent } from './pages/nova-vaga/nova-vaga.component';
+import { EnderecoVagaComponent } from './pages/nova-vaga/endereco-vaga/endereco-vaga.component';
 @NgModule({
-  declarations: [EmpresasCadastrosComponent, CadastroInformacoesEmpresaComponent, InformacoesEnderecoComponent, NovaVagaComponent],
+  declarations: [EmpresasCadastrosComponent, CadastroInformacoesEmpresaComponent, InformacoesEnderecoComponent, NovaVagaComponent, EnderecoVagaComponent],
   imports: [CommonModule, AppRoutingModule, ComponentesModule, FormsModule, HttpClientModule, NgxMaskModule.forChild()],
   exports: [EmpresasCadastrosComponent],
 })
