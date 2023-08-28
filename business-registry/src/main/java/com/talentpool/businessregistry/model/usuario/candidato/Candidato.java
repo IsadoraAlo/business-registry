@@ -29,7 +29,7 @@ public class Candidato {
 
     @OneToOne
     @PrimaryKeyJoinColumn
-    private Usuario candidato;
+    private Usuario usuario;
 	
 	@Column(name = "etnia")
 	@Size(max = 20)

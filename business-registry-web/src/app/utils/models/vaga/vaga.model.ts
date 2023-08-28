@@ -1,38 +1,38 @@
 import { Candidato } from "../usuario/candidato/candidato.model";
 import { Endereco } from "../usuario/endereco.model";
+import { Usuario } from "../usuario/usuario.model";
 import { Etapa } from "./etapa.model";
 export class Vaga {
   id: number;
   titulo: string;
   modalidade: string;
   pretencaoSalarial: string;
-  endereco: Endereco;
   vagaPcd: boolean;
-
+  deficiencia: string;
   qualificacoes: string;
+  responsabilidades: string;
   beneficios: string;
   areaAtuacao: string;
   cargo: string;
-  inclusao: string;
-  infoAdicional: string;
   status: boolean;
+  usuario: Usuario;
   etapas: Etapa[];
   candidatos: Candidato[];
 
   constructor() {
     this.id = 0;
     this.titulo = '';
-    this.endereco = new Endereco();
-    this.modalidade = '';
     this.pretencaoSalarial = '';
-    this.vagaPcd = false;
-    this.qualificacoes = '';
-    this.beneficios = '';
+    this.modalidade = '';
     this.areaAtuacao = '';
+    this.qualificacoes = '';
+    this.responsabilidades = '';
+    this.beneficios = '';
+    this.vagaPcd = false;
+    this.deficiencia = '';
     this.cargo = '';
-    this.inclusao = '';
-    this.infoAdicional = '';
-    this.status = false;
+    this.status = true;
+    this.usuario = new Usuario();
     this.etapas = [];
     this.candidatos = [];
   }

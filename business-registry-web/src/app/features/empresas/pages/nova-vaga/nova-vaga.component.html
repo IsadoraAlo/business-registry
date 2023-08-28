@@ -39,9 +39,88 @@
                 </div>
               </div>
             </div>
-            <app-endereco-vaga [endereco]="vaga.endereco"></app-endereco-vaga>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-floating mb-3">
+                  <select name="areaAtuacao" [(ngModel)]="vaga.areaAtuacao" class="form-select">
+                    <option disabled selected hidden>Selecione a área de atuação</option>
+                    <ng-container *ngFor="let area of areas">
+                      <option [value]="area.area" id="areaAtuacao">{{area?.area}}</option>
+                    </ng-container>
+                  </select>
+                  <label for="areaAtuacao">Área de atuação</label>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-floating mb-3">
+                  <select name="cargo" [(ngModel)]="vaga.cargo" class="form-select">
+                    <option disabled selected hidden>Selecione o cargo</option>
+                    <ng-container *ngFor="let cargo of cargos">
+                      <option [value]="cargo.cargo" id="cargo">{{cargo?.cargo}}</option>
+                    </ng-container>
+                  </select>
+                  <label for="cargo">Cargo</label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="form-floating mb-3">
+                  <textarea [maxlength]="250" [(ngModel)]="vaga.qualificacoes" type="text" id="qualificacoes"
+                    class="form-control" placeholder="=" name="qualificacoes"></textarea>
+                  <label for="qualificacoes">Qualificações desejadas para o trabalho.</label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="form-floating mb-3">
+                  <textarea [maxlength]="250" [(ngModel)]="vaga.responsabilidades" type="text" id="responsabilidades"
+                    class="form-control" placeholder="=" name="responsabilidades"></textarea>
+                  <label for="responsabilidades">Responsabilidades que virão com o trabalho.</label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="form-floating mb-3">
+                  <textarea [maxlength]="250" [(ngModel)]="vaga.beneficios" type="text" id="beneficios"
+                    class="form-control" placeholder="=" name="beneficios"></textarea>
+                  <label for="beneficios">Benefícios adicionais.</label>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="form-check form-switch d-table-cell">
+                  <label class="form-check-label" for="vagaPcd">Vaga para PcD</label>
+                  <input class="form-check-input" type="checkbox" role="switch" id="vagaPcd" [(ngModel)]="vaga.vagaPcd"
+                    name="vagaPcd" (onchange)="onClickVagasDeficiente()">
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div *ngIf="vaga.vagaPcd == true" class="col-12 col-md-6">
+                <div class="form-floating mb-3">
+                  <select name="deficiencia" [(ngModel)]="vaga.deficiencia" class="form-select">
+                    <option disabled selected hidden>Selecione a deficiência</option>
+                    <ng-container *ngFor="let deficiencia of deficiencia">
+                      <option [value]="deficiencia.deficiencia" id="deficiencia">{{deficiencia?.deficiencia}}</option>
+                    </ng-container>
+                  </select>
+                  <label for="deficiencia">Deficiência</label>
+                </div>
+              </div>
+            </div>
+            <!-- <app-endereco-vaga [endereco]="vaga.endereco"></app-endereco-vaga> -->
           </div>
         </div>
+        <button type="submit" class="btn brand-btn btn-block mb-3">
+          <b>
+            Salvar
+          </b>
+        </button>
       </form>
     </div>
   </div>

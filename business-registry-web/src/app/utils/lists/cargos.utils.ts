@@ -1,0 +1,16 @@
+export const cargosList = [
+  { cargo: 'Jovem Aprendiz' },
+  { cargo: 'Estagiário' },
+  { cargo: 'Trainee' },
+  { cargo: 'Auxiliar' },
+  { cargo: 'Assistente' },
+  { cargo: 'Analista' },
+  { cargo: 'Analista Jr' },
+  { cargo: 'Analista Pleno' },
+  { cargo: 'Analista Sênior' },
+  { cargo: 'Coordenador' },
+  { cargo: 'Supervisor' },
+  { cargo: 'Especialista' },
+  { cargo: 'Consultor Técnico' },
+  { cargo: 'Gerente' },
+]

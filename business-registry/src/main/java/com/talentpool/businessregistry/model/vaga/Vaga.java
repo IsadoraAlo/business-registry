@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.validation.constraints.Size;
 
-import com.talentpool.businessregistry.model.usuario.Endereco;
+import com.talentpool.businessregistry.model.usuario.Usuario;
 import com.talentpool.businessregistry.model.usuario.candidato.Candidato;
 
 import jakarta.persistence.Column;
@@ -14,11 +14,21 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
+@EqualsAndHashCode(of = "id")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "vaga")
 public class Vaga {
 	@Id
@@ -29,40 +39,46 @@ public class Vaga {
 	@Size(max = 70)
 	private String titulo;
 	
-    @OneToOne
-    @JoinColumn(name = "endereco")
-    private Endereco endereco;
+	@Column(name = "pretencao_salarial")
+	@Size(max = 16)
+	private String pretencaoSalarial;
 	
-	@Column(name = "descricao")
-	@Size(max = 200)
-	private String descricao;
+	@Column(name = "modalidade")
+	@Size(max = 10)
+	private String modalidade;
 	
+	@Column(name = "areaAtuacao")
+	@Size(max = 45)
+	private String areaAtuacao;
+    
 	@Column(name = "qualificacoes")
-	@Size(max = 100)
+	@Size(max = 250)
 	private String qualificacoes;
 	
-	@Column(name = "beneficios", length=100)
-	@Size(max = 100)
+	@Column(name = "responsabilidades")
+	@Size(max = 250)
+	private String responsabilidades;
+	
+	@Column(name = "beneficios", length=250)
+	@Size(max = 250)
 	private String beneficios;
 	
-	@Column(name = "area_atuacao", length=100)
-	@Size(max = 100)
-	private String areaAtuacao;
+	@Column(name = "vaga_pcd")
+	private Boolean vagaPcd;
 	
-	@Column(name = "cargo", length=100)
+	@Column(name = "deficiencia")
+	@Size(max = 35)
+	private String deficiencia;
+	
+	@Column(name = "cargo", length=20)
 	private String cargo;
 	
-	@Column(name = "inclusao")
-	@Size(max = 100)
-	private String inclusao;
-	
-	@Column(name = "info_adicional")
-	@Size(max = 100)
-	private String infoAdicional;
-	
 	@Column(name = "status")
-	@Size(max = 100)
 	private Boolean status;
+	
+	@ManyToOne
+	@JoinColumn(name = "usuario_id", referencedColumnName = "id")
+	private Usuario usuario;
 	
 	@OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "vaga_id")
@@ -71,111 +87,4 @@ public class Vaga {
 	@OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "vaga_id")
 	private List<Candidato> candidatos;
-	
-	public Vaga() {
-		
-	}
-
-	public Vaga(String titulo, String qualificacoes, String beneficios, String areaAtuacao, String cargo,
-			String inclusao, String infoAdicional, Boolean status, List<Etapa> etapas, List<Candidato> candidatos) {
-		super();
-		this.titulo = titulo;
-		this.qualificacoes = qualificacoes;
-		this.beneficios = beneficios;
-		this.areaAtuacao = areaAtuacao;
-		this.cargo = cargo;
-		this.inclusao = inclusao;
-		this.infoAdicional = infoAdicional;
-		this.status = status;
-		this.etapas = etapas;
-		this.candidatos = candidatos;
-	}
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public String getTitulo() {
-		return titulo;
-	}
-
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
-
-	public String getQualificacoes() {
-		return qualificacoes;
-	}
-
-	public void setQualificacoes(String qualificacoes) {
-		this.qualificacoes = qualificacoes;
-	}
-
-	public String getBeneficios() {
-		return beneficios;
-	}
-
-	public void setBeneficios(String beneficios) {
-		this.beneficios = beneficios;
-	}
-
-	public String getAreaAtuacao() {
-		return areaAtuacao;
-	}
-
-	public void setAreaAtuacao(String areaAtuacao) {
-		this.areaAtuacao = areaAtuacao;
-	}
-
-	public String getCargo() {
-		return cargo;
-	}
-
-	public void setCargo(String cargo) {
-		this.cargo = cargo;
-	}
-
-	public String getInclusao() {
-		return inclusao;
-	}
-
-	public void setInclusao(String inclusao) {
-		this.inclusao = inclusao;
-	}
-
-	public String getInfoAdicional() {
-		return infoAdicional;
-	}
-
-	public void setInfoAdicional(String infoAdicional) {
-		this.infoAdicional = infoAdicional;
-	}
-
-	public Boolean getStatus() {
-		return status;
-	}
-
-	public void setStatus(Boolean status) {
-		this.status = status;
-	}
-
-	public List<Etapa> getEtapas() {
-		return etapas;
-	}
-
-	public void setEtapas(List<Etapa> etapas) {
-		this.etapas = etapas;
-	}
-
-	public List<Candidato> getCandidatos() {
-		return candidatos;
-	}
-
-	public void setCandidatos(List<Candidato> candidatos) {
-		this.candidatos = candidatos;
-	}
 }

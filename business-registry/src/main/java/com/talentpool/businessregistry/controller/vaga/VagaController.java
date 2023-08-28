@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.talentpool.businessregistry.exception.ResourceNotFoundException;
 import com.talentpool.businessregistry.model.vaga.Vaga;
 import com.talentpool.businessregistry.repository.vaga.VagaRepository;
-
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/vagas")
 public class VagaController {
@@ -61,16 +62,20 @@ public class VagaController {
         if (vagaExistente == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+        vagaExistente.setTitulo(vagaAtualizada.getTitulo());   
+        vagaExistente.setPretencaoSalarial(vagaAtualizada.getPretencaoSalarial());
+        vagaExistente.setModalidade(vagaAtualizada.getModalidade());
         vagaExistente.setAreaAtuacao(vagaAtualizada.getAreaAtuacao());
         vagaExistente.setBeneficios(vagaAtualizada.getBeneficios());
         vagaExistente.setCandidatos(vagaAtualizada.getCandidatos());
-        vagaExistente.setCargo(vagaAtualizada.getCargo());
-        vagaExistente.setEtapas(vagaAtualizada.getEtapas());
-        vagaExistente.setInclusao(vagaAtualizada.getInclusao());
-        vagaExistente.setInfoAdicional(vagaAtualizada.getInfoAdicional());
         vagaExistente.setQualificacoes(vagaAtualizada.getQualificacoes());
+        vagaExistente.setResponsabilidades(vagaAtualizada.getResponsabilidades());
+        vagaExistente.setBeneficios(vagaAtualizada.getBeneficios());
+        vagaExistente.setVagaPcd(vagaAtualizada.getVagaPcd());
+        vagaExistente.setDeficiencia(vagaAtualizada.getDeficiencia());
+        vagaExistente.setCargo(vagaAtualizada.getCargo());
         vagaExistente.setStatus(vagaAtualizada.getStatus());
-        vagaExistente.setTitulo(vagaAtualizada.getTitulo());   
+        vagaExistente.setEtapas(vagaAtualizada.getEtapas());
         Vaga vagaAtualizadaNoBanco = vagaRepository.save(vagaExistente);
         return new ResponseEntity<>(vagaAtualizadaNoBanco, HttpStatus.OK);
     }

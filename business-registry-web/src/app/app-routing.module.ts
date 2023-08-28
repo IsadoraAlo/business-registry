@@ -12,7 +12,7 @@ import { NovaVagaComponent } from './features/empresas/pages/nova-vaga/nova-vaga
 const routes: Routes = [
   {
     path: '',
-    component: NovaVagaComponent,
+    component: IndexComponent,
   },
   {
     path: 'home',
@@ -48,22 +48,31 @@ const routes: Routes = [
     ]
   },
   {
-    path:  'empresas',
-    children:[
+    path: 'empresas',
+    children: [
       {
-        path:'pagina-inicial',
+        path: 'pagina-inicial',
         component: BoasVindasUsuarioComponent
       },
       {
-        path:'cadastro-dados',
+        path: 'cadastro-dados',
         component: CadastroInformacoesEmpresaComponent
+      },
+      {
+        path: 'vagas',
+        children: [
+          {
+            path: 'cadastro',
+            component: NovaVagaComponent
+          }
+        ]
       }
     ]
   }
 ]
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'})
+    RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' })
   ],
   exports: [RouterModule]
 })

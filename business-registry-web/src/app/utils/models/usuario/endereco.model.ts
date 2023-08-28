@@ -12,7 +12,7 @@ export class Endereco {
   constructor() {
     this.id = 0;
     this.usuario = new Usuario();
-    this.pais = '';
+    this.pais = 'Brasil';
     this.estado = '';
     this.municipio = '';
     this.numero = '';

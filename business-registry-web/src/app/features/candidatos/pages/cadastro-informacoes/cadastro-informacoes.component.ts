@@ -32,7 +32,6 @@ export class CadastroInformacoesComponent {
   ) { }
 
   private saveEndereco(): void {
-    this.endereco.pais = 'Brasil';
     this.endereco.usuario = this.local.UsuarioLogado;
     this.enderecoService.criarEndereco(this.endereco)
       .pipe(

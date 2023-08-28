@@ -7,5 +7,7 @@ export const generoList = [
   { genero: `Não-binário` },
   { genero: `Agênero` },
   { genero: `Pangênero` },
-  { genero: `Genderqueer` }
+  { genero: `Genderqueer` },
+  { genero: `2 espíritos` },
+  { genero: `Outro` }
 ]
