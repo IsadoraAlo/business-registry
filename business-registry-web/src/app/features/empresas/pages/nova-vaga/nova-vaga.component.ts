@@ -32,7 +32,6 @@ export class NovaVagaComponent {
     this.vaga.vagaPcd = !this.vaga.vagaPcd;
   }
 
-
   private saveVaga(): void {
     if (this.vaga.vagaPcd === false) { this.vaga.deficiencia = '' }
     this.vaga.usuario = this.local.UsuarioLogado;
@@ -41,9 +40,10 @@ export class NovaVagaComponent {
         console.error('Erro ao criar vaga:', error);
         return throwError(() => error);
       })
-    ).subscribe();
+    ).subscribe((vaga) =>
+      this.local.setVaga(vaga)
+    );
   }
-
 
   public onSubmit(): void {
     this.saveVaga();

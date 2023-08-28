@@ -1,8 +1,12 @@
 import { Injectable } from "@angular/core";
 import { Usuario } from "../models/usuario/usuario.model";
+import { Vaga } from "../models/vaga/vaga.model";
 
 @Injectable({ providedIn: "root" })
 export class LocalStorage {
+  public setUsuarioLogado(login: any) {
+    localStorage.setItem('Usuário logado', JSON.stringify(login));
+  }
 
   public get UsuarioLogado() {
     const data = [JSON.parse(localStorage.getItem('Usuário logado') as string)];
@@ -30,7 +34,30 @@ export class LocalStorage {
     return tokenLog;
   }
 
-  public setUsuarioLogado(login: any) {
-    localStorage.setItem('Usuário logado', JSON.stringify(login));
+  public setVaga(vaga: any) {
+    localStorage.setItem('Vaga', JSON.stringify(vaga));
+  }
+
+  public get Vaga() {
+    const data = [JSON.parse(localStorage.getItem('Vaga') as string)];
+    const vaga: Vaga = new Vaga();
+    data.find((body) => {
+      vaga.id = body.vaga.id;
+      vaga.areaAtuacao = body.vaga.areaAtuacao;
+      vaga.beneficios = body.vaga.beneficios;
+      vaga.candidatos = body.vaga.candidatos;
+      vaga.cargo = body.vaga.cargo;
+      vaga.deficiencia = body.vaga.deficiencia;
+      vaga.etapas = body.vaga.etapas;
+      vaga.modalidade = body.vaga.modalidade;
+      vaga.pretencaoSalarial = body.vaga.pretencaoSalarial;
+      vaga.qualificacoes = body.vaga.qualificacoes;
+      vaga.responsabilidades = body.vaga.responsabilidades;
+      vaga.status = body.vaga.status;
+      vaga.titulo = body.vaga.titulo;
+      vaga.usuario = body.vaga.usuario;
+      vaga.vagaPcd = body.vaga.vagaPcd
+    });
+    return vaga
   }
 }
