@@ -9,7 +9,7 @@
           <div class="row">
             <div class="col-md-12">
               <div class="form-floating mb-3">
-                <textarea [(ngModel)]="usuario.sobre" type="text" id="info" class="form-control" placeholder="="
+                <textarea [(ngModel)]="usuario.sobre" [maxlength]="200" type="text" id="info" class="form-control" placeholder="="
                   name="info"></textarea>
                 <label for="info">Fale sobre você no ambiente de trabalho</label>
               </div>

@@ -1,5 +1,7 @@
 package com.talentpool.businessregistry.model.usuario;
 
+import javax.validation.constraints.Size;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,22 +28,28 @@ public class Endereco {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@Column(name = "pais", length=6)
+	@Column(name = "pais")
+	@Size(max = 6)
     private String pais;
 	
-	@Column(name = "estado", length=2)
+	@Column(name = "estado")
+	@Size(max = 2)
     private String estado;
 	
-	@Column(name = "municipio", length=100)
+	@Column(name = "municipio")
+	@Size(max = 100)
     private String municipio;
 	
-	@Column(name = "logradouro", length=100)
+	@Column(name = "logradouro")
+	@Size(max = 100)
     private String logradouro;
 	
-	@Column(name = "cep", length=8)
+	@Column(name = "cep")
+	@Size(max = 8)
     private String cep;
 	
-	@Column(name = "numero", length=5)
+	@Column(name = "numero")
+	@Size(max = 5)
     private String numero;
 	
 	@ManyToOne

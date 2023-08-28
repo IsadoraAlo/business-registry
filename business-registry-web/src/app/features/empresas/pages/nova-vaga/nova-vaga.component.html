@@ -12,8 +12,8 @@
             <div class="row">
               <div class="col-12">
                 <div class="form-floating mb-3">
-                  <input [(ngModel)]="vaga.titulo" type="text" id="titulo" class="form-control" placeholder="="
-                    name="titulo">
+                  <input [maxlength]="70" [(ngModel)]="vaga.titulo" type="text" id="titulo" class="form-control"
+                    placeholder="=" name="titulo">
                   <label for="titulo">Título da vaga</label>
                 </div>
               </div>
@@ -113,7 +113,6 @@
                 </div>
               </div>
             </div>
-            <!-- <app-endereco-vaga [endereco]="vaga.endereco"></app-endereco-vaga> -->
           </div>
         </div>
         <button type="submit" class="btn brand-btn btn-block mb-3">
