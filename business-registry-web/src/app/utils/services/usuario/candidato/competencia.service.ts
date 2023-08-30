@@ -24,6 +24,10 @@ export class CompetenciaService {
     return this.http.get<Competencia>(`${this.apiUrl}/${id}`);
   }
 
+  obterCompetenciasByCandidatoId(id: number): Observable<Competencia[]> {
+    return this.http.get<Competencia[]>(`${this.apiUrl}/candidato/${id}`);
+  }
+
   atualizarCompetencia(id: number, competenciaAtualizado: Competencia): Observable<Competencia> {
     return this.http.put<Competencia>(`${this.apiUrl}/${id}`, competenciaAtualizado);
   }

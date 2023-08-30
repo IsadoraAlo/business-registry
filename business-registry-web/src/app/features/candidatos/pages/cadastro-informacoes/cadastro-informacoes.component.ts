@@ -44,8 +44,8 @@ export class CadastroInformacoesComponent {
   }
 
   private saveCandidatoAndCompetencias(): void {
-    this.candidato.usuario = this.local.UsuarioLogado;
     this.candidato.id = this.local.UsuarioLogado.id;
+    this.candidato.usuario = this.local.UsuarioLogado;
     this.candidatoService.criarCandidato(this.candidato)
       .pipe(
         catchError((error) => {

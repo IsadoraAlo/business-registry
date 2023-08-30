@@ -9,6 +9,8 @@ import { LoginComponent } from './features/commom/home/pages/login/login.compone
 import { CadastroInformacoesComponent } from './features/candidatos/pages/cadastro-informacoes/cadastro-informacoes.component';
 import { CadastroInformacoesEmpresaComponent } from './features/empresas/pages/cadastro-informacoes/cadastro-informacoes.component';
 import { NovaVagaComponent } from './features/empresas/pages/nova-vaga/nova-vaga.component';
+import { NovaEtapaComponent } from './features/empresas/pages/nova-vaga/nova-etapa/nova-etapa.component';
+import { CurriculoViewComponent } from './features/candidatos/pages/curriculo-view/curriculo-view.component';
 const routes: Routes = [
   {
     path: '',
@@ -45,6 +47,10 @@ const routes: Routes = [
         path: 'cadastro-dados',
         component: CadastroInformacoesComponent
       },
+      {
+        path: 'curriculo-view',
+        component: CurriculoViewComponent
+      }
     ]
   },
   {
@@ -63,8 +69,14 @@ const routes: Routes = [
         children: [
           {
             path: 'cadastro',
-            component: NovaVagaComponent
-          }
+            component: NovaVagaComponent,
+            children: [
+              {
+                path: 'etapa',
+                component: NovaEtapaComponent
+              }
+            ]
+          },
         ]
       }
     ]

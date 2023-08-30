@@ -62,10 +62,8 @@ public class EtapaController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         etapaExistente.setDescricao(etapaAtualizada.getDescricao());
-        etapaExistente.setEntrevista(etapaAtualizada.getEntrevista());
         etapaExistente.setNumeracao(etapaAtualizada.getNumeracao());
         etapaExistente.setNumeracao(etapaAtualizada.getNumeracao());
-        etapaExistente.setQuestionarios(etapaAtualizada.getQuestionarios());
         etapaExistente.setTipo(etapaAtualizada.getTipo());
         Etapa etapaAtualizadaNoBanco = etapaRepository.save(etapaExistente);
         return new ResponseEntity<>(etapaAtualizadaNoBanco, HttpStatus.OK);

@@ -1,11 +1,14 @@
 package com.talentpool.businessregistry.model.usuario.candidato;
 
+import static jakarta.persistence.GenerationType.IDENTITY;
+
 import javax.validation.constraints.Size;
 
 import com.talentpool.businessregistry.model.usuario.Usuario;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.PrimaryKeyJoinColumn;
@@ -26,10 +29,6 @@ import lombok.Setter;
 public class Candidato {
 	@Id
     private Long id;
-
-    @OneToOne
-    @PrimaryKeyJoinColumn
-    private Usuario usuario;
 	
 	@Column(name = "etnia")
 	@Size(max = 20)

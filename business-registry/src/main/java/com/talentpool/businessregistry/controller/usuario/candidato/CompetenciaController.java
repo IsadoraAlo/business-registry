@@ -54,6 +54,16 @@ public class CompetenciaController {
         }
         return new ResponseEntity<>(competencia, HttpStatus.OK);
     }
+    
+    // Endpoint para obter uma competência pelo ID
+    @GetMapping("/candidato/{id}")
+    public ResponseEntity<List<Competencia>> obterCompetenciaPorCandidato(@PathVariable Long id) {
+        List<Competencia> competencia = competenciaRepository.findByCandidatoId(id);
+        if (competencia == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(competencia, HttpStatus.OK);
+    }
 
     // Endpoint para atualizar uma competência existente
     @PutMapping("/{id}")

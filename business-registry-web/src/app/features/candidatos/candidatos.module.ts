@@ -12,6 +12,7 @@ import { ExperienciasAnterioresComponent } from './pages/cadastro-informacoes/in
 import { InformacoesProfissionaisComponent } from './pages/cadastro-informacoes/informacoes-profissionais/informacoes-profissionais.component';
 import { CandidatosBuscaVagasComponent } from './pages/candidatos-busca-vagas/candidatos-busca-vagas.component';
 import { CandidatosCadastroComponent } from './pages/candidatos-cadastro/candidatos-cadastro.component';
+import { CurriculoViewComponent } from './pages/curriculo-view/curriculo-view.component';
 @NgModule({
   declarations: [
     CandidatosCadastroComponent,
@@ -20,7 +21,8 @@ import { CandidatosCadastroComponent } from './pages/candidatos-cadastro/candida
     InformacoesEnderecoComponent,
     InformacoesProfissionaisComponent,
     InformacoesPessoaisComponent,
-    ExperienciasAnterioresComponent
+    ExperienciasAnterioresComponent,
+    CurriculoViewComponent
   ],
   imports: [
     CommonModule,

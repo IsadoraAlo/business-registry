@@ -20,11 +20,12 @@
     </ng-container>
   </div>
   <div class="text-center">
+    <a routerLink="/candidatos/curriculo-view" (click)="onClickMenu()">
     <img id="img-user"
       src="https://img.freepik.com/fotos-gratis/cliente-masculino-pensativo-olhando-para-longe_74855-3601.jpg?w=360"
       alt="Avatar">
     <br>
-    <p class="fs-4"><b>{{usuario.nome}}</b></p>
+    <p class="fs-4"><b>{{usuario.nome}}</b></p></a>
   </div>
 </div>
 <div class="text-light brand-background px-3 py-3">

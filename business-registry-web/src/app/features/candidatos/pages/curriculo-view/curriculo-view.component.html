@@ -1,0 +1,33 @@
+<app-menu-usuario></app-menu-usuario>
+<div class="container shadow">
+  <div class="card-body my-5 py-3">
+    <br>
+    <div class="text-center">
+      <h2 class="brand-text"><b>{{usuario.nome}}</b></h2>
+    </div>
+    <br>
+    <div class="row d-flex mx-5">
+      <h4 class="brand-text"><b>Sobre</b></h4>
+      <br><br><br>
+      <p>{{usuario.sobre}}
+        Tenho uma renda famíliar de {{candidato.rendaFamiliar}}, sou do gênero {{candidato.genero}}
+        <ng-container *ngIf="candidato.etnia">
+          , com origem {{candidato.etnia}}
+        </ng-container>
+        <ng-container *ngIf="candidato.deficiencia">
+          e tenho {{candidato.deficiencia}}
+        </ng-container>.
+      </p>
+      <br><br><br>
+      <h4 class="brand-text"><b>Experiência profissional</b></h4>
+      <ng-container *ngFor="let competencia of competencias">
+        <ng-container *ngIf="competencia.tipo === 'EXPERIENCIA'">
+          <p>{{competencia.titulo}} - {{competencia.instituicao}}</p>
+        </ng-container>
+      </ng-container>
+      <br><br><br>
+      <h4 class="brand-text"><b>Contato</b></h4>
+      <p>{{usuario.email}} | +55 {{usuario.celular}}</p>
+    </div>
+  </div>
+</div>

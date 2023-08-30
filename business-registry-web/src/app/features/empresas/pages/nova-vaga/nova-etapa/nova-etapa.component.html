@@ -1,0 +1,22 @@
+<app-menu-usuario></app-menu-usuario>
+<div class="p-b-t-100 text-center brand-background">
+</div>
+<div class="text-center">
+  <div class="container shadow">
+    <div class="card-body my-5 py-3">
+      <br>
+      <h2 class="brand-text"><b>Novas etapas</b></h2>
+      <br>
+      <form (ngSubmit)="onSubmit()">
+        <button type="submit" class="btn brand-btn btn-block mb-3">
+          <ng-container *ngFor="let etapa of etapas; let indexComponent = index">
+
+          </ng-container>
+          <b>
+            Salvar
+          </b>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

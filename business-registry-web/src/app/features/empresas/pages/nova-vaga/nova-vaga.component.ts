@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { EnderecoService } from './../../../../utils/services/usuario/endereco.service';
 import { Component } from '@angular/core';
 import { catchError, switchMap, throwError } from 'rxjs';
@@ -26,6 +27,7 @@ export class NovaVagaComponent {
   constructor(
     private vagaService: VagaService,
     private local: LocalStorage,
+    private router: Router,
   ) { }
 
   public onClickVagasDeficiente() {
@@ -40,9 +42,10 @@ export class NovaVagaComponent {
         console.error('Erro ao criar vaga:', error);
         return throwError(() => error);
       })
-    ).subscribe((vaga) =>
+    ).subscribe((vaga) => {
       this.local.setVaga(vaga)
-    );
+      this.router.navigate(['empresas', 'pagina-inicial'])
+    });
   }
 
   public onSubmit(): void {
