@@ -13,6 +13,7 @@ import { InformacoesProfissionaisComponent } from './pages/cadastro-informacoes/
 import { CandidatosBuscaVagasComponent } from './pages/candidatos-busca-vagas/candidatos-busca-vagas.component';
 import { CandidatosCadastroComponent } from './pages/candidatos-cadastro/candidatos-cadastro.component';
 import { CurriculoViewComponent } from './pages/curriculo-view/curriculo-view.component';
+import { CandidatosComponent } from './candidatos.component';
 @NgModule({
   declarations: [
     CandidatosCadastroComponent,
@@ -22,7 +23,8 @@ import { CurriculoViewComponent } from './pages/curriculo-view/curriculo-view.co
     InformacoesProfissionaisComponent,
     InformacoesPessoaisComponent,
     ExperienciasAnterioresComponent,
-    CurriculoViewComponent
+    CurriculoViewComponent,
+    CandidatosComponent
   ],
   imports: [
     CommonModule,

@@ -11,9 +11,22 @@ import { LoginComponent } from './features/commom/home/pages/login/login.compone
 import { NgxMaskModule } from 'ngx-mask';
 import { HttpClientModule } from '@angular/common/http';
 import { BoasVindasUsuarioComponent } from './features/commom/home/pages/boas-vindas-usuario/boas-vindas-usuario.component';
+import { LocationStrategy, HashLocationStrategy, PathLocationStrategy } from '@angular/common';
+import { EmpresasModule } from './features/empresas/empresas.module';
+import { CandidatosModule } from './features/candidatos/candidatos.module';
 @NgModule({
   declarations: [AppComponent, AboutComponent, IndexComponent, LoginComponent, BoasVindasUsuarioComponent],
-  imports: [BrowserModule, FormsModule, CadastrosModule, HttpClientModule, AppRoutingModule, ComponentesModule, NgxMaskModule.forRoot()],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    CadastrosModule,
+    EmpresasModule,
+    CandidatosModule,
+    HttpClientModule,
+    ComponentesModule,
+    NgxMaskModule.forRoot(),
+    AppRoutingModule,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
