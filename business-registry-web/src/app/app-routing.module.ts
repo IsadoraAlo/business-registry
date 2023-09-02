@@ -86,18 +86,13 @@ const routes: Routes = [
       },
       {
         path: 'vagas',
-        children: [
-          {
-            path: 'cadastro',
-            component: NovaVagaComponent,
-            children: [
-              {
-                path: 'etapa',
-                component: NovaEtapaComponent
-              }
-            ]
-          },
-        ]
+        component: NovaVagaComponent,
+        pathMatch: 'full',
+      },
+      {
+        path: 'etapas',
+        component: NovaEtapaComponent,
+        pathMatch: 'full',
       }
     ]
   },

@@ -44,7 +44,7 @@ export class NovaVagaComponent {
       })
     ).subscribe((vaga) => {
       this.local.setVaga(vaga)
-      this.router.navigate(['empresas', 'pagina-inicial'])
+      this.router.navigate(['empresas', 'etapas'])
     });
   }
 
