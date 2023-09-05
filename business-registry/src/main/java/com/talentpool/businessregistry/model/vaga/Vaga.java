@@ -82,9 +82,5 @@ public class Vaga {
 	
 	@OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "vaga_id")
-	private List<Etapa> etapas;
-	
-	@OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "vaga_id")
 	private List<Candidato> candidatos;
 }

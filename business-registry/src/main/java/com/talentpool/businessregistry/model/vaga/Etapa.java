@@ -1,5 +1,7 @@
 package com.talentpool.businessregistry.model.vaga;
 
+import javax.validation.constraints.Size;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -23,13 +25,21 @@ public class Etapa {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
-	@Column(name = "tipo", length=15)
+
+	@Column(name = "tipo", length = 15)
 	private String tipo;
-    
-	@Column(name = "descricao", length=200)
+
+	@Column(name = "titulo")
+	@Size(max = 70)
+	private String titulo;
+
+	@Column(name = "descricao")
+	@Size(max = 250)
 	private String descricao;
-    
+
 	@Column(name = "numeracao")
 	private Integer numeracao;
+
+	@Column(name = "vaga_id")
+	private long vagaId;
 }

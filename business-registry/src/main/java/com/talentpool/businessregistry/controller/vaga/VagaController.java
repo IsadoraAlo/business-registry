@@ -75,7 +75,6 @@ public class VagaController {
         vagaExistente.setDeficiencia(vagaAtualizada.getDeficiencia());
         vagaExistente.setCargo(vagaAtualizada.getCargo());
         vagaExistente.setStatus(vagaAtualizada.getStatus());
-        vagaExistente.setEtapas(vagaAtualizada.getEtapas());
         Vaga vagaAtualizadaNoBanco = vagaRepository.save(vagaExistente);
         return new ResponseEntity<>(vagaAtualizadaNoBanco, HttpStatus.OK);
     }

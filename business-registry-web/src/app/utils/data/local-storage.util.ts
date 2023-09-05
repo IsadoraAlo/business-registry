@@ -36,7 +36,6 @@ export class LocalStorage {
 
   public setVaga(vaga: any) {
     localStorage.setItem('Vaga', JSON.stringify(vaga));
-    console.log(localStorage)
   }
 
   public get Vaga() {

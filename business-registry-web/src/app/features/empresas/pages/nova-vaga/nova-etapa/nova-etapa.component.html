@@ -6,16 +6,61 @@
       <br>
       <h2 class="brand-text"><b>Novas etapas</b></h2>
       <br>
-      <form (ngSubmit)="onSubmit()">
-        <button type="submit" class="btn brand-btn btn-block mb-3">
-          <ng-container *ngFor="let etapa of etapas; let indexComponent = index">
-
-          </ng-container>
-          <b>
-            Salvar
-          </b>
-        </button>
-      </form>
+      <div class="d-flex justify-content-center">
+        <div class="col-lg-8">
+          <form (ngSubmit)="onSubmit()">
+            <ng-container *ngFor="let etapa of etapas; let indexComponent = index">
+              <div class="row">
+                <div class="col-8">
+                  <div class="form-floating mb-3">
+                    <input [maxlength]="70" [(ngModel)]="etapa.titulo" type="text" id="titulo" class="form-control"
+                      placeholder="=" name="titulo{{indexComponent}}">
+                    <label for="titulo">Título da etapa</label>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-floating mb-3">
+                    <select name="tipo{{indexComponent}}" [(ngModel)]="etapa.tipo" class="form-select">
+                      <option disabled selected hidden>Selecione o tipo</option>
+                      <ng-container *ngFor="let tipo of tipos">
+                        <option [value]="tipo.tipo" id="estado">{{tipo.tipo}}</option>
+                      </ng-container>
+                    </select>
+                    <label for="tipo">Tipo de avaliação</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <div class="form-floating mb-3">
+                    <textarea [maxlength]="250" [(ngModel)]="etapa.descricao" type="text" id="descricao"
+                      class="form-control" placeholder="=" name="descricao{{indexComponent}}"></textarea>
+                    <label for="descricao">Descrição da etapa do processo seletivo.</label>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <button type="submit" class="btn brand-btn">
+                    <b>Construir etapa</b>
+                  </button>
+                </div>
+              </div>
+              <br>
+            </ng-container>
+            <div class="row">
+              <div class="col-1">
+                <button type="button" class="btn brand-btn" (click)="onClickAdd()">
+                  <i class="bi bi-plus-circle"></i></button>
+              </div>
+              <div class="col-1" *ngIf="indexComponent > 1">
+                <button type="button" class="btn brand-btn" (click)="onClickRemove()">
+                  <i class="bi bi-trash-fill"></i></button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
 </div>
