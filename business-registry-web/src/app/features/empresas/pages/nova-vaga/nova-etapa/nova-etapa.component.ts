@@ -16,7 +16,7 @@ import { VagaService } from 'src/app/utils/services/vaga/vaga.service';
 export class NovaEtapaComponent {
   public vaga: Vaga = this.local.Vaga;
   public indexComponent: number = 0;
-  public etapas = this.vaga.etapas
+  public etapas: Etapa[] = []
   public tipos = etapaTipoList;
 
   public onClickAdd() {
