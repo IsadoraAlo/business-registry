@@ -62,7 +62,6 @@ public class EntrevistaController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         entrevistaExistente.setData(entrevistaAtualizada.getData());
-        entrevistaExistente.setDescricao(entrevistaAtualizada.getDescricao());
         entrevistaExistente.setLink(entrevistaAtualizada.getLink());
         Entrevista entrevistaAtualizadaNoBanco = entrevistaRepository.save(entrevistaExistente);
         return new ResponseEntity<>(entrevistaAtualizadaNoBanco, HttpStatus.OK);

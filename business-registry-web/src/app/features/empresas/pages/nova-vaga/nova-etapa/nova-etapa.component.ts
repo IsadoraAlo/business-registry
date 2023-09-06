@@ -1,4 +1,3 @@
-import { EtapaService } from './../../../../../utils/services/vaga/etapa.service';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError, throwError } from 'rxjs';
@@ -6,7 +5,7 @@ import { LocalStorage } from 'src/app/utils/data/local-storage.util';
 import { etapaTipoList } from 'src/app/utils/lists/etapa.utils';
 import { Etapa } from 'src/app/utils/models/vaga/etapa.model';
 import { Vaga } from 'src/app/utils/models/vaga/vaga.model';
-import { VagaService } from 'src/app/utils/services/vaga/vaga.service';
+import { EtapaService } from './../../../../../utils/services/vaga/etapa.service';
 
 @Component({
   selector: 'app-nova-etapa',

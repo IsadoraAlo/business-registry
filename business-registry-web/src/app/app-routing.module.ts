@@ -13,6 +13,7 @@ import { CadastroInformacoesEmpresaComponent } from './features/empresas/pages/c
 import { NovaEtapaComponent } from './features/empresas/pages/nova-vaga/nova-etapa/nova-etapa.component';
 import { NovaVagaComponent } from './features/empresas/pages/nova-vaga/nova-vaga.component';
 import { EmpresasComponent } from './features/empresas/empresas.component';
+import { EtapaEntrevistaComponent } from './features/empresas/pages/nova-vaga/nova-etapa/etapa-entrevista/etapa-entrevista.component';
 const routes: Routes = [
   {
     path: '',
@@ -92,6 +93,11 @@ const routes: Routes = [
       {
         path: 'etapas',
         component: NovaEtapaComponent,
+        pathMatch: 'full',
+      },
+      {
+        path: 'etapas/entrevista',
+        component: EtapaEntrevistaComponent,
         pathMatch: 'full',
       }
     ]
