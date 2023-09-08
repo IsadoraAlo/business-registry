@@ -1,39 +1,34 @@
-<div class="p-b-t-100 text-center brand-background">
-</div>
-<div class="text-center">
-  <div class="container shadow">
-    <div class="card-body my-5 py-3">
-      <br>
-      <h2 class="brand-text"><b>Entrevista</b></h2>
-      <br>
-      <div class="d-flex justify-content-center">
-        <div class="col-lg-8">
-          <form (ngSubmit)="onSubmit()">
-            <div class="row">
-              <div class="col-6">
-                <div class="form-floating mb-3">
-
-                </div>
-              </div>
-              <div class="col-6">
-                <div class="form-floating mb-3">
-                  <!-- <input [maxlength]="70" [(ngModel)]="entrevista.link" type="text" id="link" class="form-control" -->
-                    placeholder="=" name="link">
-                  <label for="link">Link da entrevista</label>
-                </div>
+<ng-container *ngIf="showModal">
+  <div class="d-flex justify-content-center">
+    <div class="col-lg-8">
+      <div class="modal-brand text-center">
+        <form (ngSubmit)="onSubmit()">
+          <div class="row">
+            <div class="col-6">
+              <div class="form-floating mb-3">
+                <input [maxlength]="70" [(ngModel)]="entrevista.data" type="date" id="data" class="form-control"
+                  placeholder="=" name="data">
+                <label for="data">Data da entrevista</label>
               </div>
             </div>
-            <div class="row">
-              <div class="col-12">
-                <button type="submit" class="btn brand-btn">
-                  <b>Salvar entrevista</b>
-                </button>
+            <div class="col-6">
+              <div class="form-floating mb-3">
+                <input [maxlength]="70" [(ngModel)]="entrevista.link" type="text" id="link" class="form-control"
+                  placeholder="=" name="link">
+                <label for="link">Link da entrevista</label>
               </div>
             </div>
-            <br>
-          </form>
-        </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <button type="submit" class="btn brand-btn">
+                <b>Salvar entrevista</b>
+              </button>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   </div>
-</div>
+  <div class="overlay"></div>
+</ng-container>

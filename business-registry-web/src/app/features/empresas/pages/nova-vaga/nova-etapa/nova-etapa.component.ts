@@ -37,17 +37,17 @@ export class NovaEtapaComponent {
   ) { }
 
   private saveEtapaByIndex(): void {
-    const etapa = this.etapas[this.indexComponent-1];
+    const etapa = this.etapas[this.indexComponent - 1];
     etapa.vagaId = this.vaga.id;
     etapa.numeracao = this.indexComponent;
-      this.etapaService.criarEtapa(etapa)
-        .pipe(
-          catchError((error) => {
-            console.error('Erro ao criar etapa:', error);
-            return throwError(() => error);
-          })
-        )
-        .subscribe();
+    this.etapaService.criarEtapa(etapa)
+      .pipe(
+        catchError((error) => {
+          console.error('Erro ao criar etapa:', error);
+          return throwError(() => error);
+        })
+      )
+      .subscribe();
   }
 
   public onSubmit(): void {

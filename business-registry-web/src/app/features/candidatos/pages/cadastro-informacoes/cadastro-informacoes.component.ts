@@ -56,8 +56,6 @@ export class CadastroInformacoesComponent {
           const competenciaObservables: Observable<any>[] = [];
           for (const competencia of this.competencias) {
             competencia.candidato = this.candidato;
-            competencia.dataInicio.toISOString();
-            competencia.dataTermino.toISOString();
             competencia.tipo = TipoCompetencia.EXPERIENCIA;
             const competenciaObservable = this.competenciaService.criarCompetencia(competencia)
               .pipe(

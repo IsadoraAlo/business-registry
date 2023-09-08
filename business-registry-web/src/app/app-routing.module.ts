@@ -95,11 +95,6 @@ const routes: Routes = [
         component: NovaEtapaComponent,
         pathMatch: 'full',
       },
-      {
-        path: 'etapas/entrevista',
-        component: EtapaEntrevistaComponent,
-        pathMatch: 'full',
-      }
     ]
   },
 ]

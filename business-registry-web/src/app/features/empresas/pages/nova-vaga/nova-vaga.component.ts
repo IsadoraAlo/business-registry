@@ -1,13 +1,11 @@
-import { Router } from '@angular/router';
-import { EnderecoService } from './../../../../utils/services/usuario/endereco.service';
 import { Component } from '@angular/core';
-import { catchError, switchMap, throwError } from 'rxjs';
+import { Router } from '@angular/router';
+import { catchError, throwError } from 'rxjs';
 import { LocalStorage } from 'src/app/utils/data/local-storage.util';
 import { areaAtuacaoList } from 'src/app/utils/lists/area-atuacao.utils';
 import { cargosList } from 'src/app/utils/lists/cargos.utils';
 import { deficienciaList } from 'src/app/utils/lists/deficiencia.utils';
 import { modalidadeList } from 'src/app/utils/lists/modalidade.utils';
-import { Endereco } from 'src/app/utils/models/usuario/endereco.model';
 import { Vaga } from 'src/app/utils/models/vaga/vaga.model';
 import { VagaService } from 'src/app/utils/services/vaga/vaga.service';
 

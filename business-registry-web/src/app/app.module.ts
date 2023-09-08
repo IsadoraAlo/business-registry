@@ -14,7 +14,13 @@ import { IndexComponent } from './features/commom/home/pages/index/index.compone
 import { LoginComponent } from './features/commom/home/pages/login/login.component';
 import { EmpresasModule } from './features/empresas/empresas.module';
 @NgModule({
-  declarations: [AppComponent, AboutComponent, IndexComponent, LoginComponent, BoasVindasUsuarioComponent],
+  declarations: [
+    AppComponent,
+    AboutComponent,
+    IndexComponent,
+    LoginComponent,
+    BoasVindasUsuarioComponent
+  ],
   imports: [
     BrowserModule,
     FormsModule,
