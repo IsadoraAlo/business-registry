@@ -23,7 +23,6 @@ import lombok.Setter;
 @Table(name = "entrevista")
 public class Entrevista {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
 	@Column(name = "link")

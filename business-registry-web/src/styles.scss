@@ -10,6 +10,9 @@ a:hover{
   text-decoration: none;
   cursor: pointer;
 }
+.text-danger{
+  text-align: left !important;
+}
 .modal-brand{
   min-width: 320px;
   max-height: 90vmax;
@@ -33,6 +36,9 @@ a:hover{
   left: 0;
   right: 0;
   bottom: 0;
+}
+.col-1{
+  margin-right: 20px;
 }
 .brand-btn{
   padding: 10px 25px;

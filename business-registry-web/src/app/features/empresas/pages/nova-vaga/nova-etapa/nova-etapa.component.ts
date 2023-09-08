@@ -15,26 +15,35 @@ import { EtapaService } from './../../../../../utils/services/vaga/etapa.service
 export class NovaEtapaComponent {
   public vaga: Vaga = this.local.Vaga;
   public indexComponent: number = 0;
-  public etapas: Etapa[] = []
   public tipos = etapaTipoList;
+  etapasNovas: boolean[] = [];
+  public etapas: Etapa[] = [];
+  public idEtapa!: number;
+
+  constructor(
+    private etapaService: EtapaService,
+    private local: LocalStorage,
+  ) { }
 
   public onClickAdd() {
     this.etapas.push(new Etapa());
     ++this.indexComponent
+    this.etapasNovas.push(true);
   }
 
   public onClickRemove() {
     if (this.etapas.length > 1) {
       this.etapas.pop();
       --this.indexComponent
+      this.etapasNovas.pop();
     }
   }
 
-  constructor(
-    private etapaService: EtapaService,
-    private local: LocalStorage,
-    private router: Router,
-  ) { }
+  private verifyEtapaNova(): boolean {
+    const index = this.indexComponent - 1;
+    this.etapasNovas[index] = false;
+    return this.etapasNovas[index];
+  }
 
   private saveEtapaByIndex(): void {
     const etapa = this.etapas[this.indexComponent - 1];
@@ -47,10 +56,11 @@ export class NovaEtapaComponent {
           return throwError(() => error);
         })
       )
-      .subscribe();
+      .subscribe((etapa)=> this.idEtapa = etapa.id);
   }
 
   public onSubmit(): void {
     this.saveEtapaByIndex();
+    this.verifyEtapaNova();
   }
 }

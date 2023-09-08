@@ -6,62 +6,80 @@
       <br>
       <h2 class="brand-text"><b>Novas etapas</b></h2>
       <br>
-      <div class="d-flex justify-content-center">
+      <div class="row d-flex justify-content-center">
         <div class="col-lg-8">
-          <form (ngSubmit)="onSubmit()">
-            <ng-container *ngFor="let etapa of etapas; let indexComponent = index">
+          <ng-container *ngFor="let etapa of etapas; let indexComponent = index">
+            <form (ngSubmit)="onSubmit()" #etapaForm="ngForm">
               <div class="row">
                 <div class="col-8">
                   <div class="form-floating mb-3">
-                    <input [maxlength]="70" [(ngModel)]="etapa.titulo" type="text" id="titulo" class="form-control"
-                      placeholder="=" name="titulo{{indexComponent}}">
+                    <input required #titulo="ngModel" [maxlength]="70" [(ngModel)]="etapa.titulo" type="text"
+                      id="titulo" class="form-control" placeholder="=" name="titulo{{indexComponent}}">
                     <label for="titulo">Título da etapa</label>
+                    <ng-container *ngIf="titulo.dirty || titulo.touched">
+                      <div *ngIf="titulo.errors?.['required']" class="text-danger">
+                        Título da etapa é de preenchimento obrigatório!
+                      </div>
+                    </ng-container>
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="form-floating mb-3">
-                    <select name="tipo{{indexComponent}}" [(ngModel)]="etapa.tipo" class="form-select">
+                    <select required #tipo="ngModel" name="tipo{{indexComponent}}" [(ngModel)]="etapa.tipo"
+                      class="form-select">
                       <option disabled selected hidden>Selecione o tipo</option>
                       <ng-container *ngFor="let tipo of tipos">
                         <option [value]="tipo.tipo" id="estado">{{tipo.tipo}}</option>
                       </ng-container>
                     </select>
                     <label for="tipo">Tipo de avaliação</label>
+                    <ng-container *ngIf="tipo.dirty || tipo.touched">
+                      <div *ngIf="tipo.errors?.['required']" class="text-danger">
+                        Selecione o tipo da etapa!
+                      </div>
+                    </ng-container>
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-12">
                   <div class="form-floating mb-3">
-                    <textarea [maxlength]="250" [(ngModel)]="etapa.descricao" type="text" id="descricao"
-                      class="form-control" placeholder="=" name="descricao{{indexComponent}}"></textarea>
+                    <textarea required #descricao="ngModel" [maxlength]="250" [(ngModel)]="etapa.descricao" type="text"
+                      id="descricao" class="form-control" placeholder="=" name="descricao{{indexComponent}}"></textarea>
                     <label for="descricao">Descrição da etapa do processo seletivo.</label>
+                    <ng-container *ngIf="descricao.dirty || descricao.touched">
+                      <div *ngIf="descricao.errors?.['required']" class="text-danger">
+                        Descrição da etapa é de preenchimento obrigatório!
+                      </div>
+                    </ng-container>
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-12">
-                  <button type="submit" class="btn brand-btn" (click)="modal.exibirModal()">
+                  <button type="submit" class="btn brand-btn" (click)="modal.exibirModal()"
+                    [disabled]="!etapasNovas[indexComponent] || !etapaForm.valid">
                     <b>Construir etapa</b>
                   </button>
                 </div>
               </div>
               <br>
-            </ng-container>
-            <div class="row">
-              <div class="col-1">
-                <button type="button" class="btn brand-btn" (click)="onClickAdd()">
-                  <i class="bi bi-plus-circle"></i></button>
-              </div>
-              <div class="col-1" *ngIf="indexComponent > 1">
-                <button type="button" class="btn brand-btn" (click)="onClickRemove()">
-                  <i class="bi bi-trash-fill"></i></button>
-              </div>
+            </form>
+          </ng-container>
+          <div class="row">
+            <div class="col-1">
+              <button [disabled]="etapasNovas[indexComponent-1]" type="button" class="btn brand-btn"
+                (click)="onClickAdd()">
+                <i class="bi bi-plus-circle"></i></button>
             </div>
-          </form>
+            <div class="col-1" *ngIf="indexComponent > 1">
+              <button type="button" class="btn brand-btn" (click)="onClickRemove()">
+                <i class="bi bi-trash-fill"></i></button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-<modal-entrevista #modal></modal-entrevista>
+<modal-entrevista #modal [indexComponent]="indexComponent" [idEntrevista]="idEtapa"></modal-entrevista>
