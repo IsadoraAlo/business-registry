@@ -1,26 +1,26 @@
+<p>etapa-questionario works!</p>
 <ng-container *ngIf="showModal">
   <div class="d-flex justify-content-center">
     <div class="col-lg-8">
       <div class="modal-brand text-center">
         <form (ngSubmit)="onSubmit()" #entrevistaForm="ngForm">
           <br>
-          <h2 class="brand-text"><b>Nova entrevista</b></h2>
+          <h2 class="brand-text"><b>Novo questionário</b></h2>
           <br>
           <div class="row">
             <div class="col-6">
               <div class="form-floating mb-3">
-                <input required (keypress)="onDateInputKeydown($event)" (keydown)="onDateInputKeydown($event)"
-                  [(ngModel)]="entrevista.data" type="date" id="data" class="form-control" min="{{getMinDate()}}"
-                  max="{{ getMaxDate()}}" name="data{{indexComponent}}" #data="ngModel">
+                <input required [(ngModel)]="entrevista.data" type="date" id="data"
+                  class="form-control" placeholder="=" name="data{{indexComponent}}" #dataEntrevista="ngModel">
                 <label for="data">Data da entrevista</label>
-                <div *ngIf="data?.value === undefined" class="text-danger">
+                <p *ngIf="dataEntrevista.errors?.['required']" class="text-danger">
                   Data da entrevista é de preenchimento obrigatório!
-                </div>
+                </p>
               </div>
             </div>
             <div class="col-6">
               <div class="form-floating mb-3">
-                <input [maxlength]="70" required [(ngModel)]="entrevista.link" type="url" id="link"
+                <input [maxlength]="70" required [(ngModel)]="entrevista.link" type="text" id="link"
                   class="form-control" placeholder="=" name="link{{indexComponent}}" #linkEntrevista="ngModel">
                 <label for="link">Link da entrevista</label>
                 <ng-container *ngIf="linkEntrevista.dirty || linkEntrevista.touched">

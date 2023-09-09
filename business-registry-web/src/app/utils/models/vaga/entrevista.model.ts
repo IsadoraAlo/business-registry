@@ -6,6 +6,6 @@ export class Entrevista {
   constructor() {
     this.id = 0;
     this.link = '';
-    this.data = new Date();
+    this.data = new Date('');
   }
 }

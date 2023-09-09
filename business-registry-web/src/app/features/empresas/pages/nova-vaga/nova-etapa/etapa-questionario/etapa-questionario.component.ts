@@ -4,11 +4,11 @@ import { Entrevista } from 'src/app/utils/models/vaga/entrevista.model';
 import { EntrevistaService } from 'src/app/utils/services/vaga/entrevista.service';
 
 @Component({
-  selector: 'modal-entrevista',
-  templateUrl: './etapa-entrevista.component.html',
-  styleUrls: ['./etapa-entrevista.component.scss']
+  selector: 'app-etapa-questionario',
+  templateUrl: './etapa-questionario.component.html',
+  styleUrls: ['./etapa-questionario.component.scss']
 })
-export class EtapaEntrevistaComponent {
+export class EtapaQuestionarioComponent {
   @Input() indexComponent!: number;
   @Input() idEntrevista!: number;
   public entrevista: Entrevista = new Entrevista();
@@ -18,29 +18,11 @@ export class EtapaEntrevistaComponent {
     private entrevistaService: EntrevistaService,
   ) { }
 
-  public onDateInputKeydown(event: KeyboardEvent): void {
-    (event.target as HTMLInputElement).value = '';
-    event.preventDefault();
-    this.entrevista.data = new Date('');
-  }
-
-  public exibirModal(): void {
+  public exibirModal() {
     this.showModal = !this.showModal;
   }
 
-  public getMinDate(): string {
-    const today = new Date();
-    return today.toISOString().split('T')[0];
-  }
-
-  public getMaxDate(): string {
-    const threeMonthsFromNow = new Date();
-    threeMonthsFromNow.setMonth(threeMonthsFromNow.getMonth() + 3);
-    return threeMonthsFromNow.toISOString().split('T')[0];
-  }
-
   private saveEntrevista(): void {
-    console.log(this.entrevista.data)
     this.entrevista.id = this.idEntrevista
     this.entrevistaService.criarEntrevista(this.entrevista)
       .pipe(
@@ -62,3 +44,4 @@ export class EtapaEntrevistaComponent {
       this.cleanForm();
   }
 }
+

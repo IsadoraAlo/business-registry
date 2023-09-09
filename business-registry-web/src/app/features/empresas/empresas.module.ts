@@ -12,6 +12,7 @@ import { InformacoesEnderecoComponent } from './pages/cadastro-informacoes/infor
 import { EtapaEntrevistaComponent } from './pages/nova-vaga/nova-etapa/etapa-entrevista/etapa-entrevista.component';
 import { NovaEtapaComponent } from './pages/nova-vaga/nova-etapa/nova-etapa.component';
 import { NovaVagaComponent } from './pages/nova-vaga/nova-vaga.component';
+import { EtapaQuestionarioComponent } from './pages/nova-vaga/nova-etapa/etapa-questionario/etapa-questionario.component';
 @NgModule({
   declarations: [
     EmpresasCadastrosComponent,
@@ -20,7 +21,8 @@ import { NovaVagaComponent } from './pages/nova-vaga/nova-vaga.component';
     NovaVagaComponent,
     NovaEtapaComponent,
     EmpresasComponent,
-    EtapaEntrevistaComponent
+    EtapaEntrevistaComponent,
+    EtapaQuestionarioComponent
   ],
   imports: [
     CommonModule,

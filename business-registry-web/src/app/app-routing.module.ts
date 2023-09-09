@@ -9,11 +9,10 @@ import { BoasVindasUsuarioComponent } from './features/commom/home/pages/boas-vi
 import { CadastrosComponent } from './features/commom/home/pages/cadastros/cadastros.component';
 import { IndexComponent } from './features/commom/home/pages/index/index.component';
 import { LoginComponent } from './features/commom/home/pages/login/login.component';
+import { EmpresasComponent } from './features/empresas/empresas.component';
 import { CadastroInformacoesEmpresaComponent } from './features/empresas/pages/cadastro-informacoes/cadastro-informacoes.component';
 import { NovaEtapaComponent } from './features/empresas/pages/nova-vaga/nova-etapa/nova-etapa.component';
 import { NovaVagaComponent } from './features/empresas/pages/nova-vaga/nova-vaga.component';
-import { EmpresasComponent } from './features/empresas/empresas.component';
-import { EtapaEntrevistaComponent } from './features/empresas/pages/nova-vaga/nova-etapa/etapa-entrevista/etapa-entrevista.component';
 const routes: Routes = [
   {
     path: '',

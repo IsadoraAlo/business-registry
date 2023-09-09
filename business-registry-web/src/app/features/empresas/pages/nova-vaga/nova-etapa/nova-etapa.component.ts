@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { catchError, throwError } from 'rxjs';
 import { LocalStorage } from 'src/app/utils/data/local-storage.util';
 import { etapaTipoList } from 'src/app/utils/lists/etapa.utils';
@@ -14,10 +13,13 @@ import { EtapaService } from './../../../../../utils/services/vaga/etapa.service
 })
 export class NovaEtapaComponent {
   public vaga: Vaga = this.local.Vaga;
+
+  public etapasNovas: boolean[] = [];
+  public etapas: Etapa[] = [];
+
   public indexComponent: number = 0;
   public tipos = etapaTipoList;
-  etapasNovas: boolean[] = [];
-  public etapas: Etapa[] = [];
+
   public idEtapa!: number;
 
   constructor(

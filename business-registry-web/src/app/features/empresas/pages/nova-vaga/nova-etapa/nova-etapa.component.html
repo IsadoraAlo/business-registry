@@ -11,7 +11,7 @@
           <ng-container *ngFor="let etapa of etapas; let indexComponent = index">
             <form (ngSubmit)="onSubmit()" #etapaForm="ngForm">
               <div class="row">
-                <div class="col-8">
+                <div class="col-md-8">
                   <div class="form-floating mb-3">
                     <input required #titulo="ngModel" [maxlength]="70" [(ngModel)]="etapa.titulo" type="text"
                       id="titulo" class="form-control" placeholder="=" name="titulo{{indexComponent}}">
