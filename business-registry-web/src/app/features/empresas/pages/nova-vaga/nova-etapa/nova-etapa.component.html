@@ -57,7 +57,7 @@
               </div>
               <div class="row">
                 <div class="col-12">
-                  <button type="submit" class="btn brand-btn" (click)="modal.exibirModal()"
+                  <button type="submit" class="btn brand-btn" (click)="etapa.tipo === 'Entrevista' ? modalEntrevista.exibirModal() : modalQuestionario.exibirModal()"
                     [disabled]="!etapasNovas[indexComponent] || !etapaForm.valid">
                     <b>Construir etapa</b>
                   </button>
@@ -82,4 +82,5 @@
     </div>
   </div>
 </div>
-<modal-entrevista #modal [indexComponent]="indexComponent" [idEntrevista]="idEtapa"></modal-entrevista>
+<modal-entrevista #modalEntrevista [indexComponent]="indexComponent" [idEntrevista]="idEtapa"></modal-entrevista>
+<modal-questionario #modalQuestionario></modal-questionario>

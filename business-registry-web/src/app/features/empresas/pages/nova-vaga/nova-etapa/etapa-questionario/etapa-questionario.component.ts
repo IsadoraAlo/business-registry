@@ -1,33 +1,33 @@
 import { Component, Input } from '@angular/core';
 import { catchError, throwError } from 'rxjs';
-import { Entrevista } from 'src/app/utils/models/vaga/entrevista.model';
-import { EntrevistaService } from 'src/app/utils/services/vaga/entrevista.service';
+import { Questionario } from 'src/app/utils/models/vaga/questionario/questionario.model';
+import { QuestionarioService } from 'src/app/utils/services/vaga/questionario/questionario.service';
 
 @Component({
-  selector: 'app-etapa-questionario',
+  selector: 'modal-questionario',
   templateUrl: './etapa-questionario.component.html',
   styleUrls: ['./etapa-questionario.component.scss']
 })
 export class EtapaQuestionarioComponent {
   @Input() indexComponent!: number;
-  @Input() idEntrevista!: number;
-  public entrevista: Entrevista = new Entrevista();
+  @Input() idQuestionario!: number;
+  public questionario: Questionario = new Questionario();
   public showModal: boolean = false;
 
   constructor(
-    private entrevistaService: EntrevistaService,
+    private questionarioService: QuestionarioService,
   ) { }
 
   public exibirModal() {
     this.showModal = !this.showModal;
   }
 
-  private saveEntrevista(): void {
-    this.entrevista.id = this.idEntrevista
-    this.entrevistaService.criarEntrevista(this.entrevista)
+  private saveQuestionario(): void {
+    this.questionario.id = this.idQuestionario
+    this.questionarioService.criarQuestionario(this.questionario)
       .pipe(
         catchError((error) => {
-          console.error('Erro ao criar entrevista:', error);
+          console.error('Erro ao criar questionário:', error);
           return throwError(() => error);
         })
       )
@@ -35,11 +35,11 @@ export class EtapaQuestionarioComponent {
   }
 
   private cleanForm(): void{
-    this.entrevista = new Entrevista();
+    this.questionario = new Questionario();
   }
 
   public onSubmit(): void {
-      this.saveEntrevista();
+      this.saveQuestionario();
       this.exibirModal();
       this.cleanForm();
   }

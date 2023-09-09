@@ -1,31 +1,30 @@
-<p>etapa-questionario works!</p>
 <ng-container *ngIf="showModal">
   <div class="d-flex justify-content-center">
     <div class="col-lg-8">
       <div class="modal-brand text-center">
-        <form (ngSubmit)="onSubmit()" #entrevistaForm="ngForm">
+        <form (ngSubmit)="onSubmit()" #questionarioForm="ngForm">
           <br>
           <h2 class="brand-text"><b>Novo questionário</b></h2>
           <br>
           <div class="row">
             <div class="col-6">
               <div class="form-floating mb-3">
-                <input required [(ngModel)]="entrevista.data" type="date" id="data"
-                  class="form-control" placeholder="=" name="data{{indexComponent}}" #dataEntrevista="ngModel">
-                <label for="data">Data da entrevista</label>
-                <p *ngIf="dataEntrevista.errors?.['required']" class="text-danger">
-                  Data da entrevista é de preenchimento obrigatório!
+                <input required [(ngModel)]="questionario.prazoEnvio" type="date" id="prazoEnvio"
+                  class="form-control" placeholder="=" name="prazoEnvio{{indexComponent}}" #prazoEnvio="ngModel">
+                <label for="prazoEnvio">Prazo de envio</label>
+                <p *ngIf="prazoEnvio.errors?.['required']" class="text-danger">
+                  Data de prazo para o envio do questionário é obrigatório!
                 </p>
               </div>
             </div>
             <div class="col-6">
               <div class="form-floating mb-3">
-                <input [maxlength]="70" required [(ngModel)]="entrevista.link" type="text" id="link"
-                  class="form-control" placeholder="=" name="link{{indexComponent}}" #linkEntrevista="ngModel">
-                <label for="link">Link da entrevista</label>
-                <ng-container *ngIf="linkEntrevista.dirty || linkEntrevista.touched">
-                  <div *ngIf="linkEntrevista.errors?.['required']" class="text-danger">
-                    Link da entrevista é de preenchimento obrigatório!
+                <input mask="000" required [(ngModel)]="questionario.pontuacaoTotal" type="text" id="pontuacaoTotal"
+                  class="form-control" placeholder="=" name="pontuacaoTotal{{indexComponent}}" #pontuacaoTotal="ngModel">
+                <label for="pontuacaoTotal">Pontuação total do questionario</label>
+                <ng-container *ngIf="pontuacaoTotal.dirty || pontuacaoTotal.touched">
+                  <div *ngIf="pontuacaoTotal.errors?.['required']" class="text-danger">
+                    Pontuação total do questionario é de preenchimento obrigatório!
                   </div>
                 </ng-container>
               </div>
@@ -33,8 +32,8 @@
           </div>
           <div class="row">
             <div class="col-12">
-              <button type="submit" class="btn brand-btn" [disabled]="!entrevistaForm.valid">
-                <b>Salvar entrevista</b>
+              <button type="submit" class="btn brand-btn" [disabled]="!questionarioForm.valid">
+                <b>Salvar questionario</b>
               </button>
             </div>
           </div>
