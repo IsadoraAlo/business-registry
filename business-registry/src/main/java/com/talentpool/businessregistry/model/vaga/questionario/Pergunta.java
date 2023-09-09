@@ -1,5 +1,8 @@
 package com.talentpool.businessregistry.model.vaga.questionario;
 
+import javax.validation.constraints.Size;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,12 +21,19 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "questionario")
-public class Questionario {
+@Table(name = "pergunta")
+public class Pergunta {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	    
-    @JoinColumn(name = "pontuacaoTotal")
-    private Integer pontuacaoTotal;
+	
+	@Column(name = "questao")
+	@Size(max = 250)
+    private String questao;
+	
+    @JoinColumn(name = "pontuacao")
+    private Integer pontuacao;
+	
+    @JoinColumn(name = "questionario_id")
+	private long questionarioId;
 }
