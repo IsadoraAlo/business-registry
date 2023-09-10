@@ -9,6 +9,6 @@ import { Component, Input } from '@angular/core';
 })
 export class DissertativaComponent {
   @Input() idQuestionario!: number;
-  public pergunta: Pergunta = new Pergunta();
+  @Input() pergunta!: Pergunta;
   public resposta: Resposta = new Resposta();
 }

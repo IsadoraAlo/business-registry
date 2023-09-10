@@ -9,6 +9,6 @@ import { Resposta } from 'src/app/utils/models/vaga/questionario/resposta.model'
 })
 export class MultiplaEscolhaComponent {
   @Input() idQuestionario!: number;
-  public pergunta: Pergunta = new Pergunta();
+  @Input() pergunta!: Pergunta;
   public resposta: Resposta = new Resposta();
 }

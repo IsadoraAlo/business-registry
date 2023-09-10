@@ -47,7 +47,7 @@
           <div class="row justify-content-center d-flex">
             <div class="col-md-8">
               <div class="form-floating mb-3">
-                <select name="tipo" #tipo class="form-select" (change)="getSelectedValue(tipo.value)">
+                <select name="tipo" [(ngModel)]="pergunta.tipo" class="form-select">
                   <option disabled selected hidden>Selecione o tipo de pergunta</option>
                   <ng-container *ngFor="let tipo of tipos">
                     <option [value]="tipo.tipo" id="tipo">{{tipo?.tipo}}</option>
@@ -57,11 +57,11 @@
               </div>
             </div>
           </div>
-          <div *ngIf="tipoPergunta === 'Dissertativa'">
-            <resposta-dissertativa [idQuestionario]="idQuestionario"></resposta-dissertativa>
+          <div *ngIf="pergunta.tipo === 'Dissertativa'">
+            <resposta-dissertativa [pergunta]="pergunta" [idQuestionario]="idQuestionario"></resposta-dissertativa>
           </div>
-          <div *ngIf="tipoPergunta === 'Múltipla escolha'">
-            <resposta-multipla-escolha [idQuestionario]="idQuestionario"></resposta-multipla-escolha>
+          <div *ngIf="pergunta.tipo === 'Múltipla escolha'">
+            <resposta-multipla-escolha [pergunta]="pergunta" [idQuestionario]="idQuestionario"></resposta-multipla-escolha>
           </div>
         </ng-container>
         <div class="row" *ngIf="isFormSubmitted">

@@ -15,7 +15,8 @@ a:hover{
 }
 .modal-brand{
   min-width: 320px;
-  overflow-y: hidden;
+  overflow-y: scroll;
+  scrollbar-width: none;
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 8px #333;
@@ -28,6 +29,15 @@ a:hover{
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 11;
+}
+.modal-brand::-webkit-scrollbar{
+  width: 6px;
+}
+.modal-brand::-webkit-scrollbar-thumb{
+  background-color: transparent;
+}
+.modal-brand::-webkit-scrollbar-track {
+  background-color: transparent;
 }
 .overlay {
   background: #000;
