@@ -1,0 +1,30 @@
+<form>
+  <div class="row">
+    <div class="col-12">
+      <div class="form-floating mb-3">
+        <textarea required #questao="ngModel" [maxlength]="250" [(ngModel)]="pergunta.questao" type="text"
+          id="questao" class="form-control" placeholder="=" name="questao"></textarea>
+        <label for="questao">Qual a pergunta que você irá fazer?</label>
+        <ng-container *ngIf="questao.dirty || questao.touched">
+          <div *ngIf="questao.errors?.['required']" class="text-danger">
+            Descrição da pergunta é de preenchimento obrigatório!
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="form-floating mb-3">
+        <textarea required #dissertativa="ngModel" [maxlength]="250" [(ngModel)]="resposta.dissertativa" type="text"
+          id="dissertativa" class="form-control" placeholder="=" name="dissertativa"></textarea>
+        <label for="dissertativa">Qual a resposta desejada?</label>
+        <ng-container *ngIf="dissertativa.dirty || dissertativa.touched">
+          <div *ngIf="dissertativa.errors?.['required']" class="text-danger">
+            Resposta da pergunta é de preenchimento obrigatório!
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</form>

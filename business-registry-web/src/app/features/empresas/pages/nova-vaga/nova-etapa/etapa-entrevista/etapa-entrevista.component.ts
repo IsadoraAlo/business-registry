@@ -9,7 +9,6 @@ import { EntrevistaService } from 'src/app/utils/services/vaga/entrevista.servic
   styleUrls: ['./etapa-entrevista.component.scss']
 })
 export class EtapaEntrevistaComponent {
-  @Input() indexComponent!: number;
   @Input() idEntrevista!: number;
   public entrevista: Entrevista = new Entrevista();
   public showModal: boolean = false;

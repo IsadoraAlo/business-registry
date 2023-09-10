@@ -13,6 +13,8 @@ import { EtapaEntrevistaComponent } from './pages/nova-vaga/nova-etapa/etapa-ent
 import { NovaEtapaComponent } from './pages/nova-vaga/nova-etapa/nova-etapa.component';
 import { NovaVagaComponent } from './pages/nova-vaga/nova-vaga.component';
 import { EtapaQuestionarioComponent } from './pages/nova-vaga/nova-etapa/etapa-questionario/etapa-questionario.component';
+import { MultiplaEscolhaComponent } from './pages/nova-vaga/nova-etapa/etapa-questionario/multipla-escolha/multipla-escolha.component';
+import { DissertativaComponent } from './pages/nova-vaga/nova-etapa/etapa-questionario/dissertativa/dissertativa.component';
 @NgModule({
   declarations: [
     EmpresasCadastrosComponent,
@@ -22,7 +24,9 @@ import { EtapaQuestionarioComponent } from './pages/nova-vaga/nova-etapa/etapa-q
     NovaEtapaComponent,
     EmpresasComponent,
     EtapaEntrevistaComponent,
-    EtapaQuestionarioComponent
+    EtapaQuestionarioComponent,
+    MultiplaEscolhaComponent,
+    DissertativaComponent
   ],
   imports: [
     CommonModule,

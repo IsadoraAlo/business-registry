@@ -57,13 +57,13 @@
               </div>
               <div class="row">
                 <div class="col-12">
-                  <button type="submit" class="btn brand-btn" (click)="etapa.tipo === 'Entrevista' ? modalEntrevista.exibirModal() : modalQuestionario.exibirModal()"
+                  <button type="submit" class="btn brand-btn"
+                    (click)="etapa.tipo === 'Entrevista' ? modalEntrevista.exibirModal() : modalQuestionario.exibirModal()"
                     [disabled]="!etapasNovas[indexComponent] || !etapaForm.valid">
                     <b>Construir etapa</b>
                   </button>
                 </div>
               </div>
-              <br>
             </form>
           </ng-container>
           <div class="row">
@@ -82,5 +82,5 @@
     </div>
   </div>
 </div>
-<modal-entrevista #modalEntrevista [indexComponent]="indexComponent" [idEntrevista]="idEtapa"></modal-entrevista>
-<modal-questionario #modalQuestionario></modal-questionario>
+<modal-entrevista #modalEntrevista [idEntrevista]="idEtapa"></modal-entrevista>
+<modal-questionario #modalQuestionario [idQuestionario]="idEtapa"></modal-questionario>

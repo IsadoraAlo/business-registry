@@ -9,8 +9,9 @@
           <div class="row">
             <div class="col-6">
               <div class="form-floating mb-3">
-                <input required [(ngModel)]="questionario.prazoEnvio" type="date" id="prazoEnvio"
-                  class="form-control" placeholder="=" name="prazoEnvio{{indexComponent}}" #prazoEnvio="ngModel">
+                <input [disabled]="isFormSubmitted" required [(ngModel)]="questionario.prazoEnvio" type="date"
+                  id="prazoEnvio" class="form-control" placeholder="=" name="prazoEnvio{{indexComponent}}"
+                  #prazoEnvio="ngModel">
                 <label for="prazoEnvio">Prazo de envio</label>
                 <p *ngIf="prazoEnvio.errors?.['required']" class="text-danger">
                   Data de prazo para o envio do questionário é obrigatório!
@@ -19,8 +20,9 @@
             </div>
             <div class="col-6">
               <div class="form-floating mb-3">
-                <input mask="000" required [(ngModel)]="questionario.pontuacaoTotal" type="text" id="pontuacaoTotal"
-                  class="form-control" placeholder="=" name="pontuacaoTotal{{indexComponent}}" #pontuacaoTotal="ngModel">
+                <input [disabled]="isFormSubmitted" mask="000" required [(ngModel)]="questionario.pontuacaoTotal"
+                  type="text" id="pontuacaoTotal" class="form-control" placeholder="="
+                  name="pontuacaoTotal{{indexComponent}}" #pontuacaoTotal="ngModel">
                 <label for="pontuacaoTotal">Pontuação total do questionario</label>
                 <ng-container *ngIf="pontuacaoTotal.dirty || pontuacaoTotal.touched">
                   <div *ngIf="pontuacaoTotal.errors?.['required']" class="text-danger">
@@ -32,12 +34,47 @@
           </div>
           <div class="row">
             <div class="col-12">
-              <button type="submit" class="btn brand-btn" [disabled]="!questionarioForm.valid">
-                <b>Salvar questionario</b>
+              <button type="submit" class="btn brand-btn" [disabled]="!questionarioForm.valid || isFormSubmitted">
+                <b>Construir questionário</b>
               </button>
             </div>
           </div>
         </form>
+        <br>
+        <h3 class="brand-text" *ngIf="isFormSubmitted"><b>Perguntas</b></h3>
+        <br>
+        <ng-container *ngFor="let pergunta of perguntas; let indexComponent = index">
+          <div class="row justify-content-center d-flex">
+            <div class="col-md-8">
+              <div class="form-floating mb-3">
+                <select name="tipo" #tipo class="form-select" (change)="getSelectedValue(tipo.value)">
+                  <option disabled selected hidden>Selecione o tipo de pergunta</option>
+                  <ng-container *ngFor="let tipo of tipos">
+                    <option [value]="tipo.tipo" id="tipo">{{tipo?.tipo}}</option>
+                  </ng-container>
+                </select>
+                <label for="tipo">Tipo da pergunta</label>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="tipoPergunta === 'Dissertativa'">
+            <resposta-dissertativa [idQuestionario]="idQuestionario"></resposta-dissertativa>
+          </div>
+          <div *ngIf="tipoPergunta === 'Múltipla escolha'">
+            <resposta-multipla-escolha [idQuestionario]="idQuestionario"></resposta-multipla-escolha>
+          </div>
+        </ng-container>
+        <div class="row" *ngIf="isFormSubmitted">
+          <div class="col-1">
+            <button [disabled]="perguntasNovas[indexComponent-1] || perguntasNovas.length >= 10" type="button"
+              class="btn brand-btn" (click)="onClickAdd()">
+              <i class="bi bi-plus-circle"></i></button>
+          </div>
+          <div class="col-1" *ngIf="indexComponent > 1">
+            <button type="button" class="btn brand-btn" (click)="onClickRemove()">
+              <i class="bi bi-trash-fill"></i></button>
+          </div>
+        </div>
       </div>
     </div>
   </div>

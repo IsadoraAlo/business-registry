@@ -31,7 +31,7 @@ public class Resposta {
 	@Column(name = "alternativa_correta")
 	private Boolean alternativaCorreta;
 
-	@Column(name = "alternativa", length = 100)
+	@Column(name = "alternativa", length = 50)
 	private String alternativa;
 
 	@Column(name = "dissertativa", length = 200)
