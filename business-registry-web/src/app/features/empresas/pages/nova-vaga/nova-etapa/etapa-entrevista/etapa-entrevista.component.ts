@@ -24,7 +24,6 @@ export class EtapaEntrevistaComponent {
   public onDateInputKeydown(event: KeyboardEvent): void {
     (event.target as HTMLInputElement).value = '';
     event.preventDefault();
-    console.log(this.entrevista.data)
   }
 
   public getMinDate(): string {

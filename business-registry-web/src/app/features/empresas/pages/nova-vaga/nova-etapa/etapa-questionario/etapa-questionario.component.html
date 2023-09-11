@@ -9,12 +9,25 @@
           <div class="row">
             <div class="col-md-6">
               <div class="form-floating mb-3">
-                <input [disabled]="isFormSubmitted" required [(ngModel)]="questionario.prazoEnvio" type="date"
-                  id="prazoEnvio" class="form-control" placeholder="=" name="prazoEnvio{{indexComponent}}" #prazoEnvio
-                  #prazoEnvioAngular="ngModel" min="{{getMinDate()}}" max="{{ getMaxDate()}}">
+                <input
+                  [(ngModel)]="questionario.prazoEnvio"
+                  [disabled]="isFormSubmitted"
+                  name="prazoEnvio{{indexComponent}}"
+                  max="{{getMaxDate()}}"
+                  min="{{getMinDate()}}"
+                  (keypress)="onDateInputKeydown($event)"
+                  (keydown)="onDateInputKeydown($event)"
+                  #prazoEnvioAngular="ngModel"
+                  #prazoEnvio
+                  type="date"
+                  class="form-control"
+                  id="prazoEnvio"
+                  placeholder="="
+                  required
+                >
                 <label for="prazoEnvio">Prazo de envio</label>
                 <ng-container *ngIf="prazoEnvioAngular.dirty || prazoEnvioAngular.touched">
-                  <div *ngIf="prazoEnvio.valueAsDate == null" class="text-danger">
+                  <div *ngIf="prazoEnvio.valueAsDate === null" class="text-danger">
                     Data de prazo para o envio do questionário é obrigatório!
                   </div>
                 </ng-container>
@@ -37,7 +50,7 @@
           <div class="row">
             <div class="col-12">
               <button type="submit" class="btn brand-btn"
-                [disabled]="!questionarioForm.valid || isFormSubmitted || prazoEnvio.valueAsDate == null || pontuacaoTotal.value === 0">
+                [disabled]="!questionarioForm.valid || isFormSubmitted || prazoEnvio.valueAsDate === null || pontuacaoTotal.value === 0">
                 <b>Construir questionário</b>
               </button>
             </div>

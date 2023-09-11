@@ -9,13 +9,27 @@
           <div class="row">
             <div class="col-md-6">
               <div class="form-floating mb-3">
-                <input required (keypress)="onDateInputKeydown($event)" (keydown)="onDateInputKeydown($event)"
-                  [(ngModel)]="entrevista.data" type="date" id="data" class="form-control" min="{{getMinDate()}}"
-                  max="{{ getMaxDate()}}" name="data" #data="ngModel">
-                <label for="data">Data da entrevista</label>
-                <div *ngIf="data?.value === undefined" class="text-danger">
-                  Data da entrevista é de preenchimento obrigatório!
-                </div>
+                <input
+                  [(ngModel)]="entrevista.data"
+                  name="data"
+                  max="{{getMaxDate()}}"
+                  min="{{getMinDate()}}"
+                  (keypress)="onDateInputKeydown($event)"
+                  (keydown)="onDateInputKeydown($event)"
+                  #dataAngular="ngModel"
+                  #data
+                  type="date"
+                  class="form-control"
+                  id="data"
+                  placeholder="="
+                  required
+                >
+                <label for="data">Prazo de envio</label>
+                <ng-container *ngIf="dataAngular.dirty || dataAngular.touched">
+                  <div *ngIf="data.valueAsDate === null" class="text-danger">
+                    Data da entrevista é de preenchimento obrigatório!
+                  </div>
+                </ng-container>
               </div>
             </div>
             <div class="col-md-6">
@@ -33,7 +47,7 @@
           </div>
           <div class="row">
             <div class="col-12">
-              <button type="submit" class="btn brand-btn" [disabled]="!entrevistaForm.valid">
+              <button type="submit" class="btn brand-btn" [disabled]="!entrevistaForm.valid || data.valueAsDate === null">
                 <b>Salvar entrevista</b>
               </button>
             </div>
