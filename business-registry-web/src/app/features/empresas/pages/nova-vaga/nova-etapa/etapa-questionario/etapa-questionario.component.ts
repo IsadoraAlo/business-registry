@@ -30,6 +30,23 @@ export class EtapaQuestionarioComponent {
     this.showModal = !this.showModal;
   }
 
+  public onDateInputKeydown(event: KeyboardEvent): void {
+    (event.target as HTMLInputElement).value = '';
+    event.preventDefault();
+    this.questionario.prazoEnvio = new Date('');
+  }
+
+  public getMinDate(): string {
+    const today = new Date();
+    return today.toISOString().split('T')[0];
+  }
+
+  public getMaxDate(): string {
+    const threeMonthsFromNow = new Date();
+    threeMonthsFromNow.setMonth(threeMonthsFromNow.getMonth() + 3);
+    return threeMonthsFromNow.toISOString().split('T')[0];
+  }
+
   public onClickAdd(): void {
     if (this.perguntas.length < 10) {
       this.perguntas.push(new Pergunta());

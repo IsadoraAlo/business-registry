@@ -6,6 +6,6 @@ export class Questionario {
   constructor() {
     this.id = 0;
     this.pontuacaoTotal = 0;
-    this.prazoEnvio = new Date();
+    this.prazoEnvio = new Date(0);
   }
 }

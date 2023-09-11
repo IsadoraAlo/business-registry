@@ -10,12 +10,14 @@
             <div class="col-md-6">
               <div class="form-floating mb-3">
                 <input [disabled]="isFormSubmitted" required [(ngModel)]="questionario.prazoEnvio" type="date"
-                  id="prazoEnvio" class="form-control" placeholder="=" name="prazoEnvio{{indexComponent}}"
-                  #prazoEnvio="ngModel">
+                  id="prazoEnvio" class="form-control" placeholder="=" name="prazoEnvio{{indexComponent}}" #prazoEnvio
+                  #prazoEnvioAngular="ngModel" min="{{getMinDate()}}" max="{{ getMaxDate()}}">
                 <label for="prazoEnvio">Prazo de envio</label>
-                <p *ngIf="prazoEnvio.errors?.['required']" class="text-danger">
-                  Data de prazo para o envio do questionário é obrigatório!
-                </p>
+                <ng-container *ngIf="prazoEnvioAngular.dirty || prazoEnvioAngular.touched">
+                  <div *ngIf="prazoEnvio.valueAsDate == null" class="text-danger">
+                    Data de prazo para o envio do questionário é obrigatório!
+                  </div>
+                </ng-container>
               </div>
             </div>
             <div class="col-md-6">
@@ -25,7 +27,7 @@
                   placeholder="=" name="pontuacaoTotal{{indexComponent}}" #pontuacaoTotal="ngModel">
                 <label for="pontuacaoTotal">Pontuação total do questionario</label>
                 <ng-container *ngIf="pontuacaoTotal.dirty || pontuacaoTotal.touched">
-                  <div *ngIf="pontuacaoTotal.errors?.['required']" class="text-danger">
+                  <div *ngIf="pontuacaoTotal.value === 0" class="text-danger">
                     Pontuação total do questionario é de preenchimento obrigatório!
                   </div>
                 </ng-container>
@@ -34,7 +36,8 @@
           </div>
           <div class="row">
             <div class="col-12">
-              <button type="submit" class="btn brand-btn" [disabled]="!questionarioForm.valid || isFormSubmitted">
+              <button type="submit" class="btn brand-btn"
+                [disabled]="!questionarioForm.valid || isFormSubmitted || prazoEnvio.valueAsDate == null || pontuacaoTotal.value === 0">
                 <b>Construir questionário</b>
               </button>
             </div>

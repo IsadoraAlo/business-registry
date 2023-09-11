@@ -17,14 +17,14 @@ export class EtapaEntrevistaComponent {
     private entrevistaService: EntrevistaService,
   ) { }
 
+  public exibirModal(): void {
+    this.showModal = !this.showModal;
+  }
+
   public onDateInputKeydown(event: KeyboardEvent): void {
     (event.target as HTMLInputElement).value = '';
     event.preventDefault();
-    this.entrevista.data = new Date('');
-  }
-
-  public exibirModal(): void {
-    this.showModal = !this.showModal;
+    console.log(this.entrevista.data)
   }
 
   public getMinDate(): string {
@@ -39,7 +39,6 @@ export class EtapaEntrevistaComponent {
   }
 
   private saveEntrevista(): void {
-    console.log(this.entrevista.data)
     this.entrevista.id = this.idEntrevista
     this.entrevistaService.criarEntrevista(this.entrevista)
       .pipe(

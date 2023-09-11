@@ -33,7 +33,6 @@ export class LocalStorage {
       usuario.nome = data.nome;
       usuario.tipo = data.tipo;
     }
-    console.log(usuario)
     return usuario;
   }
 
