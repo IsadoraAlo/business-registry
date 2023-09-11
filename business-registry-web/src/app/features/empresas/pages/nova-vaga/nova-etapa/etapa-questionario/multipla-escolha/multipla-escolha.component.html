@@ -1,9 +1,10 @@
-<form>
+<form (ngSubmit)="onSubmit()" #perguntaForm="ngForm">
   <div class="row">
     <div class="col-12">
       <div class="form-floating mb-3">
-        <textarea required #questao="ngModel" [maxlength]="250" [(ngModel)]="pergunta.questao" type="text" id="questao"
-          class="form-control" placeholder="=" name="questao"></textarea>
+        <textarea [disabled]="isFormSubmitted" required #questao="ngModel" [maxlength]="250"
+          [(ngModel)]="pergunta.questao" type="text" id="questao" class="form-control" placeholder="="
+          name="questao"></textarea>
         <label for="questao">Qual a pergunta que você irá fazer?</label>
         <ng-container *ngIf="questao.dirty || questao.touched">
           <div *ngIf="questao.errors?.['required']" class="text-danger">
@@ -19,19 +20,26 @@
         <ng-container *ngFor="let item of [0,1,2,3]">
           <div class="row">
             <div class="col-1 text-center">
-              <input required #escolha="ngModel" [maxlength]="50" [(ngModel)]="resposta.alternativaCorreta" type="radio"
-                id="escolha" class="form-check-input" placeholder="=" name="escolha">
+              <input [disabled]="isFormSubmitted" [value]="true" required type="radio" id="escolha"
+                class="form-check-input" placeholder="=" name="alternativaCorreta">
             </div>
             <div class="col-11">
               <div class="form-floating mb-3">
-                <input #multiplaEscolha [maxlength]="70" [(ngModel)]="resposta.alternativa" type="text" id="titulo"
-                  class="form-control" placeholder="=" name="titulo">
+                <input [disabled]="isFormSubmitted" #multiplaEscolha [maxlength]="70" [(ngModel)]="resposta.alternativa"
+                  type="text" id="titulo" class="form-control" placeholder="=" name="titulo">
                 <label for="titulo">Qual a resposta desejada?</label>
               </div>
             </div>
           </div>
         </ng-container>
       </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <button type="submit" class="btn brand-btn" [disabled]="!perguntaForm.valid || isFormSubmitted">
+        <b>Salvar pergunta</b>
+      </button>
     </div>
   </div>
 </form>
