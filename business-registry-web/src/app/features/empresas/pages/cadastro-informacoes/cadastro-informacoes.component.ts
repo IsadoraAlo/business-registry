@@ -29,7 +29,7 @@ export class CadastroInformacoesEmpresaComponent {
     ++this.indexComponent
   }
 
-  public onClickRemove(): void{
+  public onClickRemove(): void {
     if (this.enderecos.length > 1) {
       this.enderecos.pop();
       --this.indexComponent
@@ -55,11 +55,12 @@ export class CadastroInformacoesEmpresaComponent {
     this.usuarioService.atualizarUsuario(this.usuario.id, this.usuario)
       .pipe(
         catchError((error) => {
-          console.error('Erro ao criar usuário:', error);
+          console.error('Erro ao atualizar o usuário:', error);
           return throwError(() => error);
         })
       )
       .subscribe();
+    this.local.setUsuarioLogado(this.usuario);
   }
 
   public onSubmit(): void {

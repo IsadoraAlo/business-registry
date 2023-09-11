@@ -21,7 +21,7 @@
     </ng-container>
   </div>
   <div class="text-center">
-    <a routerLink="/candidatos/curriculo-view" (click)="onClickMenu()">
+    <a [routerLink]="usuario.tipo === 'CANDIDATO' ? '/candidatos/view' : '/empresas/view'" (click)="onClickMenu()">
       <img id="img-user"
         src="https://img.freepik.com/fotos-gratis/cliente-masculino-pensativo-olhando-para-longe_74855-3601.jpg?w=360"
         alt="Avatar">

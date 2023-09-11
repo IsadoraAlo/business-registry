@@ -9,20 +9,37 @@ export class LocalStorage {
   }
 
   public get UsuarioLogado() {
-    const data = [JSON.parse(localStorage.getItem('Usuário logado') as string)];
+    const data = JSON.parse(localStorage.getItem('Usuário logado') as string);
     const usuario: Usuario = new Usuario();
-    data.find((body) => {
-      usuario.id = body.usuario.id;
-      usuario.celular = body.usuario.celular;
-      usuario.documento = body.usuario.documento;
-      usuario.email = body.usuario.email;
-      usuario.sobre = body.usuario.sobre;
-      usuario.status = body.usuario.status;
-      usuario.senha = body.usuario.senha;
-      usuario.nome = body.usuario.nome;
-      usuario.tipo = body.usuario.tipo;
-    });
-    return usuario
+    if (data.hasOwnProperty('usuario')) {
+      usuario.id = data.usuario.id;
+      usuario.celular = data.usuario.celular;
+      usuario.documento = data.usuario.documento;
+      usuario.email = data.usuario.email;
+      usuario.sobre = data.usuario.sobre;
+      usuario.status = data.usuario.status;
+      usuario.senha = data.usuario.senha;
+      usuario.nome = data.usuario.nome;
+      usuario.tipo = data.usuario.tipo;
+    }
+    else {
+      usuario.id = data.id;
+      usuario.celular = data.celular;
+      usuario.documento = data.documento;
+      usuario.email = data.email;
+      usuario.sobre = data.sobre;
+      usuario.status = data.status;
+      usuario.senha = data.senha;
+      usuario.nome = data.nome;
+      usuario.tipo = data.tipo;
+    }
+    console.log(usuario)
+    return usuario;
+  }
+
+
+  public cleanStorage(): void {
+    localStorage.clear()
   }
 
   public get Token() {

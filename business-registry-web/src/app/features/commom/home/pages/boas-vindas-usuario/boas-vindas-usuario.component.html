@@ -1,21 +1,13 @@
-<div class="px-5 justify-content-center d-flex">
-  <div class="row">
-    <div class=" px-5 col-8">
-      <br>
-      <h1 class="text-border"><b>Bem vindo {{usuario.nome}}!</b></h1>
-      <br>
-      <br>
-      <p>Bem vindo à plataforma de recrutamento e seleção TalentPool!</p>
-      <p>A melhor plataforma de recrutamento do Brasil, líder em conectar talentos e empresas de forma eficiente e inovadora.</p>
-      <div *ngIf="usuario.sobre === ''">
-        <app-empty-state></app-empty-state>
-      </div>
-    </div>
-  </div>
+<h1 class="brand-text"><b>Bem vindo {{usuario.nome}}!</b></h1>
+<br>
+<p>Bem vindo à plataforma de recrutamento e seleção TalentPool!</p>
+<p>A melhor plataforma de recrutamento do Brasil, líder em conectar talentos e empresas de forma eficiente e inovadora.
+</p>
+<div *ngIf="usuario.sobre === ''">
+  <app-empty-state></app-empty-state>
 </div>
-<br><br>
 <ng-container *ngIf="usuario.sobre !== ''">
-  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+  <div id="carouselExampleIndicators" class="carousel slide brand-text" data-bs-ride="true">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
         aria-current="true" aria-label="Slide 1"></button>
@@ -29,7 +21,7 @@
         <div class="carousel-item active">
           <div class="container bg-white bg-gradient bg-opacity-50 py-5">
             <br>
-            <h3 class="text-border"><b>Vagas em andamento</b></h3>
+            <h3><b>Vagas em andamento</b></h3>
             <br><br>
             <p>Você tem</p><br>
             <h1><b>{{usuario.nome}}</b></h1><br>
@@ -40,7 +32,7 @@
         <div class="carousel-item">
           <div class="container bg-white bg-gradient bg-opacity-50 py-5">
             <br>
-            <h3 class="text-border"><b>Vagas finalizadas</b></h3>
+            <h3><b>Vagas finalizadas</b></h3>
             <br><br>
             <p>Você tem</p><br>
             <h1><b>{{usuario.nome}}</b></h1><br>
@@ -51,7 +43,7 @@
         <div class="carousel-item">
           <div class="container bg-white bg-gradient bg-opacity-50 py-5">
             <br>
-            <h3 class="text-border"><b>Vagas disponíveis</b></h3>
+            <h3><b>Vagas disponíveis</b></h3>
             <br><br>
             <p>Você tem</p><br>
             <h1><b>{{usuario.nome}}</b></h1><br>
@@ -73,4 +65,3 @@
     </button>
   </div>
 </ng-container>
-

@@ -77,11 +77,12 @@ export class CadastroInformacoesComponent {
     this.usuarioService.atualizarUsuario(this.usuario.id, this.usuario)
       .pipe(
         catchError((error) => {
-          console.error('Erro ao criar usuário:', error);
+          console.error('Erro ao atualizar usuário:', error);
           return throwError(() => error);
         })
       )
       .subscribe();
+    this.local.setUsuarioLogado(this.usuario);
   }
 
   public onSubmit(): void {

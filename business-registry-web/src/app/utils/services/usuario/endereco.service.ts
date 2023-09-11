@@ -25,6 +25,10 @@ export class EnderecoService {
     return this.http.get<Endereco>(`${this.apiUrl}/${id}`);
   }
 
+  obterEnderecosByUsuarioId(id: number): Observable<Endereco[]> {
+    return this.http.get<Endereco[]>(`${this.apiUrl}/endereco/${id}`);
+  }
+
   atualizarEndereco(id: number, enderecoAtualizado: Endereco): Observable<Endereco> {
     return this.http.put<Endereco>(`${this.apiUrl}/${id}`, enderecoAtualizado);
   }

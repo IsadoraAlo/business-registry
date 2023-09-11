@@ -1,16 +1,25 @@
 package com.talentpool.businessregistry.controller.usuario;
 
-import com.talentpool.businessregistry.exception.ResourceNotFoundException;
-import com.talentpool.businessregistry.model.usuario.Endereco;
-import com.talentpool.businessregistry.repository.usuario.EnderecoRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.talentpool.businessregistry.exception.ResourceNotFoundException;
+import com.talentpool.businessregistry.model.usuario.Endereco;
+import com.talentpool.businessregistry.repository.usuario.EnderecoRepository;
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/enderecos")
@@ -24,21 +33,18 @@ public class EnderecoController {
         this.enderecoRepository = enderecoRepository;
     }
 
-    // Endpoint para criar um novo endereço
     @PostMapping
     public ResponseEntity<Endereco> criarEndereco(@RequestBody @Valid Endereco endereco) {
         Endereco novoEndereco = enderecoRepository.save(endereco);
         return new ResponseEntity<>(novoEndereco, HttpStatus.CREATED);
     }
 
-    // Endpoint para obter todos os endereços
     @GetMapping
     public ResponseEntity<List<Endereco>> obterEnderecos() {
         List<Endereco> enderecos = enderecoRepository.findAll();
         return new ResponseEntity<>(enderecos, HttpStatus.OK);
     }
 
-    // Endpoint para obter um endereço pelo ID
     @GetMapping("/{id}")
     public ResponseEntity<Endereco> obterEnderecoPorId(@PathVariable Long id) {
         Endereco endereco = enderecoRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(MESSAGE_ERROR + id));
@@ -47,8 +53,16 @@ public class EnderecoController {
         }
         return new ResponseEntity<>(endereco, HttpStatus.OK);
     }
+    
+    @GetMapping("/endereco/{id}")
+    public ResponseEntity<List<Endereco>> obterEnderecoPorUsuario(@PathVariable Long id) {
+        List<Endereco> competencia = enderecoRepository.findByUsuarioId(id);
+        if (competencia == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(competencia, HttpStatus.OK);
+    }
 
-    // Endpoint para atualizar um endereço existente
     @PutMapping("/{id}")
     public ResponseEntity<Endereco> atualizarEndereco(@PathVariable Long id, @RequestBody Endereco enderecoAtualizado) {
         Endereco enderecoExistente = enderecoRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(MESSAGE_ERROR + id));
@@ -63,7 +77,6 @@ public class EnderecoController {
         return new ResponseEntity<>(enderecoAtualizadoNoBanco, HttpStatus.OK);
     }
 
-    // Endpoint para excluir um endereço pelo ID
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> excluirEndereco(@PathVariable Long id) {
         Endereco enderecoExistente = enderecoRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(MESSAGE_ERROR + id));

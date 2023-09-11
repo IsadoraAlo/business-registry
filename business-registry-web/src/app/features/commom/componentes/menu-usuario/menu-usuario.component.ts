@@ -8,9 +8,10 @@ import { Usuario } from 'src/app/utils/models/usuario/usuario.model';
   styleUrls: ['./menu-usuario.component.scss']
 })
 export class MenuUsuarioComponent {
+  constructor(private local: LocalStorage) { }
+
   public isMenuSelected: boolean = false;
-  public usuario: Usuario = this.localStorage?.UsuarioLogado;
-  constructor(private localStorage: LocalStorage) { }
+  public usuario: Usuario = this.local.UsuarioLogado;
 
   onClickMenu() {
     this.isMenuSelected = !this.isMenuSelected;
