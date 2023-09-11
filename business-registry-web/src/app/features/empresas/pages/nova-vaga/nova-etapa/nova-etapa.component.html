@@ -5,7 +5,7 @@
     <div class="row">
       <div class="col-md-8">
         <div class="form-floating mb-3">
-          <input required #titulo="ngModel" [maxlength]="70" [(ngModel)]="etapa.titulo" type="text" id="titulo"
+          <input [disabled]="isFormSubmitted" required #titulo="ngModel" [maxlength]="70" [(ngModel)]="etapa.titulo" type="text" id="titulo"
             class="form-control" placeholder="=" name="titulo{{indexComponent}}">
           <label for="titulo">Título da etapa</label>
           <ng-container *ngIf="titulo.dirty || titulo.touched">
@@ -17,7 +17,7 @@
       </div>
       <div class="col-md-4">
         <div class="form-floating mb-3">
-          <select required #tipo="ngModel" name="tipo{{indexComponent}}" [(ngModel)]="etapa.tipo" class="form-select">
+          <select [disabled]="isFormSubmitted" required #tipo="ngModel" name="tipo{{indexComponent}}" [(ngModel)]="etapa.tipo" class="form-select">
             <option disabled selected hidden>Selecione o tipo</option>
             <ng-container *ngFor="let tipo of tipos">
               <option [value]="tipo.tipo" id="estado">{{tipo.tipo}}</option>
@@ -35,7 +35,7 @@
     <div class="row">
       <div class="col-12">
         <div class="form-floating mb-3">
-          <textarea required #descricao="ngModel" [maxlength]="250" [(ngModel)]="etapa.descricao" type="text"
+          <textarea [disabled]="isFormSubmitted" required #descricao="ngModel" [maxlength]="250" [(ngModel)]="etapa.descricao" type="text"
             id="descricao" class="form-control" placeholder="=" name="descricao{{indexComponent}}"></textarea>
           <label for="descricao">Descrição da etapa do processo seletivo.</label>
           <ng-container *ngIf="descricao.dirty || descricao.touched">
