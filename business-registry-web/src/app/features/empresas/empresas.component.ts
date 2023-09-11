@@ -1,7 +1,0 @@
-import { Component } from "@angular/core";
-
-@Component({
-  selector: 'app-empresas',
-  templateUrl: './empresas.component.html',
-})
-export class EmpresasComponent {}

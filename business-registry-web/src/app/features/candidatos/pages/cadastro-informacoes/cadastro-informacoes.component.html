@@ -1,23 +1,14 @@
-<div class="p-b-t-100 text-center brand-background">
-</div>
-<div class="text-center">
-  <div class="container shadow">
-    <div class="card-body my-5 py-3">
-      <form (ngSubmit)="onSubmit()">
-        <app-informacoes-endereco [endereco]="endereco"></app-informacoes-endereco>
-        <br>
-        <app-informacoes-pessoais [candidato]="candidato"></app-informacoes-pessoais>
-        <br>
-        <app-informacoes-profissionais [competencias]="competencias"
-          [usuario]="usuario"></app-informacoes-profissionais>
-        <div class="text-center">
-          <button type="submit" class="btn brand-btn btn-block mb-3">
-            <b>
-              Salvar
-            </b>
-          </button>
-        </div>
-      </form>
-    </div>
+<form (ngSubmit)="onSubmit()">
+  <app-informacoes-endereco [endereco]="endereco"></app-informacoes-endereco>
+  <br>
+  <app-informacoes-pessoais [candidato]="candidato"></app-informacoes-pessoais>
+  <br>
+  <app-informacoes-profissionais [competencias]="competencias" [usuario]="usuario"></app-informacoes-profissionais>
+  <div class="text-center">
+    <button type="submit" class="btn brand-btn btn-block mb-3">
+      <b>
+        Salvar
+      </b>
+    </button>
   </div>
-</div>
+</form>

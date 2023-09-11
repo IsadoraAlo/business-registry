@@ -51,13 +51,13 @@ export class EtapaEntrevistaComponent {
       .subscribe();
   }
 
-  private cleanForm(): void{
+  private cleanForm(): void {
     this.entrevista = new Entrevista();
   }
 
   public onSubmit(): void {
-      this.saveEntrevista();
-      this.exibirModal();
-      this.cleanForm();
+    this.saveEntrevista();
+    this.exibirModal();
+    this.cleanForm();
   }
 }

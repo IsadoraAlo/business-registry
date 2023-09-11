@@ -15,7 +15,6 @@ export class EtapaQuestionarioComponent {
   @Input() idQuestionario!: number;
 
   public questionario: Questionario = new Questionario();
-
   public perguntasNovas: boolean[] = [];
   public perguntas: Pergunta[] = [];
   public isFormSubmitted: boolean = false;
@@ -27,11 +26,11 @@ export class EtapaQuestionarioComponent {
     private questionarioService: QuestionarioService,
   ) { }
 
-  public exibirModal() {
+  public exibirModal(): void {
     this.showModal = !this.showModal;
   }
 
-  public onClickAdd() {
+  public onClickAdd(): void {
     if (this.perguntas.length < 10) {
       this.perguntas.push(new Pergunta());
       this.perguntasNovas.push(true);
@@ -39,7 +38,7 @@ export class EtapaQuestionarioComponent {
     }
   }
 
-  public onClickRemove() {
+  public onClickRemove(): void {
     if (this.perguntas.length > 1) {
       this.perguntasNovas.pop();
       --this.indexComponent;
@@ -49,6 +48,10 @@ export class EtapaQuestionarioComponent {
 
   public getSelectedValue(tipoPergunta: string): void {
     this.tipoPergunta = tipoPergunta;
+  }
+
+  public onSubmit(): void {
+    this.saveQuestionario();
   }
 
   private saveQuestionario(): void {
@@ -62,10 +65,6 @@ export class EtapaQuestionarioComponent {
       )
       .subscribe();
     this.isFormSubmitted = true
-  }
-
-  public onSubmit(): void {
-    this.saveQuestionario();
   }
 }
 

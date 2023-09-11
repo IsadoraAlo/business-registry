@@ -20,9 +20,9 @@
             </div>
             <div class="col-md-6">
               <div class="form-floating mb-3">
-                <input [minlength]="2" [maxlength]="3" [disabled]="isFormSubmitted" mask="000" required [(ngModel)]="questionario.pontuacaoTotal"
-                  type="text" id="pontuacaoTotal" class="form-control" placeholder="="
-                  name="pontuacaoTotal{{indexComponent}}" #pontuacaoTotal="ngModel">
+                <input [minlength]="2" [maxlength]="3" [disabled]="isFormSubmitted" mask="000" required
+                  [(ngModel)]="questionario.pontuacaoTotal" type="text" id="pontuacaoTotal" class="form-control"
+                  placeholder="=" name="pontuacaoTotal{{indexComponent}}" #pontuacaoTotal="ngModel">
                 <label for="pontuacaoTotal">Pontuação total do questionario</label>
                 <ng-container *ngIf="pontuacaoTotal.dirty || pontuacaoTotal.touched">
                   <div *ngIf="pontuacaoTotal.errors?.['required']" class="text-danger">
@@ -61,7 +61,8 @@
             <resposta-dissertativa [pergunta]="pergunta" [idQuestionario]="idQuestionario"></resposta-dissertativa>
           </div>
           <div *ngIf="pergunta.tipo === 'Múltipla escolha'">
-            <resposta-multipla-escolha [pergunta]="pergunta" [idQuestionario]="idQuestionario"></resposta-multipla-escolha>
+            <resposta-multipla-escolha [pergunta]="pergunta"
+              [idQuestionario]="idQuestionario"></resposta-multipla-escolha>
           </div>
         </ng-container>
         <div class="row" *ngIf="isFormSubmitted">
@@ -75,6 +76,14 @@
               <i class="bi bi-trash-fill"></i></button>
           </div>
         </div>
+        <div class="row">
+          <div class="col-12">
+            <button type="button" (click)="exibirModal()" class="btn brand-btn" [disabled]="perguntas.length < 4">
+              <b>Finalizar etapa</b>
+            </button>
+          </div>
+        </div>
+        <br>
       </div>
     </div>
   </div>

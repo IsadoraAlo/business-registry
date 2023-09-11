@@ -11,8 +11,9 @@ import { PerguntaService } from 'src/app/utils/services/vaga/questionario/pergun
   styleUrls: ['./dissertativa.component.scss']
 })
 export class DissertativaComponent {
-  @Input() idQuestionario!: number;
-  @Input() pergunta!: Pergunta;
+  @Input() public idQuestionario!: number;
+  @Input() public pergunta!: Pergunta;
+
   public isFormSubmitted: boolean = false;
   public resposta: Resposta = new Resposta();
 
@@ -20,6 +21,10 @@ export class DissertativaComponent {
     private respostaService: RespostaService,
     private perguntaService: PerguntaService
   ) { }
+
+  public onSubmit(): void {
+    this.savePerguntaEResposta();
+  }
 
   private savePerguntaEResposta(): void {
     this.pergunta.questionarioId = this.idQuestionario;
@@ -41,9 +46,5 @@ export class DissertativaComponent {
       .subscribe(() => {
         this.isFormSubmitted = true;
       });
-  }
-
-  public onSubmit(): void {
-    this.savePerguntaEResposta();
   }
 }

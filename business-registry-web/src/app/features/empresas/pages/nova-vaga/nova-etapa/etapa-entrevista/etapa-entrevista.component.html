@@ -20,8 +20,8 @@
             </div>
             <div class="col-md-6">
               <div class="form-floating mb-3">
-                <input [maxlength]="70" required [(ngModel)]="entrevista.link" type="url" id="link"
-                  class="form-control" placeholder="=" name="link" #linkEntrevista="ngModel">
+                <input [maxlength]="70" required [(ngModel)]="entrevista.link" type="url" id="link" class="form-control"
+                  placeholder="=" name="link" #linkEntrevista="ngModel">
                 <label for="link">Link da entrevista</label>
                 <ng-container *ngIf="linkEntrevista.dirty || linkEntrevista.touched">
                   <div *ngIf="linkEntrevista.errors?.['required']" class="text-danger">

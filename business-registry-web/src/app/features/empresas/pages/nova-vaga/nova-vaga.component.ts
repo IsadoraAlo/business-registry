@@ -19,7 +19,6 @@ export class NovaVagaComponent {
   public modalidades = modalidadeList;
   public areas = areaAtuacaoList;
   public cargos = cargosList;
-
   public vaga: Vaga = new Vaga();
 
   constructor(
@@ -28,8 +27,12 @@ export class NovaVagaComponent {
     private router: Router,
   ) { }
 
-  public onClickVagasDeficiente() {
+  public onClickVagasDeficiente(): void {
     this.vaga.vagaPcd = !this.vaga.vagaPcd;
+  }
+
+  public onSubmit(): void {
+    this.saveVaga();
   }
 
   private saveVaga(): void {
@@ -44,9 +47,5 @@ export class NovaVagaComponent {
       this.local.setVaga(vaga)
       this.router.navigate(['empresas', 'etapas'])
     });
-  }
-
-  public onSubmit(): void {
-    this.saveVaga();
   }
 }

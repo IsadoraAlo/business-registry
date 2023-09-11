@@ -11,8 +11,9 @@ import { PerguntaService } from 'src/app/utils/services/vaga/questionario/pergun
   styleUrls: ['./multipla-escolha.component.scss']
 })
 export class MultiplaEscolhaComponent {
-  @Input() idQuestionario!: number;
-  @Input() pergunta!: Pergunta;
+  @Input() public idQuestionario!: number;
+  @Input() public pergunta!: Pergunta;
+
   public isFormSubmitted: boolean = false;
   public respostas: Resposta[] = [new Resposta(), new Resposta(), new Resposta(), new Resposta()];
 

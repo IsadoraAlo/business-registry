@@ -5,7 +5,8 @@
   <br>
   <div class="px-5 py-3">
     <a routerLink="/candidatos/pagina-inicial" (click)="onClickMenu()">
-      <img id="img-logo" src="../../../../../assets/images/logotalent.png">
+      <img id="img-logo" src="../../../../../assets/images/logotalent.png"
+        alt="Logo TalentPool, que contém uma piscina no final.">
     </a>
     <br><br>
     <ng-container *ngIf="usuario.tipo === 'CANDIDATO'">
@@ -21,13 +22,29 @@
   </div>
   <div class="text-center">
     <a routerLink="/candidatos/curriculo-view" (click)="onClickMenu()">
-    <img id="img-user"
-      src="https://img.freepik.com/fotos-gratis/cliente-masculino-pensativo-olhando-para-longe_74855-3601.jpg?w=360"
-      alt="Avatar">
-    <br>
-    <p class="fs-4"><b>{{usuario.nome}}</b></p></a>
+      <img id="img-user"
+        src="https://img.freepik.com/fotos-gratis/cliente-masculino-pensativo-olhando-para-longe_74855-3601.jpg?w=360"
+        alt="Avatar">
+      <br>
+      <p class="fs-4"><b>{{usuario.nome}}</b></p>
+    </a>
   </div>
 </div>
 <div class="text-light brand-background px-3 py-3">
   <a (click)="onClickMenu()" class=" fs-5"><b>≡</b></a>
+</div>
+<div class="p-b-t-100 text-center brand-background">
+</div>
+<div class="text-center">
+  <div class="container shadow">
+    <div class="card-body my-5 py-3">
+      <br>
+      <div class="row d-flex justify-content-center">
+        <div class="col-lg-8">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+      <br>
+    </div>
+  </div>
 </div>

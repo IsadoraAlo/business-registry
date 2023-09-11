@@ -1,49 +1,40 @@
-<div class="p-b-t-100 text-center brand-background">
-</div>
-<div class="text-center">
-  <div class="container shadow">
-    <div class="card-body my-5 py-3">
-      <br>
-      <h2 class="brand-text"><b>Informações profissionais</b></h2>
-      <br>
-      <form (ngSubmit)="onSubmit()">
-        <div class="row d-flex justify-content-center">
-          <div class="col-lg-8">
-            <div class="row">
-              <div class="col-md-12">
-                <div class="form-floating mb-3">
-                  <textarea [maxlength]="200" [(ngModel)]="usuario.sobre" type="text" id="info" class="form-control" placeholder="="
-                    name="info"></textarea>
-                  <label for="info">Fale sobre seu ambiente de trabalho, valores, missões, e tudo mais que seja
-                    relevante para descrever sua empresa</label>
-                </div>
-              </div>
-            </div>
-            <br><br>
-            <h3 class="brand-text"><b>Endereços</b></h3>
-            <br><br>
-            <ng-container *ngFor="let endereco of enderecos; let indexComponent = index">
-              <app-informacoes-endereco [i]="indexComponent" [endereco]="endereco"></app-informacoes-endereco>
-              <br>
-            </ng-container>
-            <div class="row">
-              <div class="col-1">
-                <button type="button" class="btn brand-btn d-flex" (click)="onClickAdd()"><i
-                    class="bi bi-plus-circle"></i></button>
-              </div>
-              <div class="col-1" *ngIf="indexComponent > 1">
-                <button type="button" class="btn brand-btn d-flex" (click)="onClickRemove()"><i
-                    class="bi bi-trash-fill"></i></button>
-              </div>
-            </div>
-            <button type="submit" class="btn brand-btn btn-block mb-3">
-              <b>
-                Salvar
-              </b>
-            </button>
+<h2 class="brand-text"><b>Informações profissionais</b></h2>
+<br>
+<form (ngSubmit)="onSubmit()">
+  <div class="row d-flex justify-content-center">
+    <div class="col-lg-8">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-floating mb-3">
+            <textarea [maxlength]="200" [(ngModel)]="usuario.sobre" type="text" id="info" class="form-control"
+              placeholder="=" name="info"></textarea>
+            <label for="info">Fale sobre seu ambiente de trabalho, valores, missões, e tudo mais que seja
+              relevante para descrever sua empresa</label>
           </div>
         </div>
-      </form>
+      </div>
+      <br><br>
+      <h3 class="brand-text"><b>Endereços</b></h3>
+      <br><br>
+      <ng-container *ngFor="let endereco of enderecos; let indexComponent = index">
+        <app-informacoes-endereco [i]="indexComponent" [endereco]="endereco"></app-informacoes-endereco>
+        <br>
+      </ng-container>
+      <div class="row">
+        <div class="col-1">
+          <button type="button" class="btn brand-btn d-flex" (click)="onClickAdd()"><i
+              class="bi bi-plus-circle"></i></button>
+        </div>
+        <div class="col-1" *ngIf="indexComponent > 1">
+          <button type="button" class="btn brand-btn d-flex" (click)="onClickRemove()"><i
+              class="bi bi-trash-fill"></i></button>
+        </div>
+      </div>
+      <button type="submit" class="btn brand-btn btn-block mb-3">
+        <b>
+          Salvar
+        </b>
+      </button>
     </div>
   </div>
-</div>
+</form>
