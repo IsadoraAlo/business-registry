@@ -7,7 +7,7 @@
           <h2 class="brand-text"><b>Novo questionário</b></h2>
           <br>
           <div class="row">
-            <div class="col-6">
+            <div class="col-md-6">
               <div class="form-floating mb-3">
                 <input [disabled]="isFormSubmitted" required [(ngModel)]="questionario.prazoEnvio" type="date"
                   id="prazoEnvio" class="form-control" placeholder="=" name="prazoEnvio{{indexComponent}}"
@@ -18,9 +18,9 @@
                 </p>
               </div>
             </div>
-            <div class="col-6">
+            <div class="col-md-6">
               <div class="form-floating mb-3">
-                <input [disabled]="isFormSubmitted" mask="000" required [(ngModel)]="questionario.pontuacaoTotal"
+                <input [minlength]="2" [maxlength]="3" [disabled]="isFormSubmitted" mask="000" required [(ngModel)]="questionario.pontuacaoTotal"
                   type="text" id="pontuacaoTotal" class="form-control" placeholder="="
                   name="pontuacaoTotal{{indexComponent}}" #pontuacaoTotal="ngModel">
                 <label for="pontuacaoTotal">Pontuação total do questionario</label>

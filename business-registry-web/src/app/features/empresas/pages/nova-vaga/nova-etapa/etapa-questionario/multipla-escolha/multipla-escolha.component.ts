@@ -1,6 +1,6 @@
 import { RespostaService } from './../../../../../../../utils/services/vaga/questionario/resposta.service';
 import { Component, Input } from '@angular/core';
-import { catchError, throwError, switchMap } from 'rxjs';
+import { catchError, throwError, switchMap, forkJoin } from 'rxjs';
 import { Pergunta } from 'src/app/utils/models/vaga/questionario/pergunta.model';
 import { Resposta } from 'src/app/utils/models/vaga/questionario/resposta.model';
 import { PerguntaService } from 'src/app/utils/services/vaga/questionario/pergunta.service';
@@ -14,12 +14,18 @@ export class MultiplaEscolhaComponent {
   @Input() idQuestionario!: number;
   @Input() pergunta!: Pergunta;
   public isFormSubmitted: boolean = false;
-  public resposta: Resposta = new Resposta();
+  public respostas: Resposta[] = [new Resposta(), new Resposta(), new Resposta(), new Resposta()];
 
   constructor(
     private respostaService: RespostaService,
     private perguntaService: PerguntaService
   ) { }
+
+  public setAlternativaCorreta(i: number): void {
+    this.respostas.forEach((resposta, index) => {
+      resposta.alternativaCorreta = index === i;
+    });
+  }
 
   private savePerguntaEResposta(): void {
     this.pergunta.questionarioId = this.idQuestionario;
@@ -30,8 +36,12 @@ export class MultiplaEscolhaComponent {
           return throwError(() => error);
         }),
         switchMap((pergunta) => {
-          this.resposta.perguntaId = pergunta.id;
-          return this.respostaService.criarResposta(this.resposta);
+          const perguntaId = pergunta.id;
+          const observables = this.respostas.map((resposta) => {
+            resposta.perguntaId = perguntaId;
+            return this.respostaService.criarResposta(resposta);
+          });
+          return forkJoin(observables);
         }),
         catchError((error) => {
           console.error('Erro ao criar resposta:', error);

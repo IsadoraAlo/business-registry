@@ -7,7 +7,7 @@ export class Pergunta {
 
   constructor() {
     this.id = 0;
-    this.questao = ''
+    this.questao = '';
     this.pontuacao = 0;
     this.questionarioId = 0;
     this.tipo = '';

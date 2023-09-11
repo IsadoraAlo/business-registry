@@ -1,5 +1,4 @@
 import { Candidato } from "../usuario/candidato/candidato.model";
-import { Endereco } from "../usuario/endereco.model";
 import { Usuario } from "../usuario/usuario.model";
 import { Etapa } from "./etapa.model";
 export class Vaga {

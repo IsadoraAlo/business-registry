@@ -17,17 +17,18 @@
   <div class="row">
     <div class="col-12">
       <div class="form-check mb-3">
-        <ng-container *ngFor="let item of [0,1,2,3]">
+        <ng-container *ngFor="let i of [0,1,2,3]">
           <div class="row">
             <div class="col-1 text-center">
-              <input [disabled]="isFormSubmitted" [value]="true" required type="radio" id="escolha"
-                class="form-check-input" placeholder="=" name="alternativaCorreta">
+              <input [disabled]="isFormSubmitted" [value]="i" required type="radio" id="escolha"
+                (click)="setAlternativaCorreta(i)" class="form-check-input" placeholder="=" name="alternativaCorreta">
             </div>
             <div class="col-11">
               <div class="form-floating mb-3">
-                <input [disabled]="isFormSubmitted" #multiplaEscolha [maxlength]="70" [(ngModel)]="resposta.alternativa"
-                  type="text" id="titulo" class="form-control" placeholder="=" name="titulo">
-                <label for="titulo">Qual a resposta desejada?</label>
+                <input [disabled]="isFormSubmitted" #multiplaEscolha [maxlength]="70"
+                  [(ngModel)]="respostas[i].alternativa" type="text" id="titulo" class="form-control" placeholder="="
+                  name="titulo{{i}}">
+                <label for="titulo{{i}}">Qual a resposta desejada?</label>
               </div>
             </div>
           </div>
