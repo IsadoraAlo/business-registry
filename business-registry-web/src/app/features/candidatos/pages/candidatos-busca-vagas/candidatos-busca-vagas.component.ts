@@ -1,18 +1,28 @@
-import { Component } from '@angular/core';
+import { VagaService } from 'src/app/utils/services/vaga/vaga.service';
+import { Component, OnInit } from '@angular/core';
 import { estadosList } from 'src/app/utils/lists/estados.utils';
+import { Vaga } from 'src/app/utils/models/vaga/vaga.model';
 
 @Component({
   selector: 'app-candidatos-busca-vagas',
   templateUrl: './candidatos-busca-vagas.component.html',
   styleUrls: ['./candidatos-busca-vagas.component.scss']
 })
-export class CandidatosBuscaVagasComponent {
-
-  public estados = estadosList;
-
+export class CandidatosBuscaVagasComponent implements OnInit {
+  public vagasDeficiente: boolean = false;
   public estadoSelecionado: string = '';
+  public estados = estadosList;
+  public vagas: Vaga[] = [];
 
-  getSelectedValue(event: any) {
+  constructor(
+    private vagaService: VagaService
+  ) { }
+
+  ngOnInit(): void {
+    this.vagaService.obterVagas().subscribe(vagas => this.vagas = vagas);
+  }
+
+  public getSelectedValue(event: any): void {
     this.estadoSelecionado = event.target.value
   }
 
@@ -21,9 +31,8 @@ export class CandidatosBuscaVagasComponent {
     return estado?.cidades
   }
 
-  public vagasDeficiente: boolean = false;
 
-  public onClickVagasDeficiente(){
+  public onClickVagasDeficiente(): void {
     this.vagasDeficiente = !this.vagasDeficiente;
   }
 }
