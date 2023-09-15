@@ -63,7 +63,7 @@ public class Vaga {
 	@Size(max = 250)
 	private String responsabilidades;
 	
-	@Column(name = "beneficios", length=250)
+	@Column(name = "beneficios")
 	@Size(max = 250)
 	private String beneficios;
 	
