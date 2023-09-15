@@ -37,8 +37,8 @@ export class LocalStorage {
   }
 
 
-  public cleanStorage(): void {
-    localStorage.clear()
+  public cleanStorage(obj: string): void {
+    localStorage.removeItem(obj);
   }
 
   public get Token() {

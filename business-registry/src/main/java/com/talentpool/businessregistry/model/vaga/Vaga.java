@@ -1,5 +1,6 @@
 package com.talentpool.businessregistry.model.vaga;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.validation.constraints.Size;
@@ -34,6 +35,9 @@ public class Vaga {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	
+	@Column(name = "data_publicacao")
+    private Date dataPublicacao;
 	
 	@Column(name = "titulo")
 	@Size(max = 70)

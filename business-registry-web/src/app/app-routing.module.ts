@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CadastroInformacoesComponent } from './features/candidatos/pages/cadastro-informacoes/cadastro-informacoes.component';
-import { CandidatosBuscaVagasComponent } from './features/candidatos/pages/candidatos-busca-vagas/candidatos-busca-vagas.component';
+import { VagasListComponent } from './features/vagas/list-vagas/vagas-list.component';
 import { MenuUsuarioComponent } from './features/commom/componentes/menu-usuario/menu-usuario.component';
 import { ViewUsuarioComponent } from './features/commom/componentes/view-usuario/view-usuario.component';
 import { AboutComponent } from './features/commom/home/pages/about/about.component';
@@ -12,6 +12,7 @@ import { LoginComponent } from './features/commom/home/pages/login/login.compone
 import { CadastroInformacoesEmpresaComponent } from './features/empresas/pages/cadastro-informacoes/cadastro-informacoes.component';
 import { NovaEtapaComponent } from './features/empresas/pages/nova-vaga/nova-etapa/nova-etapa.component';
 import { NovaVagaComponent } from './features/empresas/pages/nova-vaga/nova-vaga.component';
+import { ViewVagasComponent } from './features/vagas/view-vagas/view-vagas.component';
 const routes: Routes = [
   {
     path: '',
@@ -46,11 +47,6 @@ const routes: Routes = [
         path: 'pagina-inicial',
         pathMatch: 'full',
         component: BoasVindasUsuarioComponent
-      },
-      {
-        path: 'busca-vagas',
-        pathMatch: 'full',
-        component: CandidatosBuscaVagasComponent
       },
       {
         path: 'cadastro-dados',
@@ -100,6 +96,22 @@ const routes: Routes = [
       },
     ]
   },
+  {
+    path: 'vagas',
+    component: MenuUsuarioComponent,
+    children: [
+      {
+        path: 'buscar',
+        pathMatch: 'full',
+        component: VagasListComponent
+      },
+      {
+        path: 'view/:id',
+        pathMatch: 'full',
+        component: ViewVagasComponent
+      },
+    ]
+  }
 ]
 @NgModule({
   imports: [

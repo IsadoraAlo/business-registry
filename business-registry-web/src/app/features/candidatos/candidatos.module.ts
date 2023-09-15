@@ -10,12 +10,10 @@ import { InformacoesEnderecoComponent } from './pages/cadastro-informacoes/infor
 import { InformacoesPessoaisComponent } from './pages/cadastro-informacoes/informacoes-pessoais/informacoes-pessoais.component';
 import { ExperienciasAnterioresComponent } from './pages/cadastro-informacoes/informacoes-profissionais/experiencias-anteriores/experiencias-anteriores.component';
 import { InformacoesProfissionaisComponent } from './pages/cadastro-informacoes/informacoes-profissionais/informacoes-profissionais.component';
-import { CandidatosBuscaVagasComponent } from './pages/candidatos-busca-vagas/candidatos-busca-vagas.component';
 import { CandidatosCadastroComponent } from './pages/candidatos-cadastro/candidatos-cadastro.component';
 @NgModule({
   declarations: [
     CandidatosCadastroComponent,
-    CandidatosBuscaVagasComponent,
     CadastroInformacoesComponent,
     InformacoesEnderecoComponent,
     InformacoesProfissionaisComponent,

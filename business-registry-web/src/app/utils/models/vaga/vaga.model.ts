@@ -3,6 +3,7 @@ import { Usuario } from "../usuario/usuario.model";
 import { Etapa } from "./etapa.model";
 export class Vaga {
   id: number;
+  dataPublicacao: Date;
   titulo: string;
   modalidade: string;
   pretencaoSalarial: string;
@@ -20,6 +21,7 @@ export class Vaga {
 
   constructor() {
     this.id = 0;
+    this.dataPublicacao = new Date();
     this.titulo = '';
     this.pretencaoSalarial = '';
     this.modalidade = '';

@@ -2,20 +2,22 @@ import { VagaService } from 'src/app/utils/services/vaga/vaga.service';
 import { Component, OnInit } from '@angular/core';
 import { estadosList } from 'src/app/utils/lists/estados.utils';
 import { Vaga } from 'src/app/utils/models/vaga/vaga.model';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-candidatos-busca-vagas',
-  templateUrl: './candidatos-busca-vagas.component.html',
-  styleUrls: ['./candidatos-busca-vagas.component.scss']
+  selector: 'vagas-list',
+  templateUrl: './vagas-list.component.html',
+  styleUrls: ['./vagas-list.component.scss']
 })
-export class CandidatosBuscaVagasComponent implements OnInit {
+export class VagasListComponent implements OnInit {
   public vagasDeficiente: boolean = false;
   public estadoSelecionado: string = '';
   public estados = estadosList;
   public vagas: Vaga[] = [];
 
   constructor(
-    private vagaService: VagaService
+    private vagaService: VagaService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -31,6 +33,9 @@ export class CandidatosBuscaVagasComponent implements OnInit {
     return estado?.cidades
   }
 
+  public vagaDetails(id: number): void {
+    this.router.navigate(['vagas', 'view', id]);
+  }
 
   public onClickVagasDeficiente(): void {
     this.vagasDeficiente = !this.vagasDeficiente;

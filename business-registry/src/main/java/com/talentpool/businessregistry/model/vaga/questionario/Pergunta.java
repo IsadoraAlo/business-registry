@@ -1,7 +1,5 @@
 package com.talentpool.businessregistry.model.vaga.questionario;
 
-import javax.validation.constraints.Size;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -28,7 +26,6 @@ public class Pergunta {
 	private long id;
 	
 	@Column(name = "questao")
-	@Size(max = 250)
     private String questao;
 	
     @JoinColumn(name = "pontuacao")

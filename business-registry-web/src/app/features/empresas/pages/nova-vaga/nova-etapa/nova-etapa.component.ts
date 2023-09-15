@@ -46,6 +46,7 @@ export class NovaEtapaComponent {
   }
 
   public finalizarVaga(): void {
+    this.local.cleanStorage('Vaga');
     this.router.navigate(['empresas', 'pagina-inicial'])
   }
 

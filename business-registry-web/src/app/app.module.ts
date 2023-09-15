@@ -13,17 +13,19 @@ import { CadastrosModule } from './features/commom/home/pages/cadastros/cadastro
 import { IndexComponent } from './features/commom/home/pages/index/index.component';
 import { LoginComponent } from './features/commom/home/pages/login/login.component';
 import { EmpresasModule } from './features/empresas/empresas.module';
+import { VagasModule } from './features/vagas/vagas.module';
 @NgModule({
   declarations: [
     AppComponent,
     AboutComponent,
     IndexComponent,
     LoginComponent,
-    BoasVindasUsuarioComponent
+    BoasVindasUsuarioComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    VagasModule,
     CadastrosModule,
     EmpresasModule,
     CandidatosModule,
