@@ -12,7 +12,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./nova-etapa.component.scss']
 })
 export class NovaEtapaComponent {
-  public isFormSubmitted: boolean = false;
   public vaga: Vaga = this.local.Vaga;
   public etapasNovas: boolean[] = [];
   public etapas: Etapa[] = [];
@@ -68,6 +67,5 @@ export class NovaEtapaComponent {
         })
       )
       .subscribe((etapa) => this.idEtapa = etapa.id);
-      this.isFormSubmitted = true
   }
 }
