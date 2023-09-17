@@ -80,8 +80,7 @@ export class EtapaQuestionarioComponent {
           return throwError(() => error);
         })
       )
-      .subscribe();
-    this.isFormSubmitted = true
+      .subscribe(()=> this.isFormSubmitted = true);
   }
 }
 

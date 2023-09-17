@@ -49,9 +49,7 @@ export class MultiplaEscolhaComponent {
           return throwError(() => error);
         })
       )
-      .subscribe(() => {
-        this.isFormSubmitted = true;
-      });
+      .subscribe(() => this.isFormSubmitted = true);
   }
 
   public onSubmit(): void {
