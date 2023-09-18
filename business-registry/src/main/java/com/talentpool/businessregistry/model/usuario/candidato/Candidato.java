@@ -38,5 +38,4 @@ public class Candidato {
 	@Column(name = "renda_familiar")
 	@Size(max = 16)
 	private String rendaFamiliar;
-	
 }

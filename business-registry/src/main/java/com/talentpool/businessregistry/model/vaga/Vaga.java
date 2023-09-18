@@ -1,24 +1,20 @@
 package com.talentpool.businessregistry.model.vaga;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.validation.constraints.Size;
 
 import com.talentpool.businessregistry.model.usuario.Usuario;
-import com.talentpool.businessregistry.model.usuario.candidato.Candidato;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,7 +26,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "vaga")
+@Builder
 public class Vaga {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -83,8 +79,4 @@ public class Vaga {
 	@ManyToOne
 	@JoinColumn(name = "usuario_id", referencedColumnName = "id")
 	private Usuario usuario;
-	
-	@OneToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "vaga_id")
-	private List<Candidato> candidatos;
 }

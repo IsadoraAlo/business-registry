@@ -13,7 +13,11 @@ export class MenuUsuarioComponent {
   public isMenuSelected: boolean = false;
   public usuario: Usuario = this.local.UsuarioLogado;
 
-  onClickMenu() {
+  public onClickMenu(): void {
     this.isMenuSelected = !this.isMenuSelected;
+  }
+
+  public onClickLogout(): void {
+    this.local.cleanAllStorage();
   }
 }

@@ -30,8 +30,15 @@
     </a>
   </div>
 </div>
-<div class="text-light brand-background px-3 py-3">
-  <a (click)="onClickMenu()" class=" fs-5"><b>≡</b></a>
+<div class="py-4 px-5 brand-background">
+  <div class="row text-light">
+    <div class="col-10">
+      <a (click)="onClickMenu()"><b>≡</b></a>
+    </div>
+    <div class="col-2 text-end">
+      <a (click)="onClickLogout()" routerLink="/login"><span class="bi bi-box-arrow-right"></span></a>
+    </div>
+  </div>
 </div>
 <div class="p-b-t-100 text-center brand-background">
 </div>

@@ -41,6 +41,10 @@ export class LocalStorage {
     localStorage.removeItem(obj);
   }
 
+  public cleanAllStorage(): void {
+    localStorage.clear();
+  }
+
   public get Token() {
     const data = [JSON.parse(localStorage.getItem('Usuário logado') as string)];
     let tokenLog: string = '';

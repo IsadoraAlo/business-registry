@@ -20,6 +20,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -33,6 +34,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "usuario")
+@Builder
 public class Usuario implements UserDetails{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -68,10 +70,6 @@ public class Usuario implements UserDetails{
 	
 	@Column(name = "status")
 	private Boolean status;
-	
-//	@OneToMany(fetch = LAZY, cascade = ALL)
-//    @JoinColumn(name = "usuario_id")
-//	private List<Vaga> vagas;
 	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {

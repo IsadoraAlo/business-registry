@@ -72,7 +72,6 @@ public class VagaController {
         vagaExistente.setCargo(vagaAtualizada.getCargo());
         vagaExistente.setStatus(vagaAtualizada.getStatus());
         vagaExistente.setUsuario(vagaAtualizada.getUsuario());
-        vagaExistente.setCandidatos(vagaAtualizada.getCandidatos());
         Vaga vagaAtualizadaNoBanco = vagaRepository.save(vagaExistente);
         return new ResponseEntity<>(vagaAtualizadaNoBanco, HttpStatus.OK);
     }
