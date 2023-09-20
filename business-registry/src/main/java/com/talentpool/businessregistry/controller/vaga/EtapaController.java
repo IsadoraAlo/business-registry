@@ -31,21 +31,18 @@ public class EtapaController {
         this.etapaRepository = etapaRepository;
     }
 
-    // Endpoint para criar uma nova etapa
     @PostMapping
     public ResponseEntity<Etapa> criarEtapa(@RequestBody Etapa etapa) {
         Etapa novoEtapa = etapaRepository.save(etapa);
         return new ResponseEntity<>(novoEtapa, HttpStatus.CREATED);
     }
 
-    // Endpoint para obter todas as etapas
     @GetMapping
     public ResponseEntity<List<Etapa>> obterEtapas() {
         List<Etapa> etapas = etapaRepository.findAll();
         return new ResponseEntity<>(etapas, HttpStatus.OK);
     }
 
-    // Endpoint para obter uma etapa pelo ID
     @GetMapping("/{id}")
     public ResponseEntity<Etapa> obterEtapaPorId(@PathVariable Long id) {
         Etapa etapa = etapaRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(MESSAGE_ERROR + id));
@@ -55,7 +52,6 @@ public class EtapaController {
         return new ResponseEntity<>(etapa, HttpStatus.OK);
     }
 
-    // Endpoint para atualizar uma etapa existente
     @PutMapping("/{id}")
     public ResponseEntity<Etapa> atualizarEtapa(@PathVariable Long id, @RequestBody Etapa etapaAtualizada) {
         Etapa etapaExistente = etapaRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(MESSAGE_ERROR + id));
@@ -70,7 +66,6 @@ public class EtapaController {
         return new ResponseEntity<>(etapaAtualizadaNoBanco, HttpStatus.OK);
     }
 
-    // Endpoint para excluir uma etapa pelo ID
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> excluirEtapa(@PathVariable Long id) {
         Etapa etapaExistente = etapaRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(MESSAGE_ERROR + id));
