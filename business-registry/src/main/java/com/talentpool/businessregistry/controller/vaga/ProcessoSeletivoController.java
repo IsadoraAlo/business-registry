@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.talentpool.businessregistry.exception.ResourceNotFoundException;
 import com.talentpool.businessregistry.model.vaga.ProcessoSeletivo;
-import com.talentpool.businessregistry.repository.usuario.candidato.CandidatoRepository;
 import com.talentpool.businessregistry.repository.vaga.ProcessoSeletivoRepository;
 
 @CrossOrigin(origins = "http://localhost:4200")
