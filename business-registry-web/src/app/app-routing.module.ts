@@ -14,6 +14,7 @@ import { NovaEtapaComponent } from './features/empresas/pages/nova-vaga/nova-eta
 import { NovaVagaComponent } from './features/empresas/pages/nova-vaga/nova-vaga.component';
 import { ViewVagasComponent } from './features/vagas/view-vagas/view-vagas.component';
 import { ViewVagasInscritasComponent } from './features/vagas/view-vagas-inscritas/view-vagas-inscritas.component';
+import { ViewEtapasComponent } from './features/vagas/view-etapas/view-etapas.component';
 const routes: Routes = [
   {
     path: '',
@@ -115,6 +116,11 @@ const routes: Routes = [
         path: 'inscritas',
         pathMatch: 'full',
         component: ViewVagasInscritasComponent,
+      },
+      {
+        path: 'etapas/:id',
+        pathMatch: 'full',
+        component: ViewEtapasComponent
       }
     ]
   }

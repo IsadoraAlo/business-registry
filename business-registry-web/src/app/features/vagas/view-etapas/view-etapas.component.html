@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-12">
+    <br>
+    <h1 class="brand-text"><b>Processo Seletivo</b></h1>
+    <br>
+  </div>
+</div>
+<br>
+<div class="text-center">
+  <ng-container *ngFor="let etapa of etapas; let i = index">
+    <div class="row text-light justify-content-center align-items-center d-flex">
+      <div class="col-2 d-flex justify-content-end">
+        <div class="rounded-circle brand-background justify-content-center align-items-center d-flex">
+          <h4><b>{{etapa.numeracao}}</b></h4>
+        </div>
+      </div>
+      <div class="col-8">
+        <div class="min-height-div container brand-background border rounded my-2 align-items-center d-flex">
+          <h4>{{etapa.titulo}} - {{etapa.tipo}} </h4>
+        </div>
+      </div>
+      <div class="col-2">
+          <span class="bi bi-check2-circle icon-size brand-text"></span>
+      </div>
+    </div>
+    <br>
+  </ng-container>
+</div>

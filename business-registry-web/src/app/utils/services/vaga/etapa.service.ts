@@ -24,6 +24,10 @@ export class EtapaService {
     return this.http.get<Etapa>(`${this.apiUrl}/${id}`);
   }
 
+  obterEtapasVagaId(id: number): Observable<Etapa[]> {
+    return this.http.get<Etapa[]>(`${this.apiUrl}/vaga/${id}`);
+  }
+
   atualizarEtapa(id: number, etapaAtualizado: Etapa): Observable<Etapa> {
     return this.http.put<Etapa>(`${this.apiUrl}/${id}`, etapaAtualizado);
   }

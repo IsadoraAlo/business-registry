@@ -9,13 +9,15 @@ import { ViewVagasComponent } from './view-vagas/view-vagas.component';
 import { VagasListComponent } from './list-vagas/vagas-list.component';
 import { ViewVagasInscritasComponent } from './view-vagas-inscritas/view-vagas-inscritas.component';
 import { ModalOptionsComponent } from './view-vagas-inscritas/modal-options/modal-options.component';
+import { ViewEtapasComponent } from './view-etapas/view-etapas.component';
 
 @NgModule({
   declarations: [
     ViewVagasComponent,
     VagasListComponent,
     ViewVagasInscritasComponent,
-    ModalOptionsComponent
+    ModalOptionsComponent,
+    ViewEtapasComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,8 @@ import { ModalOptionsComponent } from './view-vagas-inscritas/modal-options/moda
   ],
   exports: [
     ViewVagasComponent,
-    VagasListComponent
+    VagasListComponent,
+    ViewEtapasComponent
   ],
 })
 export class VagasModule { }

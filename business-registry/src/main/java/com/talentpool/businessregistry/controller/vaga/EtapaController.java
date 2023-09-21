@@ -1,5 +1,7 @@
 package com.talentpool.businessregistry.controller.vaga;
 
+import static org.springframework.http.HttpStatus.OK;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +43,12 @@ public class EtapaController {
     public ResponseEntity<List<Etapa>> obterEtapas() {
         List<Etapa> etapas = etapaRepository.findAll();
         return new ResponseEntity<>(etapas, HttpStatus.OK);
+    }
+    
+    @GetMapping("/vaga/{id}")
+    public ResponseEntity<List<Etapa>> obterProcessoSeletivosPorCandidatoId(@PathVariable Long id) {
+        List<Etapa> etapas = etapaRepository.findEtapaByVagaId(id);
+        return new ResponseEntity<>(etapas, OK);
     }
 
     @GetMapping("/{id}")

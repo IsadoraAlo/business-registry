@@ -18,39 +18,45 @@
     </div>
     <div class="carousel-inner">
       <div class="text-center carousel-card rounded">
-        <div class="carousel-item active">
-          <div class="container bg-white bg-gradient bg-opacity-50 py-5">
-            <br>
-            <h3><b>Vagas em andamento</b></h3>
-            <br><br>
-            <p>Você tem</p><br>
-            <h1><b>{{vagas.length}}</b></h1><br>
-            <p>vagas que estão em andamento!</p>
-            <br>
+        <a routerLink="/vagas/inscritas">
+          <div class="carousel-item active">
+            <div class="container bg-white bg-gradient bg-opacity-50 py-5">
+              <br>
+              <h3><b>Vagas em andamento</b></h3>
+              <br><br>
+              <p>Você tem</p><br>
+              <h1><b>{{vagas.length}}</b></h1><br>
+              <p>vagas que estão em andamento!</p>
+              <br>
+            </div>
           </div>
-        </div>
-        <div class="carousel-item">
-          <div class="container bg-white bg-gradient bg-opacity-50 py-5">
-            <br>
-            <h3><b>Vagas finalizadas</b></h3>
-            <br><br>
-            <p>Você tem</p><br>
-            <h1><b>{{vagas.length}}</b></h1><br>
-            <p>vagas que enceraram!</p>
-            <br>
+        </a>
+        <a routerLink="/vagas/inscritas">
+          <div class="carousel-item">
+            <div class="container bg-white bg-gradient bg-opacity-50 py-5">
+              <br>
+              <h3><b>Vagas finalizadas</b></h3>
+              <br><br>
+              <p>Você tem</p><br>
+              <h1><b>{{vagas.length}}</b></h1><br>
+              <p>vagas que enceraram!</p>
+              <br>
+            </div>
           </div>
-        </div>
-        <div class="carousel-item">
-          <div class="container bg-white bg-gradient bg-opacity-50 py-5">
-            <br>
-            <h3><b>Vagas disponíveis</b></h3>
-            <br><br>
-            <p>Você tem</p><br>
-            <h1><b>{{vagasTotais.length}}</b></h1><br>
-            <p>vagas para se inscrever!</p>
-            <br>
+        </a>
+        <a routerLink="/vagas/buscar">
+          <div class="carousel-item">
+            <div class="container bg-white bg-gradient bg-opacity-50 py-5">
+              <br>
+              <h3><b>Vagas disponíveis</b></h3>
+              <br><br>
+              <p>Você tem</p><br>
+              <h1><b>{{vagasTotais.length}}</b></h1><br>
+              <p>vagas para se inscrever!</p>
+              <br>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
