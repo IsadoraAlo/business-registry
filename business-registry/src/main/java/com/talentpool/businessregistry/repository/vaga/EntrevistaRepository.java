@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.talentpool.businessregistry.model.vaga.Entrevista;
 
 @Repository
-public interface EntrevistaRepository extends JpaRepository<Entrevista, Long>{
-
+public interface EntrevistaRepository extends JpaRepository<Entrevista, Long> {
+	
 }

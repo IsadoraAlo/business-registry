@@ -1,0 +1,28 @@
+<ng-container *ngIf="showModal">
+  <div class="d-flex justify-content-center">
+    <div class="col-lg-8">
+      <div class="modal-brand rounded text-center">
+        <h1 class="brand-text">{{etapa.tipo}}</h1>
+        <br>
+        <div class="row">
+          <div class="col-12">
+            Bem-vindo ao processo seletivo! Hoje, você irá participar de <ng-container *ngIf="etapa.tipo === 'Entrevista'">uma entrevista,</ng-container><ng-container *ngIf="etapa.tipo === 'Questionário'">um questionário,</ng-container> e se tivermos sorte você será o talento excepcional que tanto procuravamos para nossa equipe!
+          </div>
+          <div class="col-12">
+            {{etapa.descricao}} Você está pronto para começar o processo?
+          </div>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-md-6">
+            <button (click)="exibirModal()" type="button" class="btn brand-btn btn-block mb-3"><b>Não estou pronto.</b></button>
+          </div>
+          <div class="col-md-6">
+            <button (click)="comecarEtapa()" type="button" class="btn brand-btn btn-block mb-3"><b>Vamos começar!</b></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="overlay"></div>
+</ng-container>

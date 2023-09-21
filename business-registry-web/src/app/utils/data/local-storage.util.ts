@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Usuario } from "../models/usuario/usuario.model";
 import { Vaga } from "../models/vaga/vaga.model";
+import { Etapa } from "../models/vaga/etapa.model";
 
 @Injectable({ providedIn: "root" })
 export class LocalStorage {
@@ -80,4 +81,25 @@ export class LocalStorage {
     });
     return vaga
   }
+
+  public setEtapa(etapa: any) {
+    localStorage.setItem('Etapa', JSON.stringify(etapa));
+  }
+
+  public get Etapa() {
+    const data = JSON.parse(localStorage.getItem('Etapa') as string);
+    const etapa: Etapa = new Etapa();
+    if (data) {
+      etapa.descricao = data?.descricao;
+      etapa.entrevista = data?.entrevista;
+      etapa.id = data?.id;
+      etapa.numeracao = data?.numeracao;
+      etapa.questionario = data?.questionario;
+      etapa.tipo = data?.tipo;
+      etapa.titulo = data?.titulo;
+      etapa.vagaId = data?.vagaId;
+    }
+    return etapa;
+  }
+
 }

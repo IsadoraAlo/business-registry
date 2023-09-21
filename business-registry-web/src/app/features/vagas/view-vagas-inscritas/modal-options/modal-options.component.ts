@@ -28,7 +28,7 @@ export class ModalOptionsComponent {
   }
 
   public iniciarProcessoSeletivo(): void{
-    this.router.navigate([`/vagas/etapas/${this.vagaId}`])
+    this.router.navigate([`/etapas/${this.vagaId}`])
   }
 
   public onSubmit(): void {

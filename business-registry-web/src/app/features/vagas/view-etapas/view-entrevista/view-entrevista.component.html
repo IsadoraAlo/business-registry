@@ -1,0 +1,26 @@
+<br>
+<h1 class="brand-text"><b>{{etapa.numeracao}}ª Etapa - Entrevista</b></h1>
+<br>
+<div class="row text-start">
+  <div class="col-12">
+    <h3 class="brand-text"><b>Descrição:</b></h3>
+    {{etapa.descricao}}
+    <br> <br>
+    <h3 class="brand-text"><b>Dia da entrevista:</b></h3>
+    {{entrevista.data}} às 14:00
+    <br> <br>
+    <h3 class="brand-text"><b>Link da reunião:</b></h3>
+    <a class="brand-text" href="{{entrevista.link}}" target="_blank">
+      {{entrevista.link}}
+    </a>
+    <br>  <br>
+  </div>
+  <br> <br>
+  <div>
+    <div class="col-md-6">
+      <a href="candidatos/pagina-inicial">
+        <button type="button" class="btn brand-btn btn-block mb-3"><b>Voltar ao início</b></button>
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CadastroInformacoesComponent } from './features/candidatos/pages/cadastro-informacoes/cadastro-informacoes.component';
-import { VagasListComponent } from './features/vagas/list-vagas/vagas-list.component';
 import { MenuUsuarioComponent } from './features/commom/componentes/menu-usuario/menu-usuario.component';
 import { ViewUsuarioComponent } from './features/commom/componentes/view-usuario/view-usuario.component';
 import { AboutComponent } from './features/commom/home/pages/about/about.component';
@@ -12,9 +11,12 @@ import { LoginComponent } from './features/commom/home/pages/login/login.compone
 import { CadastroInformacoesEmpresaComponent } from './features/empresas/pages/cadastro-informacoes/cadastro-informacoes.component';
 import { NovaEtapaComponent } from './features/empresas/pages/nova-vaga/nova-etapa/nova-etapa.component';
 import { NovaVagaComponent } from './features/empresas/pages/nova-vaga/nova-vaga.component';
-import { ViewVagasComponent } from './features/vagas/view-vagas/view-vagas.component';
-import { ViewVagasInscritasComponent } from './features/vagas/view-vagas-inscritas/view-vagas-inscritas.component';
+import { VagasListComponent } from './features/vagas/list-vagas/vagas-list.component';
 import { ViewEtapasComponent } from './features/vagas/view-etapas/view-etapas.component';
+import { ViewVagasInscritasComponent } from './features/vagas/view-vagas-inscritas/view-vagas-inscritas.component';
+import { ViewVagasComponent } from './features/vagas/view-vagas/view-vagas.component';
+import { ViewEntrevistaComponent } from './features/vagas/view-etapas/view-entrevista/view-entrevista.component';
+import { ViewQuestionarioComponent } from './features/vagas/view-etapas/view-questionario/view-questionario.component';
 const routes: Routes = [
   {
     path: '',
@@ -115,15 +117,36 @@ const routes: Routes = [
       {
         path: 'inscritas',
         pathMatch: 'full',
-        component: ViewVagasInscritasComponent,
+        component: ViewVagasInscritasComponent
+      },
+    ]
+  },
+  {
+    path: 'etapas',
+    component: MenuUsuarioComponent,
+    children: [
+      {
+        path: 'questionario',
+        pathMatch: 'full',
+        component: ViewQuestionarioComponent
       },
       {
-        path: 'etapas/:id',
+        path: 'entrevista',
+        pathMatch: 'full',
+        component: ViewEntrevistaComponent
+      },
+      {
+        path: '',
         pathMatch: 'full',
         component: ViewEtapasComponent
-      }
+      },
+      {
+        path: ':id',
+        pathMatch: 'full',
+        component: ViewEtapasComponent
+      },
     ]
-  }
+  },
 ]
 @NgModule({
   imports: [

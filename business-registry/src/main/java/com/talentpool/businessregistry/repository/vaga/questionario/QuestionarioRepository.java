@@ -7,5 +7,5 @@ import com.talentpool.businessregistry.model.vaga.questionario.Questionario;
 
 @Repository
 public interface QuestionarioRepository extends JpaRepository<Questionario, Long>{
-
+	
 }

@@ -30,22 +30,20 @@ public class EntrevistaController {
     public EntrevistaController(EntrevistaRepository entrevistaRepository) {
         this.entrevistaRepository = entrevistaRepository;
     }
+    
 
-    // Endpoint para criar uma nova entrevista
     @PostMapping
     public ResponseEntity<Entrevista> criarEntrevista(@RequestBody Entrevista entrevista) {
         Entrevista novoEntrevista = entrevistaRepository.save(entrevista);
         return new ResponseEntity<>(novoEntrevista, HttpStatus.CREATED);
     }
 
-    // Endpoint para obter todas as entrevistas
     @GetMapping
     public ResponseEntity<List<Entrevista>> obterEntrevistas() {
         List<Entrevista> entrevistas = entrevistaRepository.findAll();
         return new ResponseEntity<>(entrevistas, HttpStatus.OK);
     }
 
-    // Endpoint para obter uma entrevista pelo ID
     @GetMapping("/{id}")
     public ResponseEntity<Entrevista> obterEntrevistaPorId(@PathVariable Long id) {
         Entrevista entrevista = entrevistaRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(MESSAGE_ERROR + id));
@@ -55,7 +53,6 @@ public class EntrevistaController {
         return new ResponseEntity<>(entrevista, HttpStatus.OK);
     }
 
-    // Endpoint para atualizar uma entrevista existente
     @PutMapping("/{id}")
     public ResponseEntity<Entrevista> atualizarEntrevista(@PathVariable Long id, @RequestBody Entrevista entrevistaAtualizada) {
         Entrevista entrevistaExistente = entrevistaRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(MESSAGE_ERROR + id));
@@ -68,7 +65,6 @@ public class EntrevistaController {
         return new ResponseEntity<>(entrevistaAtualizadaNoBanco, HttpStatus.OK);
     }
 
-    // Endpoint para excluir uma entrevista pelo ID
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> excluirEntrevista(@PathVariable Long id) {
         Entrevista entrevistaExistente = entrevistaRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(MESSAGE_ERROR + id));
