@@ -13,6 +13,7 @@ import { CadastroInformacoesEmpresaComponent } from './features/empresas/pages/c
 import { NovaEtapaComponent } from './features/empresas/pages/nova-vaga/nova-etapa/nova-etapa.component';
 import { NovaVagaComponent } from './features/empresas/pages/nova-vaga/nova-vaga.component';
 import { ViewVagasComponent } from './features/vagas/view-vagas/view-vagas.component';
+import { ViewVagasInscritasComponent } from './features/vagas/view-vagas-inscritas/view-vagas-inscritas.component';
 const routes: Routes = [
   {
     path: '',
@@ -110,6 +111,11 @@ const routes: Routes = [
         pathMatch: 'full',
         component: ViewVagasComponent
       },
+      {
+        path: 'inscritas',
+        pathMatch: 'full',
+        component: ViewVagasInscritasComponent,
+      }
     ]
   }
 ]

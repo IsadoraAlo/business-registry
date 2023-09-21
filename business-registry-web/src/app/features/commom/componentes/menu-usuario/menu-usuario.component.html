@@ -12,7 +12,7 @@
     <ng-container *ngIf="usuario.tipo === 'CANDIDATO'">
       <a routerLink="/candidatos/pagina-inicial" (click)="onClickMenu()">Bem-vindo</a><br><br>
       <a routerLink="/vagas/buscar" (click)="onClickMenu()">Vagas</a><br><br>
-      <a routerLink="/candidatos/pagina-inicial" (click)="onClickMenu()">Processo seletivo</a><br><br>
+      <a routerLink="/vagas/inscritas" (click)="onClickMenu()">Processo seletivo</a><br><br>
       <a routerLink="/candidatos/cadastro-dados" (click)="onClickMenu()">Competências</a><br><br>
     </ng-container>
     <ng-container *ngIf="usuario.tipo === 'EMPRESA'">

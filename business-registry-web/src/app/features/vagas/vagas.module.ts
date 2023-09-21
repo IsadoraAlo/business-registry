@@ -7,11 +7,15 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 import { ComponentesModule } from '../commom/componentes/componentes.module';
 import { ViewVagasComponent } from './view-vagas/view-vagas.component';
 import { VagasListComponent } from './list-vagas/vagas-list.component';
+import { ViewVagasInscritasComponent } from './view-vagas-inscritas/view-vagas-inscritas.component';
+import { ModalOptionsComponent } from './view-vagas-inscritas/modal-options/modal-options.component';
 
 @NgModule({
   declarations: [
     ViewVagasComponent,
-    VagasListComponent
+    VagasListComponent,
+    ViewVagasInscritasComponent,
+    ModalOptionsComponent
   ],
   imports: [
     CommonModule,

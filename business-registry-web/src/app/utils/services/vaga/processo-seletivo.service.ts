@@ -20,12 +20,20 @@ export class ProcessoSeletivoService {
     return this.http.get<ProcessoSeletivo[]>(this.apiUrl);
   }
 
+  obterProcessoSeletivosCandidatoId(id: number): Observable<ProcessoSeletivo[]> {
+    return this.http.get<ProcessoSeletivo[]>(`${this.apiUrl}/candidato/${id}`);
+  }
+
   obterProcessoSeletivoPorId(id: number): Observable<ProcessoSeletivo> {
     return this.http.get<ProcessoSeletivo>(`${this.apiUrl}/${id}`);
   }
 
   atualizarProcessoSeletivo(id: number, processoAtualizado: ProcessoSeletivo): Observable<ProcessoSeletivo> {
     return this.http.put<ProcessoSeletivo>(`${this.apiUrl}/${id}`, processoAtualizado);
+  }
+
+  excluirProcessoSeletivoPorCandidato(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/candidato/${id}`);
   }
 
   excluirProcessoSeletivo(id: number): Observable<void> {
