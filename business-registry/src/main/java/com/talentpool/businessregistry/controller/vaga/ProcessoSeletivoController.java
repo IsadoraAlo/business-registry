@@ -90,9 +90,9 @@ public class ProcessoSeletivoController {
 	        return new ResponseEntity<>(NO_CONTENT);
 	    }
 	    
-	    @DeleteMapping("/candidato/{id}")
+	    @DeleteMapping("/vaga/{id}")
 	    public ResponseEntity<Void> deletarProcessoSeletivosPorCandidatoId(@PathVariable Long id) {
-	        List<ProcessoSeletivo> processos = processoRepository.findProcessoByCandidatoId(id);
+	        List<ProcessoSeletivo> processos = processoRepository.findProcessoByVagaId(id);
 	        processoRepository.deleteAll(processos);
 	        return ResponseEntity.noContent().build();
 	    }

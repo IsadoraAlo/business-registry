@@ -32,8 +32,8 @@ export class ProcessoSeletivoService {
     return this.http.put<ProcessoSeletivo>(`${this.apiUrl}/${id}`, processoAtualizado);
   }
 
-  excluirProcessoSeletivoPorCandidato(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/candidato/${id}`);
+  excluirProcessoSeletivoPorVaga(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/vaga/${id}`);
   }
 
   excluirProcessoSeletivo(id: number): Observable<void> {

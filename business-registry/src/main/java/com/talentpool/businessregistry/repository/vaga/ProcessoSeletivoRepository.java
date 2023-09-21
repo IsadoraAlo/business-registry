@@ -10,5 +10,5 @@ import com.talentpool.businessregistry.model.vaga.ProcessoSeletivo;
 @Repository
 public interface ProcessoSeletivoRepository extends JpaRepository<ProcessoSeletivo, Long>{
 	List<ProcessoSeletivo> findProcessoByCandidatoId(Long id);
-	List<ProcessoSeletivo> deleteProcessoByCandidatoId(Long id);
+	List<ProcessoSeletivo> findProcessoByVagaId(Long id);
 }
