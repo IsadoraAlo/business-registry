@@ -12,6 +12,7 @@ import { EntrevistaService } from './../../../../utils/services/vaga/entrevista.
 export class ViewEntrevistaComponent implements OnInit {
   public etapa: Etapa = new Etapa();
   public entrevista: Entrevista = new Entrevista();
+  public dataExtenso: string = '';
 
   constructor(
     private entrevistaService: EntrevistaService,
@@ -21,9 +22,11 @@ export class ViewEntrevistaComponent implements OnInit {
   ngOnInit(): void {
     this.entrevistaService.obterEntrevistaPorId(this?.local?.Etapa?.id).subscribe(
       (entrevista) => {
-        this.entrevista = entrevista
+        this.entrevista = entrevista;
         this.etapa = this.local.Etapa;
         this.local.cleanStorage('Etapa');
+        this.dataExtenso =  new Date(this.entrevista.data)?.toLocaleDateString('pt-BR', { year: 'numeric', month: 'long', day: 'numeric' })
+        console.log(this.dataExtenso)
       }
     )
   }
