@@ -6,6 +6,7 @@ export class ProcessoSeletivo {
   etapaId: number;
   pontuacaoCandidato: number;
   candidatoAprovado: boolean;
+  candidatoReprovado: boolean;
 
   constructor() {
     this.id = 0;
@@ -14,5 +15,6 @@ export class ProcessoSeletivo {
     this.etapaId = 0;
     this.pontuacaoCandidato = 0;
     this.candidatoAprovado = false;
+    this.candidatoReprovado = false;
   }
 }

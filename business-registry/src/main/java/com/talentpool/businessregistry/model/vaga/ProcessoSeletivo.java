@@ -38,4 +38,7 @@ public class ProcessoSeletivo {
 	
 	@Column(name = "candidato_aprovado")
 	private Boolean candidatoAprovado;
+	
+	@Column(name = "candidato_reprovado")
+	private Boolean candidatoReprovado;
 }

@@ -42,6 +42,12 @@ public class RespostaController {
         List<Resposta> respostas = respostaRepository.findAll();
         return new ResponseEntity<>(respostas, HttpStatus.OK);
     }
+    
+    @GetMapping("/pergunta/{id}")
+    public ResponseEntity<List<Resposta>> obterRespostasPorPerguntaId(@PathVariable Long id) {
+        List<Resposta> respostas = respostaRepository.findRespostaByPerguntaId(id);
+        return new ResponseEntity<>(respostas, HttpStatus.OK);
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<Resposta> obterRespostaPorId(@PathVariable Long id) {

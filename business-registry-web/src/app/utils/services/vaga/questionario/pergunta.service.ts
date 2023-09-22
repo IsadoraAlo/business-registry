@@ -24,6 +24,10 @@ export class PerguntaService {
     return this.http.get<Pergunta>(`${this.apiUrl}/${id}`);
   }
 
+  obterPerguntaPorQuestionarioId(id: number): Observable<Pergunta[]> {
+    return this.http.get<Pergunta[]>(`${this.apiUrl}/questionario/${id}`);
+  }
+
   atualizarPergunta(id: number, perguntaAtualizado: Pergunta): Observable<Pergunta> {
     return this.http.put<Pergunta>(`${this.apiUrl}/${id}`, perguntaAtualizado);
   }

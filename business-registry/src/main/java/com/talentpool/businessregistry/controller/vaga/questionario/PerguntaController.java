@@ -1,5 +1,7 @@
 package com.talentpool.businessregistry.controller.vaga.questionario;
 
+import static org.springframework.http.HttpStatus.OK;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,6 +52,12 @@ private static final String MESSAGE_ERROR = "Não existe pergunta com o id ";
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(pergunta, HttpStatus.OK);
+    }
+    
+    @GetMapping("/questionario/{id}")
+    public ResponseEntity<List<Pergunta>> obterPerguntaPorQuestionarioId(@PathVariable Long id) {
+        List<Pergunta> perguntas = perguntaRepository.findPerguntaByQuestionarioId(id);
+        return new ResponseEntity<>(perguntas, OK);
     }
 
     @PutMapping("/{id}")
