@@ -1,7 +1,7 @@
 import { Usuario } from "./usuario.model";
 export class Endereco {
   id: number;
-  usuario: Usuario;
+  usuarioId: number;
   pais: string;
   estado: string;
   municipio: string;
@@ -11,7 +11,7 @@ export class Endereco {
 
   constructor() {
     this.id = 0;
-    this.usuario = new Usuario();
+    this.usuarioId = 0;
     this.pais = 'Brasil';
     this.estado = '';
     this.municipio = '';

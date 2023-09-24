@@ -32,7 +32,7 @@ export class CadastroInformacoesComponent {
   ) { }
 
   private saveEndereco(): void {
-    this.endereco.usuario = this.local.UsuarioLogado;
+    this.endereco.usuarioId = this.local.UsuarioLogado.id;
     this.enderecoService.criarEndereco(this.endereco)
       .pipe(
         catchError((error) => {

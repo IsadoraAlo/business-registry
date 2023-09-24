@@ -14,7 +14,7 @@ export class EnderecoService {
   constructor(private http: HttpClient, private authService: AuthService) { }
 
   criarEndereco(endereco: Endereco): Observable<Endereco> {
-    return this.http.post<Endereco>(this.apiUrl, endereco,{headers: this.authService.tokenHeaders});
+    return this.http.post<Endereco>(this.apiUrl, endereco);
   }
 
   obterEnderecos(): Observable<Endereco[]> {

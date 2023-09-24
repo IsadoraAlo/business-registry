@@ -39,7 +39,7 @@ export class CadastroInformacoesEmpresaComponent {
   private saveEndereco(): void {
     for (const endereco of this.enderecos) {
       endereco.pais = 'Brasil';
-      endereco.usuario = this.local.UsuarioLogado;
+      endereco.usuarioId = this.local.UsuarioLogado.id;
       this.enderecoService.criarEndereco(endereco)
         .pipe(
           catchError((error) => {
