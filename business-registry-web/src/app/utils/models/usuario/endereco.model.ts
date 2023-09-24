@@ -1,4 +1,3 @@
-import { Usuario } from "./usuario.model";
 export class Endereco {
   id: number;
   usuarioId: number;

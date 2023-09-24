@@ -1,13 +1,5 @@
 export const generoList = [
-  { genero: `Masculino` },
-  { genero: `Feminino` },
-  { genero: `Transgênero masculino` },
-  { genero: `Transgênero feminino` },
-  { genero: `Gênero neutro` },
-  { genero: `Não-binário` },
-  { genero: `Agênero` },
-  { genero: `Pangênero` },
-  { genero: `Genderqueer` },
-  { genero: `2 espíritos` },
-  { genero: `Outro` }
+  { genero: 'Masculino' },
+  { genero: 'Feminino' },
+  { genero: 'Outro' }
 ]
