@@ -13,6 +13,8 @@ import { ViewVagasComponent } from './view-vagas/view-vagas.component';
 import { ModalDescricaoComponent } from './view-etapas/modal-descricao/modal-descricao.component';
 import { ViewEntrevistaComponent } from './view-etapas/view-entrevista/view-entrevista.component';
 import { ViewQuestionarioComponent } from './view-etapas/view-questionario/view-questionario.component';
+import { CandidatosInscritosListComponent } from './candidatos-inscritos/candidatos-inscritos-list/candidatos-inscritos-list.component';
+import { CandidatosInscritosViewComponent } from './candidatos-inscritos/candidatos-inscritos-view/candidatos-inscritos-view.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { ViewQuestionarioComponent } from './view-etapas/view-questionario/view-
     ModalDescricaoComponent,
     ViewEntrevistaComponent,
     ViewQuestionarioComponent,
+    CandidatosInscritosListComponent,
+    CandidatosInscritosViewComponent,
   ],
   imports: [
     CommonModule,

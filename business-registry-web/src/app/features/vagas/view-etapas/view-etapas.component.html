@@ -8,7 +8,7 @@
 <br>
 <div class="text-center">
   <ng-container *ngFor="let etapa of etapas; let i = index">
-    <a [ngClass]="{'disabled': etapa.tipo === 'Questionário' && processoAtivo.etapaId >= etapa.id }" (click)="modalDescricao.exibirModal()">
+    <a [ngClass]="{'disabled': processoAtivo.etapaId === etapa.id   }" (click)="modalDescricao.exibirModal()">
     <div class="row text-light justify-content-center align-items-center d-flex">
       <div class="col-2 d-flex justify-content-end">
         <div class="rounded-circle brand-background justify-content-center align-items-center d-flex">
@@ -20,12 +20,12 @@
           <h4>{{etapa.titulo}} - {{etapa.tipo}} </h4>
         </div>
       </div>
-      <ng-container *ngIf="etapa.tipo === 'Entrevista'">
+      <ng-container *ngIf="etapa.tipo === 'Entrevista' || etapa.id === processoAtivo.etapaId">
         <div class="col-2">
           <span class="bi bi-check2-circle icon-size brand-text"></span>
         </div>
       </ng-container>
-      <ng-container *ngIf="etapa.tipo === 'Questionário'">
+      <ng-container *ngIf="etapa.tipo !== 'Entrevista' && etapa.id > processoAtivo.etapaId">
         <div class="col-2">
           <span class="bi bi-x-circle icon-size brand-text"></span>
         </div>

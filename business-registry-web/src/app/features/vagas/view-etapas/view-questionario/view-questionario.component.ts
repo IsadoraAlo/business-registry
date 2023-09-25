@@ -59,7 +59,7 @@ export class ViewQuestionarioComponent {
             this.perguntas = perguntas;
             for (const pergunta of perguntas) {
               this.respostaService.obterRespostaPorPerguntaId(pergunta?.id).subscribe(
-                (respostas) => {
+                respostas => {
                   this?.inquerito.push({ pergunta, respostas })
                 },
                 error => {

@@ -23,7 +23,6 @@ public class UsuarioController {
         this.usuarioRepository = usuarioRepository;
     }
 
-    // Endpoint para criar um novo usuário
     @PostMapping
     public ResponseEntity<Usuario> criarUsuario(@RequestBody Usuario usuario) {
     	if(this.usuarioRepository.findByEmail(usuario.getEmail()) != null) {
@@ -41,7 +40,6 @@ public class UsuarioController {
         return new ResponseEntity<>(usuarios, HttpStatus.OK);
     }
 
-    // Endpoint para obter um usuário pelo ID
     @GetMapping("/{id}")
     public ResponseEntity<Usuario> obterUsuarioPorId(@PathVariable Long id) {
         Usuario usuario = usuarioRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(MESSAGE_ERROR + id));
@@ -51,7 +49,6 @@ public class UsuarioController {
         return new ResponseEntity<>(usuario, HttpStatus.OK);
     }
 
-    // Endpoint para atualizar um usuário existente
     @PutMapping("/{id}")
     public ResponseEntity<Usuario> atualizarUsuario(@PathVariable Long id, @RequestBody Usuario usuarioAtualizado) {
         Usuario usuarioExistente = usuarioRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(MESSAGE_ERROR + id));
@@ -69,7 +66,6 @@ public class UsuarioController {
         return new ResponseEntity<>(usuarioAtualizadoNoBanco, HttpStatus.OK);
     }
 
-    // Endpoint para excluir um usuário pelo ID
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> excluirUsuario(@PathVariable Long id) {
         Usuario usuarioExistente = usuarioRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(MESSAGE_ERROR + id));

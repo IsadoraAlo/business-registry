@@ -23,19 +23,24 @@ export class ViewEtapasComponent {
   ) { }
 
   ngOnInit(): void {
-    this.etapaService.obterEtapasVagaId(this.route.snapshot.params['id']).subscribe(
+    const vagaId: number = this.route.snapshot.params['id'];
+    this.etapaService.obterEtapasVagaId(vagaId).subscribe(
       etapas => {
         this.etapas = etapas;
       }
     );
-
-    this.processoSeletivoService.obterProcessoSeletivosCandidatoId(this.local.UsuarioLogado.id).subscribe(
-      (processos) => {
-        const processoEncontrado = processos?.find(processo => processo.vagaId === this.route.snapshot.params['id']);
-        if (processoEncontrado) {
-          this.processoAtivo = processoEncontrado;
+    this.processoSeletivoService?.obterProcessoSeletivosCandidatoId(this.local?.UsuarioLogado?.id).subscribe(
+      (processosInscritos) => {
+        if (processosInscritos.length === 1) {
+          this.processoAtivo = processosInscritos[0]
+        } else {
+          let processo = processosInscritos?.find((processo: ProcessoSeletivo) => processo?.vagaId === vagaId);
+          if(processo){
+            this.processoAtivo = processo;
+          }
         }
       }
     );
   }
+
 }
