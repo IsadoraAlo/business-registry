@@ -17,7 +17,8 @@ import { ViewVagasInscritasComponent } from './features/vagas/view-vagas-inscrit
 import { ViewVagasComponent } from './features/vagas/view-vagas/view-vagas.component';
 import { ViewEntrevistaComponent } from './features/vagas/view-etapas/view-entrevista/view-entrevista.component';
 import { ViewQuestionarioComponent } from './features/vagas/view-etapas/view-questionario/view-questionario.component';
-import { CandidatosInscritosListComponent } from './features/vagas/candidatos-inscritos/candidatos-inscritos-list/candidatos-inscritos-list.component';
+import { CandidatosInscritosListComponent } from './features/vagas/vagas-empresa/list-vagas-empresa/list-vagas-empresa.component';
+import { VagasEmpresaViewComponent } from './features/vagas/vagas-empresa/vagas-empresa-view/vagas-empresa-view.component';
 const routes: Routes = [
   {
     path: '',
@@ -106,9 +107,14 @@ const routes: Routes = [
     component: MenuUsuarioComponent,
     children: [
       {
-        path: 'candidatos-inscritos',
+        path: 'suas-vagas',
         pathMatch: 'full',
         component: CandidatosInscritosListComponent
+      },
+      {
+        path: 'candidatos/:id',
+        pathMatch: 'full',
+        component: VagasEmpresaViewComponent
       },
       {
         path: 'buscar',
