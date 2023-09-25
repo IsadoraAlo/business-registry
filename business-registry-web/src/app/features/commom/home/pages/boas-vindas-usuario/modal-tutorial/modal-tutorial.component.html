@@ -1,0 +1,24 @@
+<ng-container *ngIf="showModal || isPrimeiroAcesso">
+  <div class="d-flex justify-content-center">
+    <div class="col-lg-8">
+      <div class="modal-brand rounded text-center">
+        <div class="row">
+          <div class="col-12 d-flex justify-content-end align-itens-end">
+            <a (click)="exibirModal()"><span class="bi bi-x size-icon"></span></a>
+          </div>
+        </div>
+        <h2 class="brand-text"><b>Bem-vindo!</b></h2>
+        <p>
+          Para você se familiarizar com nossa plataforma, preparamos para você um breve tutorial, explicando como nossa
+          plataforma funciona!
+        </p>
+        <div class="rounded text-center">
+          <iframe width="99%" height="450" src="https://www.youtube.com/embed/2LOF12vZwzQ?si=q7umQ1LHY6Ktss3l"
+            title="YouTube video player" style="border-radius:8px; border:0px;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="overlay"></div>
+</ng-container>

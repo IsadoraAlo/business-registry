@@ -14,6 +14,7 @@ import { VagaService } from 'src/app/utils/services/vaga/vaga.service';
 })
 export class BoasVindasUsuarioComponent implements OnInit{
   public usuario: Usuario = this.local?.UsuarioLogado;
+  public isPrimeiroAcesso: boolean = false;
   processos: ProcessoSeletivo[] = [];
   vagas: Vaga[] = [];
   vagasTotais: Vaga[] = [];
@@ -36,5 +37,8 @@ export class BoasVindasUsuarioComponent implements OnInit{
           this.vagas = vagas;
         });
       });
+      if(this.usuario.sobre === ''){
+        this.isPrimeiroAcesso = true;
+      }
   }
 }

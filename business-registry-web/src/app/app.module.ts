@@ -14,6 +14,7 @@ import { IndexComponent } from './features/commom/home/pages/index/index.compone
 import { LoginComponent } from './features/commom/home/pages/login/login.component';
 import { EmpresasModule } from './features/empresas/empresas.module';
 import { VagasModule } from './features/vagas/vagas.module';
+import { ModalTutorialComponent } from './features/commom/home/pages/boas-vindas-usuario/modal-tutorial/modal-tutorial.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +22,7 @@ import { VagasModule } from './features/vagas/vagas.module';
     IndexComponent,
     LoginComponent,
     BoasVindasUsuarioComponent,
+    ModalTutorialComponent,
   ],
   imports: [
     BrowserModule,

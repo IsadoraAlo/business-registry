@@ -16,7 +16,7 @@
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
         aria-label="Slide 3"></button>
     </div>
-    <div class="carousel-inner">
+    <div class="carousel-inner" *ngIf="usuario.tipo === 'CANDIDATO'">
       <div class="text-center carousel-card rounded">
         <a routerLink="/vagas/inscritas">
           <div class="carousel-item active">
@@ -59,6 +59,36 @@
         </a>
       </div>
     </div>
+    <div class="carousel-inner" *ngIf="usuario.tipo === 'EMPRESA'">
+      <div class="text-center carousel-card rounded">
+        <a routerLink="/vagas/suas-vagas">
+          <div class="carousel-item active">
+            <div class="container bg-white bg-gradient bg-opacity-50 py-5">
+              <br>
+              <h3><b>Suas vagas</b></h3>
+              <br><br>
+              <p>Você tem</p><br>
+              <h1><b>{{vagas.length}}</b></h1><br>
+              <p>vagas que estão em andamento!</p>
+              <br>
+            </div>
+          </div>
+        </a>
+        <a routerLink="/empresas/vagas">
+          <div class="carousel-item">
+            <div class="container bg-white bg-gradient bg-opacity-50 py-5">
+              <br>
+              <h3><b>Cadastre suas vagas</b></h3>
+              <br><br>
+              <p>Você pode cadastrar</p><br>
+              <h1><b>suas vagas</b></h1><br>
+              <p>em nossa plataforma!</p>
+              <br>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
       data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -71,3 +101,4 @@
     </button>
   </div>
 </ng-container>
+<modal-tutorial #modalTutorial [isPrimeiroAcesso]="isPrimeiroAcesso"></modal-tutorial>
