@@ -1,1 +1,26 @@
-<p>candidatos-inscritos-list works!</p>
+<div class="row">
+  <div class="col-12">
+    <br>
+    <h1 class="brand-text"><b>Sua vagas</b></h1>
+    <br>
+  </div>
+</div>
+<br>
+<div class="row text-center justify-content-center d-flex">
+  <ng-container *ngFor="let vaga of vagas; let i = index">
+    <div class="col-md-8">
+      <div class="container border border-primary rounded my-2">
+        <a class="text-start brand-text m-1">
+          <h4>{{vaga.titulo}}</h4>
+          <h5 class="fw-light">{{vaga.pretencaoSalarial}} - {{vaga.modalidade}}</h5>
+        </a>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="vagas.length === 0">
+    <div class="text-center">
+      <h3 class="brand-text"><b>Opa! Parece que você não tem nenhuma vaga!</b></h3>
+      <img id="img-logo" alt="Homem segurando uma lupa." src="../../../../../assets/images/arquivo-nao-encontrado.png">
+    </div>
+  </ng-container>
+</div>

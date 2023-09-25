@@ -42,6 +42,12 @@ public class VagaController {
         List<Vaga> vagas = vagaRepository.findAll();
         return new ResponseEntity<>(vagas, HttpStatus.OK);
     }
+    
+    @GetMapping("/usuario/{id}")
+    public ResponseEntity<List<Vaga>> obterVagasPorUsuario(@PathVariable Long id) {
+        List<Vaga> vagas = vagaRepository.findVagaByUsuarioId(id);
+        return new ResponseEntity<>(vagas, HttpStatus.OK);
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<Vaga> obterVagaPorId(@PathVariable Long id) {

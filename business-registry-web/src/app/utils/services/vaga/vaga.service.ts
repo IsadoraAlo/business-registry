@@ -1,3 +1,4 @@
+import { Usuario } from './../../models/usuario/usuario.model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -22,6 +23,10 @@ export class VagaService {
 
   obterVagaPorId(id: number): Observable<Vaga> {
     return this.http.get<Vaga>(`${this.apiUrl}/${id}`);
+  }
+
+  obterVagaPorUsuario(id: number): Observable<Vaga[]> {
+    return this.http.get<Vaga[]>(`${this.apiUrl}/usuario/${id}`);
   }
 
   atualizarVaga(id: number, vagaAtualizado: Vaga): Observable<Vaga> {

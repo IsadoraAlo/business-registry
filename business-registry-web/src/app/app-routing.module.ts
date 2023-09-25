@@ -17,6 +17,7 @@ import { ViewVagasInscritasComponent } from './features/vagas/view-vagas-inscrit
 import { ViewVagasComponent } from './features/vagas/view-vagas/view-vagas.component';
 import { ViewEntrevistaComponent } from './features/vagas/view-etapas/view-entrevista/view-entrevista.component';
 import { ViewQuestionarioComponent } from './features/vagas/view-etapas/view-questionario/view-questionario.component';
+import { CandidatosInscritosListComponent } from './features/vagas/candidatos-inscritos/candidatos-inscritos-list/candidatos-inscritos-list.component';
 const routes: Routes = [
   {
     path: '',
@@ -104,6 +105,11 @@ const routes: Routes = [
     path: 'vagas',
     component: MenuUsuarioComponent,
     children: [
+      {
+        path: 'candidatos-inscritos',
+        pathMatch: 'full',
+        component: CandidatosInscritosListComponent
+      },
       {
         path: 'buscar',
         pathMatch: 'full',

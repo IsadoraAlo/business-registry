@@ -54,6 +54,12 @@ public class ProcessoSeletivoController {
 	        List<ProcessoSeletivo> processos = processoRepository.findProcessoByCandidatoId(id);
 	        return new ResponseEntity<>(processos, OK);
 	    }
+	    
+	    @GetMapping("/vaga/{id}")
+	    public ResponseEntity<List<ProcessoSeletivo>> obterProcessoSeletivosPorVagaId(@PathVariable Long id) {
+	        List<ProcessoSeletivo> processos = processoRepository.findProcessoByVagaId(id);
+	        return new ResponseEntity<>(processos, OK);
+	    }
 
 	    @GetMapping("/{id}")
 	    public ResponseEntity<ProcessoSeletivo> obterProcessoSeletivoPorId(@PathVariable Long id) {
@@ -86,12 +92,4 @@ public class ProcessoSeletivoController {
 	        processoRepository.delete(processoExistente);
 	        return new ResponseEntity<>(NO_CONTENT);
 	    }
-	    
-	    @DeleteMapping("/vaga/{id}")
-	    public ResponseEntity<Void> deletarProcessoSeletivosPorCandidatoId(@PathVariable Long id) {
-	        List<ProcessoSeletivo> processos = processoRepository.findProcessoByVagaId(id);
-	        processoRepository.deleteAll(processos);
-	        return ResponseEntity.noContent().build();
-	    }
-
 }

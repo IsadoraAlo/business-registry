@@ -24,6 +24,10 @@ export class ProcessoSeletivoService {
     return this.http.get<ProcessoSeletivo[]>(`${this.apiUrl}/candidato/${id}`);
   }
 
+  obterProcessoSeletivosVagaId(id: number): Observable<ProcessoSeletivo[]> {
+    return this.http.get<ProcessoSeletivo[]>(`${this.apiUrl}/vaga/${id}`);
+  }
+
   obterProcessoSeletivoPorId(id: number): Observable<ProcessoSeletivo> {
     return this.http.get<ProcessoSeletivo>(`${this.apiUrl}/${id}`);
   }
