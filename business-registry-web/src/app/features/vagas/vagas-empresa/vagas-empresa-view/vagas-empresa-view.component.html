@@ -52,3 +52,6 @@
   </div>
 </div>
 <br>
+<ng-container *ngIf="vaga.id !== 0">
+  <list-candidatos [vagaId]="vaga.id"></list-candidatos>
+</ng-container>

@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { Usuario } from "../models/usuario/usuario.model";
 import { Vaga } from "../models/vaga/vaga.model";
 import { Etapa } from "../models/vaga/etapa.model";
+import { ProcessoSeletivo } from "../models/vaga/processo-seletivo.model";
 
 @Injectable({ providedIn: "root" })
 export class LocalStorage {
@@ -82,6 +83,7 @@ export class LocalStorage {
     return vaga
   }
 
+
   public setEtapa(etapa: any) {
     localStorage.setItem('Etapa', JSON.stringify(etapa));
   }
@@ -100,6 +102,25 @@ export class LocalStorage {
       etapa.vagaId = data?.vagaId;
     }
     return etapa;
+  }
+
+  public setProcesso(processo: any) {
+    localStorage.setItem('Processo', JSON.stringify(processo));
+  }
+
+  public get Processo() {
+    const data = JSON.parse(localStorage.getItem('Processo') as string);
+    const processo: ProcessoSeletivo = new ProcessoSeletivo();
+    if (data) {
+      processo.candidatoAprovado = data?.candidatoAprovado;
+      processo.candidatoId = data?.candidatoId;
+      processo.candidatoReprovado = data?.candidatoReprovado;
+      processo.etapaId = data?.etapaId;
+      processo.id = data?.id;
+      processo.pontuacaoCandidato = data?.pontuacaoCandidato;
+      processo.vagaId = data?.vagaId;
+    }
+    return processo;
   }
 
 }

@@ -2,7 +2,10 @@ package com.talentpool.businessregistry.model.enuns;
 
 public enum TipoCompetencia {
 	EXPERIENCIA("EXPERIENCIA"),
-	LINGUAGEM("LINGUAGEM");
+	LINGUAGEM("LINGUAGEM"),
+	CURSOS("CURSOS"),
+	SOCIAL("SOCIAL");
+
 
     private String role;
 

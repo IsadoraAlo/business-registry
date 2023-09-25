@@ -10,7 +10,8 @@ import { VagaService } from '../../../../utils/services/vaga/vaga.service';
   styleUrls: ['./list-vagas-empresa.component.scss']
 })
 export class CandidatosInscritosListComponent implements OnInit {
-  vagas: Vaga[] = []
+  public vagas: Vaga[] = [];
+
   constructor(
     private vagaService: VagaService,
     private local: LocalStorage,

@@ -19,6 +19,7 @@ import { ViewEntrevistaComponent } from './features/vagas/view-etapas/view-entre
 import { ViewQuestionarioComponent } from './features/vagas/view-etapas/view-questionario/view-questionario.component';
 import { CandidatosInscritosListComponent } from './features/vagas/vagas-empresa/list-vagas-empresa/list-vagas-empresa.component';
 import { VagasEmpresaViewComponent } from './features/vagas/vagas-empresa/vagas-empresa-view/vagas-empresa-view.component';
+import { CandidatoViewComponent } from './features/vagas/vagas-empresa/vagas-empresa-view/list-candidatos/candidato-view/candidato-view.component';
 const routes: Routes = [
   {
     path: '',
@@ -64,6 +65,11 @@ const routes: Routes = [
         pathMatch: 'full',
         component: ViewUsuarioComponent
       },
+      {
+        path: ':id',
+        pathMatch: 'full',
+        component: CandidatoViewComponent
+      }
     ]
   },
   {
