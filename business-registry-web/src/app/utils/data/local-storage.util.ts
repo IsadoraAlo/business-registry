@@ -48,11 +48,11 @@ export class LocalStorage {
   }
 
   public get Token() {
-    const data = [JSON.parse(localStorage.getItem('Usuário logado') as string)];
+    const data = JSON.parse(localStorage.getItem('Usuário logado') as string);
     let tokenLog: string = '';
-    data.find((body) => {
-      tokenLog = body.token;
-    });
+    if (data) {
+      tokenLog = data?.token;
+    }
     return tokenLog;
   }
 
@@ -61,25 +61,25 @@ export class LocalStorage {
   }
 
   public get Vaga() {
-    const data = [JSON.parse(localStorage.getItem('Vaga') as string)];
+    const data = JSON.parse(localStorage.getItem('Vaga') as string);
     const vaga: Vaga = new Vaga();
-    data.find((body) => {
-      vaga.id = body.id;
-      vaga.areaAtuacao = body.areaAtuacao;
-      vaga.beneficios = body.beneficios;
-      vaga.candidatos = body.candidatos;
-      vaga.cargo = body.cargo;
-      vaga.deficiencia = body.deficiencia;
-      vaga.etapas = body.etapas;
-      vaga.modalidade = body.modalidade;
-      vaga.pretencaoSalarial = body.pretencaoSalarial;
-      vaga.qualificacoes = body.qualificacoes;
-      vaga.responsabilidades = body.responsabilidades;
-      vaga.status = body.status;
-      vaga.titulo = body.titulo;
-      vaga.usuario = body.usuario;
-      vaga.vagaPcd = body.vagaPcd
-    });
+    if (data) {
+      vaga.id = data?.id;
+      vaga.areaAtuacao = data?.areaAtuacao;
+      vaga.beneficios = data?.beneficios;
+      vaga.candidatos = data?.candidatos;
+      vaga.cargo = data?.cargo;
+      vaga.deficiencia = data?.deficiencia;
+      vaga.etapas = data?.etapas;
+      vaga.modalidade = data?.modalidade;
+      vaga.pretencaoSalarial = data?.pretencaoSalarial;
+      vaga.qualificacoes = data?.qualificacoes;
+      vaga.responsabilidades = data?.responsabilidades;
+      vaga.status = data?.status;
+      vaga.titulo = data?.titulo;
+      vaga.usuario = data?.usuario;
+      vaga.vagaPcd = data?.vagaPcd
+    }
     return vaga
   }
 
