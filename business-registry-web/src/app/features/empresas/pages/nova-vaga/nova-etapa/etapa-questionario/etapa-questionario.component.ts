@@ -65,10 +65,20 @@ export class EtapaQuestionarioComponent {
 
   public getSelectedValue(tipoPergunta: string): void {
     this.tipoPergunta = tipoPergunta;
+    this.perguntasNovas = [];
   }
 
   public onSubmit(): void {
     this.saveQuestionario();
+  }
+
+  public cleanForm(): void {
+    this.questionario = new Questionario();
+    this.perguntasNovas = [];
+    this.perguntas = [];
+    this.isFormSubmitted = false;
+    this.showModal = false;
+    this.tipoPergunta = '';
   }
 
   private saveQuestionario(): void {
@@ -80,7 +90,9 @@ export class EtapaQuestionarioComponent {
           return throwError(() => error);
         })
       )
-      .subscribe(()=> this.isFormSubmitted = true);
+      .subscribe(()=> {
+        this.isFormSubmitted = true;
+      });
   }
 }
 

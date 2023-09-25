@@ -8,7 +8,7 @@
 <br>
 <div class="text-center">
   <ng-container *ngFor="let etapa of etapas; let i = index">
-    <a (click)="modalDescricao.exibirModal()">
+    <a [ngClass]="{'disabled': etapa.tipo === 'Questionário' && processoAtivo.etapaId >= etapa.id }" (click)="modalDescricao.exibirModal()">
     <div class="row text-light justify-content-center align-items-center d-flex">
       <div class="col-2 d-flex justify-content-end">
         <div class="rounded-circle brand-background justify-content-center align-items-center d-flex">

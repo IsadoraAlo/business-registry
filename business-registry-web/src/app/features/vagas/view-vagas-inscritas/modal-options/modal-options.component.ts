@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { LocalStorage } from 'src/app/utils/data/local-storage.util';
+import { ProcessoSeletivo } from 'src/app/utils/models/vaga/processo-seletivo.model';
 import { ProcessoSeletivoService } from 'src/app/utils/services/vaga/processo-seletivo.service';
 
 @Component({
@@ -14,6 +16,7 @@ export class ModalOptionsComponent {
 
   constructor(
     private processoSeletivoService: ProcessoSeletivoService,
+    private local: LocalStorage,
     private router: Router
   ) { }
 
@@ -23,11 +26,20 @@ export class ModalOptionsComponent {
   }
 
   private excluirProcessoSeletivo(): void {
-    this.processoSeletivoService.excluirProcessoSeletivoPorVaga(this.vagaId)
-      .subscribe(() => this.router.navigate(['/vagas/buscar']))
+    this.processoSeletivoService.obterProcessoSeletivosCandidatoId(this.local.UsuarioLogado.id).subscribe(
+      vagas => {
+        let processosExcluidos: ProcessoSeletivo[] = [];
+        processosExcluidos = vagas.filter((processo) => processo.vagaId === this.vagaId);
+        for (const processo of processosExcluidos) {
+          this.processoSeletivoService.excluirProcessoSeletivo(processo.id).subscribe();
+        }
+      }
+    );
+    this.router.navigate(['/vagas/buscar']);
   }
 
-  public iniciarProcessoSeletivo(): void{
+
+  public iniciarProcessoSeletivo(): void {
     this.router.navigate([`/etapas/${this.vagaId}`])
   }
 

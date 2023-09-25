@@ -23,7 +23,7 @@ export class ViewVagasInscritasComponent implements OnInit {
   ngOnInit(): void {
     this.processoSeletivoService.obterProcessoSeletivosCandidatoId(this.local.UsuarioLogado.id)
       .subscribe((processos) => {
-        this.processos = processos.filter(processo => processo.etapaId === 0);
+        this.processos = processos;
         const observables = this.processos.map(processo =>
           this.vagaService.obterVagaPorId(processo.vagaId)
         );

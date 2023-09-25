@@ -1,4 +1,4 @@
-<form>
+<form (ngSubmit)="onSubmit()">
   <br>
   <h1 class="brand-text"><b>{{etapa.numeracao}}ª Etapa - Questionário</b></h1>
   <br>
@@ -10,19 +10,39 @@
       <br>
       <ng-container *ngIf="inquerito.respostas.length === 1">
         <div class="form-floating mb-3">
-          <textarea
-            required
-            [maxLength]="250"
-            type="text"
-            id="dissertativa"
-            class="form-control"
-            placeholder="="
-            name="dissertativa"
-          ></textarea>
+          <textarea (change)="respostaDissertativa(dissertativa.value, inquerito.pergunta.id, i)" #dissertativa required
+            [maxLength]="250" type="text" id="dissertativa" class="form-control" placeholder="="
+            name="dissertativa"></textarea>
           <label for="dissertativa">Qual a sua resposta?</label>
         </div>
+      </ng-container>
+      <ng-container *ngIf="inquerito.respostas.length > 1">
+        <ng-container *ngFor="let resposta of inquerito.respostas; let j = index">
+          <div class="row">
+            <div class="col-12">
+              <input [value]="j" [checked]="j === 0" (change)="respostaDada(j, inquerito.pergunta.id, i)" required
+                type="radio" id="escolha" class="form-check-input" name="alternativaCorreta{{i}}">
+              <label for="alternativaCorreta">{{resposta.alternativa}}</label>
+            </div>
+          </div>
+          <br><br>
+        </ng-container>
       </ng-container>
     </div>
     <br><br>
   </ng-container>
+  <div class="col-md-6">
+    <button type="button" (click)="voltarParaRotaAnterior()" class="btn brand-btn btn-block mb-3">
+      <b>
+        Voltar
+      </b>
+    </button>
+  </div>
+  <div class="col-md-6">
+    <button type="submit" class="btn brand-btn btn-block mb-3">
+      <b>
+        Salvar
+      </b>
+    </button>
+  </div>
 </form>
