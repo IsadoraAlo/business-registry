@@ -10,6 +10,7 @@ import { UsuarioService } from 'src/app/utils/services/usuario/usuario.service';
 })
 export class CandidatosCadastroComponent {
   usuario: Usuario = new Usuario();
+  repetirSenha: string = '';
 
   constructor(private usuarioService: UsuarioService, private router: Router) { }
 

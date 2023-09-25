@@ -1,40 +1,126 @@
 <div class="row d-flex justify-content-center">
   <div class="col-lg-8">
-    <form (ngSubmit)="onSubmit()">
+    <form (ngSubmit)="onSubmit()" #empresaCadastroForm="ngForm">
       <div class="form-floating mb-3">
-        <input type="text" id="nome" class="form-control" placeholder="=" name="nome" [(ngModel)]="usuario.nome" />
+        <input
+          required
+          #nome="ngModel"
+          type="text"
+          id="nome"
+          class="form-control"
+          placeholder="="
+          name="nome"
+          [(ngModel)]="usuario.nome"
+        />
         <label for="nome">Nome fantasia</label>
+        <ng-container *ngIf="nome.dirty || nome.touched">
+          <div *ngIf="nome.errors?.['required']" class="text-danger">
+            Nome fantasia é de preenchimento obrigatório!
+          </div>
+        </ng-container>
       </div>
       <div class="form-floating mb-3">
-        <input type="text" id="celular" class="form-control" placeholder="=" name="celular"
-          [(ngModel)]="usuario.celular" mask="(00) 00000-0000" />
+        <input
+          required
+          #celular="ngModel"
+          type="text"
+          id="celular"
+          class="form-control"
+          placeholder="="
+          name="celular"
+          [(ngModel)]="usuario.celular"
+          mask="(00) 00000-0000"
+        />
         <label for="celular">Celular</label>
+        <ng-container *ngIf="celular.dirty || celular.touched">
+          <div *ngIf="celular.errors?.['required']" class="text-danger">
+            Celular é de preenchimento obrigatório!
+          </div>
+        </ng-container>
       </div>
       <div class="form-floating mb-3">
-        <input type="text" id="cnpj" class="form-control" placeholder="=" name="documento"
-          [(ngModel)]="usuario.documento" mask="00.000.000/0000-00" />
+        <input
+          required
+          #cnpj="ngModel"
+          type="text"
+          id="cnpj"
+          class="form-control"
+          placeholder="="
+          name="documento"
+          [(ngModel)]="usuario.documento"
+          mask="00.000.000/0000-00"
+        />
         <label for="cnpj">CNPJ</label>
+        <ng-container *ngIf="cnpj.dirty || cnpj.touched">
+          <div *ngIf="cnpj.errors?.['required']" class="text-danger">
+            CNPJ é de preenchimento obrigatório!
+          </div>
+        </ng-container>
       </div>
       <div class="form-floating mb-3">
-        <input type="email" id="email" class="form-control" placeholder="=" name="email" [(ngModel)]="usuario.email" />
+        <input
+          required
+          #email="ngModel"
+          type="email"
+          id="email"
+          class="form-control"
+          placeholder="="
+          name="email"
+          [(ngModel)]="usuario.email"
+        />
         <label for="email">E-mail</label>
+        <ng-container *ngIf="email.dirty || email.touched">
+          <div *ngIf="email.errors?.['required']" class="text-danger">
+            E-mail é de preenchimento obrigatório!
+          </div>
+        </ng-container>
       </div>
       <div class="row">
         <div class="col-md-6 mb-4">
           <div class="form-floating mb-3">
-            <input type="password" id="senha" class="form-control" placeholder="=" name="senha"
-              [(ngModel)]="usuario.senha" />
+            <input
+              required
+              #senha="ngModel"
+              type="password"
+              id="senha"
+              class="form-control"
+              placeholder="="
+              name="senha"
+              [(ngModel)]="usuario.senha"
+            />
             <label for="senha">Senha</label>
+            <ng-container *ngIf="senha.dirty || senha.touched">
+              <div *ngIf="senha.errors?.['required']" class="text-danger">
+                Senha é de preenchimento obrigatório!
+              </div>
+            </ng-container>
           </div>
         </div>
         <div class="col-md-6 mb-4">
           <div class="form-floating mb-3">
-            <input type="password" id="senha" class="form-control" placeholder="=" />
-            <label for="senha">Repita sua senha</label>
+            <input
+              required
+              #senhaRepeat="ngModel"
+              type="password"
+              id="senhaRepeat"
+              class="form-control"
+              placeholder="="
+              name="senhaRepeat"
+              [(ngModel)]="repetirSenha"
+            />
+            <label for="senhaRepeat">Repita sua senha</label>
+            <ng-container *ngIf="senhaRepeat.dirty || senhaRepeat.touched">
+              <div *ngIf="senhaRepeat.errors?.['required']" class="text-danger">
+                Repetir a senha é obrigatório!
+              </div>
+              <div *ngIf="senhaRepeat.value !== senha.value" class="text-danger">
+                As senhas não batem!
+              </div>
+            </ng-container>
           </div>
         </div>
       </div>
-      <button type="submit" class="btn brand-btn btn-block mb-3">
+      <button type="submit" class="btn brand-btn btn-block mb-3" [disabled]="!empresaCadastroForm.valid || senhaRepeat.value !== senha.value">
         Registre-se
       </button>
     </form>
