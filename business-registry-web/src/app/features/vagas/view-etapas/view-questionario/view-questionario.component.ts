@@ -85,7 +85,7 @@ export class ViewQuestionarioComponent {
   }
 
   public voltarParaRotaAnterior(): void {
-    this.router.navigateByUrl('../');
+    this.router.navigateByUrl(`/etapas/${this.etapa.vagaId}`);
   }
 
   private saveProcesso(): void {
