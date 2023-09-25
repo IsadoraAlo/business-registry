@@ -10,7 +10,7 @@
   <ng-container *ngFor="let vaga of vagas; let i = index">
     <div class="col-md-8">
       <div class="container border border-primary rounded my-2">
-        <a (click)="modalOptions.exibirModal(processos[i].candidatoAprovado)" class="text-start brand-text m-1">
+        <a (click)="modalOptions.exibirModal(processos[i].candidatoAprovado, processos[i].candidatoReprovado)" class="text-start brand-text m-1">
           <h4>{{vaga.titulo}}</h4>
           <h5 class="fw-light">{{vaga.usuario.nome}} - {{vaga.modalidade}}</h5>
         </a>

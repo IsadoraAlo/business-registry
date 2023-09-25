@@ -1,4 +1,4 @@
-<ng-container *ngIf="showModal && !statusCandidato">
+<ng-container *ngIf="showModal && !candidatoAprovado && !candidatoReprovado">
   <div class="d-flex justify-content-center">
     <div class="col-lg-8">
       <div class="modal-brand rounded text-center">
@@ -28,7 +28,7 @@
   </div>
   <div class="overlay"></div>
 </ng-container>
-<ng-container *ngIf="showModal && statusCandidato">
+<ng-container *ngIf="showModal && candidatoAprovado">
   <div class="justify-content-center">
     <div class="col-lg-8">
       <div class="modal-brand rounded text-center">
@@ -41,7 +41,30 @@
         </div>
         <div class="row">
           <div class="col-12">
-            <button type="button" (click)="exibirModal(statusCandidato)" class="btn brand-btn btn-block mb-3">
+            <button type="button" (click)="exibirModal(candidatoAprovado, candidatoReprovado)" class="btn brand-btn btn-block mb-3">
+              <b>Fechar</b>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="overlay"></div>
+</ng-container>
+<ng-container *ngIf="showModal && candidatoReprovado">
+  <div class="justify-content-center">
+    <div class="col-lg-8">
+      <div class="modal-brand rounded text-center">
+        <div class="row">
+          <div class="col-12">
+            <h2 class="brand-text"><b>Poxa que pena!</b></h2>
+            <h5 class="brand-text">Você foi reprovado!</h5>
+            <span class="bi bi-emoji-frown brand-text icon-size"></span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <button type="button" (click)="exibirModal(candidatoAprovado, candidatoReprovado)" class="btn brand-btn btn-block mb-3">
               <b>Fechar</b>
             </button>
           </div>

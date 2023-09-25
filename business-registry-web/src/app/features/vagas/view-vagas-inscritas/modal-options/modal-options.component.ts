@@ -10,7 +10,8 @@ import { ProcessoSeletivoService } from 'src/app/utils/services/vaga/processo-se
   styleUrls: ['./modal-options.component.scss']
 })
 export class ModalOptionsComponent {
-  @Input() statusCandidato!: boolean;
+  candidatoAprovado!: boolean;
+  candidatoReprovado!: boolean;
   @Input() vagaId!: number;
   public showModal: boolean = false;
 
@@ -20,9 +21,10 @@ export class ModalOptionsComponent {
     private router: Router
   ) { }
 
-  public exibirModal(candidatoAprovado: boolean): void {
+  public exibirModal(candidatoAprovado: boolean, candidatoReprovado: boolean): void {
     this.showModal = !this.showModal;
-    this.statusCandidato = candidatoAprovado;
+    this.candidatoAprovado = candidatoAprovado;
+    this.candidatoReprovado = candidatoReprovado;
   }
 
   private excluirProcessoSeletivo(): void {
