@@ -26,6 +26,7 @@
   </div>
   <h5 class="brand-text"><b>Contato</b></h5>
   <p>{{usuario.email}} | +55 {{usuario.celular}}</p>
+  <app-feedback [processo]="processo"></app-feedback>
   <div class="row">
     <div class="col-12" *ngIf="processo.candidatoAprovado">
       <b>Esse candidato já faz parte da sua equipe!</b>
@@ -35,7 +36,7 @@
     </div>
   </div>
   <br>
-  <div class="row text-center d-flex justify-content-center align-items-center" *ngIf="processo.id > 0">
+  <div class="row text-center d-flex justify-content-center align-items-center">
     <div class="col-md-4">
       <button [disabled]="processo.candidatoAprovado || processo.candidatoReprovado"
         (click)="modalStatus.exibirModal();changeAcao('aprovar')" type="button" class="btn brand-btn btn-block mb-3">

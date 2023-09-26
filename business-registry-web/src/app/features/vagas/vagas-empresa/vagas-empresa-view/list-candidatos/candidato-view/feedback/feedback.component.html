@@ -1,0 +1,184 @@
+<div class="text-start">
+  <h3 class="brand-text">Resumo:</h3>
+  <div id="resumo">
+    <ng-container *ngIf="processo.pontuacaoCandidato < 50">
+      <p>
+        Lamentavelmente, o candidato em questão teve um desempenho muito abaixo das expectativas ao longo de todas as
+        etapas do nosso processo seletivo para a posição. Sua avaliação global é de aproveitamento baixo, uma vez que
+        ele não atendeu aos requisitos mínimos e demonstrou sérias deficiências em todas as áreas avaliadas.
+      </p>
+    </ng-container>
+    <ng-container *ngIf="processo.pontuacaoCandidato > 49 && processo.pontuacaoCandidato < 80">
+      <p>
+        O candidato em questão passou por todas as etapas do nosso processo seletivo para a posição. Durante o processo,
+        foram realizados diversos testes, incluindo um questionário e entrevistas. A avaliação global do desempenho do
+        candidato pode ser caracterizada como mediana, uma vez que ele demonstrou competência em várias áreas, mas não
+        conseguiu se destacar de maneira excepcional.
+      </p>
+    </ng-container>
+    <ng-container *ngIf="processo.pontuacaoCandidato > 79">
+      <p>
+        O candidato em questão demonstrou um desempenho excepcional ao longo de todas as etapas do nosso processo
+        seletivo
+        para a posição. Sua avaliação global é de aproveitamento excelente, uma vez que ele não apenas atendeu,
+        mas também superou consistentemente as expectativas em todas as áreas avaliadas.
+      </p>
+    </ng-container>
+  </div>
+  <h3 class="brand-text">Avaliação Detalhada:</h3>
+  <h4 class="brand-text">Quiz:</h4>
+  <div id="quiz">
+    <ng-container *ngIf="processo.pontuacaoCandidato < 50">
+      <p>
+        O candidato obteve uma pontuação extremamente baixa no quiz, demonstrando uma falta substancial de entendimento
+        dos conceitos essenciais para a função. Suas respostas foram frequentemente inadequadas e careciam de
+        fundamentos
+        básicos.
+      </p>
+    </ng-container>
+    <ng-container *ngIf="processo.pontuacaoCandidato > 49 && processo.pontuacaoCandidato < 80">
+      <p>
+        O candidato completou o quiz com uma pontuação dentro da média, demonstrando um entendimento
+        sólido dos conceitos relevantes para a função. No entanto, sua pontuação não foi excepcional e não superou
+        outros
+        candidatos.
+      </p>
+    </ng-container>
+    <ng-container *ngIf="processo.pontuacaoCandidato > 79">
+      <p>
+        O candidato obteve uma pontuação excepcional no quiz, destacando-se como um especialista em áreas relevantes
+        para
+        a função. Sua profunda compreensão dos conceitos e sua capacidade de aplicá-los de forma prática o destacaram
+        como
+        um candidato de destaque.
+      </p>
+    </ng-container>
+  </div>
+  <h4 class="brand-text">Entrevistas Técnicas:</h4>
+  <div class="entrevista">
+    <ng-container *ngIf="processo.pontuacaoCandidato < 50">
+      <p>
+        Durante as entrevistas técnicas, o candidato não conseguiu demonstrar um conhecimento técnico suficiente para a
+        função. Suas respostas foram superficiais e frequentemente incorretas, indicando uma falta de preparação
+        adequada para o cargo.
+      </p>
+    </ng-container>
+    <ng-container *ngIf="processo.pontuacaoCandidato > 49 && processo.pontuacaoCandidato < 80">
+      <p>
+        Durante as entrevistas técnicas, o candidato demonstrou conhecimento e habilidades adequadas para o cargo. Ele
+        respondeu às perguntas de maneira coerente e demonstrou entendimento das responsabilidades do cargo. No entanto,
+        não
+        se destacou de forma significativa em relação aos demais candidatos.
+      </p>
+    </ng-container>
+    <ng-container *ngIf="processo.pontuacaoCandidato > 79">
+      <p>
+        Durante as entrevistas técnicas, o candidato demonstrou um conhecimento técnico e habilidades excepcionais. Suas
+        respostas foram detalhadas e demonstraram um alto grau de proficiência nas responsabilidades do cargo. Ele não
+        apenas respondeu bem às perguntas, mas também apresentou soluções criativas para desafios propostos.
+      </p>
+    </ng-container>
+  </div>
+  <h4 class="brand-text">Habilidades de Comunicação:</h4>
+  <div id="comunicacao">
+    <ng-container *ngIf="processo.pontuacaoCandidato < 50">
+      <p>
+        As habilidades de comunicação do candidato foram extremamente deficientes. Ele tinha dificuldades em se
+        expressar
+        de maneira clara e coesa, o que prejudicava significativamente sua capacidade de transmitir informações de
+        maneira
+        eficaz.
+      </p>
+    </ng-container>
+    <ng-container *ngIf="processo.pontuacaoCandidato > 49 && processo.pontuacaoCandidato < 80">
+      <p>
+        O candidato apresentou habilidades de comunicação eficazes durante o processo seletivo. Ele se expressou de
+        forma
+        clara e articulada, demonstrando capacidade de se comunicar de maneira adequada para o ambiente de trabalho.
+      </p>
+    </ng-container>
+    <ng-container *ngIf="processo.pontuacaoCandidato > 79">
+      <p>
+        O candidato impressionou com suas habilidades de comunicação durante todo o processo seletivo. Ele se expressou
+        de
+        maneira clara, articulada e persuasiva, demonstrando uma capacidade excepcional de transmitir informações de
+        maneira eficaz.
+      </p>
+    </ng-container>
+  </div>
+  <h4 class="brand-text">Habilidades Comportamentais:</h4>
+  <div id="comportamental" *ngIf="processo.pontuacaoCandidato < 50">
+    <ng-container>
+      <p>
+        O candidato não demonstrou habilidades comportamentais adequadas para a função. Ele não exibiu colaboração,
+        motivação ou habilidades interpessoais essenciais para um ambiente de trabalho produtivo.
+      </p>
+    </ng-container>
+    <ng-container *ngIf="processo.pontuacaoCandidato > 49 && processo.pontuacaoCandidato < 80">
+      <p>
+        As habilidades comportamentais do candidato foram avaliadas positivamente. Ele demonstrou ser uma pessoa
+        colaborativa
+        e demonstrou interesse em trabalhar em equipe. No entanto, sua capacidade de liderança e iniciativa não se
+        destacou
+        de
+        maneira excepcional.
+      </p>
+    </ng-container>
+    <ng-container *ngIf="processo.pontuacaoCandidato > 79">
+      <p>
+        Além de suas habilidades técnicas, o candidato mostrou ser uma pessoa altamente colaborativa e motivada. Ele
+        demonstrou liderança, iniciativa e adaptabilidade, características essenciais para o sucesso no ambiente de
+        trabalho.
+      </p>
+    </ng-container>
+  </div>
+  <h4 class="brand-text">Conclusão:</h4>
+  <div id="conclusao">
+    <ng-container *ngIf="processo.pontuacaoCandidato < 50">
+      <p>
+        Lamentavelmente, o candidato não atendeu aos requisitos mínimos para a posição. Seu desempenho abaixo do
+        esperado em todas as áreas avaliadas indica uma falta significativa de preparação, conhecimento e habilidades
+        necessárias para a função.
+      </p>
+    </ng-container>
+    <ng-container *ngIf="processo.pontuacaoCandidato > 49 && processo.pontuacaoCandidato < 80">
+      <p>
+        Embora o candidato tenha completado todas as etapas do processo seletivo de maneira satisfatória e tenha
+        demonstrado
+        competência em várias áreas, seu desempenho geral pode ser caracterizado como mediano. Ele não conseguiu se
+        destacar
+        de forma excepcional em comparação com outros candidatos que participaram do processo.
+      </p>
+    </ng-container>
+    <ng-container *ngIf="processo.pontuacaoCandidato > 79">
+      <p>
+        O candidato apresentou um desempenho excepcional em todas as etapas do processo seletivo, destacando-se como um
+        candidato de alto potencial. Sua proficiência técnica, habilidades de comunicação e competências comportamentais
+        são exemplares e superaram consistentemente as expectativas.
+      </p>
+    </ng-container>
+  </div>
+  <h3 class="brand-text">Recomendação:</h3>
+  <div id="recomendacao">
+    <ng-container *ngIf="processo.pontuacaoCandidato < 50">
+      <p>
+        Com base na avaliação do desempenho do candidato, não é recomendável sua contratação para a posição. Sua falta
+        de preparação e competências inadequadas o tornam inadequado para as responsabilidades da função.
+      </p>
+    </ng-container>
+    <ng-container *ngIf="processo.pontuacaoCandidato > 49 && processo.pontuacaoCandidato < 80">
+      <p>
+        Com base na avaliação do desempenho do candidato, recomenda-se que sua candidatura seja considerada para futuras
+        oportunidades na empresa. Ele possui as habilidades necessárias para a função, mas pode precisar continuar
+        desenvolvendo suas competências e habilidades para se destacar em processos seletivos futuros.
+      </p>
+    </ng-container>
+    <ng-container *ngIf="processo.pontuacaoCandidato > 79">
+      <p>
+        Com base na avaliação do desempenho excepcional do candidato, recomenda-se enfaticamente sua contratação para a
+        posição. Sua experiência e habilidades contribuirão significativamente para a equipe e para o sucesso da
+        empresa.
+      </p>
+    </ng-container>
+  </div>
+</div>
