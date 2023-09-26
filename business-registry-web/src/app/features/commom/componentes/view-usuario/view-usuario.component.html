@@ -21,6 +21,27 @@
       <p>{{competencia.titulo}} - {{competencia.instituicao}}</p>
     </ng-container>
   </ng-container>
+  <br>
+  <h5 class="brand-text"><b>Línguas</b></h5>
+  <ng-container *ngFor="let competencia of competencias">
+    <ng-container *ngIf="competencia.tipo === 'LINGUAGEM'">
+      <p>{{competencia.titulo}} - {{competencia.nivel}}</p>
+    </ng-container>
+  </ng-container>
+  <br>
+  <h5 class="brand-text"><b>Cursos</b></h5>
+  <ng-container *ngFor="let competencia of competencias">
+    <ng-container *ngIf="competencia.tipo === 'CURSOS'">
+      <p>{{competencia.titulo}} - {{competencia.nivel}}</p>
+    </ng-container>
+  </ng-container>
+  <br>
+  <h5 class="brand-text"><b>Habilidades interpessoais</b></h5>
+  <ng-container *ngFor="let competencia of competencias">
+    <ng-container *ngIf="competencia.tipo === 'SOCIAL'">
+      <p>{{competencia.titulo}}</p>
+    </ng-container>
+  </ng-container>
 </div>
 <div *ngIf="usuario.tipo === 'EMPRESA'" class="row d-flex mx-5">
   <h4 class="brand-text"><b>Missão, valores e objetivos</b></h4>

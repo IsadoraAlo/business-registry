@@ -16,14 +16,37 @@
         e tenho {{candidato.deficiencia}}
       </ng-container>.
     </p>
-    <br><br><br>
+    <br><br>
+
     <h5 class="brand-text"><b>Experiência profissional</b></h5>
     <ng-container *ngFor="let competencia of competencias">
       <ng-container *ngIf="competencia.tipo === 'EXPERIENCIA'">
         <p>{{competencia.titulo}} - {{competencia.instituicao}}</p>
       </ng-container>
     </ng-container>
+    <br>
+    <h5 class="brand-text"><b>Línguas</b></h5>
+    <ng-container *ngFor="let competencia of competencias">
+      <ng-container *ngIf="competencia.tipo === 'LINGUAGEM'">
+        <p>{{competencia.titulo}} - {{competencia.nivel}}</p>
+      </ng-container>
+    </ng-container>
+    <br>
+    <h5 class="brand-text"><b>Cursos</b></h5>
+    <ng-container *ngFor="let competencia of competencias">
+      <ng-container *ngIf="competencia.tipo === 'CURSOS'">
+        <p>{{competencia.titulo}} - {{competencia.nivel}}</p>
+      </ng-container>
+    </ng-container>
+    <br>
+    <h5 class="brand-text"><b>Habilidades interpessoais</b></h5>
+    <ng-container *ngFor="let competencia of competencias">
+      <ng-container *ngIf="competencia.tipo === 'SOCIAL'">
+        <p>{{competencia.titulo}}</p>
+      </ng-container>
+    </ng-container>
   </div>
+  <br>
   <h5 class="brand-text"><b>Contato</b></h5>
   <p>{{usuario.email}} | +55 {{usuario.celular}}</p>
   <app-feedback [processo]="processo"></app-feedback>
@@ -35,7 +58,7 @@
       <b>Esse candidato foi reprovado!</b>
     </div>
   </div>
-  <br>
+  <br><br>
   <div class="row text-center d-flex justify-content-center align-items-center">
     <div class="col-md-4">
       <button [disabled]="processo.candidatoAprovado || processo.candidatoReprovado"

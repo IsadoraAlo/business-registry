@@ -107,8 +107,8 @@
     </ng-container>
   </div>
   <h4 class="brand-text">Habilidades Comportamentais:</h4>
-  <div id="comportamental" *ngIf="processo.pontuacaoCandidato < 50">
-    <ng-container>
+  <div id="comportamental">
+    <ng-container *ngIf="processo.pontuacaoCandidato < 50">
       <p>
         O candidato não demonstrou habilidades comportamentais adequadas para a função. Ele não exibiu colaboração,
         motivação ou habilidades interpessoais essenciais para um ambiente de trabalho produtivo.
