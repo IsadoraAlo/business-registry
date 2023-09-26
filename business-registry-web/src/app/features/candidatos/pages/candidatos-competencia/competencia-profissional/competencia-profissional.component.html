@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-floating mb-3">
+      <input required [(ngModel)]="competencia.instituicao" type="text" id="intituicao" class="form-control" placeholder="=" name="intituicao{{indexComponent}}" />
+      <label for="intituicao">Empresa</label>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-floating mb-3">
+      <input required [(ngModel)]="competencia.titulo" type="text" id="titulo" class="form-control" placeholder="=" name="titulo{{indexComponent}}" />
+      <label for="titulo">Cargo</label>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4">
+    <div class="form-floating mb-3">
+      <input [(ngModel)]="competencia.dataInicio" required type="date" id="data_inicio" class="form-control" placeholder="=" name="dataInicio{{indexComponent}}" />
+      <label for="dataInicio">Data de início</label>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="form-floating mb-3">
+      <input [(ngModel)]="competencia.dataTermino" type="date" id="data_final" class="form-control" placeholder="=" name="dataFinal{{indexComponent}}" />
+      <label for="dataFinal">Data de encerramento</label>
+    </div>
+  </div>
+</div>

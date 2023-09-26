@@ -20,6 +20,7 @@ import { ViewQuestionarioComponent } from './features/vagas/view-etapas/view-que
 import { CandidatosInscritosListComponent } from './features/vagas/vagas-empresa/list-vagas-empresa/list-vagas-empresa.component';
 import { VagasEmpresaViewComponent } from './features/vagas/vagas-empresa/vagas-empresa-view/vagas-empresa-view.component';
 import { CandidatoViewComponent } from './features/vagas/vagas-empresa/vagas-empresa-view/list-candidatos/candidato-view/candidato-view.component';
+import { CandidatosCompetenciaComponent } from './features/candidatos/pages/candidatos-competencia/candidatos-competencia.component';
 const routes: Routes = [
   {
     path: '',
@@ -59,6 +60,11 @@ const routes: Routes = [
         path: 'cadastro-dados',
         pathMatch: 'full',
         component: CadastroInformacoesComponent
+      },
+      {
+        path: 'suas-competencias',
+        pathMatch: 'full',
+        component: CandidatosCompetenciaComponent
       },
       {
         path: 'view',

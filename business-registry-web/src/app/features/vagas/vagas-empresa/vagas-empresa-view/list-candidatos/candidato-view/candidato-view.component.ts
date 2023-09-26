@@ -1,5 +1,5 @@
 import { CandidatoService } from 'src/app/utils/services/usuario/candidato/candidato.service';
-import { Component, Input, AfterViewInit } from '@angular/core';
+import { Component, Input, AfterViewInit, OnInit } from '@angular/core';
 import { Candidato } from 'src/app/utils/models/usuario/candidato/candidato.model';
 import { Competencia } from 'src/app/utils/models/usuario/candidato/competencia.model';
 import { Usuario } from 'src/app/utils/models/usuario/usuario.model';
@@ -14,7 +14,7 @@ import { ProcessoSeletivo } from 'src/app/utils/models/vaga/processo-seletivo.mo
   templateUrl: './candidato-view.component.html',
   styleUrls: ['./candidato-view.component.scss']
 })
-export class CandidatoViewComponent implements AfterViewInit {
+export class CandidatoViewComponent implements OnInit {
   public competencias: Competencia[] = []
   public candidato: Candidato = new Candidato();
   public usuario: Usuario = new Usuario();
@@ -29,7 +29,7 @@ export class CandidatoViewComponent implements AfterViewInit {
     private local: LocalStorage
   ) { }
 
-  ngAfterViewInit(): void {
+  ngOnInit(): void {
     this.competenciaService.obterCompetenciasByCandidatoId(this.route.snapshot.params['id']).subscribe(competencias => this.competencias = competencias);
     this.candidatoService.obterCandidatoPorId(this.route.snapshot.params['id']).subscribe(candidato => this.candidato = candidato);
     this.usuarioService.obterUsuarioPorId(this.route.snapshot.params['id']).subscribe(usuario => this.usuario = usuario);

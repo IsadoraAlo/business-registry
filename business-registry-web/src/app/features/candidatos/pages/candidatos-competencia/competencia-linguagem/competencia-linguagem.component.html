@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-floating mb-3">
+      <select required #titulo name="titulo{{indexComponent}}" [(ngModel)]="competencia.titulo" class="form-select">
+        <ng-container *ngFor="let lingua of linguas">
+          <option [value]="lingua.lingua" id="titulo">{{lingua?.lingua}}</option>
+        </ng-container>
+      </select>
+      <label for="titulo">Língua</label>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-floating mb-3">
+      <select required #nivel name="nivel{{indexComponent}}" [(ngModel)]="competencia.nivel" class="form-select">
+        <ng-container *ngFor="let nivel of nivels">
+          <option [value]="nivel.nivelProficiencia" id="nivel">{{nivel?.nivelProficiencia}}</option>
+        </ng-container>
+      </select>
+      <label for="nivel">Qual o nível da proficiência?</label>
+    </div>
+  </div>
+</div>

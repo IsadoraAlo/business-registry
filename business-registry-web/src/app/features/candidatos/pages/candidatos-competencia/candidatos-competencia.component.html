@@ -1,0 +1,43 @@
+<h2 class="brand-text"><b>Competências</b></h2>
+<br>
+<p class="text-start">Seja bem vindo ao cadastro das suas competências! Ter competências, cursos e habilidades no currículo é crucial, pois eles fornecem evidências concretas de suas qualificações e aptidões para potenciais empregadores. Isso não apenas destaca sua relevância para a posição desejada, mas também demonstra seu compromisso com o desenvolvimento profissional e a busca contínua por aprimoramento, características valorizadas em um mercado de trabalho cada vez mais competitivo.</p>
+<form (ngSubmit)="onSubmit()" #competenciaForm="ngForm">
+<ng-container *ngFor="let competencia of competencias; let indexComponent = index">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-floating mb-3">
+          <select required #tipo name="tipo{{indexComponent}}" [(ngModel)]="competencia.tipo" class="form-select">
+            <option disabled selected hidden>Selecione a cidade</option>
+            <ng-container *ngFor="let tipoC of tipoCompetencias">
+              <option [value]="tipoC.valor" id="tipo">{{tipoC?.competencia}}</option>
+            </ng-container>
+          </select>
+          <label for="tipo">Qual o tipo da competência?</label>
+        </div>
+      </div>
+    </div>
+    <ng-container *ngIf="tipo.value === 'EXPERIENCIA'">
+      <competencia-profissional [competencia]="competencia" [indexComponent]="indexComponent"></competencia-profissional>
+    </ng-container>
+    <ng-container *ngIf="tipo.value === 'LINGUAGEM'">
+      <competencia-linguagem [competencia]="competencia" [indexComponent]="indexComponent"></competencia-linguagem>
+    </ng-container>
+    <ng-container *ngIf="tipo.value === 'SOCIAL'">
+      <competencia-social [competencia]="competencia" [indexComponent]="indexComponent"></competencia-social>
+    </ng-container>
+    <ng-container *ngIf="tipo.value === 'CURSOS'">
+      <competencia-cursos [competencia]="competencia" [indexComponent]="indexComponent"></competencia-cursos>
+    </ng-container>
+  </ng-container>
+  <button type="submit" class="btn brand-btn btn-block mb-3" [disabled]="!competenciaForm.valid">
+    Salvar
+  </button>
+</form>
+<div class="row">
+  <div class="col-1">
+    <button type="button" class="btn brand-btn" (click)="onClickAdd()"><i class="bi bi-plus-circle"></i></button>
+  </div>
+  <div class="col-1" *ngIf="indexComponent > 1">
+    <button type="button" class="btn brand-btn" (click)="onClickRemove()"><i class="bi bi-trash-fill"></i></button>
+  </div>
+</div>

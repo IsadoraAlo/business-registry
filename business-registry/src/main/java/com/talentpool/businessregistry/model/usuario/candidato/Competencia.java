@@ -35,13 +35,13 @@ public class Competencia {
 	private long id;
 
 	@Enumerated(EnumType.STRING)
-	@Column(name = "tipo", length = 30)
+	@Column(name = "tipo", length = 50)
 	private TipoCompetencia tipo;
 
 	@Column(name = "titulo", length = 70)
 	private String titulo;
 
-	@Column(name = "nivel", length = 15)
+	@Column(name = "nivel", length = 200)
 	private String nivel;
 
 	@Column(name = "instituicao", length = 70)

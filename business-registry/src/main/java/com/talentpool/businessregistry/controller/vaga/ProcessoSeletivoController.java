@@ -76,9 +76,12 @@ public class ProcessoSeletivoController {
 	        if (processoExistente == null) {
 	            return new ResponseEntity<>(NOT_FOUND);
 	        }
-	        processoExistente.setCandidatoAprovado(processoAtualizado.getCandidatoAprovado());
-	        processoExistente.setEtapaId(processoAtualizado.getEtapaId());
 	        processoExistente.setPontuacaoCandidato(processoAtualizado.getPontuacaoCandidato());
+	        processoExistente.setCandidatoReprovado(processoAtualizado.getCandidatoReprovado());
+	        processoExistente.setCandidatoAprovado(processoAtualizado.getCandidatoAprovado());
+	        processoExistente.setCandidatoId(processoAtualizado.getCandidatoId());
+	        processoExistente.setEtapaId(processoAtualizado.getEtapaId());
+	        processoExistente.setVagaId(processoAtualizado.getVagaId());
 	        ProcessoSeletivo processoAtualizadaNoBanco = processoRepository.save(processoExistente);
 	        return new ResponseEntity<>(processoAtualizadaNoBanco, OK);
 	    }

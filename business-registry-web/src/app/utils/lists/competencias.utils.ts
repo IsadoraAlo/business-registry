@@ -1,6 +1,6 @@
 export const competenciasList = [
-  { competencia: 'EXPERIENCIA' },
-  { competencia: 'LINGUAGEM' },
-  { competencia: 'CURSOS' },
-  { competencia: 'SOCIAL' },
+  { competencia: 'Experiência', valor: 'EXPERIENCIA' },
+  { competencia: 'Linguagem', valor: 'LINGUAGEM' },
+  { competencia: 'Cursos', valor: 'CURSOS' },
+  { competencia: 'Social', valor: 'SOCIAL' },
 ]

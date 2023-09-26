@@ -11,6 +11,11 @@ import { InformacoesPessoaisComponent } from './pages/cadastro-informacoes/infor
 import { ExperienciasAnterioresComponent } from './pages/cadastro-informacoes/informacoes-profissionais/experiencias-anteriores/experiencias-anteriores.component';
 import { InformacoesProfissionaisComponent } from './pages/cadastro-informacoes/informacoes-profissionais/informacoes-profissionais.component';
 import { CandidatosCadastroComponent } from './pages/candidatos-cadastro/candidatos-cadastro.component';
+import { CandidatosCompetenciaComponent } from './pages/candidatos-competencia/candidatos-competencia.component';
+import { CompetenciaProfissionalComponent } from './pages/candidatos-competencia/competencia-profissional/competencia-profissional.component';
+import { CompetenciaLinguagemComponent } from './pages/candidatos-competencia/competencia-linguagem/competencia-linguagem.component';
+import { CompetenciaSocialComponent } from './pages/candidatos-competencia/competencia-social/competencia-social.component';
+import { CompetenciaCursosComponent } from './pages/candidatos-competencia/competencia-cursos/competencia-cursos.component';
 @NgModule({
   declarations: [
     CandidatosCadastroComponent,
@@ -19,6 +24,11 @@ import { CandidatosCadastroComponent } from './pages/candidatos-cadastro/candida
     InformacoesProfissionaisComponent,
     InformacoesPessoaisComponent,
     ExperienciasAnterioresComponent,
+    CandidatosCompetenciaComponent,
+    CompetenciaProfissionalComponent,
+    CompetenciaLinguagemComponent,
+    CompetenciaSocialComponent,
+    CompetenciaCursosComponent,
   ],
   imports: [
     CommonModule,
