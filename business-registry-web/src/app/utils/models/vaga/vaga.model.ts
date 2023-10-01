@@ -14,6 +14,8 @@ export class Vaga {
   beneficios: string;
   areaAtuacao: string;
   cargo: string;
+  genero: string;
+  etnia: string;
   status: boolean;
   usuario: Usuario;
   etapas: Etapa[];
@@ -32,6 +34,8 @@ export class Vaga {
     this.vagaPcd = false;
     this.deficiencia = '';
     this.cargo = '';
+    this.genero = '';
+    this.etnia = '';
     this.status = true;
     this.usuario = new Usuario();
     this.etapas = [];

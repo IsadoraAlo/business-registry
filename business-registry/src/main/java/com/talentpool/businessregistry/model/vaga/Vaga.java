@@ -70,6 +70,14 @@ public class Vaga {
 	@Size(max = 35)
 	private String deficiencia;
 	
+	@Column(name = "genero")
+	@Size(max = 35)
+	private String genero;
+	
+	@Column(name = "etnia")
+	@Size(max = 35)
+	private String etnia;
+	
 	@Column(name = "cargo", length=20)
 	private String cargo;
 	

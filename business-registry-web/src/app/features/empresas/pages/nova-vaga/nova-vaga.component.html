@@ -1,10 +1,10 @@
 <h2 class="brand-text"><b>Nova vaga</b></h2>
 <br>
-<form (ngSubmit)="onSubmit()">
+<form (ngSubmit)="onSubmit()" #vagaForm="ngForm">
   <div class="row">
     <div class="col-12">
       <div class="form-floating mb-3">
-        <input [maxlength]="70" [(ngModel)]="vaga.titulo" type="text" id="titulo" class="form-control" placeholder="="
+        <input required [maxlength]="70" [(ngModel)]="vaga.titulo" type="text" id="titulo" class="form-control" placeholder="="
           name="titulo">
         <label for="titulo">Título da vaga</label>
       </div>
@@ -13,7 +13,7 @@
   <div class="row">
     <div class="col-md-6">
       <div class="form-floating mb-3">
-        <input [(ngModel)]="vaga.pretencaoSalarial" type="text" id="pretencaoSalarial" class="form-control"
+        <input required [(ngModel)]="vaga.pretencaoSalarial" type="text" id="pretencaoSalarial" class="form-control"
           placeholder="=" [dropSpecialCharacters]="false" mask="separator.2" decimalMarker="," thousandSeparator="."
           prefix="R$ " separatorLimit="10000000" name="pretencaoSalarial">
         <label for="pretencaoSalarial">Pretenção salárial da vaga</label>
@@ -21,7 +21,7 @@
     </div>
     <div class="col-md-6">
       <div class="form-floating mb-3">
-        <select name="modalidade" [(ngModel)]="vaga.modalidade" class="form-select">
+        <select required name="modalidade" [(ngModel)]="vaga.modalidade" class="form-select">
           <option disabled selected hidden>Selecione a modalidade</option>
           <ng-container *ngFor="let modalidade of modalidades">
             <option [value]="modalidade.modalidade" id="modalidade">{{modalidade?.modalidade}}</option>
@@ -34,7 +34,7 @@
   <div class="row">
     <div class="col-md-6">
       <div class="form-floating mb-3">
-        <select name="areaAtuacao" [(ngModel)]="vaga.areaAtuacao" class="form-select">
+        <select required name="areaAtuacao" [(ngModel)]="vaga.areaAtuacao" class="form-select">
           <option disabled selected hidden>Selecione a área de atuação</option>
           <ng-container *ngFor="let area of areas">
             <option [value]="area.area" id="areaAtuacao">{{area?.area}}</option>
@@ -45,7 +45,7 @@
     </div>
     <div class="col-md-6">
       <div class="form-floating mb-3">
-        <select name="cargo" [(ngModel)]="vaga.cargo" class="form-select">
+        <select required name="cargo" [(ngModel)]="vaga.cargo" class="form-select">
           <option disabled selected hidden>Selecione o cargo</option>
           <ng-container *ngFor="let cargo of cargos">
             <option [value]="cargo.cargo" id="cargo">{{cargo?.cargo}}</option>
@@ -58,7 +58,7 @@
   <div class="row">
     <div class="col-12">
       <div class="form-floating mb-3">
-        <textarea [maxlength]="250" [(ngModel)]="vaga.qualificacoes" type="text" id="qualificacoes" class="form-control"
+        <textarea required [maxlength]="250" [(ngModel)]="vaga.qualificacoes" type="text" id="qualificacoes" class="form-control"
           placeholder="=" name="qualificacoes"></textarea>
         <label for="qualificacoes">Qualificações desejadas para o trabalho.</label>
       </div>
@@ -67,7 +67,7 @@
   <div class="row">
     <div class="col-12">
       <div class="form-floating mb-3">
-        <textarea [maxlength]="250" [(ngModel)]="vaga.responsabilidades" type="text" id="responsabilidades"
+        <textarea required [maxlength]="250" [(ngModel)]="vaga.responsabilidades" type="text" id="responsabilidades"
           class="form-control" placeholder="=" name="responsabilidades"></textarea>
         <label for="responsabilidades">Responsabilidades que virão com o trabalho.</label>
       </div>
@@ -76,9 +76,31 @@
   <div class="row">
     <div class="col-12">
       <div class="form-floating mb-3">
-        <textarea [maxlength]="250" [(ngModel)]="vaga.beneficios" type="text" id="beneficios" class="form-control"
+        <textarea required [maxlength]="250" [(ngModel)]="vaga.beneficios" type="text" id="beneficios" class="form-control"
           placeholder="=" name="beneficios"></textarea>
         <label for="beneficios">Benefícios adicionais.</label>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-floating mb-3">
+        <select required name="etnia" [(ngModel)]="vaga.etnia" class="form-select">
+          <ng-container *ngFor="let etnia of etnias">
+            <option [value]="etnia.etnia" id="etnia">{{etnia?.etnia}}</option>
+          </ng-container>
+        </select>
+        <label for="etnia">Etnia</label>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-floating mb-3">
+        <select required name="genero" [(ngModel)]="vaga.genero" class="form-select">
+          <ng-container *ngFor="let genero of generos">
+            <option [value]="genero.genero" id="genero">{{genero?.genero}}</option>
+          </ng-container>
+        </select>
+        <label for="genero">Gênero</label>
       </div>
     </div>
   </div>
@@ -86,7 +108,7 @@
     <div class="col-12">
       <div class="form-check form-switch d-table-cell">
         <label class="form-check-label" for="vagaPcd">Vaga para PcD</label>
-        <input class="form-check-input" type="checkbox" role="switch" id="vagaPcd" [(ngModel)]="vaga.vagaPcd"
+        <input required class="form-check-input" type="checkbox" role="switch" id="vagaPcd" [(ngModel)]="vaga.vagaPcd"
           name="vagaPcd" (onchange)="onClickVagasDeficiente()">
       </div>
     </div>
@@ -95,7 +117,7 @@
   <div class="row">
     <div *ngIf="vaga.vagaPcd == true" class="col-12 col-md-6">
       <div class="form-floating mb-3">
-        <select name="deficiencia" [(ngModel)]="vaga.deficiencia" class="form-select">
+        <select required name="deficiencia" [(ngModel)]="vaga.deficiencia" class="form-select">
           <option disabled selected hidden>Selecione a deficiência</option>
           <ng-container *ngFor="let deficiencia of deficiencia">
             <option [value]="deficiencia.deficiencia" id="deficiencia">{{deficiencia?.deficiencia}}</option>
@@ -105,7 +127,8 @@
       </div>
     </div>
   </div>
-  <button type="submit" class="btn brand-btn btn-block mb-3">
+
+  <button type="submit" [disabled]="!vagaForm.valid" class="btn brand-btn btn-block mb-3">
     <b>
       Salvar
     </b>

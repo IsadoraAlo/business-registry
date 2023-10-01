@@ -41,18 +41,18 @@
       <div class="form-floating mb-3">
         <input
           required
-          #cnpj="ngModel"
+          #cpf="ngModel"
           type="text"
-          id="cnpj"
+          id="cpf"
           class="form-control"
           placeholder="="
           name="documento"
           [(ngModel)]="usuario.documento"
           mask="000.000.000-00"
         />
-        <label for="cnpj">CNPJ</label>
-        <ng-container *ngIf="cnpj.dirty || cnpj.touched">
-          <div *ngIf="cnpj.errors?.['required']" class="text-danger">
+        <label for="cpf">CPF</label>
+        <ng-container *ngIf="cpf.dirty || cpf.touched">
+          <div *ngIf="cpf.errors?.['required']" class="text-danger">
             CPF é de preenchimento obrigatório!
           </div>
         </ng-container>

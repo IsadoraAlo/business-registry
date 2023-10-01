@@ -1,3 +1,4 @@
+import { generoList } from './../../../../utils/lists/genero.utils';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError, throwError } from 'rxjs';
@@ -5,6 +6,7 @@ import { LocalStorage } from 'src/app/utils/data/local-storage.util';
 import { areaAtuacaoList } from 'src/app/utils/lists/area-atuacao.utils';
 import { cargosList } from 'src/app/utils/lists/cargos.utils';
 import { deficienciaList } from 'src/app/utils/lists/deficiencia.utils';
+import { etniaList } from 'src/app/utils/lists/etnia.utils';
 import { modalidadeList } from 'src/app/utils/lists/modalidade.utils';
 import { Vaga } from 'src/app/utils/models/vaga/vaga.model';
 import { VagaService } from 'src/app/utils/services/vaga/vaga.service';
@@ -19,6 +21,8 @@ export class NovaVagaComponent {
   public modalidades = modalidadeList;
   public areas = areaAtuacaoList;
   public cargos = cargosList;
+  public generos = generoList;
+  public etnias =  etniaList;
   public vaga: Vaga = new Vaga();
 
   constructor(
