@@ -3,7 +3,7 @@
 <p>Bem vindo à plataforma de recrutamento e seleção TalentPool!</p>
 <p>A melhor plataforma de recrutamento do Brasil, líder em conectar talentos e empresas de forma eficiente e inovadora.
 </p>
-<div *ngIf="usuario.sobre === ''">
+<div *ngIf="usuario.sobre === '' && usuario.tipo !== 'ADMIN'">
   <app-empty-state></app-empty-state>
 </div>
 <ng-container *ngIf="usuario.sobre !== ''">
@@ -65,11 +65,11 @@
           <div class="carousel-item active">
             <div class="container bg-white bg-gradient bg-opacity-50 py-5">
               <br>
-              <h3><b>Suas vagas</b></h3>
+              <h3><b>Nossas vagas</b></h3>
               <br><br>
-              <p>Você tem</p><br>
+              <p>Já temos</p><br>
               <h1><b>{{vagasTotais.length}}</b></h1><br>
-              <p>vagas que estão em andamento!</p>
+              <p>vagas ativas na plataforma!</p>
               <br>
             </div>
           </div>
@@ -89,6 +89,49 @@
         </a>
       </div>
     </div>
+    <div class="carousel-inner" *ngIf="usuario.tipo === 'ADMIN'">
+      <div class="text-center carousel-card rounded">
+        <a routerLink="/administrativo/candidato-list">
+          <div class="carousel-item active">
+            <div class="container bg-white bg-gradient bg-opacity-50 py-5">
+              <br>
+              <h3><b>Candidatos</b></h3>
+              <br><br>
+              <p>Já temos</p><br>
+              <h1><b>{{vagasTotais.length}}</b></h1><br>
+              <p>candidatos ativos na plataforma!</p>
+              <br>
+            </div>
+          </div>
+        </a>
+        <a routerLink="/administrativo/empresa-list">
+          <div class="carousel-item active">
+            <div class="container bg-white bg-gradient bg-opacity-50 py-5">
+              <br>
+              <h3><b>Empresas</b></h3>
+              <br><br>
+              <p>Já temos</p><br>
+              <h1><b>{{vagasTotais.length}}</b></h1><br>
+              <p>empresas ativas na plataforma!</p>
+              <br>
+            </div>
+          </div>
+        </a>
+        <!-- <a routerLink="/administrativo/suas-vagas">
+          <div class="carousel-item active">
+            <div class="container bg-white bg-gradient bg-opacity-50 py-5">
+              <br>
+              <h3><b>Feedback</b></h3>
+              <br><br>
+              <p>Confira nosso</p><br>
+              <h1><b>relatório</b></h1><br>
+              <p>sobre o desemprenho plataforma!</p>
+              <br>
+            </div>
+          </div>
+        </a> -->
+      </div>
+    </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
       data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -101,4 +144,4 @@
     </button>
   </div>
 </ng-container>
-<modal-tutorial #modalTutorial [isPrimeiroAcesso]="isPrimeiroAcesso"></modal-tutorial>
+<modal-tutorial #modalTutorial [isPrimeiroAcesso]="isPrimeiroAcesso" *ngIf="usuario.tipo !== 'ADMIN'"></modal-tutorial>

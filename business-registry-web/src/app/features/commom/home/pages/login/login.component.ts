@@ -26,7 +26,13 @@ export class LoginComponent {
       )
       .subscribe((login) => {
         this.localStorage.setUsuarioLogado(login);
-        this.localStorage.UsuarioLogado.tipo === TipoUsuario.CANDIDATO ? this.router.navigate(['/candidatos/pagina-inicial']) : this.router.navigate(['/empresas/pagina-inicial'])
+        if (this.localStorage.UsuarioLogado.tipo === TipoUsuario.ADMIN) {
+          this.router.navigate(['/administrativo/pagina-inicial']);
+        } else if (this.localStorage.UsuarioLogado.tipo === TipoUsuario.CANDIDATO) {
+          this.router.navigate(['/candidatos/pagina-inicial'])
+        } else if (this.localStorage.UsuarioLogado.tipo === TipoUsuario.EMPRESA) {
+          this.router.navigate(['/empresas/pagina-inicial'])
+        }
       });
   }
 

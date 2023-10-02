@@ -21,6 +21,9 @@ import { CandidatosInscritosListComponent } from './features/vagas/vagas-empresa
 import { VagasEmpresaViewComponent } from './features/vagas/vagas-empresa/vagas-empresa-view/vagas-empresa-view.component';
 import { CandidatoViewComponent } from './features/vagas/vagas-empresa/vagas-empresa-view/list-candidatos/candidato-view/candidato-view.component';
 import { CandidatosCompetenciaComponent } from './features/candidatos/pages/candidatos-competencia/candidatos-competencia.component';
+import { AdmCandidatoListComponent } from './features/administracao/adm-candidato-list/adm-candidato-list.component';
+import { AdmEmpresaListComponent } from './features/administracao/adm-empresa-list/adm-empresa-list.component';
+import { AdmViewComponent } from './features/administracao/adm-view/adm-view.component';
 const routes: Routes = [
   {
     path: '',
@@ -41,6 +44,37 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'administrativo',
+    component: MenuUsuarioComponent,
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'pagina-inicial',
+      },
+      {
+        path: 'pagina-inicial',
+        pathMatch: 'full',
+        component: BoasVindasUsuarioComponent
+      },
+      {
+        path: 'candidato-list',
+        pathMatch: 'full',
+        component: AdmCandidatoListComponent
+      },
+      {
+        path: 'empresa-list',
+        pathMatch: 'full',
+        component: AdmEmpresaListComponent
+      },
+      {
+        path: 'view/:id',
+        pathMatch: 'full',
+        component: AdmViewComponent
+      },
+    ]
   },
   {
     path: 'candidatos',
