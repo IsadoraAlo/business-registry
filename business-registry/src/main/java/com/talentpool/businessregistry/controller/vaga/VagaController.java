@@ -77,6 +77,8 @@ public class VagaController {
         vagaExistente.setDeficiencia(vagaAtualizada.getDeficiencia());
         vagaExistente.setCargo(vagaAtualizada.getCargo());
         vagaExistente.setStatus(vagaAtualizada.getStatus());
+        vagaExistente.setGenero(vagaAtualizada.getGenero());
+        vagaExistente.setEtnia(vagaAtualizada.getEtnia());
         vagaExistente.setUsuario(vagaAtualizada.getUsuario());
         Vaga vagaAtualizadaNoBanco = vagaRepository.save(vagaExistente);
         return new ResponseEntity<>(vagaAtualizadaNoBanco, HttpStatus.OK);
@@ -91,4 +93,42 @@ public class VagaController {
         vagaRepository.delete(vagaExistente);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+    
+    @GetMapping("/modalidade/{modalidade}")
+    public ResponseEntity<List<Vaga>> obterVagasPorModalidade(@PathVariable String modalidade) {
+        List<Vaga> vagas = vagaRepository.findVagaByModalidade(modalidade);
+        return new ResponseEntity<>(vagas, HttpStatus.OK);
+    }
+
+    @GetMapping("/cargo/{cargo}")
+    public ResponseEntity<List<Vaga>> obterVagasPorCargo(@PathVariable String cargo) {
+        List<Vaga> vagas = vagaRepository.findVagaByCargo(cargo);
+        return new ResponseEntity<>(vagas, HttpStatus.OK);
+    }
+
+    
+    @GetMapping("/area-atuacao/{areaAtuacao}")
+    public ResponseEntity<List<Vaga>> obterVagasPorAreaAtuacao(@PathVariable String areaAtuacao) {
+        List<Vaga> vagas = vagaRepository.findVagaByAreaAtuacao(areaAtuacao);
+        return new ResponseEntity<>(vagas, HttpStatus.OK);
+    }
+
+    @GetMapping("/deficiencia/{deficiencia}")
+    public ResponseEntity<List<Vaga>> obterVagasPorDeficiencia(@PathVariable String deficiencia) {
+        List<Vaga> vagas = vagaRepository.findVagaByDeficiencia(deficiencia);
+        return new ResponseEntity<>(vagas, HttpStatus.OK);
+    }
+
+    @GetMapping("/etnia/{etnia}")
+    public ResponseEntity<List<Vaga>> obterVagasPorEtnia(@PathVariable String etnia) {
+        List<Vaga> vagas = vagaRepository.findVagaByEtnia(etnia);
+        return new ResponseEntity<>(vagas, HttpStatus.OK);
+    }
+    
+    @GetMapping("/genero/{etnia}")
+    public ResponseEntity<List<Vaga>> obterVagasPorGenero(@PathVariable String genero) {
+        List<Vaga> vagas = vagaRepository.findVagaByGenero(genero); 
+        return new ResponseEntity<>(vagas, HttpStatus.OK);
+    }
+    
 }
