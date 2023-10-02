@@ -85,7 +85,7 @@
   <div class="row">
     <div class="col-md-6">
       <div class="form-floating mb-3">
-        <select required name="etnia" [(ngModel)]="vaga.etnia" class="form-select">
+        <select name="etnia" [(ngModel)]="vaga.etnia" class="form-select">
           <ng-container *ngFor="let etnia of etnias">
             <option [value]="etnia.etnia" id="etnia">{{etnia?.etnia}}</option>
           </ng-container>
@@ -95,7 +95,7 @@
     </div>
     <div class="col-md-6">
       <div class="form-floating mb-3">
-        <select required name="genero" [(ngModel)]="vaga.genero" class="form-select">
+        <select name="genero" [(ngModel)]="vaga.genero" class="form-select">
           <ng-container *ngFor="let genero of generos">
             <option [value]="genero.genero" id="genero">{{genero?.genero}}</option>
           </ng-container>
@@ -108,7 +108,7 @@
     <div class="col-12">
       <div class="form-check form-switch d-table-cell">
         <label class="form-check-label" for="vagaPcd">Vaga para PcD</label>
-        <input required class="form-check-input" type="checkbox" role="switch" id="vagaPcd" [(ngModel)]="vaga.vagaPcd"
+        <input class="form-check-input" type="checkbox" role="switch" id="vagaPcd" [(ngModel)]="vaga.vagaPcd"
           name="vagaPcd" (onchange)="onClickVagasDeficiente()">
       </div>
     </div>
@@ -117,7 +117,7 @@
   <div class="row">
     <div *ngIf="vaga.vagaPcd == true" class="col-12 col-md-6">
       <div class="form-floating mb-3">
-        <select required name="deficiencia" [(ngModel)]="vaga.deficiencia" class="form-select">
+        <select name="deficiencia" [(ngModel)]="vaga.deficiencia" class="form-select">
           <option disabled selected hidden>Selecione a deficiência</option>
           <ng-container *ngFor="let deficiencia of deficiencia">
             <option [value]="deficiencia.deficiencia" id="deficiencia">{{deficiencia?.deficiencia}}</option>

@@ -6,6 +6,12 @@
     <br>
   </div>
 </div>
+<b *ngIf="vaga.deficiencia || vaga.etnia || vaga.genero">Atenção! Essa vaga dá prioridade para pessoas
+  <ng-container *ngIf="vaga.deficiencia">com {{vaga.deficiencia}} </ng-container>
+  <ng-container *ngIf="vaga.etnia">{{vaga.etnia}}s </ng-container>
+  <ng-container *ngIf="vaga.genero">do gênero {{vaga.genero}}</ng-container>
+</b>
+<br>
 <div class="row brand-text">
   <div class="col-6 text-end">
     <i class="bi bi-briefcase"></i> {{vaga.modalidade}}
