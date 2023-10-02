@@ -1,6 +1,5 @@
 package com.talentpool.businessregistry.model.usuario;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -29,14 +28,17 @@ import lombok.Setter;
 
 @SuppressWarnings("serial")
 @Entity
-@EqualsAndHashCode(of = "id")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode(of = "id")
 @Table(name = "usuario")
 @Builder
 public class Usuario implements UserDetails {
+	
+	private static final String CANDIDATO = "CANDIDATO";
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
@@ -74,21 +76,15 @@ public class Usuario implements UserDetails {
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		List<SimpleGrantedAuthority> authorities = new ArrayList<>();
-
-		if (this.tipo == TipoUsuario.ADMIN) {
-		    authorities.add(new SimpleGrantedAuthority("ADMIN"));
-		    authorities.add(new SimpleGrantedAuthority("EMPRESA"));
-		    authorities.add(new SimpleGrantedAuthority("CANDIDATO"));
-		} else if (this.tipo == TipoUsuario.EMPRESA) {
-		    authorities.add(new SimpleGrantedAuthority("EMPRESA"));
-		    authorities.add(new SimpleGrantedAuthority("CANDIDATO"));
-		} else {
-		    authorities.add(new SimpleGrantedAuthority("CANDIDATO"));
+		if(this.tipo == TipoUsuario.ADMIN) {
+			return List.of(new SimpleGrantedAuthority("ADMIN"), new SimpleGrantedAuthority("EMPRESA"), new SimpleGrantedAuthority(CANDIDATO));	
+		} 
+		else if(this.tipo == TipoUsuario.EMPRESA) {
+			return List.of(new SimpleGrantedAuthority("EMPRESA"));	
 		}
-
-		return authorities;
-
+		else {
+			return List.of(new SimpleGrantedAuthority(CANDIDATO));
+		}
 	}
 
 	@Override
