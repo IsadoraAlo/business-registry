@@ -6,7 +6,7 @@
 <div *ngIf="usuario.sobre === '' && usuario.tipo !== 'ADMIN'">
   <app-empty-state></app-empty-state>
 </div>
-<ng-container *ngIf="usuario.sobre !== ''">
+<ng-container *ngIf="usuario.sobre !== '' || usuario.tipo === 'ADMIN'">
   <div id="carouselExampleIndicators" class="carousel slide brand-text" data-bs-ride="true">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
@@ -98,38 +98,25 @@
               <h3><b>Candidatos</b></h3>
               <br><br>
               <p>Já temos</p><br>
-              <h1><b>{{vagasTotais.length}}</b></h1><br>
-              <p>candidatos ativos na plataforma!</p>
+              <h1><b>{{candidatosTotais()}}</b></h1><br>
+              <p>candidatos em nossa na plataforma!</p>
               <br>
             </div>
           </div>
         </a>
         <a routerLink="/administrativo/empresa-list">
-          <div class="carousel-item active">
+          <div class="carousel-item">
             <div class="container bg-white bg-gradient bg-opacity-50 py-5">
               <br>
               <h3><b>Empresas</b></h3>
               <br><br>
               <p>Já temos</p><br>
-              <h1><b>{{vagasTotais.length}}</b></h1><br>
-              <p>empresas ativas na plataforma!</p>
+              <h1><b>{{empresasTotais()}}</b></h1><br>
+              <p>empresas em nossa plataforma!</p>
               <br>
             </div>
           </div>
         </a>
-        <!-- <a routerLink="/administrativo/suas-vagas">
-          <div class="carousel-item active">
-            <div class="container bg-white bg-gradient bg-opacity-50 py-5">
-              <br>
-              <h3><b>Feedback</b></h3>
-              <br><br>
-              <p>Confira nosso</p><br>
-              <h1><b>relatório</b></h1><br>
-              <p>sobre o desemprenho plataforma!</p>
-              <br>
-            </div>
-          </div>
-        </a> -->
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"

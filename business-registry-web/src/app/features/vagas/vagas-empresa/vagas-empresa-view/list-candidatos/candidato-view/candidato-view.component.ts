@@ -1,13 +1,13 @@
-import { CandidatoService } from 'src/app/utils/services/usuario/candidato/candidato.service';
-import { Component, Input, AfterViewInit, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { LocalStorage } from 'src/app/utils/data/local-storage.util';
 import { Candidato } from 'src/app/utils/models/usuario/candidato/candidato.model';
 import { Competencia } from 'src/app/utils/models/usuario/candidato/competencia.model';
 import { Usuario } from 'src/app/utils/models/usuario/usuario.model';
+import { ProcessoSeletivo } from 'src/app/utils/models/vaga/processo-seletivo.model';
+import { CandidatoService } from 'src/app/utils/services/usuario/candidato/candidato.service';
 import { CompetenciaService } from 'src/app/utils/services/usuario/candidato/competencia.service';
 import { UsuarioService } from 'src/app/utils/services/usuario/usuario.service';
-import { ActivatedRoute } from '@angular/router';
-import { LocalStorage } from 'src/app/utils/data/local-storage.util';
-import { ProcessoSeletivo } from 'src/app/utils/models/vaga/processo-seletivo.model';
 
 @Component({
   selector: 'app-candidato-view',

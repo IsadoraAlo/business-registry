@@ -1,0 +1,30 @@
+<ng-container *ngIf="showModal">
+  <div class="col-lg-8">
+    <div class="modal-brand rounded text-center">
+      <div class="row">
+        <div class="col-12">
+          <p class="brand-text"><b>Você tem certeza que deseja
+              <ng-container *ngIf="usuario.status">desativar</ng-container>
+              <ng-container *ngIf="!usuario.status">ativar</ng-container>
+              este usuário?
+            </b></p>
+        </div>
+      </div>
+      <form (ngSubmit)="onSubmit()">
+        <div class="row d-flex align-items-center justify-content-center">
+          <div class="col-md-5">
+            <button type="button" (click)="exibirModal()" class="btn brand-btn btn-block mb-3">
+              <b>Não tenho certeza</b>
+            </button>
+          </div>
+          <div class="col-md-5">
+            <button type="submit" class="btn brand-btn btn-block mb-3">
+              <b>Sim, tenho certeza</b>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="overlay"></div>
+</ng-container>

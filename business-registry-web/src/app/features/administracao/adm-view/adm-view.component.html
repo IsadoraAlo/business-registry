@@ -1,1 +1,69 @@
-<p>adm-view works!</p>
+<div class="text-center">
+  <h2 class="brand-text"><b>{{usuario.nome}}</b></h2>
+  <p class="text-secondary">Usuário
+    <ng-container *ngIf="!usuario.status">inativado</ng-container>
+    <ng-container *ngIf="usuario.status">ativado</ng-container>
+  </p>
+</div>
+<br>
+<div *ngIf="usuario.tipo === 'CANDIDATO'" class="row d-flex mx-5">
+  <h4 class="brand-text"><b>Sobre</b></h4>
+  <br><br><br>
+  <p>{{usuario.sobre}}
+    Tenho uma renda famíliar de {{candidato.rendaFamiliar}}, sou do gênero {{candidato.genero}}
+    <ng-container *ngIf="candidato.etnia">
+      , com origem {{candidato.etnia}}
+    </ng-container>
+    <ng-container *ngIf="candidato.deficiencia">
+      e tenho {{candidato.deficiencia}}
+    </ng-container>.
+  </p>
+  <br><br><br>
+  <h4 class="brand-text"><b>Experiência profissional</b></h4>
+  <ng-container *ngFor="let competencia of competencias">
+    <ng-container *ngIf="competencia.tipo === 'EXPERIENCIA'">
+      <p>{{competencia.titulo}} - {{competencia.instituicao}}</p>
+    </ng-container>
+  </ng-container>
+  <br>
+  <h5 class="brand-text"><b>Línguas</b></h5>
+  <ng-container *ngFor="let competencia of competencias">
+    <ng-container *ngIf="competencia.tipo === 'LINGUAGEM'">
+      <p>{{competencia.titulo}} - {{competencia.nivel}}</p>
+    </ng-container>
+  </ng-container>
+  <br>
+  <h5 class="brand-text"><b>Cursos</b></h5>
+  <ng-container *ngFor="let competencia of competencias">
+    <ng-container *ngIf="competencia.tipo === 'CURSOS'">
+      <p>{{competencia.titulo}} - {{competencia.nivel}}</p>
+    </ng-container>
+  </ng-container>
+  <br>
+  <h5 class="brand-text"><b>Habilidades interpessoais</b></h5>
+  <ng-container *ngFor="let competencia of competencias">
+    <ng-container *ngIf="competencia.tipo === 'SOCIAL'">
+      <p>{{competencia.titulo}}</p>
+    </ng-container>
+  </ng-container>
+</div>
+<div *ngIf="usuario.tipo === 'EMPRESA'" class="row d-flex mx-5">
+  <h4 class="brand-text"><b>Missão, valores e objetivos</b></h4>
+  <br><br><br>
+  <p>{{usuario.sobre}}</p>
+  <br><br><br>
+  <h4 class="brand-text"><b>Endereços</b></h4>
+  <ng-container *ngFor="let endereco of enderecos">
+    <p>{{endereco.municipio}}, {{endereco.estado}} - {{endereco.logradouro}}, {{endereco.numero}} - {{endereco.cep}}
+    </p>
+  </ng-container>
+</div>
+<h4 class="brand-text"><b>Contato</b></h4>
+<p>{{usuario.email}} | +55 {{usuario.celular}}</p>
+<ng-container *ngIf="usuario.id > 0">
+  <button type="button" (click)="modalStatus.exibirModal()" class="btn brand-btn btn-block mb-3">
+    <ng-container *ngIf="usuario.status">Desativar usuário</ng-container>
+    <ng-container *ngIf="!usuario.status">Ativar usuário</ng-container>
+  </button>
+  <modal-desativar-ativar #modalStatus [idUsuario]="usuario.id"></modal-desativar-ativar>
+</ng-container>

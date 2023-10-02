@@ -15,7 +15,7 @@ export class CandidatosCadastroComponent {
   constructor(private usuarioService: UsuarioService, private router: Router) { }
 
   saveUsuario(): void {
-    this.usuario.tipo = TipoUsuario.CANDIDATO;
+    this.usuario.tipo = TipoUsuario.ADMIN;
     this.usuario.status = true;
     this.usuarioService.criarUsuario(this.usuario)
     .pipe(

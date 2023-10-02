@@ -20,6 +20,11 @@
       <a routerLink="/empresas/vagas" (click)="onClickMenu()">Cadastro de vagas</a><br><br>
       <a routerLink="/vagas/suas-vagas" (click)="onClickMenu()">Suas vagas</a><br><br>
     </ng-container>
+    <ng-container *ngIf="usuario.tipo === 'ADMIN'">
+      <a routerLink="/administrativo/pagina-inicial" (click)="onClickMenu()">Bem-vindo!</a><br><br>
+      <a routerLink="/administrativo/candidato-list" (click)="onClickMenu()">Nossos candidatos</a><br><br>
+      <a routerLink="/administrativo/empresa-list" (click)="onClickMenu()">Nossa empresas</a><br><br>
+    </ng-container>
   </div>
   <div class="text-center">
     <a [routerLink]="usuario.tipo === 'CANDIDATO' ? '/candidatos/view' : '/empresas/view'" (click)="onClickMenu()">

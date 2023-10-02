@@ -62,6 +62,7 @@ public class UsuarioController {
         usuarioExistente.setCelular(usuarioAtualizado.getCelular());
         usuarioExistente.setSobre(usuarioAtualizado.getSobre());
         usuarioExistente.setStatus(usuarioAtualizado.getStatus());
+        usuarioExistente.setSenha(usuarioAtualizado.getSenha());
         Usuario usuarioAtualizadoNoBanco = usuarioRepository.save(usuarioExistente);
         return new ResponseEntity<>(usuarioAtualizadoNoBanco, HttpStatus.OK);
     }

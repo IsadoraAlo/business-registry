@@ -1,5 +1,6 @@
 package com.talentpool.businessregistry.model.usuario;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -35,53 +36,59 @@ import lombok.Setter;
 @NoArgsConstructor
 @Table(name = "usuario")
 @Builder
-public class Usuario implements UserDetails{
+public class Usuario implements UserDetails {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
+
 	@Enumerated(EnumType.STRING)
-	@Column(name = "tipo", nullable=false)
+	@Column(name = "tipo", nullable = false)
 	private TipoUsuario tipo;
-	
-	@Column(name = "nome", nullable=false)
+
+	@Column(name = "nome", nullable = false)
 	@Size(max = 50)
 	private String nome;
-	
-	@Column(name = "email", nullable=false)
+
+	@Column(name = "email", nullable = false)
 	@Size(max = 70)
 	private String email;
-	
-	@Column(name = "documento", nullable=false)
+
+	@Column(name = "documento", nullable = false)
 	@Size(max = 14, min = 11)
 	private String documento;
-	
-	@Column(name = "senha", nullable=false)
+
+	@Column(name = "senha", nullable = false)
 	@Size(max = 30, min = 8)
 	private String senha;
-	
+
 	@Column(name = "celular")
 	@Size(max = 11, min = 11)
 	private String celular;
-	
+
 	@Column(name = "sobre")
 	@Size(max = 200, min = 0)
 	private String sobre;
-	
+
 	@Column(name = "status")
 	private Boolean status;
-	
+
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		if(this.tipo == TipoUsuario.ADMIN) {
-			return List.of(new SimpleGrantedAuthority("ADMIN"));	
-		} 
-		else if(this.tipo == TipoUsuario.EMPRESA) {
-			return List.of(new SimpleGrantedAuthority("EMPRESA"));	
+		List<SimpleGrantedAuthority> authorities = new ArrayList<>();
+
+		if (this.tipo == TipoUsuario.ADMIN) {
+		    authorities.add(new SimpleGrantedAuthority("ADMIN"));
+		    authorities.add(new SimpleGrantedAuthority("EMPRESA"));
+		    authorities.add(new SimpleGrantedAuthority("CANDIDATO"));
+		} else if (this.tipo == TipoUsuario.EMPRESA) {
+		    authorities.add(new SimpleGrantedAuthority("EMPRESA"));
+		    authorities.add(new SimpleGrantedAuthority("CANDIDATO"));
+		} else {
+		    authorities.add(new SimpleGrantedAuthority("CANDIDATO"));
 		}
-		else {
-			return List.of(new SimpleGrantedAuthority("CANDIDATO"));
-		}
+
+		return authorities;
+
 	}
 
 	@Override
@@ -113,5 +120,5 @@ public class Usuario implements UserDetails{
 	public boolean isEnabled() {
 		return true;
 	}
-	
+
 }

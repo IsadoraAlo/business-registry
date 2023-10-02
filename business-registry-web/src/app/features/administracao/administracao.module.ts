@@ -8,11 +8,13 @@ import { ComponentesModule } from '../commom/componentes/componentes.module';
 import { AdmCandidatoListComponent } from './adm-candidato-list/adm-candidato-list.component';
 import { AdmEmpresaListComponent } from './adm-empresa-list/adm-empresa-list.component';
 import { AdmViewComponent } from './adm-view/adm-view.component';
+import { ModalDesativarAtivarComponent } from './adm-view/modal-desativar-ativar/modal-desativar-ativar.component';
 @NgModule({
   declarations: [
     AdmCandidatoListComponent,
     AdmEmpresaListComponent,
-    AdmViewComponent
+    AdmViewComponent,
+    ModalDesativarAtivarComponent
   ],
   imports: [
     CommonModule,
