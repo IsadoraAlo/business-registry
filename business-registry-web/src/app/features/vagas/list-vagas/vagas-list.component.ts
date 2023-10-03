@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { areaAtuacaoList } from 'src/app/utils/lists/area-atuacao.utils';
 import { cargosList } from 'src/app/utils/lists/cargos.utils';
@@ -6,11 +6,14 @@ import { deficienciaList } from 'src/app/utils/lists/deficiencia.utils';
 import { etniaList } from 'src/app/utils/lists/etnia.utils';
 import { generoList } from 'src/app/utils/lists/genero.utils';
 import { modalidadeList } from 'src/app/utils/lists/modalidade.utils';
+import { StatusVaga } from 'src/app/utils/models/vaga/status-vaga.model';
 import { Vaga } from 'src/app/utils/models/vaga/vaga.model';
+import { StatusVagaService } from 'src/app/utils/services/vaga/status-vaga.service';
 import { VagaService } from 'src/app/utils/services/vaga/vaga.service';
 import { FiltroService } from './../../../utils/services/vaga/filtro-vaga.service';
-import { StatusVaga } from 'src/app/utils/models/vaga/status-vaga.model';
-import { StatusVagaService } from 'src/app/utils/services/vaga/status-vaga.service';
+import { ProcessoSeletivoService } from './../../../utils/services/vaga/processo-seletivo.service';
+import { LocalStorage } from 'src/app/utils/data/local-storage.util';
+import { ProcessoSeletivo } from 'src/app/utils/models/vaga/processo-seletivo.model';
 
 @Component({
   selector: 'vagas-list',
@@ -47,6 +50,8 @@ export class VagasListComponent implements OnInit {
     private statusVagaService: StatusVagaService,
     private vagaService: VagaService,
     private router: Router,
+    private local: LocalStorage,
+    private processoSeletivoService: ProcessoSeletivoService,
     private filtroService: FiltroService
   ) { }
 
@@ -57,13 +62,28 @@ export class VagasListComponent implements OnInit {
         this.statusVagaService.obterStatusVagaPorId(vaga.id).subscribe(
           (statusVaga) => {
             this.statusVagas.push(statusVaga);
-            if(vagas.length === this.statusVagas.length){
+            if (vagas.length === this.statusVagas.length) {
               this.listarVagasAtivas();
+              this.listarVagasNaoInscritas();
             }
           }
         )
       }
     });
+  }
+
+  private listarVagasNaoInscritas(): void {
+    let vagasInscritas: Vaga[] = [];
+    this.processoSeletivoService.obterProcessoSeletivosCandidatoId(this.local.UsuarioLogado.id).subscribe(
+      (processos) => {
+        for (const processo of processos) {
+          this.vagaService.obterVagaPorId(processo.vagaId).subscribe((vaga) => {
+            vagasInscritas.push(vaga);
+          })
+        }
+      }
+    );
+    this.vagas = this.vagas.filter((vaga) => !vagasInscritas.includes(vaga));
   }
 
   private listarVagasAtivas(): void {
