@@ -21,10 +21,10 @@
     <div class="col-12">
       <button (click)="modalInativar.exibirModal()" type="button" class="btn btn-secondary btn-block mb-3">
         <b>
-          <ng-container *ngIf="usuario.tipo === 'EMPRESA' && !statusVagas[i].isVagaInativa">Finalizar</ng-container>
-          <ng-container *ngIf="usuario.tipo === 'ADMIN' && !statusVagas[i].isVagaInativa">Inativar</ng-container>
-          <ng-container *ngIf="usuario.tipo === 'EMPRESA' && statusVagas[i].isVagaInativa">Reabrir</ng-container>
-          <ng-container *ngIf="usuario.tipo === 'ADMIN' && statusVagas[i].isVagaInativa">Reativar</ng-container>
+          <ng-container *ngIf="usuario.tipo === 'EMPRESA' && !statusVagas[i]?.isVagaInativa">Finalizar</ng-container>
+          <ng-container *ngIf="usuario.tipo === 'ADMIN' && !statusVagas[i]?.isVagaInativa">Inativar</ng-container>
+          <ng-container *ngIf="usuario.tipo === 'EMPRESA' && statusVagas[i]?.isVagaInativa">Reabrir</ng-container>
+          <ng-container *ngIf="usuario.tipo === 'ADMIN' && statusVagas[i]?.isVagaInativa">Reativar</ng-container>
           vaga
         </b>
       </button>
