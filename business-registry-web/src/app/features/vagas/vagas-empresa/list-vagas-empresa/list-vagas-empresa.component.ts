@@ -44,7 +44,7 @@ export class CandidatosInscritosListComponent implements OnInit {
         (vagas) => {
           this.vagas = vagas
           for (const vaga of vagas) {
-            this.statusVagaService.obterStatusVagaPorId(vaga.id).subscribe(
+            this.statusVagaService.obterStatusVagaPorId(vaga?.id).subscribe(
               (statusVaga) => {
                 this.statusVagas.push(statusVaga);
               }
