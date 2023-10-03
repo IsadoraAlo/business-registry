@@ -36,7 +36,6 @@ export class CandidatosCompetenciaComponent implements OnInit {
   public onClickAdd(): void {
     this.competencias.push(new Competencia());
     ++this.indexComponent;
-    console.log(this.competencias)
   }
 
   public onClickRemove(): void {

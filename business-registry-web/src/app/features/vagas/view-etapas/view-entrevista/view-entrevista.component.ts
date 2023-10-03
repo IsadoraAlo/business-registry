@@ -26,7 +26,6 @@ export class ViewEntrevistaComponent implements OnInit {
         this.etapa = this.local.Etapa;
         this.local.cleanStorage('Etapa');
         this.dataExtenso =  new Date(this.entrevista.data)?.toLocaleDateString('pt-BR', { year: 'numeric', month: 'long', day: 'numeric' })
-        console.log(this.dataExtenso)
       }
     )
   }

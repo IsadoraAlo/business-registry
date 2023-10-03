@@ -1,3 +1,4 @@
+import { StatusVaga } from './../../../../utils/models/vaga/status-vaga.model';
 import { generoList } from './../../../../utils/lists/genero.utils';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
@@ -9,6 +10,7 @@ import { deficienciaList } from 'src/app/utils/lists/deficiencia.utils';
 import { etniaList } from 'src/app/utils/lists/etnia.utils';
 import { modalidadeList } from 'src/app/utils/lists/modalidade.utils';
 import { Vaga } from 'src/app/utils/models/vaga/vaga.model';
+import { StatusVagaService } from 'src/app/utils/services/vaga/status-vaga.service';
 import { VagaService } from 'src/app/utils/services/vaga/vaga.service';
 
 @Component({
@@ -22,13 +24,14 @@ export class NovaVagaComponent {
   public areas = areaAtuacaoList;
   public cargos = cargosList;
   public generos = generoList;
-  public etnias =  etniaList;
+  public etnias = etniaList;
   public vaga: Vaga = new Vaga();
-
+  public statusVaga: StatusVaga = new StatusVaga();
   constructor(
     private vagaService: VagaService,
     private local: LocalStorage,
     private router: Router,
+    private statusVagaService: StatusVagaService
   ) { }
 
   public onClickVagasDeficiente(): void {
@@ -48,8 +51,15 @@ export class NovaVagaComponent {
         return throwError(() => error);
       })
     ).subscribe((vaga) => {
-      this.local.setVaga(vaga)
-      this.router.navigate(['empresas', 'etapas'])
+      this.local.setVaga(vaga);
+      this.saveStatus(vaga);
+      this.router.navigate(['empresas', 'etapas']);
     });
+  }
+
+  private saveStatus(vaga: Vaga): void {
+    this.statusVaga.id = vaga.id;
+    this.statusVaga.isVagaInativa = false;
+    this.statusVagaService.criarStatusVaga(this.statusVaga).subscribe();
   }
 }

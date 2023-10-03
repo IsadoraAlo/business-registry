@@ -20,6 +20,7 @@ import { ListCandidatosComponent } from './vagas-empresa/vagas-empresa-view/list
 import { CandidatoViewComponent } from './vagas-empresa/vagas-empresa-view/list-candidatos/candidato-view/candidato-view.component';
 import { ModalStatusCandidatoComponent } from './vagas-empresa/vagas-empresa-view/list-candidatos/candidato-view/modal-status-candidato/modal-status-candidato.component';
 import { FeedbackComponent } from './vagas-empresa/vagas-empresa-view/list-candidatos/candidato-view/feedback/feedback.component';
+import { ModalInativarComponent } from './vagas-empresa/list-vagas-empresa/modal-inativar/modal-inativar.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { FeedbackComponent } from './vagas-empresa/vagas-empresa-view/list-candi
     CandidatoViewComponent,
     ModalStatusCandidatoComponent,
     FeedbackComponent,
+    ModalInativarComponent,
   ],
   imports: [
     CommonModule,

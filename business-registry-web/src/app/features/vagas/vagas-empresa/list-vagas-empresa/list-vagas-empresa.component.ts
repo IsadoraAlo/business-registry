@@ -1,3 +1,5 @@
+import { StatusVaga } from './../../../../utils/models/vaga/status-vaga.model';
+import { StatusVagaService } from './../../../../utils/services/vaga/status-vaga.service';
 import { Usuario } from 'src/app/utils/models/usuario/usuario.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -14,8 +16,10 @@ import { TipoUsuario } from 'src/app/utils/enum/candidato.enum';
 export class CandidatosInscritosListComponent implements OnInit {
   public usuario: Usuario = this.local.UsuarioLogado;
   public vagas: Vaga[] = [];
+  public statusVagas: StatusVaga[] = [];
 
   constructor(
+    private statusVagaService: StatusVagaService,
     private vagaService: VagaService,
     private local: LocalStorage,
     private router: Router,
@@ -26,12 +30,26 @@ export class CandidatosInscritosListComponent implements OnInit {
     if (this.local.UsuarioLogado.tipo === TipoUsuario.EMPRESA) {
       this.vagaService.obterVagaPorUsuario(this.local.UsuarioLogado.id).subscribe(
         (vagas) => {
-          this.vagas = vagas
+          this.vagas = vagas;
+          for (const vaga of vagas) {
+            this.statusVagaService.obterStatusVagaPorId(vaga.id).subscribe(
+              (statusVaga) => {
+                this.statusVagas.push(statusVaga)
+              }
+            )
+          }
         })
     } else if (this.local.UsuarioLogado.tipo === TipoUsuario.ADMIN) {
       this.vagaService.obterVagaPorUsuario(this.route.snapshot.params['id']).subscribe(
         (vagas) => {
           this.vagas = vagas
+          for (const vaga of vagas) {
+            this.statusVagaService.obterStatusVagaPorId(vaga.id).subscribe(
+              (statusVaga) => {
+                this.statusVagas.push(statusVaga);
+              }
+            )
+          }
         })
     }
   }

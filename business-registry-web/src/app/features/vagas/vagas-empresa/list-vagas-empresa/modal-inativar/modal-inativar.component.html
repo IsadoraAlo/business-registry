@@ -1,0 +1,32 @@
+<ng-container *ngIf="showModal">
+  <div class="col-lg-8">
+    <div class="modal-brand rounded text-center">
+      <div class="row">
+        <div class="col-12">
+          <p class="brand-text"><b>Você tem certeza que deseja
+              <ng-container *ngIf="usuario.tipo === 'ADMIN' && !statusVaga.isVagaInativa">inativar</ng-container>
+              <ng-container *ngIf="usuario.tipo === 'EMPRESA' && !statusVaga.isVagaInativa">finalizar</ng-container>
+              <ng-container *ngIf="usuario.tipo === 'ADMIN' && statusVaga.isVagaInativa">renativar</ng-container>
+              <ng-container *ngIf="usuario.tipo === 'EMPRESA' && statusVaga.isVagaInativa">reabrir</ng-container>
+              esta vaga?
+            </b></p>
+        </div>
+      </div>
+      <form (ngSubmit)="onSubmit()">
+        <div class="row display-buttons-rows">
+          <div class="col-md-6">
+            <button type="button" (click)="exibirModal()" class="btn brand-btn btn-block mb-3">
+              <b>Não tenho certeza</b>
+            </button>
+          </div>
+          <div class="col-md-6">
+            <button type="submit" class="btn brand-btn btn-block mb-3">
+              <b>Sim, tenho certeza</b>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="overlay"></div>
+</ng-container>

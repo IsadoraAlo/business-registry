@@ -9,15 +9,18 @@ import { modalidadeList } from 'src/app/utils/lists/modalidade.utils';
 import { Vaga } from 'src/app/utils/models/vaga/vaga.model';
 import { VagaService } from 'src/app/utils/services/vaga/vaga.service';
 import { FiltroService } from './../../../utils/services/vaga/filtro-vaga.service';
+import { StatusVaga } from 'src/app/utils/models/vaga/status-vaga.model';
+import { StatusVagaService } from 'src/app/utils/services/vaga/status-vaga.service';
 
 @Component({
   selector: 'vagas-list',
   templateUrl: './vagas-list.component.html',
   styleUrls: ['./vagas-list.component.scss']
 })
-export class VagasListComponent implements OnInit, AfterViewInit {
+export class VagasListComponent implements OnInit {
   public vagasDeficiente: boolean = false;
   public vagas: Vaga[] = [];
+  public statusVagas: StatusVaga[] = [];
   public deficiencias = deficienciaList;
   public modalidades = modalidadeList;
   public areas = areaAtuacaoList;
@@ -41,17 +44,36 @@ export class VagasListComponent implements OnInit, AfterViewInit {
     this.selectedDeficiencia = null;
   }
   constructor(
+    private statusVagaService: StatusVagaService,
     private vagaService: VagaService,
     private router: Router,
     private filtroService: FiltroService
   ) { }
 
   ngOnInit(): void {
-    this.vagaService.obterVagas().subscribe(vagas => this.vagas = vagas);
+    this.vagaService.obterVagas().subscribe((vagas) => {
+      this.vagas = vagas;
+      for (const vaga of vagas) {
+        this.statusVagaService.obterStatusVagaPorId(vaga.id).subscribe(
+          (statusVaga) => {
+            this.statusVagas.push(statusVaga);
+          }
+        )
+      }
+      this.listarVagasAtivas();
+    });
   }
 
-  ngAfterViewInit(): void {
-    //TODO OCULTAR VAGAS INSCRITAS.
+  private listarVagasAtivas(): void {
+    let vagasAtivas: Vaga[] = [];
+    for (const statusVaga of this.statusVagas) {
+      if (!statusVaga.isVagaInativa) {
+        this.vagaService.obterVagaPorId(statusVaga.id).subscribe((vaga) => {
+          vagasAtivas.push(vaga)
+        })
+      }
+    }
+    this.vagas = vagasAtivas;
   }
 
   public filtrarPorModalidade(modalidade: string): void {
