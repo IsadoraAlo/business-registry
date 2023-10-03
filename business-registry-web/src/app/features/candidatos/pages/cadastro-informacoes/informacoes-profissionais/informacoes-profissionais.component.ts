@@ -5,7 +5,6 @@ import { Usuario } from 'src/app/utils/models/usuario/usuario.model';
 @Component({
   selector: 'app-informacoes-profissionais',
   templateUrl: './informacoes-profissionais.component.html',
-  styleUrls: ['./informacoes-profissionais.component.scss']
 })
 export class InformacoesProfissionaisComponent {
   public indexComponent: number = 0;

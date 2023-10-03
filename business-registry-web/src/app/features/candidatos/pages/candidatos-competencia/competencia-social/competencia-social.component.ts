@@ -5,7 +5,6 @@ import { Competencia } from 'src/app/utils/models/usuario/candidato/competencia.
 @Component({
   selector: 'competencia-social',
   templateUrl: './competencia-social.component.html',
-  styleUrls: ['./competencia-social.component.scss']
 })
 export class CompetenciaSocialComponent {
   @Input() competencia!: Competencia;

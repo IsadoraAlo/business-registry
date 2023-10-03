@@ -6,7 +6,6 @@ import { Competencia } from 'src/app/utils/models/usuario/candidato/competencia.
 @Component({
   selector: 'competencia-linguagem',
   templateUrl: './competencia-linguagem.component.html',
-  styleUrls: ['./competencia-linguagem.component.scss']
 })
 export class CompetenciaLinguagemComponent {
   @Input() competencia!: Competencia;

@@ -13,7 +13,6 @@ import { Endereco } from 'src/app/utils/models/usuario/endereco.model';
 @Component({
   selector: 'app-adm-view',
   templateUrl: './adm-view.component.html',
-  styleUrls: ['./adm-view.component.scss']
 })
 export class AdmViewComponent implements OnInit {
   public candidato: Candidato = new Candidato();

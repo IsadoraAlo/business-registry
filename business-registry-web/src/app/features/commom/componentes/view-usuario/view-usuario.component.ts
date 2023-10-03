@@ -11,7 +11,6 @@ import { EnderecoService } from 'src/app/utils/services/usuario/endereco.service
 @Component({
   selector: 'app-view-usuario',
   templateUrl: './view-usuario.component.html',
-  styleUrls: ['./view-usuario.component.scss']
 })
 export class ViewUsuarioComponent implements OnInit, AfterViewInit {
   public candidato: Candidato = new Candidato();
