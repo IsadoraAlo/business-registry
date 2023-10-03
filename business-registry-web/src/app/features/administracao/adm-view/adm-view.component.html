@@ -67,9 +67,13 @@
 <ng-container *ngIf="usuario.id > 0">
   <div class="row">
     <div class="col-md-6">
-      <button [disabled]="status.isUsuarioDesativado || status.isUsuarioBanido" type="button"
+      <button *ngIf="!status.isUsuarioDesativado" [disabled]="status.isUsuarioBanido" type="button"
         (click)="modalStatus.exibirModal('desativar')" class="btn brand-btn btn-block mb-3">
         <b>Desativar Usuário</b>
+      </button>
+      <button *ngIf="status.isUsuarioDesativado" [disabled]="status.isUsuarioBanido" type="button"
+        (click)="modalStatus.exibirModal('ativar')" class="btn brand-btn btn-block mb-3">
+        <b>Ativar Usuário</b>
       </button>
     </div>
     <div class="col-md-6">

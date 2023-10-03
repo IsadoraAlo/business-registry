@@ -1,9 +1,7 @@
-import { StatusGeralService } from './../../../../../utils/services/usuario/status-geral.service';
-import { StatusGeral } from 'src/app/utils/models/usuario/StatusGeral.model';
-import { ProcessoSeletivoService } from './../../../../../utils/services/vaga/processo-seletivo.service';
-import { AfterViewInit, Component, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { LocalStorage } from 'src/app/utils/data/local-storage.util';
+import { StatusGeral } from 'src/app/utils/models/usuario/StatusGeral.model';
 
 @Component({
   selector: 'modal-aviso',

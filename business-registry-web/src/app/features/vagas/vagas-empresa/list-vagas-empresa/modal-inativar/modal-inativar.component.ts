@@ -1,11 +1,9 @@
-import { StatusVagaService } from './../../../../../utils/services/vaga/status-vaga.service';
-import { VagaService } from './../../../../../utils/services/vaga/vaga.service';
-import { Usuario } from 'src/app/utils/models/usuario/usuario.model';
 import { AfterViewInit, Component, Input } from '@angular/core';
-import { LocalStorage } from 'src/app/utils/data/local-storage.util';
-import { Vaga } from 'src/app/utils/models/vaga/vaga.model';
-import { StatusVaga } from 'src/app/utils/models/vaga/status-vaga.model';
 import { Router } from '@angular/router';
+import { LocalStorage } from 'src/app/utils/data/local-storage.util';
+import { Usuario } from 'src/app/utils/models/usuario/usuario.model';
+import { StatusVaga } from 'src/app/utils/models/vaga/status-vaga.model';
+import { StatusVagaService } from './../../../../../utils/services/vaga/status-vaga.service';
 
 @Component({
   selector: 'modal-inativar',

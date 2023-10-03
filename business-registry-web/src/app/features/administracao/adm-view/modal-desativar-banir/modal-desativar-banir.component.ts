@@ -25,7 +25,7 @@ export class ModalDesativarBanirComponent implements AfterViewInit {
     }
   }
 
-  public exibirModal(acao?: 'banir' | 'desativar'): void {
+  public exibirModal(acao?: 'banir' | 'desativar' | 'ativar'): void {
     if (acao) {
       this.acao = acao
     }
@@ -39,6 +39,10 @@ export class ModalDesativarBanirComponent implements AfterViewInit {
       this.statusGeralService.atualizarStatusGeral(this.idUsuario, this.statusGeral).subscribe(() => { this.router.navigate(['administrativo', 'pagina-inicial']) });
     } else if (this.acao === 'desativar') {
       this.statusGeral.isUsuarioDesativado = true;
+      this.statusGeral.motivo = this.motivo
+      this.statusGeralService.atualizarStatusGeral(this.idUsuario, this.statusGeral).subscribe(() => { this.router.navigate(['administrativo', 'pagina-inicial']) });
+    } else if (this.acao === 'ativar') {
+      this.statusGeral.isUsuarioDesativado = false;
       this.statusGeral.motivo = this.motivo
       this.statusGeralService.atualizarStatusGeral(this.idUsuario, this.statusGeral).subscribe(() => { this.router.navigate(['administrativo', 'pagina-inicial']) });
     }

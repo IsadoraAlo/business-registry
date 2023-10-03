@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LocalStorage } from 'src/app/utils/data/local-storage.util';
 import { areaAtuacaoList } from 'src/app/utils/lists/area-atuacao.utils';
 import { cargosList } from 'src/app/utils/lists/cargos.utils';
 import { deficienciaList } from 'src/app/utils/lists/deficiencia.utils';
@@ -12,8 +13,6 @@ import { StatusVagaService } from 'src/app/utils/services/vaga/status-vaga.servi
 import { VagaService } from 'src/app/utils/services/vaga/vaga.service';
 import { FiltroService } from './../../../utils/services/vaga/filtro-vaga.service';
 import { ProcessoSeletivoService } from './../../../utils/services/vaga/processo-seletivo.service';
-import { LocalStorage } from 'src/app/utils/data/local-storage.util';
-import { ProcessoSeletivo } from 'src/app/utils/models/vaga/processo-seletivo.model';
 
 @Component({
   selector: 'vagas-list',

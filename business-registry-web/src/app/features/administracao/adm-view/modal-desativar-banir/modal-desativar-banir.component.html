@@ -10,7 +10,7 @@
         </div>
       </div>
       <form (ngSubmit)="onSubmit()">
-        <div class="row">
+        <div class="row" *ngIf="acao !== 'ativar'">
           <div class="form-floating mb-3">
             <textarea [maxlength]="400" [(ngModel)]="motivo" type="text" id="motivo" class="form-control"
               placeholder="=" name="motivo"></textarea>
@@ -24,7 +24,7 @@
             </button>
           </div>
           <div class="col-md-6">
-            <button [disabled]="motivo.length < 10" type="submit" class="btn brand-btn btn-block mb-3">
+            <button [disabled]="motivo && motivo.length < 10" type="submit" class="btn brand-btn btn-block mb-3">
               <b>Sim, tenho certeza</b>
             </button>
           </div>
