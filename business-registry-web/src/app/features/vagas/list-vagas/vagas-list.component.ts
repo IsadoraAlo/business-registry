@@ -57,10 +57,12 @@ export class VagasListComponent implements OnInit {
         this.statusVagaService.obterStatusVagaPorId(vaga.id).subscribe(
           (statusVaga) => {
             this.statusVagas.push(statusVaga);
+            if(vagas.length === this.statusVagas.length){
+              this.listarVagasAtivas();
+            }
           }
         )
       }
-      this.listarVagasAtivas();
     });
   }
 
