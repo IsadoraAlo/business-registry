@@ -35,23 +35,35 @@ export class ViewVagasComponent implements OnInit {
     this.candidatoService.obterCandidatoPorId(this.local.UsuarioLogado.id).subscribe(
       candidato => this.candidato = candidato
     )
+    this.processoSeletivoService.obterProcessosSeletivosVagaId(this.route.snapshot.params['id']).subscribe(
+      processos => {
+        let processoRealizado = processos.find(processo => processo.candidatoId == this.local.UsuarioLogado.id)
+        if (processoRealizado) {
+          this.processo = processoRealizado;
+        }
+      }
+    );
   }
 
   public inscreverCandidato(): void {
-    this.processo.candidatoId = this.candidato.id;
-    this.processo.candidatoAprovado = false;
-    this.processo.pontuacaoCandidato = 0;
-    this.processo.vagaId = this.vaga.id;
-    this.processo.etapaId = 0;
-    this.processoSeletivoService.criarProcessoSeletivo(this.processo)
-    .pipe(
-      catchError((error) => {
-        console.error('Erro ao criar usuário:', error);
-        return throwError(() => error);
-      })
-    )
-    .subscribe(() => {
+    if (this.processo.id == 0) {
+      this.processo.candidatoId = this.candidato.id;
+      this.processo.candidatoAprovado = false;
+      this.processo.pontuacaoCandidato = 0;
+      this.processo.vagaId = this.vaga.id;
+      this.processo.etapaId = 0;
+      this.processoSeletivoService.criarProcessoSeletivo(this.processo)
+        .pipe(
+          catchError((error) => {
+            console.error('Erro ao criar usuário:', error);
+            return throwError(() => error);
+          })
+        )
+        .subscribe(() => {
+          this.router.navigate(['/vagas/inscritas']);
+        });
+    } else {
       this.router.navigate(['/vagas/inscritas']);
-    });
+    }
   }
 }

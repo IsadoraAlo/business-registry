@@ -52,7 +52,7 @@
   </div>
 </div>
 <br>
-<button type="button" (click)="inscreverCandidato()" class="btn brand-btn btn-block mb-3">
+<button [disabled]="this.processo.id !== 0" type="button" (click)="inscreverCandidato()" class="btn brand-btn btn-block mb-3">
   <b>
     Inscrever-se
   </b>
