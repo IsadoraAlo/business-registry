@@ -1,3 +1,4 @@
+import { ProcessoSeletivoService } from './../../../../../../utils/services/vaga/processo-seletivo.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { LocalStorage } from 'src/app/utils/data/local-storage.util';
@@ -23,6 +24,7 @@ export class CandidatoViewComponent implements OnInit {
   public processo: ProcessoSeletivo = new ProcessoSeletivo();
 
   constructor(
+    private processoSeletivoService: ProcessoSeletivoService,
     private competenciaService: CompetenciaService,
     private candidatoService: CandidatoService,
     private usuarioService: UsuarioService,
@@ -34,9 +36,15 @@ export class CandidatoViewComponent implements OnInit {
     this.competenciaService.obterCompetenciasByCandidatoId(this.route.snapshot.params['id']).subscribe(competencias => this.competencias = competencias);
     this.candidatoService.obterCandidatoPorId(this.route.snapshot.params['id']).subscribe(candidato => this.candidato = candidato);
     this.usuarioService.obterUsuarioPorId(this.route.snapshot.params['id']).subscribe(usuario => this.usuario = usuario);
-    if (this.local.Processo.id > 0) {
-      this.processo = this.local.Processo;
-    }
+    this.processoSeletivoService.obterProcessoSeletivosCandidatoId(this.route.snapshot.params['id']).subscribe(
+      (processos) => {
+        let processoAchado;
+        processoAchado = processos.find(processo => processo.vagaId == this.local.Vaga.id)
+        if (processoAchado) {
+          this.processo = processoAchado
+        }
+      }
+    )
   }
 
   changeAcao(acao: string): void {

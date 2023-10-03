@@ -59,19 +59,21 @@
     </div>
   </div>
   <br><br>
-  <div class="row text-center d-flex justify-content-center align-items-center" *ngIf="usuarioAtivo.tipo==='EMPRESA'">
-    <div class="col-md-4">
-      <button [disabled]="processo.candidatoAprovado || processo.candidatoReprovado"
-        (click)="modalStatus.exibirModal();changeAcao('aprovar')" type="button" class="btn brand-btn btn-block mb-3">
-        <b> Aprovar Candidato </b>
-      </button>
+  <ng-container *ngIf="processo?.id !==0">
+    <div class="row text-center d-flex justify-content-center align-items-center" *ngIf="usuarioAtivo.tipo==='EMPRESA'">
+      <div class="col-md-4">
+        <button [disabled]="processo.candidatoAprovado || processo.candidatoReprovado"
+          (click)="modalStatus.exibirModal();changeAcao('aprovar')" type="button" class="btn brand-btn btn-block mb-3">
+          <b> Aprovar Candidato </b>
+        </button>
+      </div>
+      <div class="col-md-4">
+        <button [disabled]="processo.candidatoAprovado || processo.candidatoReprovado"
+          (click)="modalStatus.exibirModal();changeAcao('reprovar')" type="button" class="btn brand-btn btn-block mb-3">
+          <b> Reprovar Candidato </b>
+        </button>
+      </div>
     </div>
-    <div class="col-md-4">
-      <button [disabled]="processo.candidatoAprovado || processo.candidatoReprovado"
-        (click)="modalStatus.exibirModal();changeAcao('reprovar')" type="button" class="btn brand-btn btn-block mb-3">
-        <b> Reprovar Candidato </b>
-      </button>
-    </div>
-  </div>
+    <modal-status-candidato #modalStatus [acao]="acao"></modal-status-candidato>
+  </ng-container>
 </ng-container>
-<modal-status-candidato #modalStatus [acao]="acao"></modal-status-candidato>

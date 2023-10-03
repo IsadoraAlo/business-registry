@@ -1,3 +1,4 @@
+import { VagaService } from './../../../../../utils/services/vaga/vaga.service';
 import { UsuarioService } from 'src/app/utils/services/usuario/usuario.service';
 import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -6,6 +7,7 @@ import { Usuario } from 'src/app/utils/models/usuario/usuario.model';
 import { CandidatoService } from 'src/app/utils/services/usuario/candidato/candidato.service';
 import { ProcessoSeletivoService } from 'src/app/utils/services/vaga/processo-seletivo.service';
 import { LocalStorage } from 'src/app/utils/data/local-storage.util';
+import { Vaga } from 'src/app/utils/models/vaga/vaga.model';
 
 @Component({
   selector: 'list-candidatos',
@@ -19,6 +21,7 @@ export class ListCandidatosComponent implements AfterViewInit {
     private processoSeletivoService: ProcessoSeletivoService,
     private candidatoService: CandidatoService,
     private usuarioService: UsuarioService,
+    private vagaService: VagaService,
     private router: Router,
     private local: LocalStorage
   ) { }
@@ -36,12 +39,14 @@ export class ListCandidatosComponent implements AfterViewInit {
           )
         }
       })
+    this.vagaService.obterVagaPorId(this.vagaId).subscribe((vaga) => this.local.setVaga(vaga))
   }
 
-  public viewCandidato(id: number): void {
+  public viewCandidato(id?: number): void {
     this.processoSeletivoService.obterProcessosSeletivosVagaId(this.vagaId).subscribe(
       (processos) => {
-        this.local?.setProcesso(processos?.find(processo => processo?.candidatoId === id))
+        let processo = processos?.find(processo => processo?.candidatoId === id)
+        this.local?.setProcesso(processo)
       })
     this.router.navigate(['candidatos', id])
   }

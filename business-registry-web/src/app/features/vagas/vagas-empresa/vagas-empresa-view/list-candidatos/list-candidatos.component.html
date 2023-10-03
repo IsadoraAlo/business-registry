@@ -3,7 +3,7 @@
 <div class="row">
   <ng-container *ngIf="candidatosInscritos.length > 0">
     <ng-container *ngFor="let candidato of candidatosInscritos">
-      <a (click)="viewCandidato(candidato.candidato.id)">
+      <a (click)="viewCandidato(candidato?.candidato?.id)">
       <div class="col-md-6">
         <div class="container border border-primary rounded my-2">
           <h4>{{candidato?.usuario?.nome}}</h4>
