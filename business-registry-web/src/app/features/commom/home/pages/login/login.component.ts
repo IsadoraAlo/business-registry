@@ -12,6 +12,7 @@ import { AuthService } from 'src/app/utils/services/auth/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+  public erro:boolean = false;
   login: Login = new Login();
 
   constructor(private authService: AuthService, private router: Router, private localStorage: LocalStorage) { }
@@ -21,6 +22,7 @@ export class LoginComponent {
       .pipe(
         catchError((error) => {
           console.error('Erro ao criar usuário:', error);
+          this.erro = true;
           return throwError(() => error);
         })
       )

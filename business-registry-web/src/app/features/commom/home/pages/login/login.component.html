@@ -18,6 +18,9 @@
               [(ngModel)]="login.senha" />
             <label for="senha">Senha</label>
           </div>
+          <div>
+            <p class="text-danger" *ngIf="erro">E-mail ou senha incorreto!</p>
+          </div>
           <button type="submit" class="btn brand-btn btn-block mb-3">
             Entrar
           </button>
