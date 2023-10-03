@@ -6,21 +6,22 @@
   </div>
 </div>
 <br>
-<div class="row text-center justify-content-center d-flex align-items-center">
-  <ng-container *ngFor="let usuario of usuarios; let i = index">
-    <a (click)="usuarioDetails(usuario.id)" class="text-start brand-text m-1">
-    <div class="col-md-8">
-        <div class="container border border-primary rounded my-2">
-          <h4>{{usuario.nome}}</h4>
-          <h5 class="fw-light">{{usuario.email}} - {{usuario.celular}}</h5>
+  <div class="row">
+    <ng-container *ngFor="let usuario of usuarios; let i = index">
+      <a (click)="usuarioDetails(usuario.id)" class="text-start brand-text m-1">
+        <div class="col-12 text-center">
+          <div class="container border border-primary rounded my-2">
+            <h4>{{usuario.nome}}</h4>
+            <h5 class="fw-light">{{usuario.email}} - {{usuario.celular | mask:'(00) 00000-0000'}}</h5>
+          </div>
         </div>
+      </a>
+    </ng-container>
+    <ng-container *ngIf="usuarios.length === 0">
+      <div class="text-center">
+        <h3 class="brand-text"><b>Opa! Parece que não temos empresas em nosso sistema!</b></h3>
+        <img id="img-logo" alt="Homem segurando uma lupa."
+          src="../../../../../assets/images/arquivo-nao-encontrado.png">
       </div>
-    </a>
-  </ng-container>
-  <ng-container *ngIf="usuarios.length === 0">
-    <div class="text-center">
-      <h3 class="brand-text"><b>Opa! Parece que não temos empresas em nosso sistema!</b></h3>
-      <img id="img-logo" alt="Homem segurando uma lupa." src="../../../../../assets/images/arquivo-nao-encontrado.png">
-    </div>
-  </ng-container>
-</div>
+    </ng-container>
+  </div>

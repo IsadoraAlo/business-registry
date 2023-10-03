@@ -4,21 +4,27 @@
       <div class="row">
         <div class="col-12">
           <p class="brand-text"><b>Você tem certeza que deseja
-              <ng-container *ngIf="usuario.status">desativar</ng-container>
-              <ng-container *ngIf="!usuario.status">ativar</ng-container>
+              {{acao}}
               este usuário?
             </b></p>
         </div>
       </div>
       <form (ngSubmit)="onSubmit()">
-        <div class="row d-flex align-items-center justify-content-center">
-          <div class="col-md-5">
+        <div class="row">
+          <div class="form-floating mb-3">
+            <textarea [maxlength]="400" [(ngModel)]="motivo" type="text" id="motivo" class="form-control"
+              placeholder="=" name="motivo"></textarea>
+            <label for="info">Fale sobre o motivo da ação para esse usuário, ele será notificado com sua justificativa!</label>
+          </div>
+        </div>
+        <div class="row display-buttons-rows">
+          <div class="col-md-6">
             <button type="button" (click)="exibirModal()" class="btn brand-btn btn-block mb-3">
               <b>Não tenho certeza</b>
             </button>
           </div>
-          <div class="col-md-5">
-            <button type="submit" class="btn brand-btn btn-block mb-3">
+          <div class="col-md-6">
+            <button [disabled]="motivo.length < 10" type="submit" class="btn brand-btn btn-block mb-3">
               <b>Sim, tenho certeza</b>
             </button>
           </div>

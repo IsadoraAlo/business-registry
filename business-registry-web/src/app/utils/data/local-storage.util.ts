@@ -19,7 +19,6 @@ export class LocalStorage {
       usuario.documento = data.usuario.documento;
       usuario.email = data.usuario.email;
       usuario.sobre = data.usuario.sobre;
-      usuario.status = data.usuario.status;
       usuario.senha = data.usuario.senha;
       usuario.nome = data.usuario.nome;
       usuario.tipo = data.usuario.tipo;
@@ -30,7 +29,6 @@ export class LocalStorage {
       usuario.documento = data.documento;
       usuario.email = data.email;
       usuario.sobre = data.sobre;
-      usuario.status = data.status;
       usuario.senha = data.senha;
       usuario.nome = data.nome;
       usuario.tipo = data.tipo;

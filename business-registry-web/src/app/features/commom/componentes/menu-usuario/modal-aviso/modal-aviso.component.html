@@ -1,0 +1,37 @@
+<div class="col-lg-8">
+  <div class="modal-brand rounded text-center">
+    <div class="row">
+      <div class="col-12">
+        <h3 class="text-danger"><b>Atenção</b></h3>
+        <p>Sua conta foi
+          <ng-container *ngIf="status.isUsuarioBanido">banida</ng-container>
+          <ng-container *ngIf="status.isUsuarioDesativado">desativada</ng-container>
+        </p>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p>
+            Conforme nossa administração, sua conta foi
+            <ng-container *ngIf="status.isUsuarioBanido">banida</ng-container>
+            <ng-container *ngIf="status.isUsuarioDesativado">desativada</ng-container>
+            pelo seguinte motivo:
+          </p>
+          <p>{{status.motivo}}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <p>Caso você acredite que foi um engano, mande um e-mail para</p>
+          <h5>talent.pool@gmail.com</h5>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <button (click)="onClickFechar()" type="button" class="btn brand-btn btn-block mb-3">
+            <b>Fechar</b>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="overlay"></div>

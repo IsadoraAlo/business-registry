@@ -6,7 +6,6 @@ export class Usuario {
   senha: string;
   sobre: string;
   celular: string;
-  status: boolean;
   documento: string;
 
   constructor() {
@@ -17,7 +16,6 @@ export class Usuario {
     this.senha = '';
     this.sobre = '';
     this.celular = '';
-    this.status = false;
     this.documento = '';
   }
 }

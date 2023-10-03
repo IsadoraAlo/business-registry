@@ -8,13 +8,13 @@ import { ComponentesModule } from '../commom/componentes/componentes.module';
 import { AdmCandidatoListComponent } from './adm-candidato-list/adm-candidato-list.component';
 import { AdmEmpresaListComponent } from './adm-empresa-list/adm-empresa-list.component';
 import { AdmViewComponent } from './adm-view/adm-view.component';
-import { ModalDesativarAtivarComponent } from './adm-view/modal-desativar-ativar/modal-desativar-ativar.component';
+import { ModalDesativarBanirComponent } from './adm-view/modal-desativar-banir/modal-desativar-banir.component';
 @NgModule({
   declarations: [
     AdmCandidatoListComponent,
     AdmEmpresaListComponent,
     AdmViewComponent,
-    ModalDesativarAtivarComponent
+    ModalDesativarBanirComponent
   ],
   imports: [
     CommonModule,

@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { forkJoin } from 'rxjs';
 import { LocalStorage } from 'src/app/utils/data/local-storage.util';
+import { StatusGeral } from 'src/app/utils/models/usuario/StatusGeral.model';
 import { Usuario } from 'src/app/utils/models/usuario/usuario.model';
 import { ProcessoSeletivo } from 'src/app/utils/models/vaga/processo-seletivo.model';
 import { Vaga } from 'src/app/utils/models/vaga/vaga.model';
+import { StatusGeralService } from 'src/app/utils/services/usuario/status-geral.service';
 import { ProcessoSeletivoService } from 'src/app/utils/services/vaga/processo-seletivo.service';
 import { VagaService } from 'src/app/utils/services/vaga/vaga.service';
 
@@ -12,12 +14,15 @@ import { VagaService } from 'src/app/utils/services/vaga/vaga.service';
   templateUrl: './menu-usuario.component.html',
   styleUrls: ['./menu-usuario.component.scss']
 })
-export class MenuUsuarioComponent {
+export class MenuUsuarioComponent implements AfterViewInit{
+  public status: StatusGeral = new StatusGeral();
   processos: ProcessoSeletivo[] = [];
   vagas: Vaga[] = [];
+
   constructor(
     private local: LocalStorage,
     private processoSeletivoService: ProcessoSeletivoService,
+    private statusGeralService: StatusGeralService,
     private vagaService: VagaService
     ) { }
 
@@ -30,6 +35,12 @@ export class MenuUsuarioComponent {
 
   public onClickLogout(): void {
     this.local.cleanAllStorage();
+  }
+
+  ngAfterViewInit(): void {
+    this.statusGeralService.obterStatusGeralPorId(this.local.UsuarioLogado.id).subscribe((status)=>{
+      this.status = status;
+    })
   }
 
   ngOnInit(): void {

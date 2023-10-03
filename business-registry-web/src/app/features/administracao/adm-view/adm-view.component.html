@@ -1,8 +1,9 @@
 <div class="text-center">
   <h2 class="brand-text"><b>{{usuario.nome}}</b></h2>
   <p class="text-secondary">Usuário
-    <ng-container *ngIf="!usuario.status">inativado</ng-container>
-    <ng-container *ngIf="usuario.status">ativado</ng-container>
+    <ng-container *ngIf="status.isUsuarioDesativado">inativado</ng-container>
+    <ng-container *ngIf="!status.isUsuarioDesativado && !status.isUsuarioBanido">ativado</ng-container>
+    <ng-container *ngIf="status.isUsuarioBanido">banido</ng-container>
   </p>
 </div>
 <br>
@@ -60,10 +61,19 @@
 </div>
 <h4 class="brand-text"><b>Contato</b></h4>
 <p>{{usuario.email}} | +55 {{usuario.celular}}</p>
+
 <ng-container *ngIf="usuario.id > 0">
-  <button type="button" (click)="modalStatus.exibirModal()" class="btn brand-btn btn-block mb-3">
-    <ng-container *ngIf="usuario.status">Desativar usuário</ng-container>
-    <ng-container *ngIf="!usuario.status">Ativar usuário</ng-container>
-  </button>
-  <modal-desativar-ativar #modalStatus [idUsuario]="usuario.id"></modal-desativar-ativar>
+  <div class="row">
+    <div class="col-md-6">
+      <button [disabled]="status.isUsuarioDesativado || status.isUsuarioBanido" type="button" (click)="modalStatus.exibirModal('desativar')" class="btn brand-btn btn-block mb-3">
+        <b>Desativar Usuário</b>
+      </button>
+    </div>
+    <div class="col-md-6">
+      <button [disabled]="status.isUsuarioDesativado || status.isUsuarioBanido" type="button" (click)="modalStatus.exibirModal('banir')" class="btn btn-danger btn-block mb-3">
+        <b>Banir Usuário</b>
+      </button>
+    </div>
+  </div>
+  <modal-status-geral #modalStatus [idUsuario]="usuario.id"></modal-status-geral>
 </ng-container>

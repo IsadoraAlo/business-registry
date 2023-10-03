@@ -71,13 +71,13 @@ public class Usuario implements UserDetails {
 	@Size(max = 200, min = 0)
 	private String sobre;
 
-	@Column(name = "status")
-	private Boolean status;
-
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		if(this.tipo == TipoUsuario.ADMIN) {
-			return List.of(new SimpleGrantedAuthority("ADMIN"), new SimpleGrantedAuthority("EMPRESA"), new SimpleGrantedAuthority(CANDIDATO));	
+			return List.of(
+					new SimpleGrantedAuthority("ADMIN"), 
+					new SimpleGrantedAuthority("EMPRESA"), 
+					new SimpleGrantedAuthority(CANDIDATO));	
 		} 
 		else if(this.tipo == TipoUsuario.EMPRESA) {
 			return List.of(new SimpleGrantedAuthority("EMPRESA"));	

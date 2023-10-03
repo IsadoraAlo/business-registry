@@ -20,7 +20,7 @@ export class AdmEmpresaListComponent {
   ngOnInit(): void {
     this.usuarioService.obterUsuarios().subscribe((usuarios) => {
       this.usuarios = usuarios;
-      this.usuarios = this.usuarios.filter((usuario) => usuario.tipo === TipoUsuario.CANDIDATO)
+      this.usuarios = this.usuarios.filter((usuario) => usuario.tipo === TipoUsuario.EMPRESA)
     });
   }
 
