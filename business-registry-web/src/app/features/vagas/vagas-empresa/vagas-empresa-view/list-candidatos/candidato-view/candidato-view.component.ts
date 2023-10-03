@@ -19,7 +19,8 @@ export class CandidatoViewComponent implements OnInit {
   public candidato: Candidato = new Candidato();
   public usuario: Usuario = new Usuario();
   public acao: string = '';
-  public processo: ProcessoSeletivo = new ProcessoSeletivo;
+  public usuarioAtivo: Usuario = this.local.UsuarioLogado;
+  public processo: ProcessoSeletivo = new ProcessoSeletivo();
 
   constructor(
     private competenciaService: CompetenciaService,

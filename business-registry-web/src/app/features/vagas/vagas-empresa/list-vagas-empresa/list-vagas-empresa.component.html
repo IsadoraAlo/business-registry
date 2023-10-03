@@ -1,7 +1,9 @@
 <div class="row">
   <div class="col-12">
     <br>
-    <h1 class="brand-text"><b>Sua vagas</b></h1>
+    <h1 class="brand-text"><b>
+        <ng-container *ngIf="usuario.tipo === 'Empresa'">Sua</ng-container>
+        Vagas</b></h1>
     <br>
   </div>
 </div>
@@ -19,7 +21,7 @@
   </ng-container>
   <ng-container *ngIf="vagas.length === 0">
     <div class="text-center">
-      <h3 class="brand-text"><b>Opa! Parece que você não tem nenhuma vaga!</b></h3>
+      <h3 class="brand-text"><b>Opa! Parece que <ng-container *ngIf="usuario.tipo === 'Empresa'">você</ng-container> não tem nenhuma vaga!</b></h3>
       <img id="img-logo" alt="Homem segurando uma lupa." src="../../../../../assets/images/arquivo-nao-encontrado.png">
     </div>
   </ng-container>

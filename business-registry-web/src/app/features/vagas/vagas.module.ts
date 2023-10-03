@@ -53,6 +53,7 @@ import { FeedbackComponent } from './vagas-empresa/vagas-empresa-view/list-candi
     ViewEtapasComponent,
     ViewEntrevistaComponent,
     ViewQuestionarioComponent,
+    CandidatosInscritosListComponent
   ],
 })
 export class VagasModule { }

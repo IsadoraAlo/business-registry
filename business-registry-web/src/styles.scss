@@ -53,8 +53,11 @@ button{
   width: 300%;
   overflow: hidden;
 }
-.col-1{
+div.col-1{
   margin-right: 20px;
+  button{
+    min-width: 0px !important;
+  }
 }
 .btn{
   padding: 10px 25px;

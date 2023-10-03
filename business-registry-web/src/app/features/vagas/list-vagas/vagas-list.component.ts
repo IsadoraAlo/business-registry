@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { areaAtuacaoList } from 'src/app/utils/lists/area-atuacao.utils';
 import { cargosList } from 'src/app/utils/lists/cargos.utils';
@@ -15,7 +15,7 @@ import { FiltroService } from './../../../utils/services/vaga/filtro-vaga.servic
   templateUrl: './vagas-list.component.html',
   styleUrls: ['./vagas-list.component.scss']
 })
-export class VagasListComponent implements OnInit {
+export class VagasListComponent implements OnInit, AfterViewInit {
   public vagasDeficiente: boolean = false;
   public vagas: Vaga[] = [];
   public deficiencias = deficienciaList;
@@ -48,6 +48,10 @@ export class VagasListComponent implements OnInit {
 
   ngOnInit(): void {
     this.vagaService.obterVagas().subscribe(vagas => this.vagas = vagas);
+  }
+
+  ngAfterViewInit(): void {
+    //TODO OCULTAR VAGAS INSCRITAS.
   }
 
   public filtrarPorModalidade(modalidade: string): void {

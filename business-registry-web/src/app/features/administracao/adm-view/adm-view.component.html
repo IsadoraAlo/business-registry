@@ -61,16 +61,20 @@
 </div>
 <h4 class="brand-text"><b>Contato</b></h4>
 <p>{{usuario.email}} | +55 {{usuario.celular}}</p>
-
+<ng-container *ngIf="usuario.tipo ==='EMPRESA'">
+  <app-candidatos-inscritos-list></app-candidatos-inscritos-list>
+</ng-container>
 <ng-container *ngIf="usuario.id > 0">
   <div class="row">
     <div class="col-md-6">
-      <button [disabled]="status.isUsuarioDesativado || status.isUsuarioBanido" type="button" (click)="modalStatus.exibirModal('desativar')" class="btn brand-btn btn-block mb-3">
+      <button [disabled]="status.isUsuarioDesativado || status.isUsuarioBanido" type="button"
+        (click)="modalStatus.exibirModal('desativar')" class="btn brand-btn btn-block mb-3">
         <b>Desativar Usuário</b>
       </button>
     </div>
     <div class="col-md-6">
-      <button [disabled]="status.isUsuarioDesativado || status.isUsuarioBanido" type="button" (click)="modalStatus.exibirModal('banir')" class="btn btn-danger btn-block mb-3">
+      <button [disabled]="status.isUsuarioDesativado || status.isUsuarioBanido" type="button"
+        (click)="modalStatus.exibirModal('banir')" class="btn btn-danger btn-block mb-3">
         <b>Banir Usuário</b>
       </button>
     </div>

@@ -9,18 +9,20 @@ import { AdmCandidatoListComponent } from './adm-candidato-list/adm-candidato-li
 import { AdmEmpresaListComponent } from './adm-empresa-list/adm-empresa-list.component';
 import { AdmViewComponent } from './adm-view/adm-view.component';
 import { ModalDesativarBanirComponent } from './adm-view/modal-desativar-banir/modal-desativar-banir.component';
+import { VagasModule } from '../vagas/vagas.module';
 @NgModule({
   declarations: [
     AdmCandidatoListComponent,
     AdmEmpresaListComponent,
     AdmViewComponent,
-    ModalDesativarBanirComponent
+    ModalDesativarBanirComponent,
   ],
   imports: [
     CommonModule,
     AppRoutingModule,
     ComponentesModule,
     FormsModule,
+    VagasModule,
     ReactiveFormsModule,
     HttpClientModule,
     NgxMaskModule.forChild(),

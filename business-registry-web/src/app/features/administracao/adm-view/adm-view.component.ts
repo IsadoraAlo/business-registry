@@ -33,7 +33,7 @@ export class AdmViewComponent implements OnInit {
   ngOnInit(): void {
     this.candidatoService.obterCandidatoPorId(this.route.snapshot.params['id']).subscribe(data => this.candidato = data);
     this.usuarioService.obterUsuarioPorId(this.route.snapshot.params['id']).subscribe((usuario) => this.usuario = usuario);
-  this.statusGeralService.obterStatusGeralPorId(this.route.snapshot.params['id']).subscribe((status) => this.status = status);
+    this.statusGeralService.obterStatusGeralPorId(this.route.snapshot.params['id']).subscribe((status) => this.status = status);
     this.enderecoService.obterEnderecosByUsuarioId(this.route.snapshot.params['id']).subscribe(enderecos => this.enderecos = enderecos);
   }
 }
